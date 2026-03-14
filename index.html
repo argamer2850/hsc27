@@ -842,6 +842,14 @@ window.addEventListener('popstate', (event) => {
         navTo('subject-screen', false);
     }
 });
+// স্পেস বাটন দিয়ে ভিডিও প্লে/পজ করার কোড
+document.addEventListener('keydown', (event) => {
+    // যদি বাটনটি স্পেস হয়
+    if (event.code === 'Space') {
+        event.preventDefault(); // পেজ যেন নিচে স্ক্রল না হয়
+        togglePlay();           // আপনার তৈরি করা প্লে/পজ ফাংশনটি কল করবে
+    }
+});
 window.history.replaceState({ screen: 'subject-screen' }, "", "#subject-screen");
 
 
