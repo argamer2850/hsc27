@@ -356,7 +356,10 @@ input[type=number] {
 
     <div id="player-screen" class="hidden">
         <button class="btn-back" onclick="stopAndNavTo('video-list-screen')">← ভিডিও লিস্ট</button>
-        
+        <div id="seek-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+     background: rgba(0,0,0,0.6); color: white; padding: 10px 20px; border-radius: 20px; 
+     display: none; z-index: 100; font-weight: bold; pointer-events: none;">
+</div>
         <div class="custom-video-container" id="video-container">
             <div id="yt-player"></div>
             <div class="video-overlay" id="video-overlay"></div>
@@ -366,6 +369,13 @@ input[type=number] {
                     <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     <svg id="pause-icon" class="hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                 </button>
+                <button class="control-btn" id="rewind-btn" title="৫ সেকেন্ড পিছিয়ে যান">
+    <svg viewBox="0 0 24 24"><path d="M11 18V6l-8.5 6 8.5 6zm.5-6l8.5 6V6l-8.5 6z"/></svg>
+</button>
+
+<button class="control-btn" id="forward-btn" title="৫ সেকেন্ড এগিয়ে যান">
+    <svg viewBox="0 0 24 24"><path d="M4 18l8.5-6L4 6v12zm9-12v12l8.5-6L13 6z"/></svg>
+</button>
 
                 <div class="time-display">
     <span id="current-time">0:00</span> / 
@@ -849,6 +859,51 @@ document.addEventListener('keydown', (event) => {
         event.preventDefault(); // পেজ যেন নিচে স্ক্রল না হয়
         togglePlay();           // আপনার তৈরি করা প্লে/পজ ফাংশনটি কল করবে
     }
+});
+// --- Updated Seek Logic --- //
+let seekAccumulator = 0; 
+let seekTimeout;
+
+function showSeekMessage(seconds) {
+    seekAccumulator += seconds;
+    const indicator = document.getElementById('seek-indicator');
+    
+    // পজিটিভ বা নেগেটিভ সাইনসহ সময় দেখানো
+    const sign = seekAccumulator >= 0 ? "+" : "";
+    indicator.innerText = `${sign}${seekAccumulator} সেকেন্ড`;
+    indicator.style.display = 'block';
+    
+    // আগের টাইমার ক্লিয়ার করা যাতে বারবার ক্লিক করলে লেখা আপডেট হয়
+    clearTimeout(seekTimeout);
+    
+    // ২ সেকেন্ড পর মেসেজটি হাইড হবে এবং কাউন্টার রিসেট হবে
+    seekTimeout = setTimeout(() => {
+        indicator.style.display = 'none';
+        seekAccumulator = 0;
+    }, 2000);
+}
+
+// কিবোর্ড ইভেন্ট লিসেনার
+document.addEventListener('keydown', (e) => {
+    if (!player) return;
+    if (e.code === 'ArrowRight') {
+        player.seekTo(player.getCurrentTime() + 5, true);
+        showSeekMessage(5);
+    } else if (e.code === 'ArrowLeft') {
+        player.seekTo(player.getCurrentTime() - 5, true);
+        showSeekMessage(-5);
+    }
+});
+
+// মোবাইল বাটন ইভেন্ট লিসেনার
+document.getElementById('rewind-btn').addEventListener('click', () => {
+    player.seekTo(player.getCurrentTime() - 5, true);
+    showSeekMessage(-5);
+});
+
+document.getElementById('forward-btn').addEventListener('click', () => {
+    player.seekTo(player.getCurrentTime() + 5, true);
+    showSeekMessage(5);
 });
 window.history.replaceState({ screen: 'subject-screen' }, "", "#subject-screen");
 
