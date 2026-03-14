@@ -526,17 +526,25 @@ document.onkeydown = function(e) {
         ]
     };
 
-    function navTo(id) {
-        ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => 
-            document.getElementById(s).classList.add('hidden'));
-        document.getElementById(id).classList.remove('hidden');
-        window.scrollTo(0,0);
+    function navTo(id, pushHistory = true) {
+    ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => 
+        document.getElementById(s).classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    
+    // ব্রাউজার হিস্ট্রিতে পুশ করা
+    if (pushHistory) {
+        window.history.pushState({ screen: id }, "", `#${id}`);
     }
+    window.scrollTo(0,0);
+}
 
     function stopAndNavTo(id) {
-        if(player && player.pauseVideo) player.pauseVideo();
-        navTo(id);
-    }
+    if(player && player.pauseVideo) player.pauseVideo();
+    
+    // ভিডিও প্লেয়ার থেকে বের হওয়ার সময়ও ব্রাউজারের হিস্ট্রি আপডেটের জন্য 
+    // navTo-তে 'true' পাঠাতে হবে।
+    navTo(id, true); 
+}
 
     function openSubject(sub) {
         const list = document.getElementById('chapter-list');
@@ -821,6 +829,20 @@ container.addEventListener('click', showControls); // মোবাইলের �
 // কন্ট্রোলের উপর মাউস থাকলে অটো-হাইড থামিয়ে রাখা
 controls.addEventListener('mouseenter', () => clearTimeout(controlTimeout));
 controls.addEventListener('mouseleave', () => showControls());
+window.addEventListener('popstate', (event) => {
+    // ১. প্রথমে প্লেয়ারটি থামান (যদি প্লেয়ার অবজেক্ট থাকে)
+    if (typeof player !== 'undefined' && player.pauseVideo) {
+        player.pauseVideo();
+    }
+
+    // ২. তারপর স্ক্রিন পরিবর্তনের লজিক
+    if (event.state && event.state.screen) {
+        navTo(event.state.screen, false);
+    } else {
+        navTo('subject-screen', false);
+    }
+});
+window.history.replaceState({ screen: 'subject-screen' }, "", "#subject-screen");
 
 
 </script>
