@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC 27</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #d946ef;
+            --accent: #06b6d4;
+            --bg-dark: #020617;
+            --card-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --neon-glow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Hind Siliguri', sans-serif; }
+        
+        body {
+            background: var(--bg-dark);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; position: relative; }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 30px; 
+            background: rgba(15, 23, 42, 0.8); 
+            border-radius: 24px;
+            border: 1px solid var(--glass-border); 
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .logo { font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+        .logo span { color: var(--accent); text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+
+        .hidden { display: none !important; }
+        
+        .btn-back {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
+            color: #cbd5e1; padding: 10px 22px; border-radius: 14px;
+            cursor: pointer; margin-bottom: 25px; transition: 0.4s; font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .btn-back:hover { 
+            background: var(--primary); color: #fff; 
+            box-shadow: var(--neon-glow);
+            transform: translateX(-5px);
+        }
+
+        .grid-layout {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px; animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .card {
+            background: var(--card-bg); 
+            border: 1px solid var(--glass-border);
+            padding: 50px 20px; border-radius: 30px; text-align: center;
+            cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: translateX(-100%); transition: 0.6s;
+        }
+        .card:hover::before { transform: translateX(100%); }
+        .card:hover { 
+            transform: translateY(-10px) scale(1.02); 
+            background: rgba(30, 41, 59, 0.8);
+            border-color: var(--primary); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--neon-glow);
+        }
+        .card h3 { font-size: 1.4rem; letter-spacing: 1px; }
+
+        .list-item {
+            background: var(--card-bg); padding: 20px 28px; border-radius: 20px;
+            margin-bottom: 15px; display: flex; justify-content: space-between;
+            align-items: center; cursor: pointer; border: 1px solid var(--glass-border);
+            transition: 0.3s ease;
+        }
+        .list-item:hover { 
+            background: rgba(255,255,255,0.08); 
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .play-icon { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+
+        /* Custom Video Player Styles */
+        .custom-video-container {
+            position: relative;
+            background: #000;
+            border-radius: 32px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            margin-bottom: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #yt-player {
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Prevents clicking through to YouTube */
+        }
+
+        /* Overlay to block direct interaction with iframe */
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 60px;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .custom-controls {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 20;
+            border-top: 1px solid var(--glass-border);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        
+.custom-video-container .custom-controls {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.custom-video-container.show-controls .custom-controls {
+    opacity: 1;
+}
+
+        .control-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            padding: 5px;
+        }
+        .control-btn:hover { color: var(--accent); }
+        .control-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+        .progress-container {
+            flex-grow: 1;
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 5px;
+            width: 0%;
+            position: relative;
+        }
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: -4px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .time-display { font-size: 0.8rem; color: #cbd5e1; font-family: 'Poppins', sans-serif; min-width: 90px; text-align: center; }
+
+        .volume-container { display: flex; align-items: center; gap: 5px; }
+        .volume-slider {
+            width: 60px; height: 4px;
+            -webkit-appearance: none; background: rgba(255,255,255,0.2);
+            border-radius: 5px; cursor: pointer;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 12px; height: 12px;
+            background: var(--accent); border-radius: 50%;
+        }
+
+        .speed-select {
+            background: transparent; border: 1px solid var(--glass-border);
+            color: #fff; padding: 2px 5px; border-radius: 5px; cursor: pointer;
+            font-size: 0.8rem; outline: none;
+        }
+        .speed-select option { background: var(--bg-dark); }
+
+        .video-meta {
+            background: var(--card-bg); padding: 30px; border-radius: 30px;
+            border: 1px solid var(--glass-border); backdrop-filter: blur(10px);
+        }
+
+        .mat-box {
+            display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;
+        }
+        .action-btn {
+            padding: 14px 28px; border-radius: 16px; text-decoration: none;
+            font-weight: 600; font-size: 0.95rem; transition: 0.4s; 
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn-slide { background: var(--accent); color: #020617; }
+        .btn-sheet { background: var(--primary); color: #fff; }
+        .action-btn:hover { 
+            opacity: 1; transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 { font-weight: 700; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        @keyframes slideUp { 
+            from { opacity: 0; transform: translateY(40px); filter: blur(10px); } 
+            to { opacity: 1; transform: translateY(0); filter: blur(0); } 
+        }
+        /* মোবাইলের জন্য কন্ট্রোল বার অ্যাডজাস্টমেন্ট */
+@media (max-width: 600px) {
+    .custom-controls {
+        gap: 8px;
+        padding: 5px 10px;
+    }
+    .time-display { min-width: 60px; font-size: 0.7rem; }
+    .volume-container { display: none; } /* মোবাইলে ভলিউম স্লাইডার জায়গা কম নেয় তাই হাইড */
+    .speed-select { font-size: 0.7rem; }
+}
+
+/* অটো-হাইড ট্রানজিশন */
+.custom-controls {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.custom-controls.active {
+    opacity: 1;
+}
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+        #time-preview {
+    position: absolute;
+    bottom: 30px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    display: none;
+    pointer-events: none;
+    transform: translateX(-50%);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav>
+        <div class="logo">HSC<span>27</span></div>
+        <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
+    </nav>
+
+    <div id="subject-screen">
+        <h2 style="margin-bottom: 40px; text-align: center; font-size: 2rem;">কোন বিষয়ের কোর্স দেখতে চান?</h2>
+        <div class="grid-layout">
+            <div class="card" onclick="openSubject('Physics')"><h3>Physics</h3></div>
+            <div class="card" onclick="openSubject('Chemistry')"><h3>Chemistry</h3></div>
+            <div class="card" onclick="openSubject('Higher Math')"><h3>Higher Math</h3></div>
+            <div class="card" onclick="openSubject('Biology')"><h3>Biology</h3></div>
+            <div class="card" onclick="openSubject('English')"><h3>English</h3></div>
+            <div class="card" onclick="openSubject('Bangla')"><h3>Bangla</h3></div>
+            <div class="card" onclick="openSubject('ICT')"><h3>ICT</h3></div>
+        </div>
+    </div>
+
+    <div id="chapter-screen" class="hidden">
+        <button class="btn-back" onclick="navTo('subject-screen')">← ফিরে যান</button>
+        <h2 id="sub-title" style="margin-bottom: 30px; font-size: 1.8rem;"></h2>
+        <div id="chapter-list"></div>
+    </div>
+
+    <div id="video-list-screen" class="hidden">
+        <button class="btn-back" onclick="navTo('chapter-screen')">← চ্যাপ্টার লিস্ট</button>
+        <h2 id="chap-title" style="margin-bottom: 30px; font-size: 1.8rem;"></h2>
+        <div id="video-list-container"></div>
+        
+        <div class="video-meta" style="margin-top: 40px; border-left: 4px solid var(--accent);">
+            <h4 style="color: var(--accent); font-size: 1.1rem; margin-bottom: 5px;">চ্যাপ্টার ম্যাটেরিয়ালস</h4>
+            <div id="chap-materials" class="mat-box"></div>
+        </div>
+    </div>
+
+    <div id="player-screen" class="hidden">
+        <button class="btn-back" onclick="stopAndNavTo('video-list-screen')">← ভিডিও লিস্ট</button>
+        
+        <div class="custom-video-container" id="video-container">
+            <div id="yt-player"></div>
+            <div class="video-overlay" id="video-overlay"></div>
+            
+            <div class="custom-controls" id="controls">
+                <button class="control-btn" id="play-pause-btn">
+                    <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="pause-icon" class="hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+
+                <div class="time-display"><span id="current-time">0:00</span> / <span id="duration">0:00</span></div>
+
+                <div class="progress-container" id="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+    <div id="time-preview">0:00</div>
+</div>
+
+                <div class="volume-container">
+                    <button class="control-btn" id="mute-btn">
+                        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                    </button>
+                    <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="100">
+                </div>
+
+                <select class="speed-select" id="speed-select">
+                    <option value="0.5">0.5x</option>
+                    <option value="1" selected>1.0x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2.0x</option>
+                </select>
+
+                <button class="control-btn" id="fullscreen-btn">
+                    <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="video-meta">
+            <h2 id="vid-title" style="font-size: 1.5rem; -webkit-text-fill-color: initial; color: #fff;"></h2>
+            <div class="mat-box">
+                <a href="#" id="individual-slide" target="_blank" class="action-btn btn-slide">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                    এই ক্লাসের স্লাইড (Google Drive)
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://www.youtube.com/iframe_api" defer></script>
+
+<script>
+    // রাইট ক্লিক বন্ধ করা
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+// কিবোর্ড শর্টকাট বন্ধ করা (F12, Ctrl+Shift+I, Ctrl+U)
+document.onkeydown = function(e) {
+  if(event.keyCode == 123) return false; // F12
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+}
+    const database = {
+        'Physics': [
+            { chapter: 'ভৌত জগত ও পরিমাপ', videos: [{ title: 'লেকচার ১', id: '#', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ভেক্টর', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'গতিবিদ্যা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'নিউটনীয় বলবিদ্যা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কাজ, ক্ষমতা ও শক্তি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মহাকর্ষ ও অভিকর্ষ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'পদার্থের গাঠনিক ধর্ম', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'পর্যাবৃত্ত গতি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'তরঙ্গ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'তাপগতিবিদ্যা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'স্থির তড়িৎ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'চল তড়িৎ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'তড়িৎ প্রবাহের চৌম্বক ক্রিয়া ও চুম্বকত্ব', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'তড়িৎ চৌম্বক আবেশ ও পরিবর্তী প্রবাহ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জ্যামিতিক আলোকবিজ্ঞান', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ভৌত আলোকবিজ্ঞান', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'আধুনিক পদার্থবিজ্ঞানের সূচনা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'পরমাণুর মডেল এবং নিউক্লিয়ার পদার্থবিজ্ঞান', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'সেমিকন্ডাক্টর ও ইলেক্ট্রনিক্স', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জ্যোতির্বিজ্ঞান', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'Chemistry': [
+            { chapter: 'ল্যাবরেটরির নিরাপদ ব্যবহার', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'গুণগত রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'রাসায়নিক পরিবর্তন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কর্মমুখী রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'পরিবেশ রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জৈব রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'পরিমাণগত রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'তড়িৎ রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'অর্থনৈতিক রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'Higher Math': [
+            { chapter: 'ম্যাট্রিক্স ও নির্ণায়ক', videos: [{ title: 'লেকচার ১', id: 'Jk7f_Ih4I90', slide: 'https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ভেক্টর', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'সরলরেখা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বৃত্ত', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বিন্যাস ও সমাবেশ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ত্রিকোণমিতিক অনুপাত', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ফাংশন ও ফাংশনের লেখচিত্র', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'অন্তরীকরণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'যোগজীকরণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বাস্তব সংখ্যা ও অসমতা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'যোগাশ্রয়ী প্রোগ্রাম', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জটিল সংখ্যা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বহুপদী ও বহুপদী সমীকরণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'দ্বিপদী বিস্তৃতি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কনিক', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'স্থিতিবিদ্যা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'সমতলে বস্তুকণার গতি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'বিস্তার পরিমাপ ও সম্ভাবনা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'Biology': [
+            { chapter: 'কোষ ও এর গঠন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কোষ বিভাজন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কোষ রসায়ন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'অণুজীব', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'শৈবাল ও ছত্রাক', videos: [{ title: 'লেকচার ১', id: '4u3AND4epSU', slide: 'https://drive.google.com/file/d/1zOdoLT-z1wsJUhGaqhkEAbphk4F04Alv/view?usp=sharing' }, { title: 'লেকচার ২', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ব্রায়োফাইটা ও টেরিডোফাইটা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'নগ্নবীজী ও আবৃতবীজী উদ্ভিদ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'টিস্যু ও টিস্যুতন্ত্র', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'উদ্ভিদ শারীরতত্ত্ব', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'উদ্ভিদ প্রজনন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জীবপ্রযুক্তি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জীবের পরিবেশ, বিস্তার ও সংরক্ষণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'প্রাণীর পরিচিতি', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - পরিপাক ও শোষণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - রক্ত ও সঞ্চালন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - শ্বসন ও শ্বাসক্রিয়া', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - বর্জ্য ও নিষ্কাশন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - চলন ও অঙ্গচালনা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব শারীরতত্ত্ব - সমন্বয় ও নিয়ন্ত্রণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানব জীবনের ধারাবাহিকতা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'মানবদেহের প্রতিরক্ষা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'জিনতত্ত্ব ও বিবর্তন', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'প্রাণীর আচরণ', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'English': [
+            { chapter: 'English 1st Paper', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'English 2nd Paper', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'Bangla': [
+            { chapter: 'Bangla 1st Paper', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'Bangla 2nd Paper', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ],
+        'ICT': [
+            { chapter: 'তথ্য ও যোগাযোগ প্রযুক্তি - বিশ্ব ও বাংলাদেশ  প্রেক্ষিত', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কমিউনিকেশন সিস্টেমস ও নেটওয়ার্কিং', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ওয়েব ডিজাইন পরিচিতি ও HTML', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'প্রোগ্রামিং ভাষা', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ডেটাবেজ ম্যানেজমেন্ট সিস্টেম', videos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
+        ]
+    };
+
+    function navTo(id) {
+        ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => 
+            document.getElementById(s).classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+        window.scrollTo(0,0);
+    }
+
+    function stopAndNavTo(id) {
+        if(player && player.pauseVideo) player.pauseVideo();
+        navTo(id);
+    }
+
+    function openSubject(sub) {
+        const list = document.getElementById('chapter-list');
+        document.getElementById('sub-title').innerText = sub;
+        list.innerHTML = '';
+        const chaps = database[sub] || [];
+        chaps.forEach(ch => {
+            const d = document.createElement('div');
+            d.className = 'list-item';
+            d.onclick = () => openVideoList(ch);
+            d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon">${ch.videos.length} Classes</span>`;
+            list.appendChild(d);
+        });
+        navTo('chapter-screen');
+    }
+
+    function openVideoList(chObj) {
+        const vContainer = document.getElementById('video-list-container');
+        const mContainer = document.getElementById('chap-materials');
+        document.getElementById('chap-title').innerText = chObj.chapter;
+        vContainer.innerHTML = '';
+        
+        chObj.videos.forEach((v, i) => {
+            const d = document.createElement('div');
+            d.className = 'list-item';
+            d.onclick = () => playNow(v);
+            d.innerHTML = `<span>Class ${i+1}: ${v.title}</span> <span class="play-icon">▶ Watch Now</span>`;
+            vContainer.appendChild(d);
+        });
+
+        mContainer.innerHTML = `<a href="${chObj.practiceSheets[0]}" class="action-btn btn-sheet">📥 ডাউনলোড প্র্যাকটিস শিট (.pdf)</a>`;
+        navTo('video-list-screen');
+    }
+
+    // --- Custom Video Player Logic --- //
+    let player;
+    let timeUpdater;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('yt-player', {
+            height: '100%',
+            width: '100%',
+            playerVars: {
+                'autoplay': 1,
+                'controls': 0, // Hides default controls
+                'disablekb': 1, // Disable keyboard shortcuts
+                'fs': 0, // Disable default fullscreen
+                'rel': 0, // Don't show related videos
+                'modestbranding': 1, // Minimize YouTube logo
+                'playsinline': 1,
+                'iv_load_policy': 3 // Hide annotations
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+function onPlayerReady(event) {
+    // Overlay Click = Play/Pause
+    document.getElementById('video-overlay').addEventListener('click', (e) => {
+        if(!isDragging) togglePlay();
+    });
+    
+    // Play/Pause Button
+    document.getElementById('play-pause-btn').addEventListener('click', togglePlay);
+    
+    // Volume Slider
+    document.getElementById('volume-slider').addEventListener('input', (e) => {
+        player.setVolume(e.target.value);
+        if(e.target.value > 0) player.unMute();
+    });
+
+    // Mute Button
+    document.getElementById('mute-btn').addEventListener('click', () => {
+        if(player.isMuted()) {
+            player.unMute();
+            document.getElementById('volume-slider').value = player.getVolume();
+        } else {
+            player.mute();
+            document.getElementById('volume-slider').value = 0;
+        }
+    });
+
+    // Speed Select
+    document.getElementById('speed-select').addEventListener('change', (e) => {
+        player.setPlaybackRate(parseFloat(e.target.value));
+    });
+
+    // --- ড্র্যাগিং লজিক (পিসি ও মোবাইল) ---
+    const progressContainer = document.getElementById('progress-container');
+    const timePreview = document.getElementById('time-preview');
+    let isDragging = false;
+
+    const handleMove = (e) => {
+        if (!isDragging) return;
+        
+        // টাচ ইভেন্ট নাকি মাউস ইভেন্ট তা চেক করা
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        
+        const rect = progressContainer.getBoundingClientRect();
+        let pos = (clientX - rect.left) / rect.width;
+        pos = Math.max(0, Math.min(1, pos));
+        
+        // নীল বার ও প্রিভিউ আপডেট
+        document.getElementById('progress-bar').style.width = `${pos * 100}%`;
+        const time = pos * player.getDuration();
+        timePreview.innerText = formatTime(time);
+        timePreview.style.left = `${pos * 100}%`;
+        timePreview.style.display = 'block';
+
+        // ভিডিও সিক করা
+        player.seekTo(time, true);
+    };
+
+    const startDrag = (e) => {
+        isDragging = true;
+        handleMove(e);
+    };
+
+    const stopDrag = () => {
+        isDragging = false;
+        timePreview.style.display = 'none';
+    };
+
+    // মাউস ইভেন্ট
+    progressContainer.addEventListener('mousedown', startDrag);
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', stopDrag);
+
+    // টাচ ইভেন্ট (মোবাইলের জন্য)
+    progressContainer.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        handleMove(e);
+    });
+    window.addEventListener('touchmove', handleMove, { passive: true });
+    window.addEventListener('touchend', stopDrag);
+
+    // Fullscreen Toggle
+    document.getElementById('fullscreen-btn').addEventListener('click', toggleFullScreen);
+}
+
+    function onPlayerStateChange(event) {
+        const playIcon = document.getElementById('play-icon');
+        const pauseIcon = document.getElementById('pause-icon');
+        
+        if (event.data == YT.PlayerState.PLAYING) {
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+            timeUpdater = setInterval(updateProgress, 500);
+            
+            // Format Duration
+            document.getElementById('duration').innerText = formatTime(player.getDuration());
+        } else {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+            clearInterval(timeUpdater);
+        }
+    }
+
+    function togglePlay() {
+        if (player.getPlayerState() == YT.PlayerState.PLAYING) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+    }
+
+    function updateProgress() {
+        const current = player.getCurrentTime();
+        const duration = player.getDuration();
+        const percentage = (current / duration) * 100;
+        
+        document.getElementById('progress-bar').style.width = `${percentage}%`;
+        document.getElementById('current-time').innerText = formatTime(current);
+    }
+
+    // --- Updated Time Formatting Logic --- //
+    function formatTime(seconds) {
+        if (!seconds) return "0:00";
+        seconds = Math.floor(seconds);
+        const h = Math.floor(seconds / 3600);
+        const m = Math.floor((seconds % 3600) / 60);
+        const s = Math.floor(seconds % 60);
+        
+        if (h > 0) {
+            return `${h}:${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+        return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function toggleFullScreen() {
+        const container = document.getElementById('video-container');
+        if (!document.fullscreenElement) {
+            if (container.requestFullscreen) { container.requestFullscreen(); }
+            else if (container.webkitRequestFullscreen) { container.webkitRequestFullscreen(); }
+        } else {
+            if (document.exitFullscreen) { document.exitFullscreen(); }
+            else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); }
+        }
+    }
+
+    function playNow(video) {
+        if(player && player.loadVideoById) {
+            // Load video and FORCE suggestion for highest quality (HD 1080p)
+            player.loadVideoById({ 'videoId': video.id, 'suggestedQuality': 'hd1080' });
+        }
+        document.getElementById('vid-title').innerText = video.title;
+        document.getElementById('individual-slide').href = video.slide;
+        navTo('player-screen');
+    }
+    // কন্ট্রোল অটো-হাইড লজিক
+// কন্ট্রোল অটো-হাইড লজিক
+let controlTimeout;
+const container = document.getElementById('video-container');
+const controls = document.getElementById('controls');
+
+function showControls() {
+    container.classList.add('show-controls'); // CSS ক্লাস যোগ করা
+    clearTimeout(controlTimeout);
+    
+    // ৪ সেকেন্ড পর কন্ট্রোলবার হাইড হবে
+    controlTimeout = setTimeout(() => {
+        if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
+            container.classList.remove('show-controls');
+        }
+    }, 4000);
+}
+
+// ইভেন্ট লিসেনারসমূহ
+container.addEventListener('mousemove', showControls);
+container.addEventListener('touchstart', showControls);
+container.addEventListener('click', showControls); // মোবাইলের জন্য সরাসরি ক্লিকে কন্ট্রোল দেখানো
+
+// কন্ট্রোলের উপর মাউস থাকলে অটো-হাইড থামিয়ে রাখা
+controls.addEventListener('mouseenter', () => clearTimeout(controlTimeout));
+controls.addEventListener('mouseleave', () => showControls());
+
+
+</script>
+
+</body>
+</html>
