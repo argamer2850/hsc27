@@ -234,6 +234,41 @@
             opacity: 1; transform: translateY(-3px); 
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+        
+
+
+
+/* ইনপুট বক্স থেকে আপ-ডাউন অ্যারো বাটন সরানোর জন্য */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield; /* ফায়ারফক্সের জন্য */
+}
+
+/* সংখ্যার সাথে 'x' গ্যাপহীনভাবে বসানোর জন্য */
+.speed-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.speed-select {
+    padding-right: 12px !important; /* ডানে একটু জায়গা রাখা যাতে 'x' বসানো যায় */
+    width: 45px !important;
+    text-align: center;
+}
+
+.speed-wrapper::after {
+    content: 'x';
+    position: absolute;
+    right: 4px; /* সংখ্যার একদম গা ঘেঁষে থাকার জন্য এই মানটি প্রয়োজন অনুযায়ী সামান্য পরিবর্তন করতে পারেন */
+    color: #cbd5e1;
+    pointer-events: none;
+    font-size: 0.85rem;
+}
 
         h2 { font-weight: 700; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
@@ -345,12 +380,11 @@
                     <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="100">
                 </div>
 
-                <select class="speed-select" id="speed-select">
-                    <option value="0.5">0.5x</option>
-                    <option value="1" selected>1.0x</option>
-                    <option value="1.5">1.5x</option>
-                    <option value="2">2.0x</option>
-                </select>
+                <div class="speed-wrapper">
+    <input type="number" id="speed-input" class="speed-select" 
+           value="1.0" step="0.1" min="0.5" max="2.0" 
+           style="text-align: center; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; outline: none;">
+</div>
 
                 <button class="control-btn" id="fullscreen-btn">
                     <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
@@ -582,10 +616,19 @@ function onPlayerReady(event) {
         }
     });
 
-    // Speed Select
-    document.getElementById('speed-select').addEventListener('change', (e) => {
-        player.setPlaybackRate(parseFloat(e.target.value));
-    });
+    // স্পিড কন্ট্রোল লজিক
+document.getElementById('speed-input').addEventListener('input', (e) => {
+    let speed = parseFloat(e.target.value);
+    
+    // ইউটিউব প্লেয়ারের সর্বোচ্চ সীমা ২.০, তাই এখানে ২.০ এর বেশি দেওয়া যাবে না
+    if(speed >= 0.25 && speed <= 2.0) {
+        player.setPlaybackRate(speed);
+    } else if (speed > 2.0) {
+        // যদি কেউ ভুল করে ২ এর বেশি লেখে, তাকে ২ এ ফিরিয়ে আনা
+        e.target.value = 2.0;
+        player.setPlaybackRate(2.0);
+    }
+});
 
     // --- ড্র্যাগিং লজিক (পিসি ও মোবাইল) ---
     const progressContainer = document.getElementById('progress-container');
