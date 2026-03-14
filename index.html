@@ -744,14 +744,20 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
     }
 
     function playNow(video) {
-        if(player && player.loadVideoById) {
-            // Load video and FORCE suggestion for highest quality (HD 1080p)
-            player.loadVideoById({ 'videoId': video.id, 'suggestedQuality': 'hd1080' });
-        }
-        document.getElementById('vid-title').innerText = video.title;
-        document.getElementById('individual-slide').href = video.slide;
-        navTo('player-screen');
+    // এখানে আপনার ডিফল্ট ভিডিও আইডি টি বসিয়ে দিন
+    const defaultVideoId = 'eztiE0DHtr0'; 
+    
+    // চেক করবে আইডিটি কি ডিফল্ট প্লেসহোল্ডার কিনা
+    let finalId = (video.id === 'ID_HERE' || !video.id || video.id === '#') ? defaultVideoId : video.id;
+
+    if(player && player.loadVideoById) {
+        player.loadVideoById({ 'videoId': finalId, 'suggestedQuality': 'hd1080' });
     }
+    
+    document.getElementById('vid-title').innerText = video.title;
+    document.getElementById('individual-slide').href = video.slide;
+    navTo('player-screen');
+}
     // কন্ট্রোল অটো-হাইড লজিক
 // কন্ট্রোল অটো-হাইড লজিক
 let controlTimeout;
