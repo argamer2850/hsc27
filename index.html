@@ -382,6 +382,7 @@ input[type=number] {
                         <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
                     </button>
                     <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="100">
+                    <span id="volume-display" style="font-size: 0.7rem; color: #cbd5e1; margin-left: 5px;">100%</span>
                 </div>
 
                 <div class="speed-wrapper">
@@ -605,9 +606,18 @@ function onPlayerReady(event) {
     document.getElementById('play-pause-btn').addEventListener('click', togglePlay);
     
     // Volume Slider
-    document.getElementById('volume-slider').addEventListener('input', (e) => {
-        player.setVolume(e.target.value);
-        if(e.target.value > 0) player.unMute();
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeDisplay = document.getElementById('volume-display');
+
+    volumeSlider.addEventListener('input', (e) => {
+        let vol = e.target.value;
+        player.setVolume(vol);
+        if(volumeDisplay) {
+            volumeDisplay.innerText = vol + "%";
+        }
+        
+        if(vol > 0) player.unMute();
+        else player.mute();
     });
 
     // Mute Button
