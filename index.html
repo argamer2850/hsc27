@@ -479,7 +479,7 @@ document.onkeydown = function(e) {
             { chapter: 'অর্থনৈতিক রসায়ন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
         ],
         'Higher Math': [
-            { chapter: 'ম্যাট্রিক্স ও নির্ণায়ক', mainmainVideos: [{ title: 'লেকচার ১', id: 'Jk7f_Ih4I90', slide: 'https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'ম্যাট্রিক্স ও নির্ণায়ক', mainVideos: [{ title: 'লেকচার ১', id: 'Jk7f_Ih4I90', slide: 'https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'ভেক্টর', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'সরলরেখা', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'বৃত্ত', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
@@ -573,7 +573,7 @@ document.onkeydown = function(e) {
             const d = document.createElement('div');
             d.className = 'list-item';
             d.onclick = () => openVideoList(ch);
-            d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon">${(ch.mainVideos?.length || 0) + (ch.extraVideos?.length || 0)} Classes</span>`;
+            d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon">${ch.mainVideos?.length || 0} Classes</span>`;
             list.appendChild(d);
         });
         navTo('chapter-screen');
