@@ -154,6 +154,11 @@
 .custom-video-container.show-controls .custom-controls {
     opacity: 1;
 }
+.custom-video-container.hide-cursor,
+.custom-video-container.hide-cursor .video-overlay {
+    cursor: none;
+}
+
 
         .control-btn {
             background: none;
@@ -812,33 +817,70 @@ function playNow(video) {
     // কন্ট্রোল অটো-হাইড লজিক
 // কন্ট্রোল অটো-হাইড লজিক
 let controlTimeout;
+let cursorTimeout;
 const container = document.getElementById('video-container');
 const controls = document.getElementById('controls');
 
 function showControls() {
-    container.classList.add('show-controls'); // CSS ক্লাস যোগ করা
+    container.classList.add('show-controls');
+    container.classList.remove('hide-cursor');
     clearTimeout(controlTimeout);
-    
-    // ৪ সেকেন্ড পর কন্ট্রোলবার হাইড হবে
+    clearTimeout(cursorTimeout);
+
     controlTimeout = setTimeout(() => {
         if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
             container.classList.remove('show-controls');
         }
     }, 4000);
+
+    cursorTimeout = setTimeout(() => {
+        if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
+            container.classList.add('hide-cursor');
+        }
+    }, 2000);
 }
+
+function showCursorOnly() {
+    container.classList.remove('hide-cursor');
+    clearTimeout(cursorTimeout);
+
+    cursorTimeout = setTimeout(() => {
+        if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
+            container.classList.add('hide-cursor');
+        }
+    }, 2000);
+}
+
+function resetAutoHide() {
+    showControls();
+}
+
 function toggleDurationView() {
     showRemaining = !showRemaining;
     updateProgress(); // ক্লিক করার সাথে সাথে ভিউ আপডেট করার জন্য
 }
 
 // ইভেন্ট লিসেনারসমূহ
-container.addEventListener('mousemove', showControls);
+container.addEventListener('mousemove', resetAutoHide);
+container.addEventListener('mouseenter', resetAutoHide);
 container.addEventListener('touchstart', showControls);
-container.addEventListener('click', showControls); // মোবাইলের জন্য সরাসরি ক্লিকে কন্ট্রোল দেখানো
+container.addEventListener('click', showControls);
 
-// কন্ট্রোলের উপর মাউস থাকলে অটো-হাইড থামিয়ে রাখা
-controls.addEventListener('mouseenter', () => clearTimeout(controlTimeout));
-controls.addEventListener('mouseleave', () => showControls());
+controls.addEventListener('mouseenter', () => {
+    container.classList.remove('hide-cursor');
+    clearTimeout(controlTimeout);
+    clearTimeout(cursorTimeout);
+});
+
+controls.addEventListener('mouseleave', () => {
+    showControls();
+});
+
+container.addEventListener('mouseleave', () => {
+    container.classList.remove('hide-cursor');
+    clearTimeout(cursorTimeout);
+});
+
 window.addEventListener('popstate', (event) => {
     // ১. প্রথমে প্লেয়ারটি থামান (যদি প্লেয়ার অবজেক্ট থাকে)
     if (typeof player !== 'undefined' && player.pauseVideo) {
@@ -936,6 +978,12 @@ function updateVolumeUI(vol) {
     if(vol > 0) player.unMute();
     else player.mute();
 }
+// 'F' কিবোর্ড শর্টকাট দিয়ে ফুলস্ক্রিন করার কোড
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'f' || e.key === 'F') {
+        toggleFullScreen();
+    }
+});
 window.history.replaceState({ screen: 'subject-screen' }, "", "#subject-screen");
 
 
