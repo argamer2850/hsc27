@@ -905,6 +905,37 @@ document.getElementById('forward-btn').addEventListener('click', () => {
     player.seekTo(player.getCurrentTime() + 5, true);
     showSeekMessage(5);
 });
+// কিবোর্ড আপ এরো / ডাউন এরো দিয়ে ভলিউম নিয়ন্ত্রণের কোড
+document.addEventListener('keydown', (e) => {
+    if (!player) return;
+    
+    // বর্তমান ভলিউম নেওয়া
+    let currentVol = player.getVolume();
+    
+    if (e.code === 'ArrowUp') {
+        e.preventDefault(); // পেজ স্ক্রল হওয়া বন্ধ করবে
+        let newVol = Math.min(currentVol + 5, 100); // ১০০ এর বেশি হবে না
+        player.setVolume(newVol);
+        updateVolumeUI(newVol); // UI আপডেট করবে
+    } else if (e.code === 'ArrowDown') {
+        e.preventDefault();
+        let newVol = Math.max(currentVol - 5, 0); // ০ এর নিচে নামবে না
+        player.setVolume(newVol);
+        updateVolumeUI(newVol);
+    }
+});
+
+// ভলিউম স্লাইডার এবং ডিসপ্লে আপডেট করার জন্য একটি ছোট ফাংশন
+function updateVolumeUI(vol) {
+    const slider = document.getElementById('volume-slider');
+    const display = document.getElementById('volume-display');
+    if (slider) slider.value = vol;
+    if (display) display.innerText = vol + "%";
+    
+    // মিউট বা আনমিউট লজিক
+    if(vol > 0) player.unMute();
+    else player.mute();
+}
 window.history.replaceState({ screen: 'subject-screen' }, "", "#subject-screen");
 
 
