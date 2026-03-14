@@ -1011,6 +1011,24 @@ document.addEventListener('keydown', (e) => {
         toggleFullScreen();
     }
 });
+// ট্যাব পরিবর্তন বা অন্য উইন্ডোতে (App) গেলে ভিডিও অটো পজ করার কোড
+function pauseVideo() {
+    if (player && player.pauseVideo) {
+        player.pauseVideo();
+    }
+}
+
+// ১. ট্যাব পরিবর্তন করলে (Tab Change)
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        pauseVideo();
+    }
+});
+
+// ২. ব্রাউজার থেকে অন্য উইন্ডোতে বা অ্যাপে ক্লিক করলে (Window Focus Out)
+window.addEventListener("blur", function() {
+    pauseVideo();
+});
 
 
 
