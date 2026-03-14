@@ -361,13 +361,14 @@ input[type=number] {
 
     <div id="player-screen" class="hidden">
         <button class="btn-back" onclick="stopAndNavTo('video-list-screen')">← ভিডিও লিস্ট</button>
-        <div id="seek-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-     background: rgba(0,0,0,0.6); color: white; padding: 10px 20px; border-radius: 20px; 
-     display: none; z-index: 100; font-weight: bold; pointer-events: none;">
-</div>
+        
         <div class="custom-video-container" id="video-container">
             <div id="yt-player"></div>
             <div class="video-overlay" id="video-overlay"></div>
+            <div id="seek-indicator" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+         background: rgba(0,0,0,0.6); color: white; padding: 10px 20px; border-radius: 20px; 
+         display: none; z-index: 100; font-weight: bold; pointer-events: none;">
+    </div>
             
             <div class="custom-controls" id="controls">
                 <button class="control-btn" id="play-pause-btn">
