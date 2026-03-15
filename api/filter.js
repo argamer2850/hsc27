@@ -1,19 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-
 export default function handler(req, res) {
-  const whitelist = ['202.181.4.185']; // এখানে আপনার আইপি দিন
+  // আপনার আসল আইপি এখানে বসান (একদম সঠিকটি)
+  const whitelist = ['202.181.4.175']; 
+  
+  // ভিজিটরের আইপি বের করা
   const forwarded = req.headers['x-forwarded-for'];
   const ip = forwarded ? forwarded.split(',')[0] : req.socket.remoteAddress;
 
+  // আইপি চেক করা
   if (whitelist.includes(ip)) {
-    // যদি আইপি মিলে যায়, তবে সরাসরি index.html ফাইলটি পড়ে দেখাবে
-    const filePath = path.join(process.cwd(), 'index.html');
-    const html = fs.readFileSync(filePath, 'utf8');
-    res.setHeader('Content-Type', 'text/html');
-    res.status(200).send(html);
+    // যদি আইপি মিলে যায়, তবে তাকে সাইটে ঢুকতে দিন
+    return res.status(200).json({ message: "Authorized" });
   } else {
-    // আইপি না মিললে ব্লক
-    res.status(403).send("<h1>Access Denied: You are not authorized.</h1>");
+    // যদি আইপি না মিলে, তবে ব্লক করুন
+    return res.status(403).send("<h1>Access Denied: You are not authorized.</h1>");
   }
 }
+console.log("Visitor IP:", ip);
