@@ -1,6 +1,6 @@
 export default function handler(req, res) {
   // আপনার আসল আইপি এখানে বসান (একদম সঠিকটি)
-  const whitelist = ['202.181.4.175']; 
+  const whitelist = ['202.181.4.185']; 
   
   // ভিজিটরের আইপি বের করা
   const forwarded = req.headers['x-forwarded-for'];
