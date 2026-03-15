@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default function handler(req, res) {
-  const whitelist = ['202.181.4.175']; // এখানে আপনার আইপি দিন
+  const whitelist = ['202.181.4.185']; // এখানে আপনার আইপি দিন
   const forwarded = req.headers['x-forwarded-for'];
   const ip = forwarded ? forwarded.split(',')[0] : req.socket.remoteAddress;
 
