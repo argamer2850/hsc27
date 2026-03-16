@@ -713,9 +713,3 @@ window.onload = function() {
     // হোম স্ক্রিন দেখাবে
     navTo('subject-screen', false);
 };
-window.onload = function () {
-  if (!sessionStorage.getItem("reloaded")) {
-    sessionStorage.setItem("reloaded", "true");
-    location.reload(true);
-  }
-};
