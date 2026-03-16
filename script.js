@@ -37,7 +37,7 @@ document.onkeydown = function(e) {
             { chapter: 'ল্যাবরেটরির নিরাপদ ব্যবহার', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'গুণগত রসায়ন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
-            { chapter: 'রাসায়নিক পরিবর্তন', mainVideos: [{ title: 'লেকচার ১', id: 'g2zsPta9UMA', slide: 'https://drive.google.com/file/d/1WCaIupiPIEwKpLVVOxkF6TCPXV6_4iro/view?usp=sharing' }, { title: 'লেকচার ২', id: 'KAm2N3GU8qg', slide: 'https://drive.google.com/file/d/143C1fB0Pu3pYWJl-4ZrLUKS5mz96fKOU/view?usp=sharing' }, { title: 'লেকচার ৩', id: 'MlTpKbEuhTY', slide: 'https://drive.google.com/file/d/1zmtOnXmjaphfZb6F6WIMzfGjex33zzcf/view?usp=sharing' }, { title: 'লেকচার ৪', id: 'EB1aodxrujU', slide: 'https://drive.google.com/file/d/1tW_wzoV8EgKEVr57oXr9FBh_Y9md589p/view?usp=sharing' }, { title: 'লেকচার ৫', id: 'ZB2PmU92ofA', slide: 'https://drive.google.com/file/d/1Qu3iA0pj8GLFuZCGE66n1QwPhoeobCXe/view?usp=sharing' }, { title: 'লেকচার ৬', id: 'WdESbko4AnI', slide: 'https://drive.google.com/file/d/1jSTvM_0TB43ESkC1ZJNxu5wGv71ONhDK/view?usp=sharing' }, { title: 'লেকচার ৭', id: 'wgEBKOgbYsQ', slide: 'https://drive.google.com/file/d/1w4wrTdnq826vciPKFCZplurpBoh4L8XR/view?usp=sharing' }, { title: 'লেকচার ৮', id: 'QmeE9Vfk9-Q', slide: 'https://drive.google.com/file/d/1xAwRuWCKkzmRuPeI_5HqIbJcTEVekvV2/view?usp=sharing' }, { title: 'লেকচার ৯', id: 'Iq9cjtW9Ifk', slide: 'https://drive.google.com/file/d/1PF8Awqp0UxTx63nmKxKcE9tkg6IU6X45/view?usp=sharing' }, { title: 'লেকচার ১০', id: '2tieUgpoerk', slide: 'https://drive.google.com/file/d/1rw3Yls-QU_qaI3rrrPywQlQ7b5XuISI2/view?usp=sharing' }, { title: 'লেকচার ১১', id: 'B_PJatsFKLY', slide: 'https://drive.google.com/file/d/1nXlFwh4zW-WbYtajFwCRuAWHnJL1iyed/view?usp=sharing' }, { title: 'লেকচার ১২', id: 'FeWudODIylY', slide: 'https://drive.google.com/file/d/1Wt4GUHSaiyoKpPTT5aRg7HGFRXpKPRDS/view?usp=sharing' }, { title: 'লেকচার ১৩', id: 'yuWA4LcMWcY', slide: 'https://drive.google.com/file/d/1tDZrqIdQblXbHAA1zAsvw2I62I4RRS8V/view?usp=sharing' }, { title: 'লেকচার ১৪', id: 'WLY-cRxoW6k', slide: 'https://drive.google.com/file/d/1j_LjVmbNOZbM7Hx41W9hcsHOULcecW9W/view?usp=sharing' }, { title: 'লেকচার ১৫', id: 'dl74VvGQYyo', slide: 'https://drive.google.com/file/d/1kmznZw9tC_gURefUugfKKxuLjJS7cNaE/view?usp=sharing' }], extraVideos: [
+            { chapter: 'রাসায়নিক পরিবর্তন', mainVideos: [{ title: 'লেকচার ১', id: 'g2zsPta9UMA', slide: 'https://drive.google.com/file/d/1WCaIupiPIEwKpLVVOxkF6TCPXV6_4iro/view?usp=sharing', keywords: ['C1stC4C1'] }, { title: 'লেকচার ২', id: 'KAm2N3GU8qg', slide: 'https://drive.google.com/file/d/143C1fB0Pu3pYWJl-4ZrLUKS5mz96fKOU/view?usp=sharing' }, { title: 'লেকচার ৩', id: 'MlTpKbEuhTY', slide: 'https://drive.google.com/file/d/1zmtOnXmjaphfZb6F6WIMzfGjex33zzcf/view?usp=sharing' }, { title: 'লেকচার ৪', id: 'EB1aodxrujU', slide: 'https://drive.google.com/file/d/1tW_wzoV8EgKEVr57oXr9FBh_Y9md589p/view?usp=sharing' }, { title: 'লেকচার ৫', id: 'ZB2PmU92ofA', slide: 'https://drive.google.com/file/d/1Qu3iA0pj8GLFuZCGE66n1QwPhoeobCXe/view?usp=sharing' }, { title: 'লেকচার ৬', id: 'WdESbko4AnI', slide: 'https://drive.google.com/file/d/1jSTvM_0TB43ESkC1ZJNxu5wGv71ONhDK/view?usp=sharing' }, { title: 'লেকচার ৭', id: 'wgEBKOgbYsQ', slide: 'https://drive.google.com/file/d/1w4wrTdnq826vciPKFCZplurpBoh4L8XR/view?usp=sharing' }, { title: 'লেকচার ৮', id: 'QmeE9Vfk9-Q', slide: 'https://drive.google.com/file/d/1xAwRuWCKkzmRuPeI_5HqIbJcTEVekvV2/view?usp=sharing' }, { title: 'লেকচার ৯', id: 'Iq9cjtW9Ifk', slide: 'https://drive.google.com/file/d/1PF8Awqp0UxTx63nmKxKcE9tkg6IU6X45/view?usp=sharing' }, { title: 'লেকচার ১০', id: '2tieUgpoerk', slide: 'https://drive.google.com/file/d/1rw3Yls-QU_qaI3rrrPywQlQ7b5XuISI2/view?usp=sharing' }, { title: 'লেকচার ১১', id: 'B_PJatsFKLY', slide: 'https://drive.google.com/file/d/1nXlFwh4zW-WbYtajFwCRuAWHnJL1iyed/view?usp=sharing' }, { title: 'লেকচার ১২', id: 'FeWudODIylY', slide: 'https://drive.google.com/file/d/1Wt4GUHSaiyoKpPTT5aRg7HGFRXpKPRDS/view?usp=sharing' }, { title: 'লেকচার ১৩', id: 'yuWA4LcMWcY', slide: 'https://drive.google.com/file/d/1tDZrqIdQblXbHAA1zAsvw2I62I4RRS8V/view?usp=sharing' }, { title: 'লেকচার ১৪', id: 'WLY-cRxoW6k', slide: 'https://drive.google.com/file/d/1j_LjVmbNOZbM7Hx41W9hcsHOULcecW9W/view?usp=sharing' }, { title: 'লেকচার ১৫', id: 'dl74VvGQYyo', slide: 'https://drive.google.com/file/d/1kmznZw9tC_gURefUugfKKxuLjJS7cNaE/view?usp=sharing' }], extraVideos: [
         { title: 'উইকলি এক্সাম ১ সলভ ক্লাস', id: 'f7wd5MIYjGI', slide: 'https://drive.google.com/file/d/1so5zWGOL1QuDrVODTe2KRzXwr3MU26wD/view?usp=sharing' }, { title: 'প্রব্লেম সলভিং ক্লাস ১', id: 'EgEAXUVrOGs', slide: 'javascript:void(0);' }, { title: 'প্রব্লেম সলভিং ক্লাস ২', id: '5dhpljMXzzc', slide: 'javascript:void(0);' }
     ], practiceSheets: ['LINK_HERE'] },
             { chapter: 'কর্মমুখী রসায়ন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
@@ -114,11 +114,15 @@ document.onkeydown = function(e) {
     };
 
     function navTo(id, pushHistory = true) {
+    // প্রথমে চেক করছি আইডিটি সঠিক কি না
+    const element = document.getElementById(id);
+    if (!element) return; // যদি আইডি না পায় তবে কাজ বন্ধ রাখবে
+
     ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => 
         document.getElementById(s).classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
     
-    // ব্রাউজার হিস্ট্রিতে পুশ করা
+    element.classList.remove('hidden'); // সেই নির্দিষ্ট স্ক্রিনটি দেখাবে
+    
     if (pushHistory) {
         window.history.pushState({ screen: id }, "", `#${id}`);
     }
@@ -478,14 +482,19 @@ container.addEventListener('mouseleave', () => {
 });
 
 window.addEventListener('popstate', (event) => {
-    // ১. প্রথমে প্লেয়ারটি থামান (যদি প্লেয়ার অবজেক্ট থাকে)
+    // ভিডিও পজ করা
     if (typeof player !== 'undefined' && player.pauseVideo) {
         player.pauseVideo();
     }
 
-    // ২. তারপর স্ক্রিন পরিবর্তনের লজিক
+    // যদি হিস্ট্রিতে স্ক্রিনের নাম থাকে তবে সেটি দেখাবে, না থাকলে হোম পেজে পাঠাবে
     if (event.state && event.state.screen) {
-        navTo(event.state.screen, false);
+        const screens = ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'];
+        if (screens.includes(event.state.screen)) {
+            navTo(event.state.screen, false);
+        } else {
+            navTo('subject-screen', false);
+        }
     } else {
         navTo('subject-screen', false);
     }
@@ -612,3 +621,47 @@ document.addEventListener('selectstart', (e) => {
 document.addEventListener('dragstart', (e) => {
     e.preventDefault();
 });
+// সার্চ বক্সের এন্টার কি (Enter Key) কাজ করানোর জন্য
+document.getElementById('search-box').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        handleSearch();
+    }
+});
+
+function handleSearch() {
+    let query = document.getElementById('search-box').value.toLowerCase().trim();
+    if (!query) return;
+
+    let found = false;
+    for (let subject in database) {
+        let chapters = database[subject];
+        for (let ch of chapters) {
+            // মেইন ভিডিওগুলো চেক করা
+            for (let v of ch.mainVideos) {
+                if (v.keywords && v.keywords.some(k => k.toLowerCase() === query)) {
+                    // প্রথমে সাবজেক্ট এবং চ্যাপ্টার লিস্ট পেজটা হিস্ট্রিতে পুশ করি
+                    openSubject(subject); 
+                    openVideoList(ch);
+                    
+                    // এবার ভিডিও প্লে করি
+                    playNow(v);
+                    found = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (!found) {
+        alert("দুঃখিত, এই কি-ওয়ার্ডের কোনো ভিডিও পাওয়া যায়নি।");
+    }
+}
+// রিলোড দিলে সবসময় হোম পেজে (subject-screen) ফিরিয়ে নেওয়ার কোড
+window.onload = function() {
+    // URL থেকে পুরনো সব হ্যাশ (#) মুছে ফেলে ফ্রেশ করবে
+    if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.pathname);
+    }
+    // হোম স্ক্রিন দেখাবে
+    navTo('subject-screen', false);
+};

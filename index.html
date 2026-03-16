@@ -13,18 +13,24 @@
     <link rel="icon" type="image/png" href="icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css?v=1">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
 <div class="container">
     <nav>
-        <div class="logo">HSC<span>27</span></div>
+        <a href="index.html" style="text-decoration: none; color: inherit;"><div class="logo">HSC<span>27</span></div></a>
         <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
     </nav>
 
     <div id="subject-screen">
         <h2 style="margin-bottom: 40px; text-align: center; font-size: 2rem;">কোন বিষয়ের কোর্স দেখতে চান?</h2>
+        <div style="margin-bottom: 40px; text-align: center; display: flex; justify-content: center; gap: 10px;">
+    <input type="text" id="search-box" placeholder="নির্দিষ্ট ভিডিও দেখতে কীওয়ার্ডটি বসান...." 
+    style="width: 60%; padding: 12px; border-radius: 25px; border: 1px solid var(--glass-border); background: rgba(15, 23, 42, 0.8); color: white; text-align: center;">
+    
+    <button onclick="handleSearch()" style="padding: 10px 20px; border-radius: 25px; background: var(--primary); color: white; border: none; cursor: pointer;">সার্চ</button>
+</div>
         <div class="grid-layout">
             <div class="card" onclick="openSubject('Physics')"><h3>Physics</h3></div>
             <div class="card" onclick="openSubject('Chemistry')"><h3>Chemistry</h3></div>
@@ -122,7 +128,7 @@
             </div>
         </div>
     </div>
-<script src="script.js?v=1"></script>
+<script src="script.js?v=2"></script>
 <script src="https://www.youtube.com/iframe_api" defer></script>
 </body>
 </html>
