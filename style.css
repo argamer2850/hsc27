@@ -354,3 +354,107 @@ input[type=number] {
     transform: translateX(-50%);
     border: 1px solid rgba(255,255,255,0.2);
 }
+/* বাটন পজিশন ও অ্যানিমেশন */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.theme-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+/* লাইট মোড ভ্যারিয়েবল ও টেক্সট কালার ফিক্স */
+body.light-mode {
+    background: #f0f2f5;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #1a202c;
+}
+
+/* লাইট মোডে সব কার্ড এবং টেক্সট পরিষ্কার করা */
+body.light-mode .card, 
+body.light-mode .list-item,
+body.light-mode nav {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #1a202c !important;
+}
+
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode p, 
+body.light-mode span {
+    color: #1a202c !important;
+    -webkit-text-fill-color: #1a202c !important; /* গ্রেডিয়েন্ট টেক্সট থাকলে সেটা ফিক্স করবে */
+}
+/* লাইট মোড ফিক্স - নিচের কোডটুকু সবার নিচে যোগ করুন */
+
+/* ১. লোগো এবং সাব-হেডিং ফিক্স */
+body.light-mode .logo {
+    color: #1a202c !important;
+}
+body.light-mode nav div {
+    color: #4a5568 !important; /* All In One Place লেখা */
+}
+
+/* ২. ব্যাক বাটন (Back Button) ফিক্স */
+body.light-mode .btn-back {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #2d3748 !important;
+}
+body.light-mode .btn-back:hover {
+    background: var(--primary) !important;
+    color: #ffffff !important;
+}
+
+/* ৩. চ্যাপ্টার ম্যাটেরিয়ালস এবং ভিডিও মেটা বক্স ফিক্স */
+body.light-mode .video-meta {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+body.light-mode .video-meta h4, 
+body.light-mode .video-meta h2 {
+    color: #1a202c !important;
+}
+
+/* ৪. ক্লাস স্লাইড বাটন ফিক্স (যদি প্রয়োজন হয়) */
+body.light-mode .btn-slide {
+    color: #000 !important; /* স্লাইড বাটনের টেক্সট কালো করার জন্য */
+}
+
+/* ৫. প্লেয়ার স্ক্রিনের টাইটেল ফিক্স */
+body.light-mode #vid-title {
+    color: #1a202c !important;
+}
+
+/* ৬. সার্চ বক্স ফিক্স */
+body.light-mode #search-box {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #1a202c !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+/* আইকন অ্যানিমেশন */
+.sun-moon-container {
+    transition: transform 0.5s ease;
+}
+body.light-mode .sun-moon-container {
+    transform: rotate(360deg);
+}

@@ -713,3 +713,23 @@ window.onload = function() {
     // হোম স্ক্রিন দেখাবে
     navTo('subject-screen', false);
 };
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+// ব্রাউজারে আগে থেকে সেভ করা থিম চেক
+if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+    themeIcon.innerText = '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.innerText = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeIcon.innerText = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+});
