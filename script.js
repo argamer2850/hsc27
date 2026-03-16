@@ -359,6 +359,10 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
         pauseIcon.classList.add('hidden');
         clearInterval(timeUpdater);
     }
+    if (event.data == YT.PlayerState.ENDED) {
+        const videoId = player.getVideoData().video_id;
+        localStorage.removeItem('resume_' + videoId);
+    }
 }
 
     function togglePlay() {
@@ -377,13 +381,20 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
     document.getElementById('progress-bar').style.width = `${percentage}%`;
     document.getElementById('current-time').innerText = formatTime(current);
 
-    // ডিউরেশন দেখার লজিক
+    // --- নতুন অংশ: লোকাল স্টোরেজে সেভ করা ---
+    // ভিডিওর আইডি অনুযায়ী তার বর্তমান সময় সেভ করে রাখা হচ্ছে
+    const videoId = player.getVideoData().video_id;
+    if (videoId) {
+        localStorage.setItem('resume_' + videoId, current);
+    }
+    // ------------------------------------
+
     const durationSpan = document.getElementById('duration');
     if (showRemaining) {
         const remaining = duration - current;
-        durationSpan.innerText = "-" + formatTime(remaining); // বাকি সময় দেখাবে
+        durationSpan.innerText = "-" + formatTime(remaining);
     } else {
-        durationSpan.innerText = formatTime(duration); // টোটাল টাইম দেখাবে
+        durationSpan.innerText = formatTime(duration);
     }
 }
 
@@ -416,27 +427,33 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
 
 function playNow(video) {
     const defaultVideoId = 'eztiE0DHtr0'; 
-    const targetVideoId = 'eztiE0DHtr0'; 
     let finalId = (video.id === 'ID_HERE' || !video.id || video.id === '#') ? defaultVideoId : video.id;
 
+    // --- নতুন অংশ: সেভ করা টাইম খুঁজে বের করা ---
+    const savedTime = localStorage.getItem('resume_' + finalId);
+    const startAt = savedTime ? parseFloat(savedTime) : 0;
+    // ------------------------------------------
+
     if(player && player.loadVideoById) {
-        player.loadVideoById({ 'videoId': finalId, 'suggestedQuality': 'hd1080' });
+        player.loadVideoById({ 
+            'videoId': finalId, 
+            'suggestedQuality': 'hd1080',
+            'startSeconds': startAt // আগের দেখা অংশ থেকে শুরু হবে
+        });
     }
     
     document.getElementById('vid-title').innerText = video.title;
     
-    // স্লাইড বাটন লজিক আপডেট
+    // স্লাইড বাটন লজিক (যা আগে ছিল)
     const slideBtn = document.getElementById('individual-slide');
-    
-    // যদি লিংক না থাকে বা "LINK_HERE" থাকে
     if (!video.slide || video.slide === 'LINK_HERE' || video.slide === '#') {
-        slideBtn.href = "javascript:void(0);"; // ক্লিক করলে কোথাও যাবে না
+        slideBtn.href = "javascript:void(0);";
         slideBtn.onclick = function() {
-            alert("এই ক্লাসের স্লাইড এখনো এড করা হয়নি অথবা, এই ক্লাসের স্লাইড প্রোভাইড করা হয়নি।");
+            alert("এই ক্লাসের স্লাইড এখনো এড করা হয়নি।");
         };
     } else {
         slideBtn.href = video.slide;
-        slideBtn.onclick = null; // আগের কোনো অ্যালার্ট থাকলে তা মুছে ফেলবে
+        slideBtn.onclick = null;
     }
 
     navTo('player-screen');
