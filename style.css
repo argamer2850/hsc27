@@ -110,11 +110,46 @@
             overflow: hidden;
             aspect-ratio: 16/9;
             margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8);
             border: 1px solid var(--glass-border);
             display: flex;
             flex-direction: column;
+            resize: both;
+    min-width: 300px;
+    min-height: 168px;
         }
+        .resize-handle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    cursor: nwse-resize;
+    z-index: 999;
+    border-top-left-radius: 10px;
+}
+/* ডেস্কটপের জন্য রিসাইজ অপশন থাকবে */
+@media (min-width: 1025px) {
+    .custom-video-container {
+        resize: both;
+    }
+}
+
+/* মোবাইল এবং ট্যাবলেটের জন্য রিসাইজ পুরোপুরি বন্ধ */
+@media (max-width: 1024px) {
+    .custom-video-container {
+        resize: none !important;
+    }
+    
+    /* রিসাইজ হ্যান্ডেল আইকনটি লুকিয়ে ফেলার জন্য (যদি আলাদা ডিভ থাকে) */
+    .resize-handle {
+        display: none !important;
+        pointer-events: none !important;
+    }
+}
         
         #yt-player {
             width: 100%;
