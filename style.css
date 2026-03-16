@@ -458,3 +458,13 @@ body.light-mode #search-box {
 body.light-mode .sun-moon-container {
     transform: rotate(360deg);
 }
+/* শুধু পিসি বা বড় স্ক্রিনের জন্য */
+@media (min-width: 1025px) {
+    /* এখানে নিশ্চিত করুন আপনার ICT কার্ডটি কত নম্বর আইটেম। 
+       যদি এটি ৭ম কার্ড হয়, তবে nth-child(7) হবে। */
+    .grid-layout .card:nth-child(7):last-child {
+        grid-column: 1 / -1; /* কার্ডটিকে পুরো লাইন জুড়ে বিস্তৃত করবে */
+        justify-self: center; /* এবার ওই লাইনের ঠিক মাঝখানে বসাবে */
+        width: 280px; /* কার্ডের একটি নির্দিষ্ট প্রস্থ দিন যাতে দেখতে সুন্দর লাগে */
+    }
+}
