@@ -158,7 +158,7 @@ document.onkeydown = function(e) {
     document.getElementById('chap-title').innerText = chObj.chapter;
     vContainer.innerHTML = '';
     
-    // মেইন ক্লাস সেকশন তৈরি
+    // মেইন ক্লাস সেকশন
     if (chObj.mainVideos && chObj.mainVideos.length > 0) {
         const h3 = document.createElement('h3');
         h3.style = "color: var(--primary); margin: 20px 0 15px 5px; font-size: 1.2rem;";
@@ -174,7 +174,7 @@ document.onkeydown = function(e) {
         });
     }
 
-    // এডিশনাল ক্লাস সেকশন তৈরি
+    // এডিশনাল ক্লাস সেকশন
     if (chObj.extraVideos && chObj.extraVideos.length > 0) {
         const h3 = document.createElement('h3');
         h3.style = "color: var(--accent); margin: 30px 0 15px 5px; font-size: 1.2rem;";
@@ -190,7 +190,25 @@ document.onkeydown = function(e) {
         });
     }
 
-    mContainer.innerHTML = `<a href="${chObj.practiceSheets[0]}" class="action-btn btn-sheet">📥 ডাউনলোড প্র্যাকটিস শিট (.pdf)</a>`;
+    // চ্যাপ্টার ম্যাটেরিয়ালস (প্র্যাকটিস শিট) লজিক
+    const practiceSheetLink = chObj.practiceSheets[0];
+    const matBtn = document.createElement('a');
+    matBtn.className = 'action-btn btn-sheet';
+    matBtn.innerHTML = `📥 ডাউনলোড প্র্যাকটিস শিট (.pdf)`;
+
+    if (!practiceSheetLink || practiceSheetLink === 'LINK_HERE' || practiceSheetLink === '#') {
+        matBtn.href = "javascript:void(0);";
+        matBtn.onclick = function() {
+            alert("এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো এড করা হয়নি অথবা, এই চ্যাপ্টারের প্র্যাকটিস শীট প্রোভাইড করা হয়নি।");
+        };
+    } else {
+        matBtn.href = practiceSheetLink;
+        matBtn.target = "_blank";
+    }
+
+    mContainer.innerHTML = ''; // আগের কন্টেন্ট ক্লিয়ার করা
+    mContainer.appendChild(matBtn);
+    
     navTo('video-list-screen');
 }
 
@@ -406,12 +424,25 @@ function playNow(video) {
     }
     
     document.getElementById('vid-title').innerText = video.title;
-    document.getElementById('individual-slide').href = video.slide;
+    
+    // স্লাইড বাটন লজিক আপডেট
+    const slideBtn = document.getElementById('individual-slide');
+    
+    // যদি লিংক না থাকে বা "LINK_HERE" থাকে
+    if (!video.slide || video.slide === 'LINK_HERE' || video.slide === '#') {
+        slideBtn.href = "javascript:void(0);"; // ক্লিক করলে কোথাও যাবে না
+        slideBtn.onclick = function() {
+            alert("এই ক্লাসের স্লাইড এখনো এড করা হয়নি অথবা, এই ক্লাসের স্লাইড প্রোভাইড করা হয়নি।");
+        };
+    } else {
+        slideBtn.href = video.slide;
+        slideBtn.onclick = null; // আগের কোনো অ্যালার্ট থাকলে তা মুছে ফেলবে
+    }
+
     navTo('player-screen');
 
-    // ভিডিও লোড হওয়ার ঠিক পর পরই ফুল স্ক্রিন ট্রিগার
     if (finalId === targetVideoId) {
-        setTimeout(toggleFullScreen, 500); // ৫০০ মিলিসেকেন্ড দেরিতে যাতে প্লেয়ার রেডি হতে পারে
+        setTimeout(toggleFullScreen, 500);
     }
 }
     // কন্ট্রোল অটো-হাইড লজিক
@@ -664,4 +695,10 @@ window.onload = function() {
     }
     // হোম স্ক্রিন দেখাবে
     navTo('subject-screen', false);
+};
+window.onload = function () {
+  if (!sessionStorage.getItem("reloaded")) {
+    sessionStorage.setItem("reloaded", "true");
+    location.reload(true);
+  }
 };
