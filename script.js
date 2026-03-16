@@ -393,8 +393,8 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
    let shouldAutoFullscreen = false; // এটি গ্লোবাল ডিক্লেয়ার করুন
 
 function playNow(video) {
-    const defaultVideoId = '9AhepHdCJMs'; 
-    const targetVideoId = '9AhepHdCJMs'; 
+    const defaultVideoId = 'eztiE0DHtr0'; 
+    const targetVideoId = 'eztiE0DHtr0'; 
     let finalId = (video.id === 'ID_HERE' || !video.id || video.id === '#') ? defaultVideoId : video.id;
 
     if(player && player.loadVideoById) {
