@@ -70,7 +70,7 @@ document.onkeydown = function(e) {
             { chapter: 'বিস্তার পরিমাপ ও সম্ভাবনা', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] }
         ],
         'Biology': [
-            { chapter: 'কোষ ও এর গঠন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
+            { chapter: 'কোষ ও এর গঠন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'N/A' }], practiceSheets: ['N/A'] },
             { chapter: 'কোষ বিভাজন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'কোষ রসায়ন', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
             { chapter: 'অণুজীব', mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], practiceSheets: ['LINK_HERE'] },
@@ -204,10 +204,15 @@ document.onkeydown = function(e) {
     matBtn.className = 'action-btn btn-sheet';
     matBtn.innerHTML = `📥 ডাউনলোড প্র্যাকটিস শিট (.pdf)`;
 
-    if (!practiceSheetLink || practiceSheetLink === 'LINK_HERE' || practiceSheetLink === '#') {
+    if (practiceSheetLink === 'N/A') {
         matBtn.href = "javascript:void(0);";
         matBtn.onclick = function() {
-            alert("এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো এড করা হয়নি অথবা, এই চ্যাপ্টারের প্র্যাকটিস শীট প্রোভাইড করা হয়নি।");
+            alert("দুঃখিত! এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো প্রোভাইড করা হয়নি।");
+        };
+    } else if (!practiceSheetLink || practiceSheetLink === 'LINK_HERE' || practiceSheetLink === '#') {
+        matBtn.href = "javascript:void(0);";
+        matBtn.onclick = function() {
+            alert("দুঃখিত! এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো এড করা হয়নি।");
         };
     } else {
         matBtn.href = practiceSheetLink;
@@ -452,12 +457,17 @@ function playNow(video) {
     
     document.getElementById('vid-title').innerText = video.title;
     
-    // স্লাইড বাটন লজিক (যা আগে ছিল)
+    // স্লাইড বাটন লজিক
     const slideBtn = document.getElementById('individual-slide');
-    if (!video.slide || video.slide === 'LINK_HERE' || video.slide === '#') {
+    if (video.slide === 'N/A') {
         slideBtn.href = "javascript:void(0);";
         slideBtn.onclick = function() {
-            alert("এই ক্লাসের স্লাইড এখনো এড করা হয়নি।");
+            alert("দুঃখিত! এই ক্লাসের স্লাইড এখনো প্রোভাইড করা হয়নি।");
+        };
+    } else if (!video.slide || video.slide === 'LINK_HERE' || video.slide === '#') {
+        slideBtn.href = "javascript:void(0);";
+        slideBtn.onclick = function() {
+            alert("দুঃখিত! এই ক্লাসের স্লাইড এখনো এড করা হয়নি।");
         };
     } else {
         slideBtn.href = video.slide;
