@@ -535,3 +535,69 @@ body.light-mode .sun-moon-container {
 #video-overlay {
     touch-action: manipulation;
 }
+/* --- মোবাইল রেস্পন্সিভ সলিউশন (A-Z) --- */
+
+@media (max-width: 768px) {
+    /* ১. পুরো কন্টেইনারের গ্যাপ ঠিক করা */
+    .container {
+        padding: 10px;
+        width: 100%;
+    }
+
+    /* ২. লোগো এবং উপরের বারটি মোবাইলে সুন্দর করা */
+    nav {
+        padding: 15px 10px;
+        flex-direction: column; /* লোগো উপরে এবং সাবটাইটেল নিচে আনবে */
+        gap: 8px;
+        text-align: center;
+    }
+
+    /* ৩. সার্চ বক্সটি বড় করা যাতে টাইপ করতে সুবিধা হয় */
+    .search-container {
+        width: 100% !important;
+        margin: 15px 0;
+    }
+    #search-box {
+        width: 100% !important;
+        font-size: 0.9rem;
+    }
+
+    /* ৪. ভিডিও প্লেয়ারটি মোবাইলে স্ক্রিনের সাথে ফিট করা */
+    .custom-video-container {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9; /* ভিডিওর রেশিও ঠিক রাখবে */
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+    /* ৫. সাবজেক্ট কার্ড বা গ্রিড লেআউট ঠিক করা */
+    .grid-layout {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+        gap: 12px;
+        padding: 5px;
+    }
+
+    /* ৬. বাটনের সাইজ মোবাইলের আঙ্গুলের মাপ অনুযায়ী ঠিক করা */
+    .action-btn {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    /* ৭. মোডাল বা পপআপ উইন্ডোটি মোবাইলে ফুল স্ক্রিন করা */
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        margin: 10px;
+    }
+}
+
+/* অতি ক্ষুদ্র ফোনের জন্য (যেমন iPhone SE) */
+@media (max-width: 380px) {
+    .grid-layout {
+        grid-template-columns: 1fr 1fr; /* প্রতি লাইনে ২টা করে কার্ড */
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+}
