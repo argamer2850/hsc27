@@ -649,9 +649,14 @@ function updateVolumeUI(vol) {
     if(vol > 0) player.unMute();
     else player.mute();
 }
-// 'F' কিবোর্ড শর্টকাট দিয়ে ফুলস্ক্রিন করার কোড
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'f' || e.key === 'F') {
+    const playerScreen = document.getElementById('player-screen');
+    const isPlayerVisible = playerScreen && !playerScreen.classList.contains('hidden');
+    
+    // যদি ইনপুট বক্সে লিখালিখি হয়, তবে শর্টকাট কাজ করবে না
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+    if (isPlayerVisible && (e.key === 'f' || e.key === 'F')) {
         toggleFullScreen();
     }
 });
