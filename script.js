@@ -114,15 +114,23 @@ document.onkeydown = function(e) {
     };
 
     function navTo(id, pushHistory = true) {
-    // প্রথমে চেক করছি আইডিটি সঠিক কি না
     const element = document.getElementById(id);
-    if (!element) return; // যদি আইডি না পায় তবে কাজ বন্ধ রাখবে
+    if (!element) return;
 
-    ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => 
-        document.getElementById(s).classList.add('hidden'));
+    ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
+        document.getElementById(s).classList.add('hidden');
+    });
     
-    element.classList.remove('hidden'); // সেই নির্দিষ্ট স্ক্রিনটি দেখাবে
-    
+    element.classList.remove('hidden');
+
+    // বাটনটি শুধু subject-screen (হোমপেজ) এ দেখাবে
+    const homeBtn = document.getElementById('home-top-button');
+    if (id === 'subject-screen') {
+        homeBtn.style.display = 'block';
+    } else {
+        homeBtn.style.display = 'none';
+    }
+
     if (pushHistory) {
         window.history.pushState({ screen: id }, "", `#${id}`);
     }
@@ -733,3 +741,142 @@ themeToggle.addEventListener('click', () => {
         localStorage.setItem('theme', 'dark');
     }
 });
+function showUpdateLog() {
+    const listContainer = document.getElementById('full-class-list');
+    listContainer.innerHTML = ''; // আগের লিস্ট ক্লিয়ার করা
+    
+    // ডাটাবেস থেকে সব সাবজেক্ট লুপ করা
+    for (let subject in database) {
+        database[subject].forEach(ch => {
+            ch.mainVideos.forEach(video => {
+                // প্রতিটি ভিডিওর জন্য একটি বক্স তৈরি
+                const updateItem = document.createElement('div');
+                updateItem.className = 'chapter-item';
+                updateItem.style.display = 'flex';
+                updateItem.style.justifyContent = 'space-between';
+                
+                updateItem.innerHTML = `
+                    <div>
+                        <strong style="color: var(--accent);">${subject}</strong> - ${ch.chapter}
+                        <p style="font-size: 0.9rem; margin-top: 5px;">${video.title}</p>
+                    </div>
+                    <button class="action-btn" onclick="playSpecificVideo('${subject}', '${ch.chapter}', '${video.title}')" style="padding: 5px 10px; font-size: 0.75rem;">দেখুন</button>
+                `;
+                listContainer.appendChild(updateItem);
+            });
+        });
+    }
+    navTo('update-list-screen');
+}
+
+// এই ফাংশনটি লিস্ট থেকে সরাসরি ভিডিও প্লে করতে সাহায্য করবে
+function playSpecificVideo(subjectName, chapterName, videoTitle) {
+    const subject = database[subjectName];
+    const ch = subject.find(c => c.chapter === chapterName);
+    const v = ch.mainVideos.find(vid => vid.title === videoTitle);
+    
+    if (v) {
+        openSubject(subjectName);
+        openVideoList(ch);
+        playNow(v);
+    }
+}
+// পপআপ খোলার এবং লিস্ট জেনারেট করার ফাংশন
+function openAllClassesModal() {
+    const modal = document.getElementById('videoListModal');
+    const listBody = document.getElementById('modal-class-list');
+    listBody.innerHTML = '';
+    let totalVideoCount = 0;
+
+    for (const subject in database) {
+        database[subject].forEach(chapterObj => {
+            // মেইন ভিডিও লিস্ট প্রসেসিং
+            chapterObj.mainVideos.forEach(video => {
+                if (video.id !== '#' && video.id !== 'ID_HERE') {
+                    totalVideoCount++;
+                    const item = document.createElement('div');
+                    item.className = 'list-item';
+                    item.innerHTML = `
+                        <div style="flex:1">
+                            <div style="font-size: 0.75rem; color: var(--accent); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
+                            <div style="font-weight: 600; font-size: 0.95rem;">${video.title} (Main)</div>
+                        </div>
+                        <button class="action-btn" onclick="playFromModal('${subject}', '${chapterObj.chapter}', '${video.title}')" style="font-size: 0.8rem; padding: 8px 15px;">Play</button>
+                    `;
+                    listBody.appendChild(item);
+                }
+            });
+
+            // এডিশনাল/অতিরিক্ত ভিডিও লিস্ট প্রসেসিং (যদি থাকে)
+            if (chapterObj.extraVideos) {
+                chapterObj.extraVideos.forEach(video => {
+                    if (video.id !== '#' && video.id !== 'ID_HERE') {
+                        totalVideoCount++;
+                        const item = document.createElement('div');
+                        item.className = 'list-item';
+                        item.style.borderLeft = "4px solid var(--secondary)"; // আলাদা করে চেনার জন্য
+                        item.innerHTML = `
+                            <div style="flex:1">
+                                <div style="font-size: 0.75rem; color: var(--secondary); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
+                                <div style="font-weight: 600; font-size: 0.95rem;">${video.title} (Additional)</div>
+                            </div>
+                            <button class="action-btn" onclick="playFromModal('${subject}', '${chapterObj.chapter}', '${video.title}')" style="font-size: 0.8rem; padding: 8px 15px; background: var(--secondary);">Play</button>
+                        `;
+                        listBody.appendChild(item);
+                    }
+                });
+            }
+        });
+    }
+
+    // পপআপের হেডারে মোট ভিডিও সংখ্যা আপডেট
+    const modalHeader = modal.querySelector('h2');
+    modalHeader.innerHTML = `🎥 ক্লাসের তালিকা (মোট: ${totalVideoCount}টি)`;
+
+    if (totalVideoCount === 0) {
+        listBody.innerHTML = '<p style="text-align:center; padding: 20px; color: #94a3b8;">এখনো কোনো ক্লাস যোগ করা হয়নি।</p>';
+    }
+
+    modal.style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('videoListModal').style.display = 'none';
+}
+
+function playFromModal(subjectName, chapterName, videoTitle) {
+    closeModal();
+    const subject = database[subjectName];
+    const ch = subject.find(c => c.chapter === chapterName);
+    
+    // প্রথমে মেইন ভিডিওর মধ্যে খোঁজা হবে
+    let v = ch.mainVideos.find(vid => vid.title === videoTitle);
+    
+    // যদি মেইন ভিডিওতে না পাওয়া যায়, তবে এডিশনাল (extraVideos) লিস্টে খোঁজা হবে
+    if (!v && ch.extraVideos) {
+        v = ch.extraVideos.find(vid => vid.title === videoTitle);
+    }
+    
+    if (v) {
+        openSubject(subjectName);
+        openVideoList(ch);
+        playNow(v);
+    }
+}
+
+// পপআপের বাইরে ক্লিক করলে বন্ধ হবে
+window.onclick = function(event) {
+    const modal = document.getElementById('videoListModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+// নেভিগেশন চেক: হোম পেজ ছাড়া অন্য কোথাও বাটন দেখাবে না
+function checkHomeButton() {
+    const homeBtn = document.getElementById('home-top-button');
+    // আপনার বিদ্যমান navTo ফাংশনের সাথে এটি কাজ করবে
+    const currentScreen = document.querySelector('.screen[style*="display: block"]');
+    // যদি বর্তমান স্ক্রিন 'subject-screen' না হয় তবে বাটন হাইড থাকবে
+    // যেহেতু আপনি শুরুতে navTo('subject-screen') কল করেন, আমরা সেটা চেক করব
+}
