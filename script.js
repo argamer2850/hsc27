@@ -880,3 +880,31 @@ function checkHomeButton() {
     // যদি বর্তমান স্ক্রিন 'subject-screen' না হয় তবে বাটন হাইড থাকবে
     // যেহেতু আপনি শুরুতে navTo('subject-screen') কল করেন, আমরা সেটা চেক করব
 }
+// --- মোবাইলে ডাবল ট্যাপ করে সামনে-পিছে করার ফিচার --- //
+let lastTap = 0;
+const videoOverlay = document.getElementById('video-overlay');
+
+videoOverlay.addEventListener('touchstart', function (e) {
+    const now = new Date().getTime();
+    const timesince = now - lastTap;
+    
+    // যদি ৩০০ মিলিসেকেন্ডের মধ্যে আবার টাচ হয়, তবে সেটা ডাবল ট্যাপ
+    if (timesince < 300 && timesince > 0) {
+        // স্ক্রিনের প্রস্থ (Width) বের করা
+        const width = videoOverlay.offsetWidth;
+        // যেখানে টাচ করা হয়েছে সেই পজিশন
+        const touchX = e.touches[0].clientX;
+
+        if (touchX < width / 2) {
+            // স্ক্রিনের বাম পাশে ডাবল ট্যাপ করলে ৫ সেকেন্ড পিছিয়ে যাবে
+            player.seekTo(player.getCurrentTime() - 5, true);
+            showSeekMessage(-5);
+        } else {
+            // স্ক্রিনের ডান পাশে ডাবল ট্যাপ করলে ৫ সেকেন্ড এগিয়ে যাবে
+            player.seekTo(player.getCurrentTime() + 5, true);
+            showSeekMessage(5);
+        }
+        e.preventDefault(); // ডাবল ট্যাপে যেন জুম না হয়
+    }
+    lastTap = now;
+});
