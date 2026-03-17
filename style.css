@@ -389,10 +389,20 @@ body.light-mode {
 /* লাইট মোডে সব কার্ড এবং টেক্সট পরিষ্কার করা */
 body.light-mode .card, 
 body.light-mode .list-item,
-body.light-mode nav {
+body.light-mode nav,
+body.light-mode .modal-content {
     background: rgba(255, 255, 255, 0.7) !important;
     border: 1px solid rgba(0, 0, 0, 0.1) !important;
     color: #1a202c !important;
+}
+body.light-mode .modal-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+body.light-mode .modal-item:hover {
+    background: rgba(0, 0, 0, 0.03) !important;
+}
+body.light-mode .modal-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 body.light-mode h1, 
