@@ -2,7 +2,14 @@ const database = {
     'Physics': [
         { 
             chapter: 'ভৌত জগত ও পরিমাপ', 
-            mainVideos: [{ title: 'লেকচার ১', id: '#', slide: 'LINK_HERE' }], 
+            mainVideos: [
+                { title: 'লেকচার ১', id: 'FI7bfl-_WjI', slide: 'https://drive.google.com/file/d/1IElscKBr2j53z6rHPgYd8GxdhS20JnBo/view?usp=sharing', keywords: ['P1stC1C1'] },
+                { title: 'লেকচার ২', id: 'DHvglUn3_v4', slide: 'https://drive.google.com/file/d/1948DCpW2hYjsSZlSx3eKOlbYK3P8hgOT/view?usp=sharing', keywords: ['P1stC1C2'] },
+                { title: 'লেকচার ৩', id: '54FVcAVX7DI', slide: 'https://drive.google.com/file/d/1rvhYFBRt6qBvoOY9lqR49kDU4zVtdy8S/view?usp=sharing', keywords: ['P1stC1C3'] },
+                { title: 'লেকচার ৪', id: 'tmami7tbres', slide: 'https://drive.google.com/file/d/1LgrmV3GA7A9LiphFLoQEVBOSO1XWH6Gd/view?usp=sharing', keywords: ['P1stC1C4'] },
+                { title: 'লেকচার ৫', id: 'mVLsgh9cE48', slide: 'https://drive.google.com/file/d/1lkmVOM43Ae4cD3f9rwvNcXnxZY_iLM1X/view?usp=sharing', keywords: ['P1stC1C5'] },
+                { title: 'লেকচার ৬ (শেষ ক্লাস)', id: 'adAJxhxC0UA', slide: 'https://drive.google.com/file/d/1nly4fA3Cn5msWjj3wDWN0bgge4i_kAof/view?usp=sharing', keywords: ['P1stC1C6'] }
+            ], 
             practiceSheets: ['LINK_HERE'] 
         },
         { 
