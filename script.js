@@ -96,29 +96,43 @@ document.onkeydown = function(e) {
         });
     }
 
-    // চ্যাপ্টার ম্যাটেরিয়ালস (প্র্যাকটিস শিট) লজিক
-    const practiceSheetLink = chObj.practiceSheets[0];
-    const matBtn = document.createElement('a');
-    matBtn.className = 'action-btn btn-sheet';
-    matBtn.innerHTML = `📥 ডাউনলোড প্র্যাকটিস শিট (.pdf)`;
+    // --- চ্যাপ্টার ম্যাটেরিয়ালস (কাস্টম নামসহ একাধিক বাটন) লজিক শুরু ---
+    mContainer.innerHTML = ''; 
 
-    if (practiceSheetLink === 'N/A') {
-        matBtn.href = "javascript:void(0);";
-        matBtn.onclick = function() {
-            alert("দুঃখিত! এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো প্রোভাইড করা হয়নি।");
-        };
-    } else if (!practiceSheetLink || practiceSheetLink === 'LINK_HERE' || practiceSheetLink === '#') {
-        matBtn.href = "javascript:void(0);";
-        matBtn.onclick = function() {
-            alert("দুঃখিত! এই চ্যাপ্টারের প্র্যাকটিস শীট এখনো এড করা হয়নি।");
-        };
-    } else {
-        matBtn.href = practiceSheetLink;
-        matBtn.target = "_blank";
+    if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
+        chObj.practiceSheets.forEach((item) => {
+            // item এখন একটা অবজেক্ট হতে পারে { name: "নাম", link: "লিঙ্ক" }
+            // আবার সরাসরি স্ট্রিং বা লিঙ্কও হতে পারে
+            let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
+            let link = "";
+
+            if (typeof item === 'object') {
+                btnName = `📥 ${item.name}`; // ডাটাবেসে দেওয়া নাম নিবে
+                link = item.link;
+            } else {
+                link = item; // যদি শুধু লিঙ্ক দেন তবে ডিফল্ট নাম থাকবে
+            }
+
+            if (link === 'LINK_HERE' || link === '#' || !link) return;
+
+            const matBtn = document.createElement('a');
+            matBtn.className = 'action-btn btn-sheet';
+            matBtn.innerHTML = btnName;
+            
+            if (link === 'N/A') {
+                matBtn.href = "javascript:void(0);";
+                matBtn.onclick = () => alert("দুঃখিত! এটি এখনো দেওয়া হয়নি।");
+            } else {
+                matBtn.href = link;
+                matBtn.target = "_blank";
+            }
+            
+            matBtn.style.marginBottom = "10px";
+            matBtn.style.display = "block";
+            mContainer.appendChild(matBtn);
+        });
     }
-
-    mContainer.innerHTML = ''; // আগের কন্টেন্ট ক্লিয়ার করা
-    mContainer.appendChild(matBtn);
+    // --- লজিক শেষ ---
     
     navTo('video-list-screen');
 }
@@ -360,21 +374,37 @@ function playNow(video) {
     
     document.getElementById('vid-title').innerText = video.title;
     
-    // স্লাইড বাটন লজিক
-    const slideBtn = document.getElementById('individual-slide');
-    if (video.slide === 'N/A') {
-        slideBtn.href = "javascript:void(0);";
-        slideBtn.onclick = function() {
-            alert("দুঃখিত! এই ক্লাসের স্লাইড এখনো প্রোভাইড করা হয়নি।");
-        };
-    } else if (!video.slide || video.slide === 'LINK_HERE' || video.slide === '#') {
-        slideBtn.href = "javascript:void(0);";
-        slideBtn.onclick = function() {
-            alert("দুঃখিত! এই ক্লাসের স্লাইড এখনো এড করা হয়নি।");
-        };
+    // নতুন স্লাইড বাটন লজিক (একাধিক বাটন সাপোর্ট করবে)
+    const slideContainer = document.getElementById('slide-buttons-container');
+    slideContainer.innerHTML = ''; // আগের বাটন মুছে ফেলা
+
+    if (video.slide && Array.isArray(video.slide)) {
+        // যদি ডাটাবেসে একাধিক স্লাইড থাকে
+        video.slide.forEach(s => {
+            const sBtn = document.createElement('a');
+            sBtn.className = 'action-btn btn-slide';
+            sBtn.style.marginBottom = "10px";
+            sBtn.style.display = "block";
+            sBtn.innerHTML = `📄 ${s.name}`;
+            sBtn.href = s.link;
+            sBtn.target = "_blank";
+            slideContainer.appendChild(sBtn);
+        });
+    } else if (video.slide && video.slide !== 'LINK_HERE' && video.slide !== 'N/A' && video.slide !== '#') {
+        // যদি একটি মাত্র লিঙ্ক (পুরানো নিয়ম) থাকে
+        const sBtn = document.createElement('a');
+        sBtn.className = 'action-btn btn-slide';
+        sBtn.innerHTML = "📄 স্লাইড ডাউনলোড করুন";
+        sBtn.href = video.slide;
+        sBtn.target = "_blank";
+        slideContainer.appendChild(sBtn);
     } else {
-        slideBtn.href = video.slide;
-        slideBtn.onclick = null;
+        // যদি কোনো স্লাইড না থাকে
+        const noSlide = document.createElement('p');
+        noSlide.style.color = "#94a3b8";
+        noSlide.style.fontSize = "0.9rem";
+        noSlide.innerText = "স্লাইড এখনো যুক্ত করা হয়নি।";
+        slideContainer.appendChild(noSlide);
     }
 
     navTo('player-screen');

@@ -1,7 +1,7 @@
 const database = {
     'Physics': [
-        { 
-            chapter: 'ভৌত জগত ও পরিমাপ', 
+        {
+            chapter: 'ভৌত জগত ও পরিমাপ',
             mainVideos: [
                 { title: 'লেকচার ১', id: 'FI7bfl-_WjI', slide: 'https://drive.google.com/file/d/1IElscKBr2j53z6rHPgYd8GxdhS20JnBo/view?usp=sharing', keywords: ['P1stC1C1'] },
                 { title: 'লেকচার ২', id: 'DHvglUn3_v4', slide: 'https://drive.google.com/file/d/1948DCpW2hYjsSZlSx3eKOlbYK3P8hgOT/view?usp=sharing', keywords: ['P1stC1C2'] },
@@ -9,129 +9,133 @@ const database = {
                 { title: 'লেকচার ৪', id: 'tmami7tbres', slide: 'https://drive.google.com/file/d/1LgrmV3GA7A9LiphFLoQEVBOSO1XWH6Gd/view?usp=sharing', keywords: ['P1stC1C4'] },
                 { title: 'লেকচার ৫', id: 'mVLsgh9cE48', slide: 'https://drive.google.com/file/d/1lkmVOM43Ae4cD3f9rwvNcXnxZY_iLM1X/view?usp=sharing', keywords: ['P1stC1C5'] },
                 { title: 'লেকচার ৬ (শেষ ক্লাস)', id: 'adAJxhxC0UA', slide: 'https://drive.google.com/file/d/1nly4fA3Cn5msWjj3wDWN0bgge4i_kAof/view?usp=sharing', keywords: ['P1stC1C6'] }
-            ], 
-            practiceSheets: ['LINK_HERE'] 
+            ],
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1TY6TeiOR-s_zx2ehEZewuAh8U7l9189Y/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ এর সলিউশন", link: "https://drive.google.com/file/d/1OQbeP2eQl72j9uRgEn2zGYN-moCPprXW/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২", link: "https://drive.google.com/file/d/1H5qQdt5cdSK0v97nLjAjdd-mQTWJoj_w/view?usp=sharing" }
+            ]
         },
-        { 
-            chapter: 'ভেক্টর', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ভেক্টর',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'গতিবিদ্যা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'গতিবিদ্যা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'নিউটনীয় বলবিদ্যা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'নিউটনীয় বলবিদ্যা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'কাজ, ক্ষমতা ও শক্তি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কাজ, ক্ষমতা ও শক্তি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মহাকর্ষ ও অভিকর্ষ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মহাকর্ষ ও অভিকর্ষ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'পদার্থের গাঠনিক ধর্ম', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'পদার্থের গাঠনিক ধর্ম',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'পর্যাবৃত্ত গতি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'পর্যাবৃত্ত গতি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'তরঙ্গ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তরঙ্গ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'তাপগতিবিদ্যা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তাপগতিবিদ্যা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'স্থির তড়িৎ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'স্থির তড়িৎ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'চল তড়িৎ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'চল তড়িৎ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'তড়িৎ প্রবাহের চৌম্বক ক্রিয়া ও চুম্বকত্ব', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তড়িৎ প্রবাহের চৌম্বক ক্রিয়া ও চুম্বকত্ব',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'তড়িৎ চৌম্বক আবেশ ও পরিবর্তী প্রবাহ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তড়িৎ চৌম্বক আবেশ ও পরিবর্তী প্রবাহ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জ্যামিতিক আলোকবিজ্ঞান', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জ্যামিতিক আলোকবিজ্ঞান',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ভৌত আলোকবিজ্ঞান', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ভৌত আলোকবিজ্ঞান',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'আধুনিক পদার্থবিজ্ঞানের সূচনা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'আধুনিক পদার্থবিজ্ঞানের সূচনা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'পরমাণুর মডেল এবং নিউক্লিয়ার পদার্থবিজ্ঞান', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'পরমাণুর মডেল এবং নিউক্লিয়ার পদার্থবিজ্ঞান',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'সেমিকন্ডাক্টর ও ইলেক্ট্রনিক্স', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'সেমিকন্ডাক্টর ও ইলেক্ট্রনিক্স',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জ্যোতির্বিজ্ঞান', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জ্যোতির্বিজ্ঞান',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'Chemistry': [
-        { 
-            chapter: 'ল্যাবরেটরির নিরাপদ ব্যবহার', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ল্যাবরেটরির নিরাপদ ব্যবহার',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'গুণগত রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'গুণগত রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'রাসায়নিক পরিবর্তন', 
+        {
+            chapter: 'রাসায়নিক পরিবর্তন',
             mainVideos: [
                 { title: 'লেকচার ১', id: 'g2zsPta9UMA', slide: 'https://drive.google.com/file/d/1WCaIupiPIEwKpLVVOxkF6TCPXV6_4iro/view?usp=sharing', keywords: ['C1stC4C1'] },
                 { title: 'লেকচার ২', id: 'KAm2N3GU8qg', slide: 'https://drive.google.com/file/d/143C1fB0Pu3pYWJl-4ZrLUKS5mz96fKOU/view?usp=sharing' },
@@ -156,326 +160,331 @@ const database = {
             ],
             practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'কর্মমুখী রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কর্মমুখী রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'পরিবেশ রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'পরিবেশ রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জৈব রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জৈব রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'পরিমাণগত রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'পরিমাণগত রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'তড়িৎ রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তড়িৎ রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'অর্থনৈতিক রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'অর্থনৈতিক রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'Higher Math': [
-        { 
-            chapter: 'ম্যাট্রিক্স ও নির্ণায়ক', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'Jk7f_Ih4I90', slide: 'https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ম্যাট্রিক্স ও নির্ণায়ক',
+            mainVideos: [{ title: 'লেকচার ১', id: 'Jk7f_Ih4I90', slide: 'https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ভেক্টর', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ভেক্টর',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'সরলরেখা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'সরলরেখা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বৃত্ত', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বৃত্ত',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বিন্যাস ও সমাবেশ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বিন্যাস ও সমাবেশ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ত্রিকোণমিতিক অনুপাত', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ত্রিকোণমিতিক অনুপাত',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'সংযুক্ত কোণের ত্রিকোণমিতিক অনুপাত',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ফাংশন ও ফাংশনের লেখচিত্র', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ফাংশন ও ফাংশনের লেখচিত্র',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'অন্তরীকরণ', 
+        {
+            chapter: 'অন্তরীকরণ',
             mainVideos: [
-                { title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }, 
+                { title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' },
                 { title: 'লেকচার ২', id: 'ID_HERE', slide: 'https://drive.google.com/file/d/1mqA5_U4fsvUHKxsw9P4zPgF4n-A5FNrV/view?usp=sharing' }
-            ], 
-            practiceSheets: ['LINK_HERE'] 
+            ],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'যোগজীকরণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'যোগজীকরণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বাস্তব সংখ্যা ও অসমতা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বাস্তব সংখ্যা ও অসমতা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'যোগাশ্রয়ী প্রোগ্রাম', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'যোগাশ্রয়ী প্রোগ্রাম',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জটিল সংখ্যা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জটিল সংখ্যা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বহুপদী ও বহুপদী সমীকরণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বহুপদী ও বহুপদী সমীকরণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'দ্বিপদী বিস্তৃতি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'দ্বিপদী বিস্তৃতি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'কনিক', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কনিক',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বিপরীত ত্রিকোণমিতিক ফাংশন ও ত্রিকোণমিতিক সমীকরণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'স্থিতিবিদ্যা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'স্থিতিবিদ্যা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'সমতলে বস্তুকণার গতি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'সমতলে বস্তুকণার গতি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'বিস্তার পরিমাপ ও সম্ভাবনা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'বিস্তার পরিমাপ ও সম্ভাবনা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'Biology': [
-        { 
-            chapter: 'কোষ ও এর গঠন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'N/A' }], 
-            practiceSheets: ['N/A'] 
+        {
+            chapter: 'কোষ ও এর গঠন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'N/A' }],
+            practiceSheets: ['N/A']
         },
-        { 
-            chapter: 'কোষ বিভাজন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কোষ বিভাজন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'কোষ রসায়ন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কোষ রসায়ন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'অণুজীব', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'অণুজীব',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'শৈবাল ও ছত্রাক', 
+        {
+            chapter: 'শৈবাল ও ছত্রাক',
             mainVideos: [
-                { title: 'লেকচার ১', id: '4u3AND4epSU', slide: 'https://drive.google.com/file/d/1zOdoLT-z1wsJUhGaqhkEAbphk4F04Alv/view?usp=sharing' }, 
+                {
+                    title: 'লেকচার ১', id: '4u3AND4epSU', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1zOdoLT-z1wsJUhGaqhkEAbphk4F04Alv/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1Qs6lnCbgjOWwVE536CmW6pqWufMkSw27/view?usp=sharing" }
+                    ]
+                },
                 { title: 'লেকচার ২', id: 'INv8OUEpGQU', slide: 'https://drive.google.com/file/d/1dVOJ2hj1EDuJaSNn5s4_bR0683XhFUj9/view?usp=sharing' }
-            ], 
-            practiceSheets: ['LINK_HERE'] 
+            ],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ব্রায়োফাইটা ও টেরিডোফাইটা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ব্রায়োফাইটা ও টেরিডোফাইটা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'নগ্নবীজী ও আবৃতবীজী উদ্ভিদ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'নগ্নবীজী ও আবৃতবীজী উদ্ভিদ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'টিস্যু ও টিস্যুতন্ত্র', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'টিস্যু ও টিস্যুতন্ত্র',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'উদ্ভিদ শারীরতত্ত্ব', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'উদ্ভিদ শারীরতত্ত্ব',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'উদ্ভিদ প্রজনন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'উদ্ভিদ প্রজনন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জীবপ্রযুক্তি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জীবপ্রযুক্তি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জীবের পরিবেশ, বিস্তার ও সংরক্ষণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জীবের পরিবেশ, বিস্তার ও সংরক্ষণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'প্রাণীর পরিচিতি', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'প্রাণীর পরিচিতি',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - পরিপাক ও শোষণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - পরিপাক ও শোষণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - রক্ত ও সঞ্চালন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - রক্ত ও সঞ্চালন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - শ্বসন ও শ্বাসক্রিয়া', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - শ্বসন ও শ্বাসক্রিয়া',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - বর্জ্য ও নিষ্কাশন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - বর্জ্য ও নিষ্কাশন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - চলন ও অঙ্গচালনা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - চলন ও অঙ্গচালনা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব শারীরতত্ত্ব - সমন্বয় ও নিয়ন্ত্রণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব শারীরতত্ত্ব - সমন্বয় ও নিয়ন্ত্রণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানব জীবনের ধারাবাহিকতা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানব জীবনের ধারাবাহিকতা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'মানবদেহের প্রতিরক্ষা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'মানবদেহের প্রতিরক্ষা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'জিনতত্ত্ব ও বিবর্তন', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'জিনতত্ত্ব ও বিবর্তন',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'প্রাণীর আচরণ', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'প্রাণীর আচরণ',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'English': [
-        { 
-            chapter: 'English 1st Paper', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'English 1st Paper',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'English 2nd Paper', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'English 2nd Paper',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'Bangla': [
-        { 
-            chapter: 'Bangla 1st Paper', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'Bangla 1st Paper',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'Bangla 2nd Paper', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'Bangla 2nd Paper',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ],
 
     'ICT': [
-        { 
-            chapter: 'তথ্য ও যোগাযোগ প্রযুক্তি - বিশ্ব ও বাংলাদেশ প্রেক্ষিত', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'তথ্য ও যোগাযোগ প্রযুক্তি - বিশ্ব ও বাংলাদেশ প্রেক্ষিত',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'কমিউনিকেশন সিস্টেমস ও নেটওয়ার্কিং', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'কমিউনিকেশন সিস্টেমস ও নেটওয়ার্কিং',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ওয়েব ডিজাইন পরিচিতি ও HTML', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ওয়েব ডিজাইন পরিচিতি ও HTML',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'প্রোগ্রামিং ভাষা', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'প্রোগ্রামিং ভাষা',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         },
-        { 
-            chapter: 'ডেটাবেজ ম্যানেজমেন্ট সিস্টেম', 
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }], 
-            practiceSheets: ['LINK_HERE'] 
+        {
+            chapter: 'ডেটাবেজ ম্যানেজমেন্ট সিস্টেম',
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            practiceSheets: ['LINK_HERE']
         }
     ]
 };
