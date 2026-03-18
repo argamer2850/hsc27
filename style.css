@@ -642,9 +642,9 @@ body.light-mode #duration {
     /* অতিরিক্ত সতর্কতা: কিছু ব্রাউজারে ভিডিওর বাড়তি ব্লার দূর করতে */
     -webkit-font-smoothing: antialiased;
 }
-/* .custom-video-container iframe.no-filter {
+.custom-video-container iframe.no-filter {
     filter: none !important;
     -webkit-filter: none !important;
     image-rendering: auto !important;
     transform: none !important;
-} */
+}
