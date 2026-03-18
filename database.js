@@ -194,12 +194,12 @@ const database = {
             practiceSheets: ['LINK_HERE']
         },
         {
-            chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন',
+            chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
             practiceSheets: ['LINK_HERE']
         },
         {
-            chapter: 'রাসায়নিক পরিবর্তন',
+            chapter: 'রাসায়নিক পরিবর্তন',
             mainVideos: [
                 { title: 'লেকচার ১', id: 'g2zsPta9UMA', slide: 'https://drive.google.com/file/d/1WCaIupiPIEwKpLVVOxkF6TCPXV6_4iro/view?usp=sharing', keywords: ['C1stC4C1'] },
                 { title: 'লেকচার ২', id: 'KAm2N3GU8qg', slide: 'https://drive.google.com/file/d/143C1fB0Pu3pYWJl-4ZrLUKS5mz96fKOU/view?usp=sharing', keywords: ['C1stC4C2'] },
