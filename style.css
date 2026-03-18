@@ -615,13 +615,36 @@ body.light-mode #duration {
 }
 
 .custom-video-container iframe {
-    
+    /* Brightness & Contrast - অধিকাংশ আধুনিক ব্রাউজারে চলে */
+    -webkit-filter: brightness(1.04) contrast(1.10) !important;
     filter: brightness(1.04) contrast(1.10) !important;
-    transition: none !important; 
-    image-rendering: -webkit-optimize-contrast !important; 
-    image-rendering: crisp-edges !important;
 
+    /* Transition - ট্রানজিশন বন্ধ রাখার জন্য */
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+
+    /* Image Rendering - শার্পনেস নিশ্চিত করার মূল অংশ */
+    image-rendering: -webkit-optimize-contrast !important; /* Safari-র জন্য */
+    image-rendering: -moz-crisp-edges !important;          /* পুরনো Firefox-এর জন্য */
+    image-rendering: crisp-edges !important;               /* স্ট্যান্ডার্ড */
+    image-rendering: pixelated !important;                 /* Chrome/Edge/Opera-র জন্য */
+
+    /* Hardware Acceleration - ফ্লিকারিং রোধ এবং স্মুথনেসের জন্য */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
     
-    backface-visibility: hidden !important; 
+    -webkit-transform: translateZ(0) !important;
+    -moz-transform: translateZ(0) !important;
     transform: translateZ(0) !important;
+
+    /* অতিরিক্ত সতর্কতা: কিছু ব্রাউজারে ভিডিওর বাড়তি ব্লার দূর করতে */
+    -webkit-font-smoothing: antialiased;
 }
+/* .custom-video-container iframe.no-filter {
+    filter: none !important;
+    -webkit-filter: none !important;
+    image-rendering: auto !important;
+    transform: none !important;
+} */
