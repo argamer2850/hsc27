@@ -616,7 +616,7 @@ body.light-mode #duration {
 
 .custom-video-container iframe {
     
-    filter: brightness(1.04) contrast(1.10) saturate(1.15) sepia(0.02) !important;
+    filter: brightness(1.04) contrast(1.10) !important;
     transition: none !important; 
     image-rendering: -webkit-optimize-contrast !important; 
     image-rendering: crisp-edges !important;
