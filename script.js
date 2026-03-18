@@ -356,62 +356,83 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
    let shouldAutoFullscreen = false; // এটি গ্লোবাল ডিক্লেয়ার করুন
 
 function playNow(video) {
-    const defaultVideoId = 'eztiE0DHtr0'; 
-    let finalId = (video.id === 'ID_HERE' || !video.id || video.id === '#') ? defaultVideoId : video.id;
+    const defaultVideoId = 'eztiE0DHtr0';
+    const videoContainer = document.querySelector('.custom-video-container');
+    const linkContainer = document.getElementById('external-link-container');
+    const linkBtn = document.getElementById('external-link-btn');
+    const vidTitle = document.getElementById('vid-title');
 
-    // --- নতুন অংশ: সেভ করা টাইম খুঁজে বের করা ---
-    const savedTime = localStorage.getItem('resume_' + finalId);
-    const startAt = savedTime ? parseFloat(savedTime) : 0;
-    // ------------------------------------------
+    // টাইটেল সেট করা
+    vidTitle.innerText = video.title;
 
-    if(player && player.loadVideoById) {
-        player.loadVideoById({ 
-            'videoId': finalId, 
-            'suggestedQuality': 'hd1080',
-            'startSeconds': startAt // আগের দেখা অংশ থেকে শুরু হবে
-        });
+    // ১. চেক করা হচ্ছে এটা কি ইউটিউব ভিডিও নাকি এক্সটারনাল লিঙ্ক
+    const isExternalLink = !video.id || video.id === 'LINK' || video.id === 'ID_HERE' || video.id === '#';
+
+    if (isExternalLink) {
+        // ভিডিও প্লেয়ার লুকিয়ে ফেলবে এবং লিঙ্ক বাটন দেখাবে
+        if (videoContainer) videoContainer.style.display = 'none';
+        if (linkContainer) {
+            linkContainer.style.display = 'block';
+            linkBtn.href = video.link || '#'; // database থেকে লিঙ্ক নিবে
+        }
+    } else {
+        // ভিডিও প্লেয়ার দেখাবে এবং বাটন লুকিয়ে ফেলবে
+        if (videoContainer) videoContainer.style.display = 'block';
+        if (linkContainer) linkContainer.style.display = 'none';
+
+        // ২. ইউটিউব ভিডিও আইডি এবং টাইম হ্যান্ডলিং
+        let finalId = video.id || defaultVideoId;
+        const savedTime = localStorage.getItem('resume_' + finalId);
+        const startAt = savedTime ? parseFloat(savedTime) : 0;
+
+        if (player && player.loadVideoById) {
+            player.loadVideoById({ 
+                'videoId': finalId, 
+                'suggestedQuality': 'hd1080',
+                'startSeconds': startAt 
+            });
+        }
+        
+        // ফুলস্ক্রিন লজিক (যদি থাকে)
+        if (typeof targetVideoId !== 'undefined' && finalId === targetVideoId) {
+            setTimeout(toggleFullScreen, 500);
+        }
     }
     
-    document.getElementById('vid-title').innerText = video.title;
-    
-    // নতুন স্লাইড বাটন লজিক (একাধিক বাটন সাপোর্ট করবে)
+    // ৩. স্লাইড বাটন লজিক (আপনার আগের কোডটি এখানে রাখা হয়েছে)
     const slideContainer = document.getElementById('slide-buttons-container');
-    slideContainer.innerHTML = ''; // আগের বাটন মুছে ফেলা
+    if (slideContainer) {
+        slideContainer.innerHTML = ''; // আগের বাutton মুছে ফেলা
 
-    if (video.slide && Array.isArray(video.slide)) {
-        // যদি ডাটাবেসে একাধিক স্লাইড থাকে
-        video.slide.forEach(s => {
+        if (video.slide && Array.isArray(video.slide)) {
+            video.slide.forEach(s => {
+                const sBtn = document.createElement('a');
+                sBtn.className = 'action-btn btn-slide';
+                sBtn.style.marginBottom = "10px";
+                sBtn.style.display = "block";
+                sBtn.innerHTML = `📄 ${s.name}`;
+                sBtn.href = s.link;
+                sBtn.target = "_blank";
+                slideContainer.appendChild(sBtn);
+            });
+        } else if (video.slide && video.slide !== 'LINK_HERE' && video.slide !== 'N/A' && video.slide !== '#') {
             const sBtn = document.createElement('a');
             sBtn.className = 'action-btn btn-slide';
-            sBtn.style.marginBottom = "10px";
-            sBtn.style.display = "block";
-            sBtn.innerHTML = `📄 ${s.name}`;
-            sBtn.href = s.link;
+            sBtn.innerHTML = "📄 স্লাইড ডাউনলোড করুন";
+            sBtn.href = video.slide;
             sBtn.target = "_blank";
             slideContainer.appendChild(sBtn);
-        });
-    } else if (video.slide && video.slide !== 'LINK_HERE' && video.slide !== 'N/A' && video.slide !== '#') {
-        // যদি একটি মাত্র লিঙ্ক (পুরানো নিয়ম) থাকে
-        const sBtn = document.createElement('a');
-        sBtn.className = 'action-btn btn-slide';
-        sBtn.innerHTML = "📄 স্লাইড ডাউনলোড করুন";
-        sBtn.href = video.slide;
-        sBtn.target = "_blank";
-        slideContainer.appendChild(sBtn);
-    } else {
-        // যদি কোনো স্লাইড না থাকে
-        const noSlide = document.createElement('p');
-        noSlide.style.color = "#94a3b8";
-        noSlide.style.fontSize = "0.9rem";
-        noSlide.innerText = "স্লাইড এখনো যুক্ত করা হয়নি।";
-        slideContainer.appendChild(noSlide);
+        } else {
+            const noSlide = document.createElement('p');
+            noSlide.style.color = "#94a3b8";
+            noSlide.style.fontSize = "0.9rem";
+            noSlide.innerText = "স্লাইড এখনো যুক্ত করা হয়নি।";
+            slideContainer.appendChild(noSlide);
+        }
     }
 
+    // ৪. স্ক্রিন চেঞ্জ করা
     navTo('player-screen');
-
-    if (finalId === targetVideoId) {
-        setTimeout(toggleFullScreen, 500);
-    }
 }
     // কন্ট্রোল অটো-হাইড লজিক
 // কন্ট্রোল অটো-হাইড লজিক
