@@ -42,8 +42,68 @@ const database = {
         },
         {
             chapter: 'মহাকর্ষ ও অভিকর্ষ',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+                {
+                    title: 'লেকচার ১', id: 'iGdTg3XOpMM', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1lXnM43YebOS7kD5yTgSYWhWI-4dzd7hn/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1Wom_rRStVk9sv0fcq21S5bh_-AaSY73S/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1XGRdnS5pd-cUYhMKPozgtMmSJR73cbAB/view?usp=sharing" }
+                    ], keywords: ['P1stC6C1']
+                },
+                {
+                    title: 'লেকচার ২', id: '7jIZKPbdPuI', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1E6qBkvq012cU9vlrDcn2SdCyeS-QNHYX/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1yKxP3T9FFBmOv0GVn8scuGe_2OjZFtpi/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1F1WU-gZTyKQEodTau18huFIuHmeWUubc/view?usp=sharing" }
+                    ], keywords: ['P1stC6C2']
+                },
+                {
+                    title: 'লেকচার ৩', id: 'ebUlVgdjjr8', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1Lt-FxHDn7yq6Ce7hVpFgAVBwS6TwRpI6/view?usp=sharing" }
+                    ], keywords: ['P1stC6C3']
+                },
+                {
+                    title: 'লেকচার ৪', id: 'K-LrMBZ2BfI', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/17ygHLv6XuJmrBBWu34_pIYBirCbBeL35/view?usp=sharing" }
+                    ], keywords: ['P1stC6C4']
+                },
+                {
+                    title: 'লেকচার ৫', id: 'aFTPeFkPrdE', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1ruFoPJri-cx_6KskUx5X5-oLyCr2oqgk/view?usp=sharing" }
+                    ], keywords: ['P1stC6C5']
+                },
+                {
+                    title: 'লেকচার ৬', id: 'PVPvjp3QX70', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1GM5hrmap9h9uqLnEqokCpW-HQ7YvrmgW/view?usp=sharing" }
+                    ], keywords: ['P1stC6C6']
+                },
+                {
+                    title: 'লেকচার ৭', id: 'dXzkVjIhv6s', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1sVKZjDbIfSjcMQG3yclSUyip7701VI2I/view?usp=sharing" }
+                    ], keywords: ['P1stC6C7']
+                },
+                {
+                    title: 'লেকচার ৮', id: 'w2PRT9Lki4M', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/16E5Dma36z2Nq3yz4cLkCCuP8YUIkNi7-/view?usp=sharing" }
+                    ], keywords: ['P1stC6C8']
+                },
+                {
+                    title: 'লেকচার ৯', id: 'zBeTUN5RO20', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/19y06TSHuo5hjqj6ZbUWk4nJs1MdgxOku/view?usp=sharing" }
+                    ], keywords: ['P1stC6C9']
+                },
+                {
+                    title: 'লেকচার ১০', id: '7lFkeWvHcK8', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1mSjlpBIcQLxlDxY8aN0l5YbQ60EA9di-/view?usp=sharing" }
+                    ], keywords: ['P1stC6C10']
+                },
+                {
+                    title: 'লেকচার ১১', id: 'qCfY5qj-OjY', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/187oK_XE_GnWfD5rcSksoF7T_FL5FSgmm/view?usp=sharing" }
+                    ], keywords: ['P1stC6C11']
+                }
+            ],
+            practiceSheets: [            ]
         },
         {
             chapter: 'পদার্থের গাঠনিক ধর্ম',
@@ -318,8 +378,149 @@ const database = {
     'Biology': [
         {
             chapter: 'কোষ ও এর গঠন',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'N/A' }],
-            practiceSheets: ['N/A']
+            mainVideos: [
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                },
+                {
+                    title: 'লেকচার ১', id: 'RsRkG_AXl4k', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1cKhvUGCWG8fHpg84anF_JIP2ULgXsREj/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eSvjLgqB2hAK81uUHjpXD-3UsVVc_f8o/view?usp=sharing" },
+                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XAI-57wsoIuT5jePdYGe2daEXZQKs8k7/view?usp=sharing" }
+                    ], keywords: ['B1stC1C1']
+                }
+            ],
+            practiceSheets: [            ]
         },
         {
             chapter: 'কোষ বিভাজন',
