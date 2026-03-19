@@ -708,3 +708,13 @@ body.light-mode #duration {
 #video-container:fullscreen video {
     border-radius: 0 !important;
 }
+/* লাইট মোডে মোডাল সার্চ আইকন সাদা করার জন্য */
+body.light-mode .modal-content svg {
+    stroke: #ffffff !important;
+}
+
+/* সার্চ আইকনটি যদি ফিল করা থাকে তবে নিচেরটি ব্যবহার করুন */
+body.light-mode .modal-content svg circle,
+body.light-mode .modal-content svg line {
+    stroke: #ffffff !important;
+}
