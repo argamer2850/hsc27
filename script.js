@@ -1,3 +1,36 @@
+// আইপি অনুযায়ী মেসেজের তালিকা
+const ipMessages = {
+    "103.144.49.109": "ওয়েলকাম, মিস্টার সাইলেন্ট কিলার! 😎",
+    "103.133.201.168": "ওয়েলকাম! তলে তলে টেম্পু কম চালাও ভায়া! 🫡",
+    "116.206.255.42": "ওয়েলকাম! তলে তলে টেম্পু কম চালাও ভায়া! 👌",
+    "59.152.5.164" : "অসংখ্য ধন্যবাদ তোমাকে! প্লিজ পড়ালেখাটা বন্ধ কইরো না 😔🥺",
+};
+
+async function showCustomMessage() {
+    try {
+        // ইউজারের আইপি খুঁজে বের করা
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const userIP = data.ip;
+
+        const banner = document.getElementById('custom-ip-banner');
+        const messageText = document.getElementById('ip-message-text');
+
+        // যদি ইউজারের আইপি আমাদের তালিকায় থাকে তবেই শুধু ব্যানার দেখাবে
+        if (ipMessages[userIP]) {
+            messageText.innerText = ipMessages[userIP];
+            banner.style.display = 'block';
+        } 
+        // আইপি লিস্টে না থাকলে অটোমেটিক কিছুই দেখাবে না (কারণ HTML এ display: none করা আছে)
+        
+    } catch (error) {
+        // কনসোলে এরর দেখালে ইউজার বুঝবে না, তাই সাইলেন্ট রাখা ভালো
+        console.log("Connection issue.");
+    }
+}
+
+// পেজ লোড হলে রান হবে
+window.addEventListener('DOMContentLoaded', showCustomMessage);
 // রাইট ক্লিক বন্ধ করা
 document.addEventListener('contextmenu', event => event.preventDefault());
 
