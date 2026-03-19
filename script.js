@@ -1,9 +1,10 @@
 // রাইট ক্লিক বন্ধ করা
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-// কিবোর্ড শর্টকাট বন্ধ করা (F12, Ctrl+Shift+I, Ctrl+U)
+// কিবোর্ড শর্টকাট বন্ধ করা
 document.onkeydown = function(e) {
-  if(event.keyCode == 123) return false; // F12
+  // event.keyCode এর বদলে e.keyCode ব্যবহার করুন
+  if(e.keyCode == 123) return false; // F12
   if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
   if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
   if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
@@ -14,6 +15,7 @@ document.onkeydown = function(e) {
     function navTo(id, pushHistory = true) {
     const element = document.getElementById(id);
     if (!element) return;
+    isPlayerFocused = false;
 
     ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
         document.getElementById(s).classList.add('hidden');
@@ -163,15 +165,19 @@ let showRemaining = false;
         });
     }
 function onPlayerReady(event) {
-    // Overlay Click = Play/Pause (শুধুমাত্র পিসির জন্য)
-    document.getElementById('video-overlay').addEventListener('click', (e) => {
-        // এখানে চেক করা হচ্ছে ইউজার পিসি ব্যবহার করছে কি না
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        
-        if(!isMobile && !isDragging) {
-            togglePlay();
-        }
-    });
+    // Overlay Click = Play/Pause Logic
+document.getElementById('video-overlay').addEventListener('click', (e) => {
+    // ১. চেক করা হচ্ছে ইউজার কি মোবাইল ব্যবহার করছে?
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    // ২. যদি মোবাইল হয়, তবে ক্লিক লজিক এখানেই থামিয়ে দাও (রিটার্ন করো)
+    if (isMobile) return;
+
+    // ৩. যদি পিসি হয় এবং ইউজার স্লাইডার নিয়ে টানাটানি না করে, তবেই প্লে/পজ হবে
+    if (!isDragging) {
+        togglePlay();
+    }
+});
     
     // Play/Pause Button
     document.getElementById('play-pause-btn').addEventListener('click', togglePlay);
@@ -394,9 +400,10 @@ function playNow(video) {
         }
         
         // ফুলস্ক্রিন লজিক (যদি থাকে)
-        if (typeof targetVideoId !== 'undefined' && finalId === targetVideoId) {
-            setTimeout(toggleFullScreen, 500);
-        }
+        if (shouldAutoFullscreen) {
+    setTimeout(toggleFullScreen, 500);
+    shouldAutoFullscreen = false; 
+}
     }
     
     // ৩. স্লাইড বাটন লজিক (আপনার আগের কোডটি এখানে রাখা হয়েছে)
@@ -519,19 +526,7 @@ window.addEventListener('popstate', (event) => {
         navTo('subject-screen', false);
     }
 });
-// স্পেস বাটন দিয়ে ভিডিও প্লে/পজ করার সংশোধিত কোড
-document.addEventListener('keydown', (event) => {
-    // চেক করা হচ্ছে কার্সার কি কোনো ইনপুট বক্স বা টেক্সট এরিয়াতে আছে কি না
-    if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
-        return; // ইনপুট বক্সে থাকলে এই ফাংশনটি আর কাজ করবে না (স্পেস লেখা যাবে)
-    }
 
-    // যদি বাটনটি স্পেস হয় এবং কার্সার ইনপুট বক্সে না থাকে
-    if (event.code === 'Space') {
-        event.preventDefault(); // পেজ যেন নিচে স্ক্রল না হয়
-        togglePlay();           
-    }
-});
 // --- Updated Seek Logic --- //
 let seekAccumulator = 0; 
 let seekTimeout;
@@ -555,17 +550,7 @@ function showSeekMessage(seconds) {
     }, 2000);
 }
 
-// কিবোর্ড ইভেন্ট লিসেনার
-document.addEventListener('keydown', (e) => {
-    if (!player) return;
-    if (e.code === 'ArrowRight') {
-        player.seekTo(player.getCurrentTime() + 5, true);
-        showSeekMessage(5);
-    } else if (e.code === 'ArrowLeft') {
-        player.seekTo(player.getCurrentTime() - 5, true);
-        showSeekMessage(-5);
-    }
-});
+
 
 // মোবাইল বাটন ইভেন্ট লিসেনার
 document.getElementById('rewind-btn').addEventListener('click', () => {
@@ -578,24 +563,21 @@ document.getElementById('forward-btn').addEventListener('click', () => {
     showSeekMessage(5);
 });
 // কিবোর্ড আপ এরো / ডাউন এরো দিয়ে ভলিউম নিয়ন্ত্রণের কোড
-document.addEventListener('keydown', (e) => {
-    if (!player) return;
-    
-    // বর্তমান ভলিউম নেওয়া
-    let currentVol = player.getVolume();
-    
-    if (e.code === 'ArrowUp') {
-        e.preventDefault(); // পেজ স্ক্রল হওয়া বন্ধ করবে
-        let newVol = Math.min(currentVol + 5, 100); // ১০০ এর বেশি হবে না
-        player.setVolume(newVol);
-        updateVolumeUI(newVol); // UI আপডেট করবে
-    } else if (e.code === 'ArrowDown') {
-        e.preventDefault();
-        let newVol = Math.max(currentVol - 5, 0); // ০ এর নিচে নামবে না
-        player.setVolume(newVol);
-        updateVolumeUI(newVol);
-    }
+// ১. প্লেয়ার ফোকাস ট্র্যাক করার জন্য একটি ভেরিয়েবল
+let isPlayerFocused = false;
+
+// ২. ভিডিও কন্টেইনারে ক্লিক করলে ফোকাস সেট করা
+document.getElementById('video-container').addEventListener('click', (e) => {
+    isPlayerFocused = true;
+    e.stopPropagation(); // ক্লিকটি যেন বাইরের এলিমেন্টে না যায়
 });
+
+// ৩. প্লেয়ারের বাইরে কোথাও ক্লিক করলে ফোকাস সরিয়ে দেওয়া
+document.addEventListener('click', () => {
+    isPlayerFocused = false;
+});
+
+
 
 // ভলিউম স্লাইডার এবং ডিসপ্লে আপডেট করার জন্য একটি ছোট ফাংশন
 function updateVolumeUI(vol) {
@@ -609,14 +591,49 @@ function updateVolumeUI(vol) {
     else player.mute();
 }
 document.addEventListener('keydown', (e) => {
+    // ১. ইনপুট বক্সে থাকলে শর্টকাট কাজ করবে না
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (!player) return;
+
+    // ২. প্লেয়ার স্ক্রিন ভিজিবল কি না চেক
     const playerScreen = document.getElementById('player-screen');
     const isPlayerVisible = playerScreen && !playerScreen.classList.contains('hidden');
-    
-    // যদি ইনপুট বক্সে লিখালিখি হয়, তবে শর্টকাট কাজ করবে না
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (!isPlayerVisible) return;
 
-    if (isPlayerVisible && (e.key === 'f' || e.key === 'F')) {
-        toggleFullScreen();
+    switch(e.code) {
+        case 'Space':
+            e.preventDefault();
+            togglePlay();
+            break;
+        case 'ArrowRight':
+            player.seekTo(player.getCurrentTime() + 5, true);
+            showSeekMessage(5);
+            break;
+        case 'ArrowLeft':
+            player.seekTo(player.getCurrentTime() - 5, true);
+            showSeekMessage(-5);
+            break;
+        case 'ArrowUp':
+            if (isPlayerFocused) {
+                e.preventDefault();
+                let vUp = Math.min(player.getVolume() + 5, 100);
+                player.setVolume(vUp);
+                updateVolumeUI(vUp);
+                showVolumeStatus(vUp);
+            }
+            break;
+        case 'ArrowDown':
+            if (isPlayerFocused) {
+                e.preventDefault();
+                let vDown = Math.max(player.getVolume() - 5, 0);
+                player.setVolume(vDown);
+                updateVolumeUI(vDown);
+                showVolumeStatus(vDown);
+            }
+            break;
+        case 'KeyF':
+            toggleFullScreen();
+            break;
     }
 });
 // ট্যাব পরিবর্তন বা অন্য উইন্ডোতে (App) গেলে ভিডিও অটো পজ করার কোড
@@ -662,29 +679,20 @@ function handleSearch() {
     let query = document.getElementById('search-box').value.toLowerCase().trim();
     if (!query) return;
 
-    let found = false;
     for (let subject in database) {
         let chapters = database[subject];
         for (let ch of chapters) {
-            // মেইন ভিডিওগুলো চেক করা
             for (let v of ch.mainVideos) {
                 if (v.keywords && v.keywords.some(k => k.toLowerCase() === query)) {
-                    // প্রথমে সাবজেক্ট এবং চ্যাপ্টার লিস্ট পেজটা হিস্ট্রিতে পুশ করি
                     openSubject(subject); 
                     openVideoList(ch);
-                    
-                    // এবার ভিডিও প্লে করি
                     playNow(v);
-                    found = true;
-                    break;
+                    return; // ভিডিও পাওয়া গেলে ফাংশন এখানেই শেষ
                 }
             }
         }
     }
-
-    if (!found) {
-        alert("দুঃখিত, এই কি-ওয়ার্ডের কোনো ভিডিও পাওয়া যায়নি।");
-    }
+    alert("দুঃখিত, এই কি-ওয়ার্ডের কোনো ভিডিও পাওয়া যায়নি।");
 }
 // রিলোড দিলে সবসময় হোম পেজে (subject-screen) ফিরিয়ে নেওয়ার কোড
 window.onload = function() {
@@ -955,23 +963,3 @@ function showVolumeStatus(vol) {
     }, 1000); // ১ সেকেন্ড পর চলে যাবে
 }
 
-document.addEventListener('keydown', (event) => {
-    if (!player) return;
-
-    let currentVolume = player.getVolume();
-
-    if (event.key === "ArrowUp") {
-        event.preventDefault(); // পেজ স্ক্রল হওয়া বন্ধ করবে
-        let newVol = Math.min(currentVolume + 5, 100);
-        player.setVolume(newVol);
-        document.getElementById('volume-slider').value = newVol;
-        showVolumeStatus(newVol);
-    } 
-    else if (event.key === "ArrowDown") {
-        event.preventDefault();
-        let newVol = Math.max(currentVolume - 5, 0);
-        player.setVolume(newVol);
-        document.getElementById('volume-slider').value = newVol;
-        showVolumeStatus(newVol);
-    }
-});
