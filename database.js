@@ -35,7 +35,7 @@ const database = {
     },
     { title: 'লেকচার ২', id: 'KhnodvdLH0M', slide: 'https://drive.google.com/file/d/1YM7cLJQ5PLcMTcJf56Df5Hl-KuRV-75N/view?usp=sharing', keywords: ['P1stC2C2'] },
     { title: 'লেকচার ৩', id: 'g-9DBNYUwQo', slide: 'https://drive.google.com/file/d/1zkzkUQAawFGxw5wffEN5go4rE6sUHhRZ/view?usp=sharing', keywords: ['P1stC2C3'] },
-    { title: 'লেকচার ৪', id: '', link: 'https://1024terabox.com/s/1KyGbJgFlNKqnUGKTJxRhyA', slide: 'https://drive.google.com/file/d/1T-L-kS6F58LNIwUvdTYyMduTj-KDxr0U/view?usp=sharing', keywords: ['P1stC2C4'] },
+    { title: 'লেকচার ৪', id: '', link: 'https://www.facebook.com/share/v/1DS6p2KnzM/', slide: 'https://drive.google.com/file/d/1T-L-kS6F58LNIwUvdTYyMduTj-KDxr0U/view?usp=sharing', keywords: ['P1stC2C4'] },
     { title: 'লেকচার ৫', id: 'KwRWyGe3hxI', slide: 'https://drive.google.com/file/d/1BBsRMM9JnNBSe70kpaJVM5i3s74RRW0Q/view?usp=sharing', keywords: ['P1stC2C5'] },
     { title: 'লেকচার ৬', id: 'nBQW4Gsw7Nk', slide: 'https://drive.google.com/file/d/1nbIv-TQTP9qQdvu-qTmgzmJB5J5JgFv5/view?usp=sharing', keywords: ['P1stC2C6'] },
     { title: 'লেকচার ৭', id: '-PGZqW4KnXU', slide: 'https://drive.google.com/file/d/1KTdCEJnHsAw-ZMsbrDebig5tLDMo1OXY/view?usp=sharing', keywords: ['P1stC2C7'] },
@@ -69,7 +69,7 @@ const database = {
     {
         title: 'লেকচার ১', 
         id: '',
-        link: 'https://1024terabox.com/s/1Rm0Edrgt9msj_7dsTZhOLQ', 
+        link: 'https://www.facebook.com/share/v/1JF94HF68X/', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1Z2zZYjgMXSJMwS1itbQfGNC_RfDQFIzB/view?usp=sharing" },
             { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1eYiqoREe9tduviV5lqtJ6-JikVSynEQx/view?usp=sharing" },
@@ -80,7 +80,7 @@ const database = {
     {
         title: 'লেকচার ২', 
         id: '', 
-        link: 'https://1024terabox.com/s/1NzAfjkZv2N-wiggmX01eBg',
+        link: 'https://www.facebook.com/share/v/1DtvpZiPz3/',
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1abf5_pr_d8O3piI_oF5dzVJTJSajrbjT/view?usp=sharing" },
             { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1218R7oVUSL1UyJPzN_ez6WGqO9lq4-e3/view?usp=sharing" },
@@ -88,12 +88,12 @@ const database = {
         ], 
         keywords: ['P1stC4C2']
     },
-    { title: 'লেকচার ৩', id: '', link: 'https://1024terabox.com/s/15mAG0VbWpq_vPczheMwFBw', slide: 'https://drive.google.com/file/d/1EZtLOHj3RdeuXzH6b0qtMin8syUw-QtG/view?usp=sharing', keywords: ['P1stC4C3'] },
+    { title: 'লেকচার ৩', id: '', link: 'https://www.facebook.com/share/v/1Bx1zGtrSK/', slide: 'https://drive.google.com/file/d/1EZtLOHj3RdeuXzH6b0qtMin8syUw-QtG/view?usp=sharing', keywords: ['P1stC4C3'] },
     { title: 'লেকচার ৪', id: 'tJhWpoGmjaE', slide: 'https://drive.google.com/file/d/12Q5VTnqICKLUeTpZyOqw-WycRF0xM0C3/view?usp=sharing', keywords: ['P1stC4C4'] },
     { title: 'লেকচার ৫', id: 'tCkfnv6g7Xc', slide: 'https://drive.google.com/file/d/1aankN0y18MBglKlgP5CPNaddi2AarZcQ/view?usp=sharing', keywords: ['P1stC4C5'] },
     { title: 'লেকচার ৬', id: '1G_7bB3CVwU', slide: 'https://drive.google.com/file/d/1AgRxSkKn5Vh_IIP8vSj7qjqMFqvZPJvX/view?usp=sharing', keywords: ['P1stC4C6'] },
     { title: 'লেকচার ৭', id: '-fFCBmEyyCM', slide: 'https://drive.google.com/file/d/1gC3T5FOAE1k0Ahf1bJSbJYlK_Omw7k4d/view?usp=sharing', keywords: ['P1stC4C7'] },
-    { title: 'লেকচার ৮', id: '', link: 'https://1024terabox.com/s/1D4PblJ8ZwJvYNfawlaZb8g', slide: 'https://drive.google.com/file/d/16PgShuY5c8b0yFvr31XpA2_ObZFtAWS_/view?usp=sharing', keywords: ['P1stC4C8'] },
+    { title: 'লেকচার ৮', id: '', link: 'https://www.facebook.com/share/v/1AsJZZ7jMr/', slide: 'https://drive.google.com/file/d/16PgShuY5c8b0yFvr31XpA2_ObZFtAWS_/view?usp=sharing', keywords: ['P1stC4C8'] },
     { title: 'লেকচার ৯', id: '6gZfxmAjcq4', slide: 'https://drive.google.com/file/d/10ECS4xR27Iv5tZo85TIyjtv0_uHmYP2z/view?usp=sharing', keywords: ['P1stC4C9'] },
     { title: 'লেকচার ১০', id: 'vwKXMZOH90w', slide: 'https://drive.google.com/file/d/1f-kTyhSbRw-NzcD_GKRVJFQEwprp_f3r/view?usp=sharing', keywords: ['P1stC4C10'] },
     { title: 'লেকচার ১১', id: 'el1NLlk5f3s', slide: 'https://drive.google.com/file/d/1HJTxpav9csvbfogDFp7F3OVSgj6jW1Lj/view?usp=sharing', keywords: ['P1stC4C11'] },
