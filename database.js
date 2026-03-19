@@ -149,7 +149,11 @@ const database = {
         },
         {
             chapter: 'পদার্থের গাঠনিক ধর্ম',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+                {
+                    title: 'লেকচার ১ (Archive)', id: 'cOnbyIa8i7E', slide: 'https://drive.google.com/file/d/17IjGb3KzMmI0uvUsx6vg3dF5VQbGJikB/view?usp=sharing', keywords: ['P1stC7C1']
+                }
+            ],
             practiceSheets: ['LINK_HERE']
         },
         {
@@ -362,7 +366,11 @@ const database = {
         },
         {
             chapter: 'যোগজীকরণ',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+                {
+                    title: 'লেকচার ১ (Archive)', id: 'Yu0dmcUvyMc', slide: 'https://drive.google.com/file/d/1BjlcEKouQRajZjuWfnMOS1MvMtPuCVFl/view?usp=sharing', keywords: ['M1stC10C1']
+                }
+            ],
             practiceSheets: ['LINK_HERE']
         },
         {
