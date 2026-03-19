@@ -22,8 +22,41 @@ const database = {
         },
         {
             chapter: 'ভেক্টর',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    {
+        title: 'লেকচার ১', 
+        id: '_aI8-OANdSc', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1glBxYKF1vAJGnqIVNNL_Ew0tlguUyfkT/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1jxugsy8Gj0aDir7SUr--lxoXuGAZ1l3c/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1SDOoQph12tGj2ztCXMqZVmuMnvsRInaI/view?usp=sharing" }
+        ], 
+        keywords: ['P1stC2C1']
+    },
+    { title: 'লেকচার ২', id: 'KhnodvdLH0M', slide: 'https://drive.google.com/file/d/1YM7cLJQ5PLcMTcJf56Df5Hl-KuRV-75N/view?usp=sharing', keywords: ['P1stC2C2'] },
+    { title: 'লেকচার ৩', id: 'g-9DBNYUwQo', slide: 'https://drive.google.com/file/d/1zkzkUQAawFGxw5wffEN5go4rE6sUHhRZ/view?usp=sharing', keywords: ['P1stC2C3'] },
+    { title: 'লেকচার ৪', id: '', link: 'https://1024terabox.com/s/1KyGbJgFlNKqnUGKTJxRhyA', slide: 'https://drive.google.com/file/d/1T-L-kS6F58LNIwUvdTYyMduTj-KDxr0U/view?usp=sharing', keywords: ['P1stC2C4'] },
+    { title: 'লেকচার ৫', id: 'KwRWyGe3hxI', slide: 'https://drive.google.com/file/d/1BBsRMM9JnNBSe70kpaJVM5i3s74RRW0Q/view?usp=sharing', keywords: ['P1stC2C5'] },
+    { title: 'লেকচার ৬', id: 'nBQW4Gsw7Nk', slide: 'https://drive.google.com/file/d/1nbIv-TQTP9qQdvu-qTmgzmJB5J5JgFv5/view?usp=sharing', keywords: ['P1stC2C6'] },
+    { title: 'লেকচার ৭', id: '-PGZqW4KnXU', slide: 'https://drive.google.com/file/d/1KTdCEJnHsAw-ZMsbrDebig5tLDMo1OXY/view?usp=sharing', keywords: ['P1stC2C7'] },
+    { title: 'লেকচার ৮', id: '0BB1h0q-xdA', slide: 'https://drive.google.com/file/d/1Zl0GMEW98MjaPRD_GU6G6AMqHEF4Ne7C/view?usp=sharing', keywords: ['P1stC2C8'] },
+    { title: 'লেকচার ৯', id: 'Y0UeY3IvioA', slide: 'https://drive.google.com/file/d/14s5WtV6IMwA2RO8xboPCzS_s_hSshwUQ/view?usp=sharing', keywords: ['P1stC2C9'] },
+    { title: 'লেকচার ১০', id: 'JmDE3BjyyMQ', slide: 'https://drive.google.com/file/d/1YHih4BzkkhMjsnKz5hCBVwVx3IIRCBPk/view?usp=sharing', keywords: ['P1stC2C10'] },
+    { title: 'লেকচার ১১', id: 'Z93BQKxkKOg', slide: 'https://drive.google.com/file/d/1z4OGQ1ODR0EzSlHglOOCRI0q7YW_kA1b/view?usp=sharing', keywords: ['P1stC2C11'] },
+    { title: 'লেকচার ১২', id: 'k0v2i7pKsWg', slide: 'https://drive.google.com/file/d/1DsZ7eCOMMkfZKfhPzi-Y1FfWf9RHjcRK/view?usp=sharing', keywords: ['P1stC2C12'] },
+    { title: 'লেকচার ১৩', id: '2dLnsFIou_g', slide: 'https://drive.google.com/file/d/1vwxxXKGlxFJbdO15w_eUKq2QLUcF_7Vf/view?usp=sharing', keywords: ['P1stC2C13'] },
+    { title: 'লেকচার ১৪', id: '8g3oXDHoLSE', slide: 'https://drive.google.com/file/d/1JC0PB8nKWtAAEweh1eWJJkc6ABRV7GOo/view?usp=sharing', keywords: ['P1stC2C14'] },
+    { title: 'লেকচার ১৫', id: 'rj7CnLBzyuE', slide: 'https://drive.google.com/file/d/1b9In2pmp7rBT_0eGt7Zdlhi7_2W3uP57/view?usp=sharing', keywords: ['P1stC2C15'] },
+    { title: 'লেকচার ১৬', id: 'zFCMljGFntI', slide: 'https://drive.google.com/file/d/1AqE9NYKFyezbPeMIGWB6aCWjK_gs_WZl/view?usp=sharing', keywords: ['P1stC2C16'] },
+    { title: 'লেকচার ১৭', id: 'XdOYNrbfuPc', slide: 'https://drive.google.com/file/d/1CgleZn30SAt0ovbDNeE0EYhe6ty22VFz/view?usp=sharing', keywords: ['P1stC2C17'] },
+    { title: 'লেকচার ১৮', id: 'CxD1VlTHK5o', slide: 'https://drive.google.com/file/d/1fWFAMOJsee1HYcOdnUBx3kkCwdJ7b8oi/view?usp=sharing', keywords: ['P1stC2C18'] },
+    { title: 'লেকচার ১৯', id: 'SJ0VfqYP5BE', slide: 'https://drive.google.com/file/d/1vsyAXPRmzEr7raSM601Z3UB9vACUmxMr/view?usp=sharing', keywords: ['P1stC2C19'] },
+    { title: 'লেকচার ২০ (শেষ ক্লাস)', id: 'jQMihEK0Wec', slide: 'https://drive.google.com/file/d/1wFa9JohKqVGyKEWBfY5h23hGRY15nSiz/view?usp=sharing', keywords: ['P1stC2C20'] }
+],
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1gl-XZNx0a78JW2dZQWyGNf4OmgoK0Awt/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1MD4HrJUSYuPZx8ug8xtBNzzk6nP_5wk7/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'গতিবিদ্যা',
