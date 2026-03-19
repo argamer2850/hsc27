@@ -362,54 +362,60 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
    let shouldAutoFullscreen = false; // এটি গ্লোবাল ডিক্লেয়ার করুন
 
 function playNow(video) {
-    const defaultVideoId = 'eztiE0DHtr0';
     const videoContainer = document.querySelector('.custom-video-container');
     const linkContainer = document.getElementById('external-link-container');
+    const notUploadedContainer = document.getElementById('not-uploaded-container');
     const linkBtn = document.getElementById('external-link-btn');
     const vidTitle = document.getElementById('vid-title');
 
     // টাইটেল সেট করা
     vidTitle.innerText = video.title;
 
-    // ১. চেক করা হচ্ছে এটা কি ইউটিউব ভিডিও নাকি এক্সটারনাল লিঙ্ক
-    const isExternalLink = !video.id || video.id === 'LINK' || video.id === 'ID_HERE' || video.id === '#';
+    // সব কন্টেইনার আগে হাইড করে নেওয়া
+    if (videoContainer) videoContainer.style.display = 'none';
+    if (linkContainer) linkContainer.style.display = 'none';
+    if (notUploadedContainer) notUploadedContainer.style.display = 'none';
 
-    if (isExternalLink) {
-        // ভিডিও প্লেয়ার লুকিয়ে ফেলবে এবং লিঙ্ক বাটন দেখাবে
-        if (videoContainer) videoContainer.style.display = 'none';
-        if (linkContainer) {
-            linkContainer.style.display = 'block';
-            linkBtn.href = video.link || '#'; // database থেকে লিঙ্ক নিবে
+    // কন্ডিশন ১: ভিডিও আইডি নেই অথবা ID_HERE/LINK_HERE বা # দেওয়া আছে
+    const isMissingId = !video.id || video.id === 'ID_HERE' || video.id === 'LINK_HERE' || video.id === '#' || video.id === 'LINK';
+    const hasExternalLink = video.link && video.link !== '#' && video.link !== 'N/A';
+
+    if (isMissingId) {
+        if (hasExternalLink) {
+            // আইডি নেই কিন্তু লিংক আছে -> এক্সটারনাল লিংক দেখাবে
+            if (linkContainer) {
+                linkContainer.style.display = 'block';
+                linkBtn.href = video.link;
+            }
+        } else {
+            // আইডি-ও নেই, লিংক-ও নেই -> আপলোড হয়নি মেসেজ
+            if (notUploadedContainer) notUploadedContainer.style.display = 'block';
         }
     } else {
-        // ভিডিও প্লেয়ার দেখাবে এবং বাটন লুকিয়ে ফেলবে
+        // আইডি আছে -> ভিডিও প্লেয়ার দেখাবে
         if (videoContainer) videoContainer.style.display = 'block';
-        if (linkContainer) linkContainer.style.display = 'none';
 
-        // ২. ইউটিউব ভিডিও আইডি এবং টাইম হ্যান্ডলিং
-        let finalId = video.id || defaultVideoId;
-        const savedTime = localStorage.getItem('resume_' + finalId);
+        const savedTime = localStorage.getItem('resume_' + video.id);
         const startAt = savedTime ? parseFloat(savedTime) : 0;
 
         if (player && player.loadVideoById) {
             player.loadVideoById({ 
-                'videoId': finalId, 
+                'videoId': video.id, 
                 'suggestedQuality': 'hd1080',
                 'startSeconds': startAt 
             });
         }
         
-        // ফুলস্ক্রিন লজিক (যদি থাকে)
         if (shouldAutoFullscreen) {
-    setTimeout(toggleFullScreen, 500);
-    shouldAutoFullscreen = false; 
-}
+            setTimeout(toggleFullScreen, 500);
+            shouldAutoFullscreen = false; 
+        }
     }
     
-    // ৩. স্লাইড বাটন লজিক (আপনার আগের কোডটি এখানে রাখা হয়েছে)
+    // স্লাইড বাটন লজিক (অক্ষুণ্ণ রাখা হয়েছে)
     const slideContainer = document.getElementById('slide-buttons-container');
     if (slideContainer) {
-        slideContainer.innerHTML = ''; // আগের বাutton মুছে ফেলা
+        slideContainer.innerHTML = ''; 
 
         if (video.slide && Array.isArray(video.slide)) {
             video.slide.forEach(s => {
@@ -438,7 +444,6 @@ function playNow(video) {
         }
     }
 
-    // ৪. স্ক্রিন চেঞ্জ করা
     navTo('player-screen');
 }
     // কন্ট্রোল অটো-হাইড লজিক
