@@ -936,3 +936,42 @@ document.getElementById('toggle-filter-btn').addEventListener('click', function(
         }
     }
 });
+// script.js এ কিবোর্ড লজিকের ভেতর নিচের কোডটি যুক্ত করুন
+
+let volumeTimeout;
+
+function showVolumeStatus(vol) {
+    const indicator = document.getElementById('volume-indicator');
+    const statusText = document.getElementById('volume-status-text');
+    
+    statusText.innerText = Math.round(vol) + "%";
+    indicator.classList.remove('hidden');
+    indicator.style.opacity = "1";
+
+    clearTimeout(volumeTimeout);
+    volumeTimeout = setTimeout(() => {
+        indicator.style.opacity = "0";
+        setTimeout(() => indicator.classList.add('hidden'), 300);
+    }, 1000); // ১ সেকেন্ড পর চলে যাবে
+}
+
+document.addEventListener('keydown', (event) => {
+    if (!player) return;
+
+    let currentVolume = player.getVolume();
+
+    if (event.key === "ArrowUp") {
+        event.preventDefault(); // পেজ স্ক্রল হওয়া বন্ধ করবে
+        let newVol = Math.min(currentVolume + 5, 100);
+        player.setVolume(newVol);
+        document.getElementById('volume-slider').value = newVol;
+        showVolumeStatus(newVol);
+    } 
+    else if (event.key === "ArrowDown") {
+        event.preventDefault();
+        let newVol = Math.max(currentVolume - 5, 0);
+        player.setVolume(newVol);
+        document.getElementById('volume-slider').value = newVol;
+        showVolumeStatus(newVol);
+    }
+});
