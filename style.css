@@ -686,3 +686,25 @@ body.light-mode #duration {
 #video-container:fullscreen .resize-handle {
     display: none !important;
 }
+/* যখন ভিডিও কন্টেইনার ফুলস্ক্রিন হবে, তখন বর্ডার রেডিয়াস ০ হয়ে যাবে */
+#video-container:fullscreen {
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* সাফারি এবং পুরানো ক্রোম ব্রাউজারের জন্য */
+#video-container:-webkit-full-screen {
+    border-radius: 0 !important;
+}
+
+/* মজিলা ফায়ারফক্সের জন্য */
+#video-container:-moz-full-screen {
+    border-radius: 0 !important;
+}
+
+/* ভিডিওর ভেতরের আইফ্রেম বা ভিডিও এলিমেন্টকেও ফুল রিসেট করা */
+#video-container:fullscreen iframe,
+#video-container:fullscreen video {
+    border-radius: 0 !important;
+}
