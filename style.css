@@ -677,3 +677,12 @@ body.light-mode #duration {
     font-size: 1.2rem;
     font-weight: bold;
 }
+/* ফুলস্ক্রিন মোডে রিসাইজ অপশন এবং হ্যান্ডেল বন্ধ করার জন্য */
+#video-container:fullscreen {
+    resize: none !important;
+}
+
+/* যদি আপনি আলাদা কোনো রিসাইজ হ্যান্ডেল ডিভ ব্যবহার করেন (যেমন .resize-handle) */
+#video-container:fullscreen .resize-handle {
+    display: none !important;
+}
