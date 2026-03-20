@@ -718,3 +718,8 @@ body.light-mode .modal-content svg circle,
 body.light-mode .modal-content svg line {
     stroke: #ffffff !important;
 }
+/* ডিজেবল করা বাটনের টেক্সট কালার ফিক্স */
+.action-btn.btn-slide:not(a), 
+.action-btn.btn-sheet:not(a) {
+    color: #ffffff !important;
+}

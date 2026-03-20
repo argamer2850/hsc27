@@ -101,75 +101,73 @@ document.onkeydown = function(e) {
     
     // মেইন ক্লাস সেকশন
     if (chObj.mainVideos && chObj.mainVideos.length > 0) {
-        const h3 = document.createElement('h3');
-        h3.style = "color: var(--primary); margin: 20px 0 15px 5px; font-size: 1.2rem;";
-        h3.innerText = "⭐ মেইন ক্লাস (Main Classes)";
-        vContainer.appendChild(h3);
+        renderVideoSection(vContainer, "⭐ মেইন ক্লাস (Main Classes)", chObj.mainVideos, true);
+    }
 
-        chObj.mainVideos.forEach((v, i) => {
-            const d = document.createElement('div');
-            d.className = 'list-item';
-            d.onclick = () => playNow(v);
-            d.innerHTML = `<span>Class ${i+1}: ${v.title}</span> <span class="play-icon">▶ Watch Now</span>`;
-            vContainer.appendChild(d);
+    // মাল্টিপল এক্সট্রা সেকশন (স্লাইড ও কিওয়ার্ড সাপোর্টসহ)
+    if (chObj.extraSections && chObj.extraSections.length > 0) {
+        chObj.extraSections.forEach(section => {
+            renderVideoSection(vContainer, section.title, section.videos, false);
         });
     }
 
-    // এডিশনাল ক্লাস সেকশন
-    if (chObj.extraVideos && chObj.extraVideos.length > 0) {
-        const h3 = document.createElement('h3');
-        h3.style = "color: var(--accent); margin: 30px 0 15px 5px; font-size: 1.2rem;";
-        h3.innerText = "➕ এডিশনাল ক্লাস (Additional Classes)";
-        vContainer.appendChild(h3);
-
-        chObj.extraVideos.forEach((v, i) => {
-            const d = document.createElement('div');
-            d.className = 'list-item';
-            d.onclick = () => playNow(v);
-            d.innerHTML = `<span>Extra ${i+1}: ${v.title}</span> <span class="play-icon">▶ Watch Now</span>`;
-            vContainer.appendChild(d);
-        });
-    }
-
-    // --- চ্যাপ্টার ম্যাটেরিয়ালস (কাস্টম নামসহ একাধিক বাটন) লজিক শুরু ---
+    // চ্যাপ্টার ম্যাটেরিয়ালস (আগের মতোই)
     mContainer.innerHTML = ''; 
+if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
+    chObj.practiceSheets.forEach((item) => {
+        let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
+        let link = typeof item === 'object' ? item.link : item;
+        let isClickable = true;
 
-    if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
-        chObj.practiceSheets.forEach((item) => {
-            // item এখন একটা অবজেক্ট হতে পারে { name: "নাম", link: "লিঙ্ক" }
-            // আবার সরাসরি স্ট্রিং বা লিঙ্কও হতে পারে
-            let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
-            let link = "";
+        if (typeof item === 'object') btnName = `📥 ${item.name}`;
 
-            if (typeof item === 'object') {
-                btnName = `📥 ${item.name}`; // ডাটাবেসে দেওয়া নাম নিবে
-                link = item.link;
-            } else {
-                link = item; // যদি শুধু লিঙ্ক দেন তবে ডিফল্ট নাম থাকবে
-            }
+        // কন্ডিশন চেক
+        if (link === 'N/A') {
+            btnName = "🚫 এই চ্যাপ্টারের প্রাকটিস শীট প্রোভাইড করা হয়নি।";
+            isClickable = false;
+        } else if (!link || link === 'LINK_HERE' || link === '') {
+            btnName = "⏳ এই চ্যাপ্টারের প্রাকটিস শীট এড করা হয়নি";
+            isClickable = false;
+        }
 
-            if (link === 'LINK_HERE' || link === '#' || !link) return;
-
-            const matBtn = document.createElement('a');
-            matBtn.className = 'action-btn btn-sheet';
-            matBtn.innerHTML = btnName;
-            
-            if (link === 'N/A') {
-                matBtn.href = "javascript:void(0);";
-                matBtn.onclick = () => alert("দুঃখিত! এটি এখনো দেওয়া হয়নি।");
-            } else {
-                matBtn.href = link;
-                matBtn.target = "_blank";
-            }
-            
-            matBtn.style.marginBottom = "10px";
-            matBtn.style.display = "block";
-            mContainer.appendChild(matBtn);
-        });
-    }
-    // --- লজিক শেষ ---
-    
+        const matBtn = document.createElement(isClickable ? 'a' : 'div');
+        matBtn.className = 'action-btn btn-sheet';
+        matBtn.innerHTML = btnName;
+        
+        if (isClickable) {
+            matBtn.href = link;
+            matBtn.target = "_blank";
+        } else {
+            matBtn.style.cursor = "default";
+            matBtn.style.opacity = "0.7";
+            matBtn.style.background = "#334155"; // হালকা কালার যাতে বোঝা যায় এটা ক্লিক হবে না
+        }
+        
+        matBtn.style.display = "block";
+        matBtn.style.marginBottom = "10px";
+        mContainer.appendChild(matBtn);
+    });
+}
     navTo('video-list-screen');
+}
+
+// ভিডিও লিস্ট রেন্ডার করার জন্য একটি কমন ফাংশন (সহজ করার জন্য)
+function renderVideoSection(container, title, videos, isMain) {
+    const h3 = document.createElement('h3');
+    h3.style = `color: ${isMain ? 'var(--primary)' : 'var(--accent)'}; margin: 25px 0 15px 5px; font-size: 1.2rem;`;
+    h3.innerText = title;
+    container.appendChild(h3);
+
+    videos.forEach((v, i) => {
+        const d = document.createElement('div');
+        d.className = 'list-item';
+        // এখানে স্লাইড এবং কিওয়ার্ড অটোমেটিক playNow ফাংশনে চলে যাবে
+        d.onclick = () => playNow(v); 
+        
+        const label = isMain ? `Class ${i+1}: ` : "";
+        d.innerHTML = `<span>${label}${v.title}</span> <span class="play-icon">▶ Watch Now</span>`;
+        container.appendChild(d);
+    });
 }
 
     // --- Custom Video Player Logic --- //
@@ -446,36 +444,53 @@ function playNow(video) {
         }
     }
     
-    // স্লাইড বাটন লজিক (অক্ষুণ্ণ রাখা হয়েছে)
+    // স্লাইড বাটন লজিক (আপডেটেড - ফাঁকা থাকলেও মেসেজ দেখাবে)
     const slideContainer = document.getElementById('slide-buttons-container');
     if (slideContainer) {
-        slideContainer.innerHTML = ''; 
+        slideContainer.innerHTML = '';
 
-        if (video.slide && Array.isArray(video.slide)) {
-            video.slide.forEach(s => {
-                const sBtn = document.createElement('a');
-                sBtn.className = 'action-btn btn-slide';
-                sBtn.style.marginBottom = "10px";
-                sBtn.style.display = "block";
-                sBtn.innerHTML = `📄 ${s.name}`;
-                sBtn.href = s.link;
-                sBtn.target = "_blank";
-                slideContainer.appendChild(sBtn);
-            });
-        } else if (video.slide && video.slide !== 'LINK_HERE' && video.slide !== 'N/A' && video.slide !== '#') {
-            const sBtn = document.createElement('a');
-            sBtn.className = 'action-btn btn-slide';
-            sBtn.innerHTML = "📄 স্লাইড ডাউনলোড করুন";
-            sBtn.href = video.slide;
-            sBtn.target = "_blank";
-            slideContainer.appendChild(sBtn);
-        } else {
-            const noSlide = document.createElement('p');
-            noSlide.style.color = "#94a3b8";
-            noSlide.style.fontSize = "0.9rem";
-            noSlide.innerText = "স্লাইড এখনো যুক্ত করা হয়নি।";
-            slideContainer.appendChild(noSlide);
-        }
+        // স্লাইড যদি না থাকে অথবা ফাঁকা থাকে
+        let slides = video.slide;
+        
+        // এখানে লজিক পরিবর্তন করা হয়েছে যাতে ফাঁকা থাকলেও কাজ করে
+        const slidesArray = (slides && Array.isArray(slides)) 
+                            ? slides 
+                            : [{ name: "ক্লাস স্লাইড", link: slides || '' }];
+        
+        slidesArray.forEach(s => {
+            let btnText = `📄 ${s.name}`;
+            let isClickable = true;
+
+            // কন্ডিশন ১: যদি N/A থাকে
+            if (s.link === 'N/A') {
+                btnText = "🚫 এই ক্লাসের স্লাইড প্রোভাইড করা হয়নি।";
+                isClickable = false;
+            } 
+            // কন্ডিশন ২: যদি ফাঁকা থাকে, LINK_HERE থাকে অথবা # থাকে
+            else if (!s.link || s.link === 'LINK_HERE' || s.link === '' || s.link === '#') {
+                btnText = "⏳ এই ক্লাসের স্লাইড এড করা হয়নি";
+                isClickable = false;
+            }
+
+            const btn = document.createElement(isClickable ? 'a' : 'div');
+            btn.className = 'action-btn btn-slide';
+            btn.style.marginBottom = "10px";
+            btn.style.display = "block";
+            
+            // লাইট থিম ইস্যুর জন্য ইন-লাইন সাদা কালার রাখা হলো
+            btn.style.color = "#ffffff"; 
+            btn.innerHTML = btnText;
+            
+            if (isClickable) {
+                btn.href = s.link;
+                btn.target = "_blank";
+            } else {
+                btn.style.cursor = "default";
+                btn.style.opacity = "0.8";
+                btn.style.background = "#334155"; 
+            }
+            slideContainer.appendChild(btn);
+        });
     }
 
     navTo('player-screen');
