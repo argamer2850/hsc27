@@ -417,7 +417,7 @@ const database = {
             { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1VkZ-Y5sX84bQbakfsG1_3SIHFc_tzBdg/view?usp=sharing" }
         ], keywords: [] },
     { title: 'লেকচার ৮ (অভি দত্ত তুষার)', id: '', link: 'https://www.facebook.com/share/v/1Kgxf7JXNK/', slide: 'https://drive.google.com/file/d/16hxzidjyx3FY3UpKe2fzg4IShS4A8-W1/view?usp=sharing', keywords: [] },
-    { title: 'লেকচার ৯ (অভি দত্ত তুষার)', id: '', link: 'https://www.facebook.com/share/v/17nSx5qgWY/', slide: [
+    { title: 'লেকচার ৯ (অভি দত্ত তুষার)', id: 'CDnuqzM6T1I', slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1taCgIJnAHanr4GIqQiMZSc7dx981dXhB/view?usp=sharing" },
             { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/14NIkiXwVe1xjYczzqebmohxpQNXwZsOg/view?usp=sharing" }
         ], keywords: [] },
