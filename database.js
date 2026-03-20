@@ -711,7 +711,134 @@ const database = {
         },
         {
             chapter: 'প্রাণীর পরিচিতি',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+    {
+        title: 'লেকচার ১', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C1']
+    },
+    {
+        title: 'লেকচার ২', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C2']
+    },
+    {
+        title: 'লেকচার ৩', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C3']
+    },
+    {
+        title: 'লেকচার ৪', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C4']
+    },
+    {
+        title: 'লেকচার ৫', id: '9mk6NciElIM', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1yHUEN1OCBnRJBR3PkEwVp6rSYN_uBJYj/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1v3vKWTbW-lbmxOmkDpVPxfYACtZwcFWC/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1iHeLYuKo_WvkxglvuCtl4k5vrbaAwg-B/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C5']
+    },
+    {
+        title: 'লেকচার ৬', id: 'i4r_6E6GjIo', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1QmO6YoMzomIH9MhYsHm10d3Jv0RNL4pm/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/10ljd3ziPQrVBCWEfazKfed_gqpb9yMZP/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C6']
+    },
+    {
+        title: 'লেকচার ৭', id: '6woW1ogZJQM', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1a0yIhR0QOSs9NJyWr2LmQ1CGb8KY7WqH/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1EWPOMakz-JKNNB9JQkR7suuEV0x-MJqY/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C7']
+    },
+    {
+        title: 'লেকচার ৮', id: 'xDEGY80n6tI', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1STlJOImwjDUs6UstirdC02PtFbU4TS3J/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1yY1dgwwN5pQFCfiRKy3yMVxnxGslX9An/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C8']
+    },
+    {
+        title: 'লেকচার ৯', id: 'L6SrxQnr9RE', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/18O5-kmsYQKxH5jumxkrfkol_IspXd6HX/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C9']
+    },
+    {
+        title: 'লেকচার ১০', id: 'A0fgjDwm6Uo', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1mvNJtPAI1JG5nUgYHoK9K3xHwnFTQGGR/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1jwjRtpuudrkfCkUuHbJpDFSLJ2BG7RYe/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C10']
+    },
+    {
+        title: 'লেকচার ১১', id: 'Nrvdl-RXMQE', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/10YVpXCyq8yHpm_iPF6EUiHvFTGJ7KVfW/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1IV05uw1XX_8QGdUvsqRDOZorqGo9XdHq/view?usp=sharing" }
+        ], 
+        keywords: ['B2ndC2C11']
+    },
+    {
+        title: 'লেকচার ১২', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C12']
+    },
+    {
+        title: 'লেকচার ১৩', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" }
+        ], 
+        keywords: ['B2ndC2C13']
+    },
+    {
+        title: 'লেকচার ১৪', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" }
+        ], 
+        keywords: ['B2ndC2C14']
+    },
+    {
+        title: 'লেকচার ১৫ (শেষ ক্লাস)', id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "" },
+            { name: "প্র্যাকটিস শীট", link: "" },
+            { name: "দাগানো বই", link: "" }
+        ], 
+        keywords: ['B2ndC2C15']
+    }
+],
             practiceSheets: ['LINK_HERE']
         },
         {
