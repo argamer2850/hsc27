@@ -746,7 +746,27 @@ const database = {
         },
         {
             chapter: 'সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+    {
+        title: 'লেকচার ১', 
+        id: 'ZqOyHoO-te4', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1YkxB10liyMsOlNrVSIk0Jpmic4ByqAVk/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1iCG1B3z1kBhymjQYhcBC6lXLJszFe9vd/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1XLEF0QRZ617PHUdOgwqVYkMnqqODY_ai/view?usp=sharing" }
+        ], 
+        keywords: ['IC3C1']
+    },
+    { title: 'লেকচার ২', id: '', slide: '', keywords: ['IC3C2'] },
+    { title: 'লেকচার ৩', id: '', slide: '', keywords: ['IC3C3'] },
+    { title: 'লেকচার ৪', id: '', slide: '', keywords: ['IC3C4'] },
+    { title: 'লেকচার ৫', id: '', slide: '', keywords: ['IC3C5'] },
+    { title: 'লেকচার ৬', id: '', slide: '', keywords: ['IC3C6'] },
+    { title: 'লেকচার ৭', id: '', slide: '', keywords: ['IC3C7'] },
+    { title: 'লেকচার ৮', id: '', slide: '', keywords: ['IC3C8'] },
+    { title: 'লেকচার ৯', id: '', slide: '', keywords: ['IC3C9'] },
+    { title: 'লেকচার ১০ (শেষ ক্লাস)', id: '', slide: '', keywords: ['IC3C10'] }
+],
             practiceSheets: ['LINK_HERE']
         },
         {
