@@ -335,6 +335,7 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
 }
 
     function togglePlay() {
+        isAutoPaused = false;
         if (player.getPlayerState() == YT.PlayerState.PLAYING) {
             player.pauseVideo();
         } else {
@@ -674,23 +675,48 @@ document.addEventListener('keydown', (e) => {
             break;
     }
 });
-// ট্যাব পরিবর্তন বা অন্য উইন্ডোতে (App) গেলে ভিডিও অটো পজ করার কোড
-function pauseVideo() {
-    if (player && player.pauseVideo) {
+// একটি ভেরিয়েবল যা মনে রাখবে ভিডিওটি অটো-পজ হয়েছে কি না
+let isAutoPaused = false;
+
+function pauseVideo(auto = false) {
+    if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
         player.pauseVideo();
+        if (auto) {
+            isAutoPaused = true; // শুধু সিস্টেম পজ করলে এটি true হবে
+        }
+    }
+}
+
+function resumeVideo() {
+    // যদি আগে অটো-পজ হয়ে থাকে, তবেই রিজিউম হবে
+    if (player && isAutoPaused) {
+        player.playVideo();
+        isAutoPaused = false; // রিজিউম হওয়ার পর রিসেট
     }
 }
 
 // ১. ট্যাব পরিবর্তন করলে (Tab Change)
 document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-        pauseVideo();
+        pauseVideo(true); // অটো-পজ মোড অন
+    } else {
+        resumeVideo();
     }
 });
 
-// ২. ব্রাউজার থেকে অন্য উইন্ডোতে বা অ্যাপে ক্লিক করলে (Window Focus Out)
+// ২. উইন্ডো থেকে ফোকাস চলে গেলে (Window Blur)
 window.addEventListener("blur", function() {
-    pauseVideo();
+    pauseVideo(true); // অটো-পজ মোড অন
+});
+
+// ৩. উইন্ডোতে ফিরে আসলে (Window Focus)
+window.addEventListener("focus", function() {
+    resumeVideo();
+});
+
+// গুরুত্বপূর্ণ: ইউজার যদি নিজে প্লে/পজ বাটনে ক্লিক করে, তবে অটো-পজ স্ট্যাটাস রিসেট করতে হবে
+document.getElementById('play-pause-btn').addEventListener('click', () => {
+    isAutoPaused = false; 
 });
 
 // টেক্সট সিলেকশন বা কপি করা বন্ধ করা
