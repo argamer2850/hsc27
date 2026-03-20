@@ -182,11 +182,16 @@ const database = {
         },
         {
             chapter: 'পদার্থের গাঠনিক ধর্ম',
-            mainVideos: [
-                {
-                    title: 'লেকচার ১ (Archive)', id: 'cOnbyIa8i7E', slide: 'https://drive.google.com/file/d/17IjGb3KzMmI0uvUsx6vg3dF5VQbGJikB/view?usp=sharing', keywords: ['P1stC7C1']
-                }
-            ],
+            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            extraSections: [
+    {
+        title: "Archived Classes",
+        videos: [
+            { title: 'লেকচার ১', id: 'cOnbyIa8i7E', slide: 'https://drive.google.com/file/d/17IjGb3KzMmI0uvUsx6vg3dF5VQbGJikB/view?usp=sharing', keywords: [] }
+            
+        ]
+    }
+],
             practiceSheets: [
                 { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1PoC48El9pn5LQXfgi8rLCBVSiU1X2lk2/view?usp=sharing" },
                 { name: "প্র্যাকটিস শীট ২", link: "https://drive.google.com/file/d/1nOaFYO5chVwU9cicYwwRvdiD-9PDCk_t/view?usp=sharing" },

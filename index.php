@@ -1,3 +1,9 @@
+<?php
+// যদি device_id কুঁকিটি না থাকে, তবে তাকে সাইটে ঢুকতে দিবে না
+if (!isset($_COOKIE['device_id'])) {
+    die("Access Denied: আপনার এক্সেস এই সাইটের জন্য অনুমোদিত নয়।");
+}
+?>
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -30,7 +36,7 @@
     </div>
 </div>
     <nav>
-        <a href="index.html" style="text-decoration: none; color: inherit;"><div class="logo">HSC<span>27</span></div></a>
+        <a href="index.php" style="text-decoration: none; color: inherit;"><div class="logo">HSC<span>27</span></div></a>
         <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
     </nav>
 <div id="videoListModal" class="modal-overlay" style="display:none;">
