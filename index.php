@@ -28,13 +28,6 @@ if (!isset($_COOKIE['device_id'])) {
 <body>
 
 <div class="container">
-    <div id="custom-ip-banner" style="display: none; margin: 20px 0;">
-    <div class="shared-style-box" style="border: 2px solid var(--primary); text-align: center; background: rgba(139, 92, 246, 0.1);">
-        <h2 id="ip-message-text" style="font-size: 1.8rem; color: var(--text-main); margin: 0; padding: 10px;">
-            লোডিং...
-        </h2>
-    </div>
-</div>
     <nav>
         <a href="index.php" style="text-decoration: none; color: inherit;"><div class="logo">HSC<span>27</span></div></a>
         <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
