@@ -1,6 +1,6 @@
 <?php
 // যদি device_id কুঁকিটি না থাকে, তবে তাকে সাইটে ঢুকতে দিবে না
-if (!isset($_COOKIE['device_id'])) {
+if (!isset($_COOKIE['device_id_2'])) {
     die("Access Denied: আপনার এক্সেস এই সাইটের জন্য অনুমোদিত নয়।");
 }
 ?>
