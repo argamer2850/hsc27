@@ -749,7 +749,7 @@ const database = {
         keywords: ['B2ndC2C4']
     },
     {
-        title: 'লেকচার ৫', id: '9mk6NciElIM', 
+        title: 'ঘাসফড়িং ১', id: '9mk6NciElIM', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1yHUEN1OCBnRJBR3PkEwVp6rSYN_uBJYj/view?usp=sharing" },
             { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1v3vKWTbW-lbmxOmkDpVPxfYACtZwcFWC/view?usp=sharing" },
@@ -758,7 +758,7 @@ const database = {
         keywords: ['B2ndC2C5']
     },
     {
-        title: 'লেকচার ৬', id: 'i4r_6E6GjIo', 
+        title: 'ঘাসফড়িং ২', id: 'i4r_6E6GjIo', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1QmO6YoMzomIH9MhYsHm10d3Jv0RNL4pm/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/10ljd3ziPQrVBCWEfazKfed_gqpb9yMZP/view?usp=sharing" }
@@ -766,7 +766,7 @@ const database = {
         keywords: ['B2ndC2C6']
     },
     {
-        title: 'লেকচার ৭', id: '6woW1ogZJQM', 
+        title: 'ঘাসফড়িং ৩', id: '6woW1ogZJQM', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1a0yIhR0QOSs9NJyWr2LmQ1CGb8KY7WqH/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1EWPOMakz-JKNNB9JQkR7suuEV0x-MJqY/view?usp=sharing" }
@@ -774,7 +774,7 @@ const database = {
         keywords: ['B2ndC2C7']
     },
     {
-        title: 'লেকচার ৮', id: 'xDEGY80n6tI', 
+        title: 'ঘাসফড়িং ৪', id: 'xDEGY80n6tI', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1STlJOImwjDUs6UstirdC02PtFbU4TS3J/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1yY1dgwwN5pQFCfiRKy3yMVxnxGslX9An/view?usp=sharing" }
@@ -782,14 +782,14 @@ const database = {
         keywords: ['B2ndC2C8']
     },
     {
-        title: 'লেকচার ৯', id: 'L6SrxQnr9RE', 
+        title: 'ঘাসফড়িং ৫', id: 'L6SrxQnr9RE', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/18O5-kmsYQKxH5jumxkrfkol_IspXd6HX/view?usp=sharing" }
         ], 
         keywords: ['B2ndC2C9']
     },
     {
-        title: 'লেকচার ১০', id: 'A0fgjDwm6Uo', 
+        title: 'ঘাসফড়িং ৬', id: 'A0fgjDwm6Uo', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1mvNJtPAI1JG5nUgYHoK9K3xHwnFTQGGR/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1jwjRtpuudrkfCkUuHbJpDFSLJ2BG7RYe/view?usp=sharing" }
@@ -797,7 +797,7 @@ const database = {
         keywords: ['B2ndC2C10']
     },
     {
-        title: 'লেকচার ১১', id: 'Nrvdl-RXMQE', 
+        title: 'ঘাসফড়িং ৭', id: 'Nrvdl-RXMQE', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/10YVpXCyq8yHpm_iPF6EUiHvFTGJ7KVfW/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1IV05uw1XX_8QGdUvsqRDOZorqGo9XdHq/view?usp=sharing" }
