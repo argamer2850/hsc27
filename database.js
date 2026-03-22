@@ -84,7 +84,7 @@ const database = {
     { title: 'লেকচার ১৩', id: '7FEoSTKLzWk', slide: 'https://drive.google.com/file/d/161lKiXbOFSi2ehiD2jAEWiO4NH441PE6/view?usp=sharing', keywords: ['P1stC3C13'] },
     { title: 'লেকচার ১৪ (শেষ ক্লাস)', id: 'ilaa4K_-K5o', slide: 'https://drive.google.com/file/d/1AMLFQCoYYSLbGHi4_LQUUgdwsb1NJ2AW/view?usp=sharing', keywords: ['P1stC3C14'] }
 ],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'নিউটনীয় বলবিদ্যা',
@@ -131,7 +131,7 @@ const database = {
     { title: 'লেকচার ২০', id: 'CFICXBn_l6U', slide: 'https://drive.google.com/file/d/1qWlJvJgFZPZnV0b6wWWQc_stMXOAzqbh/view?usp=sharing', keywords: ['P1stC4C20'] },
     { title: 'লেকচার ২১ (শেষ ক্লাস)', id: 'd4xpAPtmfsU', slide: 'https://drive.google.com/file/d/1aH8oaEpsttAxbHClymeGIJNc8kUzjMzF/view?usp=sharing', keywords: ['P1stC4C21'] }
 ],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'কাজ, ক্ষমতা ও শক্তি',
@@ -201,7 +201,7 @@ const database = {
                     ], keywords: ['P1stC6C11']
                 }
             ],
-            practiceSheets: [            ]
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'পদার্থের গাঠনিক ধর্ম',
@@ -714,7 +714,7 @@ const database = {
         ], keywords: ['B1stC1C20']
     }
 ],
-            practiceSheets: [            ]
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'কোষ বিভাজন',
@@ -914,7 +914,7 @@ const database = {
         keywords: ['B2ndC2C15']
     }
 ],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'মানব শারীরতত্ত্ব - পরিপাক ও শোষণ',
@@ -1028,7 +1028,7 @@ const database = {
     { title: 'লেকচার ৯', id: '', slide: '', keywords: ['IC3C9'] },
     { title: 'লেকচার ১০ (শেষ ক্লাস)', id: '', slide: '', keywords: ['IC3C10'] }
 ],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'ওয়েব ডিজাইন পরিচিতি ও HTML',
