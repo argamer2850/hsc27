@@ -1,26 +1,21 @@
 <?php
-$allowed_ips = ['202.181.4.166'];
-$allowed_devices = ['706f90054dbcd13062b62d32'];
+$allowed_ips = ['202.181.4.166']; // আপনার আইপি
+$allowed_devices = ['832c0468e1719fe896d4a7a3']; // requests.txt থেকে পাওয়া আইডি
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
 
-// ১. আইপি চেক
 if (in_array($user_ip, $allowed_ips)) {
     $is_access_allowed = true;
-} 
-// ২. ডিভাইস আইডি চেক
-elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
+} elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
     $is_access_allowed = true;
 }
 
-// ৩. যদি অনুমতি না থাকে, তবে এক্সেস পেজ লোড হবে
 if (!$is_access_allowed) {
     include('access-request-page.php');
     exit;
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="bn">
 <head>
     <script type="text/javascript">
@@ -40,6 +35,28 @@ if (!$is_access_allowed) {
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css?v=11">
+    <script>
+async function syncGlobalID() {
+    // উপরে দেওয়া একই generateGlobalID লজিক এখানে থাকবে
+    const hardwareInfo = [
+        screen.width + 'x' + screen.height,
+        screen.colorDepth,
+        navigator.hardwareConcurrency,
+        new Date().getTimezoneOffset(),
+        navigator.platform
+    ].join('|');
+    
+    // ... GPU লজিক ...
+    
+    // যদি কুকি না থাকে, তবে আইডি জেনারেট করে কুকি সেট করো
+    if (!document.cookie.includes('dev_token')) {
+        const id = await generateGlobalID(); // এই ফাংশনটি উপরে ডিফাইন করা থাকতে হবে
+        document.cookie = "dev_token=" + id + "; max-age=31536000; path=/; SameSite=Lax";
+        window.location.reload();
+    }
+}
+syncGlobalID();
+</script>
 </head>
 <body>
 
