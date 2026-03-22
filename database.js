@@ -307,7 +307,7 @@ const database = {
     ],
     extraSections: [
         {
-            title: "এডিশনাল ক্লাস (Additional Classes)",
+            title: "এডিশনাল ক্লাস",
             videos: [
                 { title: 'উইকলি এক্সাম ১ সলভ ক্লাস', id: 'f7wd5MIYjGI', slide: 'https://drive.google.com/file/d/1so5zWGOL1QuDrVODTe2KRzXwr3MU26wD/view?usp=sharing', keywords: ['C1stC4WE1SC'] },
                 { title: 'প্রব্লেম সলভিং ক্লাস ১', id: 'EgEAXUVrOGs', slide: 'N/A', keywords: ['C1stC4PSC1'] },
