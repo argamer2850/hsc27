@@ -1,6 +1,6 @@
 <?php
-$allowed_ips = ['103.150.xxx.xxx']; // আপনার আইপি
-$allowed_devices = ['']; // আপনার ডিভাইস আইডি
+$allowed_ips = ['202.181.4.166'];
+$allowed_devices = ['706f90054dbcd13062b62d32'];
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
