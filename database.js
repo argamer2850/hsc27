@@ -60,7 +60,30 @@ const database = {
         },
         {
             chapter: 'গতিবিদ্যা',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+    { title: 'লেকচার ১', id: 'zbhnAr1ksQ4', slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1C3wcX8v43jmRM-W2__hwaz0ah3wJlMVd/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/147OVBNCKSFAPrVcmBOlxmcqykNCgsL1u/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1Drw9PHs8BU7rl7OH2xrwbJFly3WFVPVM/view?usp=sharing" }
+        ], keywords: ['P1stC3C1'] },
+    { title: 'লেকচার ২', id: 'v_JQRgE-_TM', slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/11nPIDYsIOT7rg3R_3Pg8RKNo0qtnhmLX/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1Cl6DNxkkaBbhhvgFp3dOaCR6C8CXJhnk/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/14cxm6aOScDMclla2Tib3au0M75o-Gxg6/view?usp=sharing" }
+        ], keywords: ['P1stC3C2'] },
+    { title: 'লেকচার ৩', id: 'JRD_NHf1rmM', slide: 'https://drive.google.com/file/d/1UIsvSNwR4YIsXHtnYczJuPNHPwQ-OMMb/view?usp=sharing', keywords: ['P1stC3C3'] },
+    { title: 'লেকচার ৪', id: '8jxsbskO9xM', slide: 'https://drive.google.com/file/d/1tJovSXrYBfhfLGQH0ft6rI0RG9azruzy/view?usp=sharing', keywords: ['P1stC3C4'] },
+    { title: 'লেকচার ৫', id: 'JZCSFQrxLRk', slide: 'https://drive.google.com/file/d/1THAuyD1WQA7VO5J1d3QFil-KdHkcdE2D/view?usp=sharing', keywords: ['P1stC3C5'] },
+    { title: 'লেকচার ৬', id: 'X0_FSXoaajc', slide: 'https://drive.google.com/file/d/1l9YTJ3vLqc0D9EMblfHPY9ja3udY5wq8/view?usp=sharing', keywords: ['P1stC3C6'] },
+    { title: 'লেকচার ৭', id: 'QrbzPvQnJ8E', slide: 'https://drive.google.com/file/d/1wGmDBx4UfA4R7kZk6dxWiTzVX401omqc/view?usp=sharing', keywords: ['P1stC3C7'] },
+    { title: 'লেকচার ৮', id: 'CspPBjy8pw8', slide: 'https://drive.google.com/file/d/1b-QzMqVoH9kGkluOQ5lE-6Lf_FYFYiMd/view?usp=sharing', keywords: ['P1stC3C8'] },
+    { title: 'লেকচার ৯', id: 'nW4kjiSu5_Q', slide: 'https://drive.google.com/file/d/1MPJohhGny1QHhTFi3SMZ6j1XERjM4E2I/view?usp=sharing', keywords: ['P1stC3C9'] },
+    { title: 'লেকচার ১০', id: 'tKmrFwlZxBQ', slide: 'https://drive.google.com/file/d/1MVRZ8vG9duSdDfRmuhokFhlbJxzpuTZr/view?usp=sharing', keywords: ['P1stC3C10'] },
+    { title: 'লেকচার ১১', id: 'SiPh33rz5q8', slide: 'https://drive.google.com/file/d/1QyjZ8UUS7oDK1sMK0c2CGNZ1VpDR6N4u/view?usp=sharing', keywords: ['P1stC3C11'] },
+    { title: 'লেকচার ১২', id: '4LpXjYw6EVM', slide: 'https://drive.google.com/file/d/1gWCX0Fg1sV-N6-_WjTG80reYEKa0MMse/view?usp=sharing', keywords: ['P1stC3C12'] },
+    { title: 'লেকচার ১৩', id: '7FEoSTKLzWk', slide: 'https://drive.google.com/file/d/161lKiXbOFSi2ehiD2jAEWiO4NH441PE6/view?usp=sharing', keywords: ['P1stC3C13'] },
+    { title: 'লেকচার ১৪ (শেষ ক্লাস)', id: 'ilaa4K_-K5o', slide: 'https://drive.google.com/file/d/1AMLFQCoYYSLbGHi4_LQUUgdwsb1NJ2AW/view?usp=sharing', keywords: ['P1stC3C14'] }
+],
             practiceSheets: ['LINK_HERE']
         },
         {
@@ -426,7 +449,7 @@ const database = {
     { title: 'লেকচার ১৮', id: 'ZTWt2LM_ALI', slide: 'https://drive.google.com/file/d/1uyiM225t_z5f2HlZ1RjMf12F8RR3mdzI/view?usp=sharing', keywords: ['M1stC9C18'] },
     { title: 'লেকচার ১৯', id: '2rvwTykzudQ', slide: 'https://drive.google.com/file/d/1kzIqiPW4qkM-qPY-gqlOlqpLwOXSXoQV/view?usp=sharing', keywords: ['M1stC9C19'] },
     { title: 'লেকচার ২০', id: 'xyOdpQzSh44', slide: 'https://drive.google.com/file/d/1Gzv01Cxa-dex-uez6D39MHa21EFkBgi7/view?usp=sharing', keywords: ['M1stC9C20'] },
-    { title: 'লেকচার ২১', id: 'OwUadSDcX6Y', slide: 'https://drive.google.com/file/d/1Atkh1Rt6dEFf9zCgR3Y-3OSdR_aBka4p/view?usp=sharing', keywords: ['M1stC9C21'] }
+    { title: 'লেকচার ২১ (শেষ ক্লাস)', id: 'OwUadSDcX6Y', slide: 'https://drive.google.com/file/d/1Atkh1Rt6dEFf9zCgR3Y-3OSdR_aBka4p/view?usp=sharing', keywords: ['M1stC9C21'] }
 ],
             extraSections: [
                 {
@@ -487,7 +510,7 @@ const database = {
             { title: 'লেকচার ১৯', id: '9ZEQ14crr2s', slide: 'https://drive.google.com/file/d/1NU8zDvtTnPl70QL6APYZ52ByRK36cylY/view?usp=sharing', keywords: [] },
             { title: 'লেকচার ২০', id: '0fLafhKvAlU', slide: 'https://drive.google.com/file/d/11n-I0hYs3Upz_8eO6SBkbjcK52FjOffy/view?usp=sharing', keywords: [] },
             { title: 'লেকচার ২১', id: '8MT4cET88Ro', slide: 'https://drive.google.com/file/d/1MV3GnlwZ8J4ZUlxJjnLv1i73W7N4Lgfm/view?usp=sharing', keywords: [] },
-            { title: 'লেকচার ২২', id: 'flIsiT19YK8', slide: 'https://drive.google.com/file/d/1IDdakk87CKJoTA3H4ZPh5oGGqJZiXJuD/view?usp=sharing', keywords: [] }
+            { title: 'লেকচার ২২ (শেষ ক্লাস)', id: 'flIsiT19YK8', slide: 'https://drive.google.com/file/d/1IDdakk87CKJoTA3H4ZPh5oGGqJZiXJuD/view?usp=sharing', keywords: [] }
         ]
     }
 ],
@@ -685,7 +708,7 @@ const database = {
         ], keywords: ['B1stC1C19']
     },
     {
-        title: 'লেকচার ২০', id: 'ICFcHjlDrRA', slide: [
+        title: 'লেকচার ২০ (শেষ ক্লাস)', id: 'ICFcHjlDrRA', slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1OuP3CSJivHanlsaW7lwME2rXnYteHQpq/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1HApcbCFuPYH2SquPrZU_N-0y6Ps9SP3o/view?usp=sharing" }
         ], keywords: ['B1stC1C20']
