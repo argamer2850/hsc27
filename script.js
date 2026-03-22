@@ -60,62 +60,47 @@ document.onkeydown = function(e) {
         navTo('chapter-screen');
     }
 
-    function openVideoList(chObj) {
-    const vContainer = document.getElementById('video-list-container');
-    const mContainer = document.getElementById('chap-materials');
-    document.getElementById('chap-title').innerText = chObj.chapter;
-    vContainer.innerHTML = '';
-    
-    // মেইন ক্লাস সেকশন
-    if (chObj.mainVideos && chObj.mainVideos.length > 0) {
-        renderVideoSection(vContainer, "⭐ মেইন ক্লাস (Main Classes)", chObj.mainVideos, true);
+    function openVideoList(chapterObj) {
+    const listContainer = document.getElementById('modal-class-list');
+    listContainer.innerHTML = ''; // আগের কন্টেন্ট ক্লিয়ার করা
+
+    // ১. মেইন ভিডিও সেকশন রেন্ডার করা
+    if (chapterObj.mainVideos && chapterObj.mainVideos.length > 0) {
+        renderVideoSection("Main Lectures", chapterObj.mainVideos, listContainer);
     }
 
-    // মাল্টিপল এক্সট্রা সেকশন (স্লাইড ও কিওয়ার্ড সাপোর্টসহ)
-    if (chObj.extraSections && chObj.extraSections.length > 0) {
-        chObj.extraSections.forEach(section => {
-            renderVideoSection(vContainer, section.title, section.videos, false);
+    // ২. এক্সট্রা সেকশনগুলো রেন্ডার করা (সবগুলো সেকশন এবং ভিডিও আসবে)
+    if (chapterObj.extraSections && chapterObj.extraSections.length > 0) {
+        chapterObj.extraSections.forEach(section => {
+            // প্রতিটি সেকশনের টাইটেল এবং ভিডিওর লিস্ট পাঠানো হচ্ছে
+            renderVideoSection(section.title, section.videos, listContainer);
         });
     }
 
-    // চ্যাপ্টার ম্যাটেরিয়ালস (আগের মতোই)
-    mContainer.innerHTML = ''; 
-if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
-    chObj.practiceSheets.forEach((item) => {
-        let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
-        let link = typeof item === 'object' ? item.link : item;
-        let isClickable = true;
-
-        if (typeof item === 'object') btnName = `📥 ${item.name}`;
-
-        // কন্ডিশন চেক
-        if (link === 'N/A') {
-            btnName = "🚫 এই চ্যাপ্টারের প্রাকটিস শীট প্রোভাইড করা হয়নি।";
-            isClickable = false;
-        } else if (!link || link === 'LINK_HERE' || link === '') {
-            btnName = "⏳ এই চ্যাপ্টারের প্রাকটিস শীট এড করা হয়নি";
-            isClickable = false;
-        }
-
-        const matBtn = document.createElement(isClickable ? 'a' : 'div');
-        matBtn.className = 'action-btn btn-sheet';
-        matBtn.innerHTML = btnName;
-        
-        if (isClickable) {
-            matBtn.href = link;
-            matBtn.target = "_blank";
-        } else {
-            matBtn.style.cursor = "default";
-            matBtn.style.opacity = "0.7";
-            matBtn.style.background = "#334155"; // হালকা কালার যাতে বোঝা যায় এটা ক্লিক হবে না
-        }
-        
-        matBtn.style.display = "block";
-        matBtn.style.marginBottom = "10px";
-        mContainer.appendChild(matBtn);
-    });
+    navTo('video-list-screen'); // পপআপ বা স্ক্রিনটি দেখানো
 }
-    navTo('video-list-screen');
+
+// ভিডিও সেকশন রেন্ডার করার হেল্পার ফাংশন
+function renderVideoSection(title, videos, container) {
+    // সেকশন টাইটেল যোগ করা
+    const sectionHeader = document.createElement('h3');
+    sectionHeader.classList.add('section-title'); // আপনার CSS অনুযায়ী ক্লাস দিন
+    sectionHeader.innerText = title;
+    container.appendChild(sectionHeader);
+
+    // ওই সেকশনের সব ভিডিও লুপ করে অ্যাড করা
+    videos.forEach((video, index) => {
+        const item = document.createElement('div');
+        item.className = 'list-item';
+        item.innerHTML = `
+            <div class="item-info">
+                <span class="item-index">${index + 1}</span>
+                <span class="item-title">${video.title}</span>
+            </div>
+            <button class="play-btn" onclick='playNow(${JSON.stringify(video)})'>Play</button>
+        `;
+        container.appendChild(item);
+    });
 }
 
 // ভিডিও লিস্ট রেন্ডার করার জন্য একটি কমন ফাংশন (সহজ করার জন্য)
@@ -818,54 +803,85 @@ function openAllClassesModal() {
 
     for (const subject in database) {
         database[subject].forEach(chapterObj => {
-            // মেইন ভিডিও লিস্ট প্রসেসিং
-            chapterObj.mainVideos.forEach(video => {
-                if (video.id !== '#' && video.id !== 'ID_HERE') {
-                    totalVideoCount++;
-                    const item = document.createElement('div');
-                    item.className = 'list-item';
-                    item.innerHTML = `
-                        <div style="flex:1">
-                            <div style="font-size: 0.75rem; color: var(--accent); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
-                            <div style="font-weight: 600; font-size: 0.95rem;">${video.title} (Main)</div>
-                        </div>
-                        <button class="action-btn" onclick="playFromModal('${subject}', '${chapterObj.chapter}', '${video.title}')" style="font-size: 0.8rem; padding: 8px 15px;">Play</button>
-                    `;
-                    listBody.appendChild(item);
-                }
-            });
-
-            // এডিশনাল/অতিরিক্ত ভিডিও লিস্ট প্রসেসিং (যদি থাকে)
-            if (chapterObj.extraVideos) {
-                chapterObj.extraVideos.forEach(video => {
-                    if (video.id !== '#' && video.id !== 'ID_HERE') {
+            
+            // ১. মেইন ভিডিও ফিল্টারিং
+            if (chapterObj.mainVideos) {
+                chapterObj.mainVideos.forEach(video => {
+                    if (isValidVideo(video)) {
                         totalVideoCount++;
-                        const item = document.createElement('div');
-                        item.className = 'list-item';
-                        item.style.borderLeft = "4px solid var(--secondary)"; // আলাদা করে চেনার জন্য
-                        item.innerHTML = `
-                            <div style="flex:1">
+                        addVideoToModalList(listBody, subject, chapterObj, video, "Main");
+                    }
+                });
+            }
+
+            // ২. এক্সট্রা সেকশন ভিডিও ফিল্টারিং
+            if (chapterObj.extraSections) {
+    chapterObj.extraSections.forEach(section => {
+        section.videos.forEach(video => {
+            if (isValidVideo(video)) {
+                totalVideoCount++;
+                
+                // এখানে সরাসরি এলিমেন্ট তৈরি করে লিস্টে যোগ করছি
+                const item = document.createElement('div');
+                item.className = 'list-item';
+                
+                // আপনার কাঙ্ক্ষিত পার্পেল ডিজাইন (var(--secondary))
+                item.style.borderLeft = "4px solid var(--secondary)"; 
+                
+                item.innerHTML = `
+                    <div style="flex:1">
                                 <div style="font-size: 0.75rem; color: var(--secondary); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
                                 <div style="font-weight: 600; font-size: 0.95rem;">${video.title} (Additional)</div>
                             </div>
                             <button class="action-btn" onclick="playFromModal('${subject}', '${chapterObj.chapter}', '${video.title}')" style="font-size: 0.8rem; padding: 8px 15px; background: var(--secondary);">Play</button>
-                        `;
-                        listBody.appendChild(item);
-                    }
-                });
+                `;
+                
+                // এবার লিস্টে যোগ করে দিন
+                listBody.appendChild(item);
             }
+        });
+    });
+}
         });
     }
 
-    // পপআপের হেডারে মোট ভিডিও সংখ্যা আপডেট
     const modalHeader = modal.querySelector('h2');
     modalHeader.innerHTML = `🎥 ক্লাসের তালিকা (মোট: ${totalVideoCount}টি)`;
+    modal.style.display = 'flex';
+}
 
-    if (totalVideoCount === 0) {
-        listBody.innerHTML = '<p style="text-align:center; padding: 20px; color: #94a3b8;">এখনো কোনো ক্লাস যোগ করা হয়নি।</p>';
+// ভিডিওটি লিস্টে দেখানোর যোগ্য কি না তা চেক করার ফাংশন
+function isValidVideo(video) {
+    const id = video.id ? video.id.trim() : "";
+    const link = video.link ? video.link.trim() : "";
+
+    // কন্ডিশন ১: যদি আইডি 'LINK_HERE' বা 'ID_HERE' হয়, তবে সেটা দেখাবে না
+    if (id === "LINK_HERE" || id === "ID_HERE") return false;
+
+    // কন্ডিশন ২: যদি আইডি ভ্যালিড থাকে (ফাঁকা না হয় এবং '#' না হয়)
+    if (id !== "" && id !== "#") return true;
+
+    // কন্ডিশন ৩: যদি আইডি ফাঁকা হয় কিন্তু একটি বৈধ লিংক থাকে
+    if ((id === "" || id === "#") && (link !== "" && link !== "#" && link !== "LINK_HERE" && link !== "N/A")) {
+        return true;
     }
 
-    modal.style.display = 'flex';
+    // বাকি সব ক্ষেত্রে দেখাবে না
+    return false;
+}
+
+// লিস্টে আইটেম যোগ করার হেল্পার ফাংশন
+function addVideoToModalList(container, subject, chapterObj, video, type) {
+    const item = document.createElement('div');
+    item.className = 'list-item';
+    item.innerHTML = `
+        <div style="flex:1">
+            <div style="font-size: 0.75rem; color: var(--accent); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
+            <div style="font-weight: 600; font-size: 0.95rem;">${video.title} (${type})</div>
+        </div>
+        <button class="action-btn" onclick="playFromModal('${subject}', '${chapterObj.chapter.replace(/'/g, "\\'")}', '${video.title.replace(/'/g, "\\'")}')" style="font-size: 0.8rem; padding: 8px 15px;">Play</button>
+    `;
+    container.appendChild(item);
 }
 
 function closeModal() {
@@ -877,18 +893,25 @@ function playFromModal(subjectName, chapterName, videoTitle) {
     const subject = database[subjectName];
     const ch = subject.find(c => c.chapter === chapterName);
     
-    // প্রথমে মেইন ভিডিওর মধ্যে খোঁজা হবে
-    let v = ch.mainVideos.find(vid => vid.title === videoTitle);
+    let targetVideo = null;
+
+    // ১. প্রথমে মেইন ভিডিওতে খোঁজা
+    targetVideo = ch.mainVideos.find(vid => vid.title === videoTitle);
     
-    // যদি মেইন ভিডিওতে না পাওয়া যায়, তবে এডিশনাল (extraVideos) লিস্টে খোঁজা হবে
-    if (!v && ch.extraVideos) {
-        v = ch.extraVideos.find(vid => vid.title === videoTitle);
+    // ২. না পাওয়া গেলে সব এক্সট্রা সেকশনের ভেতর খোঁজা (সংশোধিত লজিক)
+    if (!targetVideo && ch.extraSections) {
+        for (let section of ch.extraSections) {
+            targetVideo = section.videos.find(vid => vid.title === videoTitle);
+            if (targetVideo) break; // ভিডিও পাওয়া গেলে লুপ বন্ধ হবে
+        }
     }
     
-    if (v) {
+    if (targetVideo) {
         openSubject(subjectName);
         openVideoList(ch);
-        playNow(v);
+        playNow(targetVideo);
+    } else {
+        alert("ভিডিওটি পাওয়া যায়নি!");
     }
 }
 
