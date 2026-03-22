@@ -475,9 +475,17 @@ const database = {
             chapter: 'যোগজীকরণ',
             mainVideos: [
                 {
-                    title: 'লেকচার ১ (Archive)', id: 'Yu0dmcUvyMc', slide: 'https://drive.google.com/file/d/1BjlcEKouQRajZjuWfnMOS1MvMtPuCVFl/view?usp=sharing', keywords: ['M1stC10C1']
+                    title: 'লেকচার ১', id: '', slide: '', keywords: ['M1stC10C1']
                 }
             ],
+            extraSections: [
+    {
+        title: "Archived Classes of Rakib Sir",
+        videos: [
+            { title: 'লেকচার ১', id: 'Yu0dmcUvyMc', slide: 'https://drive.google.com/file/d/1BjlcEKouQRajZjuWfnMOS1MvMtPuCVFl/view?usp=sharing', keywords: [] }
+        ]
+    }
+],
             practiceSheets: ['LINK_HERE']
         },
         {
