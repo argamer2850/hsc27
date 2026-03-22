@@ -881,29 +881,32 @@ function createModalItem(listBody, subject, chapterObj, video, typeLabel) {
         <button class="action-btn" style="font-size: 0.8rem; padding: 8px 15px; ${typeLabel !== 'Main' ? 'background: var(--secondary);' : ''}">Play</button>
     `;
     
+    // এখানে typeLabel পাস করা হয়েছে
     item.onclick = () => {
-        playFromModal(subject, chapterObj.chapter, video.title);
+        playFromModal(subject, chapterObj.chapter, video.title, typeLabel);
     };
     listBody.appendChild(item);
 }
 
 
 // মোডাল থেকে ভিডিও প্লে করার সংশোধিত ফাংশন
-function playFromModal(subjectName, chapterName, videoTitle) {
+function playFromModal(subjectName, chapterName, videoTitle, typeLabel) {
     closeModal();
     const subject = database[subjectName];
     const ch = subject.find(c => c.chapter === chapterName);
     
     let v;
-    // প্রথমে মেইন ভিডিওতে খোঁজা
-    v = ch.mainVideos.find(vid => vid.title === videoTitle);
-    
-    // না পাওয়া গেলে এক্সট্রা সেকশনগুলোর ভিডিওতে খোঁজা
-    if (!v && ch.extraSections) {
-        ch.extraSections.forEach(section => {
-            const found = section.videos.find(vid => vid.title === videoTitle);
-            if (found) v = found;
-        });
+
+    // যদি টাইপ 'Main' হয় তবে শুধু মেইন ভিডিওতে খুঁজবে
+    if (typeLabel === "Main") {
+        v = ch.mainVideos.find(vid => vid.title === videoTitle);
+    } 
+    // অন্যথায় নির্দিষ্ট এক্সট্রা সেকশনে খুঁজবে
+    else if (ch.extraSections) {
+        const targetSection = ch.extraSections.find(sec => sec.title === typeLabel);
+        if (targetSection) {
+            v = targetSection.videos.find(vid => vid.title === videoTitle);
+        }
     }
     
     if (v) {

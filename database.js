@@ -475,7 +475,7 @@ const database = {
             chapter: 'যোগজীকরণ',
             mainVideos: [
                 {
-                    title: 'লেকচার ১', id: '', slide: '', keywords: ['M1stC10C1']
+                    title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE', keywords: []
                 }
             ],
             extraSections: [
