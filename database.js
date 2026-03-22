@@ -406,10 +406,39 @@ const database = {
         {
             chapter: 'অন্তরীকরণ',
             mainVideos: [
-                { title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' },
-                { title: 'লেকচার ২', id: 'ID_HERE', slide: 'https://drive.google.com/file/d/1mqA5_U4fsvUHKxsw9P4zPgF4n-A5FNrV/view?usp=sharing' }
-            ],
+    { title: 'লেকচার ১', id: '_m5rjDzPsk4', slide: 'https://drive.google.com/file/d/1aSe0kpoiGpz-mUINBIx237yUkCddtO1P/view?usp=sharing', keywords: ['M1stC9C1'] },
+    { title: 'লেকচার ২', id: 'rKoqpoVdTIg', slide: 'https://drive.google.com/file/d/1mqA5_U4fsvUHKxsw9P4zPgF4n-A5FNrV/view?usp=sharing', keywords: ['M1stC9C2'] },
+    { title: 'লেকচার ৩', id: 'lzIB70MdSi4', slide: 'https://drive.google.com/file/d/123jMJLJ-llCiFikgt5JNwHIXaAaHeEQN/view?usp=sharing', keywords: ['M1stC9C3'] },
+    { title: 'লেকচার ৪', id: 'BAnQf0XG8_4', slide: 'https://drive.google.com/file/d/1JtWCnzTZoxFYaZF9ULsOBRHwSBaxya89/view?usp=sharing', keywords: ['M1stC9C4'] },
+    { title: 'লেকচার ৫', id: 'R4QOaPg_xxs', slide: 'https://drive.google.com/file/d/1sSwU5xZeVhzRK-eBw2lsj7vrv9AXUfvX/view?usp=sharing', keywords: ['M1stC9C5'] },
+    { title: 'লেকচার ৬', id: 'zgohwNQUiAA', slide: 'https://drive.google.com/file/d/1t4up3JHrFdHFJ20Ltu6BAToyUWoJy58r/view?usp=sharing', keywords: ['M1stC9C6'] },
+    { title: 'লেকচার ৭', id: 'VMB3WrUf95c', slide: 'https://drive.google.com/file/d/10YMNZoPTTxzSiSbSTOHz--PQ2ZX2ze0P/view?usp=sharing', keywords: ['M1stC9C7'] },
+    { title: 'লেকচার ৮', id: 'x81o2Y7KO2I', slide: 'https://drive.google.com/file/d/1h1fTCNmHyPDcdryO9VJIRMqICSGFSCDA/view?usp=sharing', keywords: ['M1stC9C8'] },
+    { title: 'লেকচার ৯', id: 'BUH_pcoB2cc', slide: 'https://drive.google.com/file/d/1nkwGRYmLjSnuB71ZMkLjKCoe9EKkFH9q/view?usp=sharing', keywords: ['M1stC9C9'] },
+    { title: 'লেকচার ১০', id: 'y1VQLZWPsUQ', slide: 'https://drive.google.com/file/d/185So-_9oMRpwbqr1CKFdRHVfAb8Vrj3G/view?usp=sharing', keywords: ['M1stC9C10'] },
+    { title: 'লেকচার ১১', id: 'v-5ojxLuEm0', slide: 'https://drive.google.com/file/d/1tWPXfiWWmfCSJ_BZBv5kGCkGqOyYij5K/view?usp=sharing', keywords: ['M1stC9C11'] },
+    { title: 'লেকচার ১২', id: 'sfnhUZi46JA', slide: 'https://drive.google.com/file/d/1VagfRWomxkN-7kggEwAbS2MecGwsakyQ/view?usp=sharing', keywords: ['M1stC9C12'] },
+    { title: 'লেকচার ১৩', id: 'o2h6V2uhzlA', slide: 'https://drive.google.com/file/d/1SlgJrJYAFi6iorZYDL6qZnfH9Fqu4zMM/view?usp=sharing', keywords: ['M1stC9C13'] },
+    { title: 'লেকচার ১৪', id: 'a0HoXzrHlU0', slide: 'https://drive.google.com/file/d/1Zdz4UxHFhRTPUJTzrDkyXtEGFlxPge-r/view?usp=sharing', keywords: ['M1stC9C14'] },
+    { title: 'লেকচার ১৫', id: 'sOO84mV3my4', slide: 'https://drive.google.com/file/d/1v3XNxYJ5IBqn8vGeSFVV8tVt5VqqmGSe/view?usp=sharing', keywords: ['M1stC9C15'] },
+    { title: 'লেকচার ১৬', id: 'HRH26HThOWI', slide: 'https://drive.google.com/file/d/1F3OwEfpyIqu-OQW8UKKcaIHCRH3d0s3x/view?usp=sharing', keywords: ['M1stC9C16'] },
+    { title: 'লেকচার ১৭', id: '1XJ6-zEWKrQ', slide: 'https://drive.google.com/file/d/1AjMN3HGoBFiJRIZGiFvO-6eBDvw5BvEd/view?usp=sharing', keywords: ['M1stC9C17'] },
+    { title: 'লেকচার ১৮', id: 'ZTWt2LM_ALI', slide: 'https://drive.google.com/file/d/1uyiM225t_z5f2HlZ1RjMf12F8RR3mdzI/view?usp=sharing', keywords: ['M1stC9C18'] },
+    { title: 'লেকচার ১৯', id: '2rvwTykzudQ', slide: 'https://drive.google.com/file/d/1kzIqiPW4qkM-qPY-gqlOlqpLwOXSXoQV/view?usp=sharing', keywords: ['M1stC9C19'] },
+    { title: 'লেকচার ২০', id: 'xyOdpQzSh44', slide: 'https://drive.google.com/file/d/1Gzv01Cxa-dex-uez6D39MHa21EFkBgi7/view?usp=sharing', keywords: ['M1stC9C20'] },
+    { title: 'লেকচার ২১', id: 'OwUadSDcX6Y', slide: 'https://drive.google.com/file/d/1Atkh1Rt6dEFf9zCgR3Y-3OSdR_aBka4p/view?usp=sharing', keywords: ['M1stC9C21'] }
+],
             extraSections: [
+                {
+        title: "Doubt Solving Classes",
+        videos: [
+            { title: 'লেকচার ১-৪', id: '3eTdAM3iKSQ', slide: 'https://drive.google.com/file/d/1LO0m8-dZxH64MWUNQqAgbhbjhPsvRJ9u/view?usp=sharing', keywords: ['M1stC9DSC1'] },
+            { title: 'লেকচার ৫-৮', id: 'AgkShQMfiSU', slide: 'https://drive.google.com/file/d/1xN0kXZMDlDLaFESj1TUfOclWLcXsHXbR/view?usp=sharing', keywords: ['M1stC9DSC2'] },
+            { title: 'লেকচার ৯-১২', id: 'eupyj089trA', slide: 'https://drive.google.com/file/d/1I9ioteJwYz42hhzRwF2UUIe8ZTzN7lbe/view?usp=sharing', keywords: ['M1stC9DSC3'] },
+            { title: 'লেকচার ১৩-১৬', id: 'fIuAFGm90-I', slide: 'https://drive.google.com/file/d/15JjNC1ib2GT0u0qHq8TwE2asl1kYiaWg/view?usp=sharing', keywords: ['M1stC9DSC4'] },
+            { title: 'লেকচার ১৭-২১', id: 'QNT1dGuH0X0', slide: 'https://drive.google.com/file/d/1JHoxJvtfDgy-VQIjSrnEUySkvHqgPM9p/view?usp=sharing', keywords: ['M1stC9DSC5'] },
+        ]
+    },
     {
         title: "Archived Classes of Abhi Datta Tushar",
         videos: [
