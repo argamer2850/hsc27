@@ -1,7 +1,23 @@
 <?php
-// যদি device_id কুঁকিটি না থাকে, তবে তাকে সাইটে ঢুকতে দিবে না
-if (!isset($_COOKIE['device_id'])) {
-    die("Access Denied: আপনার এক্সেস এই সাইটের জন্য অনুমোদিত নয়।");
+$allowed_ips = ['103.150.xxx.xxx']; // আপনার আইপি
+$allowed_devices = ['']; // আপনার ডিভাইস আইডি
+
+$user_ip = $_SERVER['REMOTE_ADDR'];
+$is_access_allowed = false;
+
+// ১. আইপি চেক
+if (in_array($user_ip, $allowed_ips)) {
+    $is_access_allowed = true;
+} 
+// ২. ডিভাইস আইডি চেক
+elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
+    $is_access_allowed = true;
+}
+
+// ৩. যদি অনুমতি না থাকে, তবে এক্সেস পেজ লোড হবে
+if (!$is_access_allowed) {
+    include('access-request-page.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>
