@@ -243,7 +243,11 @@ const database = {
         {
             chapter: 'তরঙ্গ',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1kUl19Taix4-3QSXH3IuKtz0-hcw4UvNf/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ সলিউশন", link: "https://drive.google.com/file/d/1INz9iY3lcpAK3A-p7HW1pZV08JJbqeQl/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২", link: "https://drive.google.com/file/d/1M0zowKD4ZNo2u7C7DCPAt52dvC_KUYHR/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব',
@@ -278,12 +282,18 @@ const database = {
         {
             chapter: 'জ্যামিতিক আলোকবিজ্ঞান',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1KGYhUzoIWVKozw6ZQYTB_1LCzT0BuQhP/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ সলিউশন", link: "https://drive.google.com/file/d/1x4ooowp6incNUZCJqX04RdUmk7u9B244/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'ভৌত আলোকবিজ্ঞান',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/12lhaayBAsX7hRin0wrQ52v7JWtmAnrGt/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ সলিউশন", link: "https://drive.google.com/file/d/1p-S_QO3GF8P6uASIHpq4VV2lRG7enpqf/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'আধুনিক পদার্থবিজ্ঞানের সূচনা',
