@@ -582,7 +582,14 @@ const database = {
         {
             chapter: 'বহুপদী ও বহুপদী সমীকরণ',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "CQ-MCQ প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1wuAdd-WggR3Y5vnFjIqqR2ME06EvVNtU/view?usp=sharing" },
+                { name: "CQ-MCQ প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1kRui7FXlZsO0DDyzUxkSMUUCtUjTBGYP/view?usp=sharing" },
+                { name: "Engineering প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1TumZIh3GSwAIQtNdoOXg3W9LiVaGDzcp/view?usp=sharing" },
+                { name: "Engineering প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/10beJbYrnjK_HqJC6Gu4b5T8GLMJdxYXo/view?usp=sharing" },
+                { name: "Varsity প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1HCZI8LUMZaRq2CqLKckXuTzlj95zvLQJ/view?usp=sharing" },
+                { name: "Varsity প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1mmJ5DPMEyWiiy5VISj-xWlXMF9RmTPzm/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'দ্বিপদী বিস্তৃতি',
