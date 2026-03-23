@@ -223,8 +223,22 @@ const database = {
         },
         {
             chapter: 'পর্যাবৃত্ত গতি',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { title: 'লেকচার ১', id: '7E5_4jz6dn0', slide: 'https://drive.google.com/file/d/1UrnzQrGu-tubv2_zPm_sCkF3HBy2ti4y/view?usp=sharing', keywords: ['P1stC8C1'] },
+    { title: 'লেকচার ২', id: '7gLgcCL7sFw', slide: 'https://drive.google.com/file/d/1psE0ma18QLqYBW4yXPSgbbq8TPFYNQ4S/view?usp=sharing', keywords: ['P1stC8C2'] },
+    { title: 'লেকচার ৩', id: 'xh3FrO4R1rU', slide: 'https://drive.google.com/file/d/1cbEI2SSCzs7czPBrzpqomFWFcQHo3Z5I/view?usp=sharing', keywords: ['P1stC8C3'] },
+    { title: 'লেকচার ৪', id: 'Tz_JqqVxxjY', slide: 'https://drive.google.com/file/d/1SS_elA4Br0lYs9AbD2z43pPF0YIxTTvP/view?usp=sharing', keywords: ['P1stC8C4'] },
+    { title: 'লেকচার ৫', id: 'B84-gueJ8cw', slide: 'https://drive.google.com/file/d/1OF4D9xx6sKXCK8Q0JJ3nCO1Emh1ca7DE/view?usp=sharing', keywords: ['P1stC8C5'] },
+    { title: 'লেকচার ৬', id: '844CpLwNiXQ', slide: 'https://drive.google.com/file/d/1dxMfJNb9lAcYKLBpRl2If2xoo5gYfBG2/view?usp=sharing', keywords: ['P1stC8C6'] },
+    { title: 'লেকচার ৭', id: 'pc0aMduDc0w', slide: 'https://drive.google.com/file/d/1qDepKK1ZUaD_Xg0SJ3Ez8i44GgxEYO9Z/view?usp=sharing', keywords: ['P1stC8C7'] },
+    { title: 'লেকচার ৮', id: 'Pdsx5wYihu4', slide: 'N/A', keywords: ['P1stC8C8'] }
+],
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1TETc-R68G2oitZufvl4fTCRtxl3N3xsb/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ সলিউশন", link: "https://drive.google.com/file/d/1D_Uh_q8q_gUyp3PEduVSDR5dOyDG8FEm/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২", link: "https://drive.google.com/file/d/1cijj_bYEBzdE27RFFIUp3CfNc-b_OC0J/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২ সলিউশন", link: "https://drive.google.com/file/d/12b1HOLJBnPw-RWl7RaVTL8Uah-oVlMJU/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'তরঙ্গ',
