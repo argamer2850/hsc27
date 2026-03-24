@@ -1,6 +1,6 @@
 <?php
-$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109']; 
-$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109']; 
+$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137']; 
+$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '1cf7643953627474d2586c5b']; 
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
