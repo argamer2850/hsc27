@@ -176,31 +176,31 @@ const database = {
     },
     {
         title: 'লেকচার ৬',
-        id: '',
+        id: 'Nlf1myJB6AM',
         slide: 'https://drive.google.com/file/d/1c27RO7cX39OQPIZpSMdXEHsb9R2-i9ce/view?usp=sharing',
         keywords: ['P1stC5C6']
     },
     {
         title: 'লেকচার ৭',
-        id: '',
+        id: 'SchE0oshhLo',
         slide: 'https://drive.google.com/file/d/1smNsmePatBmhNhYsz4rPJ3iyZMXZSH0O/view?usp=sharing',
         keywords: ['P1stC5C7']
     },
     {
         title: 'লেকচার ৮',
-        id: '',
+        id: '3k0JpnqNJxM',
         slide: 'https://drive.google.com/file/d/15lYsuOCSuqwNb_KsvggYA097rbZEePJg/view?usp=sharing',
         keywords: ['P1stC5C8']
     },
     {
         title: 'লেকচার ৯',
-        id: '',
+        id: 'gnCLGzYLjLY',
         slide: 'https://drive.google.com/file/d/1t2TuY6E1H9Z6m-d7aJwKADztgV0vEran/view?usp=sharing',
         keywords: ['P1stC5C9']
     },
     {
         title: 'লেকচার ১০ (শেষ ক্লাস)',
-        id: '',
+        id: 'rRSegaUjWkA',
         slide: 'https://drive.google.com/file/d/122fqIi8eBrksAyoubF6fh-u_dz78Cfwv/view?usp=sharing',
         keywords: ['P1stC5C10']
     }
