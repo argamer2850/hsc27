@@ -135,8 +135,77 @@ const database = {
         },
         {
             chapter: 'কাজ, ক্ষমতা ও শক্তি',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    {
+        title: 'লেকচার ১',
+        id: '6gX8o-KCV1E',
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1NO4Lwiiclp4-LgH78u1S6JR3EVRILZZ1/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1QZhOwhTyeOojjn8KGxGUpcLQkTDTG7tN/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1UnVwCoJSeGcO-tgH9vGMU-INxOQG_rYC/view?usp=sharing" }
+        ],
+        keywords: ['P1stC5C1']
+    },
+    {
+        title: 'লেকচার ২',
+        id: 'QrwAU1dINRM',
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1vfLVt-bFJ1_TnKVFirJwmQfcW3fVUFyd/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1s21nsFSZHLEjnMyXPM0RSTdX1cMEVKk5/view?usp=sharing" },
+            { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1jNnz2iY6HZZyFBsA08lTNI0-yvaO6QNe/view?usp=sharing" }
+        ],
+        keywords: ['P1stC5C2']
+    },
+    {
+        title: 'লেকচার ৩',
+        id: 'xcWySho9s5A',
+        slide: 'https://drive.google.com/file/d/1BfbqybEUFmUGi5ejJ5NhgagkoBC5trFP/view?usp=sharing',
+        keywords: ['P1stC5C3']
+    },
+    {
+        title: 'লেকচার ৪',
+        id: 'q2uarRd_CyU',
+        slide: 'https://drive.google.com/file/d/1vBhST94c64oN74EqSPmr1w89qeXX4EdG/view?usp=sharing',
+        keywords: ['P1stC5C4']
+    },
+    {
+        title: 'লেকচার ৫',
+        id: '8Wl70h8hBGg',
+        slide: 'https://drive.google.com/file/d/1AYkb5YhRkOIXvfKxFzPv-DcIrV5O27N_/view?usp=sharing',
+        keywords: ['P1stC5C5']
+    },
+    {
+        title: 'লেকচার ৬',
+        id: '',
+        slide: 'https://drive.google.com/file/d/1c27RO7cX39OQPIZpSMdXEHsb9R2-i9ce/view?usp=sharing',
+        keywords: ['P1stC5C6']
+    },
+    {
+        title: 'লেকচার ৭',
+        id: '',
+        slide: 'https://drive.google.com/file/d/1smNsmePatBmhNhYsz4rPJ3iyZMXZSH0O/view?usp=sharing',
+        keywords: ['P1stC5C7']
+    },
+    {
+        title: 'লেকচার ৮',
+        id: '',
+        slide: 'https://drive.google.com/file/d/15lYsuOCSuqwNb_KsvggYA097rbZEePJg/view?usp=sharing',
+        keywords: ['P1stC5C8']
+    },
+    {
+        title: 'লেকচার ৯',
+        id: '',
+        slide: 'https://drive.google.com/file/d/1t2TuY6E1H9Z6m-d7aJwKADztgV0vEran/view?usp=sharing',
+        keywords: ['P1stC5C9']
+    },
+    {
+        title: 'লেকচার ১০ (শেষ ক্লাস)',
+        id: '',
+        slide: 'https://drive.google.com/file/d/122fqIi8eBrksAyoubF6fh-u_dz78Cfwv/view?usp=sharing',
+        keywords: ['P1stC5C10']
+    }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'মহাকর্ষ ও অভিকর্ষ',
