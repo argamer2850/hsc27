@@ -196,7 +196,7 @@ syncGlobalID();
             </div>
         </div>
 <div id="external-link-container" class="shared-style-box" style="display: none; text-align: center; padding: 40px 20px; margin-bottom: 20px; border: 1px dashed var(--primary);">
-    <p style="margin-bottom: 20px; color: #94a3b8; font-size: 14px;">এই ক্লাসটির ভিডিও সরাসরি ওয়েবসাইট এ এম্বেড করা সম্ভব হয়নি। ক্লাসটি দেখতে নিচের বাটনে ক্লিক করুন: (গ্রুপে জয়েন হয়ে না থাকলে রিকোয়েস্ট পাঠান)</p>
+    <p style="margin-bottom: 20px; color: #94a3b8; font-size: 14px;">এই ক্লাসটির ভিডিও সরাসরি ওয়েবসাইট এ এম্বেড করা সম্ভব হয়নি। ক্লাসটি দেখতে নিচের বাটনে ক্লিক করুন: (গ্রুপে জয়েন হয়ে না থাকলে <a href="https://www.facebook.com/groups/764779363156075" target="_blank">রিকোয়েস্ট পাঠান</a>)</p>
     <a id="external-link-btn" href="#" target="_blank" class="control-btn" style="padding: 12px 25px; text-decoration: none; display: inline-block; background: var(--primary); border-radius: 8px; color: white; font-weight: bold;">
         🔗 ক্লাসটি ওপেন করুন (External Link)
     </a>
