@@ -143,27 +143,38 @@ let timeUpdater;
 let showRemaining = false;
 
     function onYouTubeIframeAPIReady() {
-        player = new YT.Player('yt-player', {
-            height: '100%',
-            width: '100%',
-            playerVars: {
-                'autoplay': 1,
-                'controls': 0, // Hides default controls
-                'disablekb': 1, // Disable keyboard shortcuts
-                'fs': 0, // Disable default fullscreen
-                'rel': 0, // Don't show related videos
-                'modestbranding': 1, // Minimize YouTube logo
-                'playsinline': 1,
-                'iv_load_policy': 3 // Hide annotations
-            },
-            events: {
-                'onReady': onPlayerReady,
-                'onStateChange': onPlayerStateChange
-            }
-        });
+    // ডিফল্ট কাস্টম প্লেয়ারের সেটিংস
+    let playerVarsConfig = {
+        'autoplay': 1,
+        'controls': 0, // ডিফল্টভাবে ইউটিউব কন্ট্রোল হাইড
+        'disablekb': 1, // কীবোর্ড শর্টকাট বন্ধ
+        'fs': 0, 
+        'rel': 0, 
+        'modestbranding': 1, 
+        'playsinline': 1,
+        'iv_load_policy': 3 
+    };
+
+    // যদি স্পেশাল আইপির ইউজার হয়, তবে সেটিংস পরিবর্তন হবে
+    if (typeof isNormalPlayerUser !== 'undefined' && isNormalPlayerUser) {
+        playerVarsConfig.controls = 1; // নর্মাল ইউটিউব কন্ট্রোল অন
+        playerVarsConfig.disablekb = 0; // কীবোর্ড শর্টকাট অন
+        playerVarsConfig.fs = 1; // ফুলস্ক্রিন অন
     }
+
+    player = new YT.Player('yt-player', {
+        height: '100%',
+        width: '100%',
+        playerVars: playerVarsConfig,
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
 function onPlayerReady(event) {
     // Overlay Click = Play/Pause Logic
+    if (typeof isNormalPlayerUser !== 'undefined' && isNormalPlayerUser) return;
 document.getElementById('video-overlay').addEventListener('click', (e) => {
     // ১. চেক করা হচ্ছে ইউজার কি মোবাইল ব্যবহার করছে?
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -613,6 +624,8 @@ function updateVolumeUI(vol) {
 }
 document.addEventListener('keydown', (e) => {
     // ১. ইনপুট বক্সে থাকলে শর্টকাট কাজ করবে না
+    // স্পেশাল ইউজার হলে কাস্টম কীবোর্ড শর্টকাট কাজ করবে না
+    if (typeof isNormalPlayerUser !== 'undefined' && isNormalPlayerUser) return;
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
     if (!player) return;
 

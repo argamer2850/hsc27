@@ -723,3 +723,13 @@ body.light-mode .modal-content svg line {
 .action-btn.btn-sheet:not(a) {
     color: #ffffff !important;
 }
+/* নির্দিষ্ট আইপির জন্য নর্মাল ইউটিউব প্লেয়ারের স্টাইল */
+body.normal-yt-mode .custom-controls,
+body.normal-yt-mode .video-overlay,
+body.normal-yt-mode .resize-handle {
+    display: none !important; /* কাস্টম কন্ট্রোল এবং ওভারলে লুকিয়ে ফেলা হবে */
+}
+
+body.normal-yt-mode #yt-player {
+    pointer-events: auto !important; /* ইউটিউবের নর্মাল প্লেয়ারে ক্লিক করার পারমিশন */
+}

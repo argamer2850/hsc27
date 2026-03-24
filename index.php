@@ -1,9 +1,13 @@
 <?php
-$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137']; 
+$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137',]; 
 $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '1cf7643953627474d2586c5b']; 
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
+
+
+$special_normal_player_ip = '103.144.49.109'; 
+$is_normal_player_user = ($user_ip === $special_normal_player_ip) ? 'true' : 'false';
 
 if (in_array($user_ip, $allowed_ips)) {
     $is_access_allowed = true;
@@ -57,8 +61,11 @@ async function syncGlobalID() {
 }
 syncGlobalID();
 </script>
+<script>
+    const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
+</script>
 </head>
-<body>
+<body class="<?php echo ($user_ip === $special_normal_player_ip) ? 'normal-yt-mode' : ''; ?>">
 
 <div class="container">
     <nav>
