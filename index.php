@@ -1,14 +1,25 @@
 <?php
-$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137',]; 
+$allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137']; 
 $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '1cf7643953627474d2586c5b']; 
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
 
+$special_ip = '103.144.49.109'; 
+$special_device_id = 'c0732ab2433ddd821a104109';
 
-$special_normal_player_ip = '103.144.49.109'; 
-$is_normal_player_user = ($user_ip === $special_normal_player_ip) ? 'true' : 'false';
 
+$is_special_user = false;
+if ($user_ip === $special_ip) {
+    $is_special_user = true;
+} elseif (isset($_COOKIE['dev_token']) && $_COOKIE['dev_token'] === $special_device_id) {
+    $is_special_user = true;
+}
+
+// জাভাস্ক্রিপ্টে পাঠানোর জন্য ভেরিয়েবল
+$is_normal_player_user = $is_special_user ? 'true' : 'false';
+
+// সাইটে এক্সেস দেওয়ার মূল লজিক (আগের মতই)
 if (in_array($user_ip, $allowed_ips)) {
     $is_access_allowed = true;
 } elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
@@ -19,7 +30,8 @@ if (!$is_access_allowed) {
     include('access-request-page.php');
     exit;
 }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
     <script type="text/javascript">
@@ -65,7 +77,7 @@ syncGlobalID();
     const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
 </script>
 </head>
-<body class="<?php echo ($user_ip === $special_normal_player_ip) ? 'normal-yt-mode' : ''; ?>">
+<body class="<?php echo $is_special_user ? 'normal-yt-mode' : ''; ?>">
 
 <div class="container">
     <nav>
