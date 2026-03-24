@@ -581,7 +581,27 @@ const database = {
         },
         {
             chapter: 'বহুপদী ও বহুপদী সমীকরণ',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
+            mainVideos: [
+    { title: 'লেকচার ১', id: 'OVV5egWZ1sg', slide: 'https://drive.google.com/file/d/1gaEkXunrjRuaB11Z7PCPY8yzLvoqqBCc/view?usp=sharing', keywords: ['M2ndC4C1'] },
+    { title: 'লেকচার ২', id: 'jw4rEx2flHQ', slide: 'https://drive.google.com/file/d/1b2gTUZ175kTs1q9E46qzEeTLmy_NFv4M/view?usp=sharing', keywords: ['M2ndC4C2'] },
+    { title: 'লেকচার ৩', id: 'oZp1wenFqns', slide: 'https://drive.google.com/file/d/1jRiU5WDR0EH3LTAkePcqVvMNC_l-P5Q0/view?usp=sharing', keywords: ['M2ndC4C3'] },
+    { title: 'লেকচার ৪', id: 'dUNY_Qi9bpM', slide: 'https://drive.google.com/file/d/1lNhBh5Jda5a941oTqGCSa-IhOtTzjPnJ/view?usp=sharing', keywords: ['M2ndC4C4'] },
+    { title: 'লেকচার ৫', id: 'RUMn2lyk1Z0', slide: 'https://drive.google.com/file/d/1CffyYaJ34KOSCnrIJzm6HewtvaULSTFV/view?usp=sharing', keywords: ['M2ndC4C5'] },
+    { title: 'লেকচার ৬', id: 'NuWmUEBwnJ8', slide: [
+                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1pdaFGvPL7mw1Ojzh6E7BfbYpBn1XdOV-/view?usp=sharing" },
+                        { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/17MCUg_55HWKuwjRyZx6hynElhMrufZMC/view?usp=sharing" }
+                    ], keywords: ['M2ndC4C6'] },
+    { title: 'লেকচার ৭', id: 'cyLIcRyL4Hk', slide: 'https://drive.google.com/file/d/1ptXFecrozT0Z0bLdun-MzzH-DHg4WTb0/view?usp=sharing', keywords: ['M2ndC4C7'] },
+    { title: 'লেকচার ৮', id: 'AaP0ngkswDc', slide: 'https://drive.google.com/file/d/1y_ocFDgUM2kKtu3Sia5dhfiX8C6B5KdZ/view?usp=sharing', keywords: ['M2ndC4C8'] }
+],
+extraSections: [
+                {
+        title: "Doubt Solving Classes",
+        videos: [
+            { title: 'লেকচার ১-৫', id: 'yCnsZ8dlyG4', slide: 'https://drive.google.com/file/d/1_HfWo_m_edCVv-DyFzeRquYSG-BPHaV9/view?usp=sharing', keywords: ['M2ndC4DSC1'] }
+        ]
+    }
+],
             practiceSheets: [
                 { name: "CQ-MCQ প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1wuAdd-WggR3Y5vnFjIqqR2ME06EvVNtU/view?usp=sharing" },
                 { name: "CQ-MCQ প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1kRui7FXlZsO0DDyzUxkSMUUCtUjTBGYP/view?usp=sharing" },
