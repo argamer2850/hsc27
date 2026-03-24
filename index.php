@@ -1,25 +1,31 @@
 <?php
+
 $allowed_ips = ['202.181.4.166', '116.206.255.42', '103.144.49.109', '103.237.36.137']; 
 $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '1cf7643953627474d2586c5b']; 
+
+
+$special_ips = [
+    '103.144.49.109']; 
+
+$special_device_ids = [
+    'c0732ab2433ddd821a104109'];
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
 
-$special_ip = '103.144.49.109'; 
-$special_device_id = 'c0732ab2433ddd821a104109';
-
-
+// ৩. চেক করা হচ্ছে বর্তমান ইউজার স্পেশাল লিস্টে আছে কিনা
 $is_special_user = false;
-if ($user_ip === $special_ip) {
+
+if (in_array($user_ip, $special_ips)) {
     $is_special_user = true;
-} elseif (isset($_COOKIE['dev_token']) && $_COOKIE['dev_token'] === $special_device_id) {
+} elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $special_device_ids)) {
     $is_special_user = true;
 }
 
-// জাভাস্ক্রিপ্টে পাঠানোর জন্য ভেরিয়েবল
+// জাভাস্ক্রিপ্টে পাঠানোর জন্য
 $is_normal_player_user = $is_special_user ? 'true' : 'false';
 
-// সাইটে এক্সেস দেওয়ার মূল লজিক (আগের মতই)
+// সাইটে প্রবেশের মেইন সিকিউরিটি চেক
 if (in_array($user_ip, $allowed_ips)) {
     $is_access_allowed = true;
 } elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
