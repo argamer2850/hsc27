@@ -844,13 +844,141 @@ extraSections: [
         },
         {
             chapter: 'কোষ বিভাজন',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+  {
+    title: 'লেকচার ১',
+    id: 'SxeR0fPMX1I',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1gXoFp_YoXnZuV7XsczzSJrKyS6HNbxQ6/view?usp=sharing" },
+      { name: "প্রাকটিস শীট", link: "https://drive.google.com/file/d/1umY1-Yy2kV-ribmOydnRigWhBrl6fYCr/view?usp=sharing" },
+      { name: "দাগানো বই", link: "https://drive.google.com/file/d/1__RJwZOSG2Hvov0z13B2LavyGaJ_ViOo/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C1']
+  },
+  {
+    title: 'লেকচার ২',
+    id: 'kHleBT_GXfc',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1PSnQTehyHa1Pyi8gJotNpRczALx1VAwB/view?usp=sharing" },
+      { name: "দাগানো বই", link: "https://drive.google.com/file/d/11L6l1WhUM2KXkXe7K8ixQ8hq5Nwvwi72/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C2']
+  },
+  {
+    title: 'লেকচার ৩',
+    id: 'dprKBhTQoX8',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1NMUHCysQvJePKXldSLw_cImV5c_LBcv9/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C3']
+  },
+  {
+    title: 'লেকচার ৪',
+    id: '1crFv20cLEk',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1PxpqR0qFRNDJIz7KqZ6rAOdauButwIaK/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C4']
+  },
+  {
+    title: 'লেকচার ৫',
+    id: 'CDCNMAHcgEM',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1et2l-AAPS3UId42buPbH9SmNJAuhpkS0/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C5']
+  },
+  {
+    title: 'লেকচার ৬ (শেষ ক্লাস)',
+    id: 'XEjE7kJ_Z3k',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1mrk__jI3f38v5JEIjaG2NekDCWglG-Da/view?usp=sharing" }
+    ],
+    keywords: ['B1stC2C6']
+  }
+],
+            practiceSheets: [
+                { name: "দাগানো বই", link: "https://drive.google.com/file/d/1Fpt-HvDPbC-UAjWVKw3jq0pPAypm2j2M/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'কোষ রসায়ন',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    {
+        title: 'কার্বোহাইড্রেটের ধারনা ও মনোস্যাকারাইড', 
+        id: '8V-g3xwhGHY', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1zcV3fzp8BKwDVFEPmQyCKW5D1fX5Kn_v/view?usp=sharing" },
+            { name: "প্রাকটিস শীট", link: "https://drive.google.com/file/d/1WXGnncjoQE3mR93tnwi08Gjr0aOV_Z6b/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1TDyWGlS0z3z76bq_5Sx7DCq51H1q8kI5/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C1']
+    },
+    {
+        title: 'মনোস্যাকারাইড ও ডাইস্যাকারাইড বিস্তারিত', 
+        id: 'v3M6lwvA54g', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/12XoG5LuiIR8fLAEWPY0U2b33cu55qtkO/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1EZOpHrfBSmhcKTLN4Q3_KYYG5XbRjg_T/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C2']
+    },
+    {
+        title: 'ডাইস্যাকারাইড বিস্তারিত এবং পলিস্যাকারাইড', 
+        id: '7ZxdCZK9epc', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1-NTBPq04tLSjWMzoDKIaVlUbo3Jp6Y04/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/17zAPVKy0UAtLJtRLLGtqNvimXV7FsZZK/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C3']
+    },
+    {
+        title: 'কোষ রসায়ন ৪', 
+        id: 'tD3pm1QKZVk', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1dqFZ6WY1UdWp5UQHYqsdhdIV4K-c4-_N/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1vSsLJLeEoPNACD_s6em_zrySYkMlT2h5/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C4']
+    },
+    {
+        title: 'অ্যামাইনো এসিড', 
+        id: '-Op-z9qzgYM', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1XT7RPI6srSNVHs79lW-Pn-6M9klknQaw/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/19E_mIPnIzpbFaZIvUuUpmDYT5NqTlNlG/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C5']
+    },
+    {
+        title: 'প্রোটিন', 
+        id: 'IrRCnLjeISk', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/12z1Hhw5mjxO8fRvoRqod50DMY5vks-rN/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1XDOSJTtW7uyfNlMvXtx-LF__RguGwdyL/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C6']
+    },
+    {
+        title: 'এনজাইম', 
+        id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1CKjD1YpSYpzrpqSMQHeCxascBZNkbvgz/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1IMG92GOST_wGPZZ_13sQi9C_0bX82otm/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C7']
+    },
+    {
+        title: 'লিপিড (শেষ ক্লাস)', 
+        id: '', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1lQMcaaLhBKb3QDcIC-fO43Gli35eTD8H/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1109JwTk2LoRIZVX60TlzXwO2e7BXlT_D/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC3C8']
+    }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'অণুজীব',
@@ -874,14 +1002,52 @@ extraSections: [
         {
             chapter: 'শৈবাল ও ছত্রাক',
             mainVideos: [
-                {
-                    title: 'লেকচার ১', id: '4u3AND4epSU', slide: [
-                        { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1zOdoLT-z1wsJUhGaqhkEAbphk4F04Alv/view?usp=sharing" },
-                        { name: "দাগানো বই", link: "https://drive.google.com/file/d/1Qs6lnCbgjOWwVE536CmW6pqWufMkSw27/view?usp=sharing" }
-                    ], keywords: ['B1stC5C1']
-                },
-                { title: 'লেকচার ২', id: 'INv8OUEpGQU', slide: 'https://drive.google.com/file/d/1dVOJ2hj1EDuJaSNn5s4_bR0683XhFUj9/view?usp=sharing', keywords: ['B1stC5C2'] }
-            ],
+    {
+        title: 'শৈবাল ১', 
+        id: '4u3AND4epSU', 
+        slide: [
+            { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1zOdoLT-z1wsJUhGaqhkEAbphk4F04Alv/view?usp=sharing" },
+            { name: "দাগানো বই", link: "https://drive.google.com/file/d/1Qs6lnCbgjOWwVE536CmW6pqWufMkSw27/view?usp=sharing" }
+        ], 
+        keywords: ['B1stC5C1']
+    },
+    { 
+        title: 'শৈবাল ২', 
+        id: 'INv8OUEpGQU', 
+        slide: 'https://drive.google.com/file/d/1dVOJ2hj1EDuJaSNn5s4_bR0683XhFUj9/view?usp=sharing', 
+        keywords: ['B1stC5C2'] 
+    },
+    { 
+        title: 'শৈবাল ৩', 
+        id: '7f22uSPRpag', 
+        slide: 'https://drive.google.com/file/d/1qZpvnuVoSUN120b-bXdzNOg-JSX0JmMl/view?usp=sharing', 
+        keywords: ['B1stC5C3'] 
+    },
+    { 
+        title: 'ছত্রাক ১', 
+        id: '4ivZajwYcgI', 
+        slide: 'https://drive.google.com/file/d/1FqRL7KQm5DVp-j8GZjzs7Z_tGhYpNk8i/view?usp=sharing', 
+        keywords: ['B1stC5C4'] 
+    },
+    { 
+        title: 'ছত্রাক ২', 
+        id: 'eESXCN_TVZ0', 
+        slide: 'https://drive.google.com/file/d/1vvekzk3gHGVWvQDwWYt2iShXALu8jAtt/view?usp=sharing', 
+        keywords: ['B1stC5C5'] 
+    },
+    { 
+        title: 'শৈবাল ও ছত্রাক ৬', 
+        id: 'y-R7_wuqExk', 
+        slide: 'https://drive.google.com/file/d/1wsWRFwF3GmHu9g_iD2ufgsRY4BJLmM3Q/view?usp=sharing', 
+        keywords: ['B1stC5C6'] 
+    },
+    { 
+        title: 'লাইকেন (শেষ ক্লাস)', 
+        id: '9UwwrtwkzW4', 
+        slide: 'https://drive.google.com/file/d/1M39ZvDQPOMxTJSEX81wFhJJwAqG70adb/view?usp=sharing', 
+        keywords: ['B1stC5C7'] 
+    }
+],
             practiceSheets: ['N/A']
         },
         {
