@@ -961,7 +961,7 @@ extraSections: [
     },
     {
         title: 'এনজাইম', 
-        id: '', 
+        id: 'HwUy_DL944o', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1CKjD1YpSYpzrpqSMQHeCxascBZNkbvgz/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1IMG92GOST_wGPZZ_13sQi9C_0bX82otm/view?usp=sharing" }
@@ -970,7 +970,7 @@ extraSections: [
     },
     {
         title: 'লিপিড (শেষ ক্লাস)', 
-        id: '', 
+        id: 'Tg90K93YT8Y', 
         slide: [
             { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1lQMcaaLhBKb3QDcIC-fO43Gli35eTD8H/view?usp=sharing" },
             { name: "দাগানো বই", link: "https://drive.google.com/file/d/1109JwTk2LoRIZVX60TlzXwO2e7BXlT_D/view?usp=sharing" }
