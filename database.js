@@ -854,8 +854,22 @@ extraSections: [
         },
         {
             chapter: 'অণুজীব',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { title: 'ভাইরাসের সাধারণ আলোচনা', id: 'MI95M3R2YIU', slide: 'https://drive.google.com/file/d/1yUBhjZELkBr86I1WLWmOSfO7-wY1EQCp/view?usp=sharing', keywords: ['B1stC4C1'] },
+    { title: 'ভাইরাসের প্রকারভেদ', id: 'YR5e_gUytgQ', slide: 'https://drive.google.com/file/d/17HcunlCTKO76ltxujOIVeyGnXsiBh0e4/view?usp=sharing', keywords: ['B1stC4C2'] },
+    { title: 'সাবভাইরাল সত্তা ও কিছু ভাইরাস', id: 'inGnm1MWJow', slide: 'https://drive.google.com/file/d/1GGpVcSyntRWmt5kn7cO00sjlnoyFgT1X/view?usp=sharing', keywords: ['B1stC4C3'] },
+    { title: 'ভাইরাসের সংখ্যা বৃদ্ধি', id: '6CZAvc9Tk4k', slide: 'https://drive.google.com/file/d/1_jnSejZUBpkXzNucjUu1uXqFsbyImXEM/view?usp=sharing', keywords: ['B1stC4C4'] },
+    { title: 'কয়েকটি ভাইরাস জনিত রোগ', id: 'zdigYjNAUuA', slide: 'https://drive.google.com/file/d/1etaEe8LgXz9q6NEBdxe66PSPOeu4Ex4c/view?usp=sharing', keywords: ['B1stC4C5'] },
+    { title: 'কয়েকটি ভাইরাস জনিত রোগ ২', id: 'X0gBAHlzltQ', slide: 'https://drive.google.com/file/d/1uYXtBhbHo3fnf6E9HH_8e1zVcFMc9QY_/view?usp=sharing', keywords: ['B1stC4C6'] },
+    { title: 'একটি আদর্শ ব্যাক্টেরিয়ামের গঠন', id: 'eFQ6smh9q94', slide: 'https://drive.google.com/file/d/1MeDAYF-WH8equXZe-FxD9Y5myFblIfB9/view?usp=sharing', keywords: ['B1stC4C7'] },
+    { title: 'ব্যাকটেরিয়ার বৈশিষ্ট্য ও শ্রেণিবিভাগ', id: 'OrFNbcRhUog', slide: 'https://drive.google.com/file/d/1QXynuiN7NweoxUVXCqHO_32Fl3b4Z2sk/view?usp=sharing', keywords: ['B1stC4C8'] },
+    { title: 'ব্যাকটেরিয়ার গুরুত্বঃ উপকারিতা', id: '22YO7UTWAhE', slide: 'https://drive.google.com/file/d/1sy0V1eR0vuxXkCvrFFIKFoZTsmjtNATG/view?usp=sharing', keywords: ['B1stC4C9'] },
+    { title: 'ব্যাকটেরিয়ার গুরুত্বঃ অপকারিতা, কলেরা , ধানের ব্লাইট', id: 'QhccgYvhqh8', slide: 'https://drive.google.com/file/d/1GxflIzSeFPiXfWurjczmHQAE0A9DpyVq/view?usp=sharing', keywords: ['B1stC4C10'] },
+    { title: 'ব্যাকটেরিয়ার জনন', id: '4fDPefG4rHg', slide: 'https://drive.google.com/file/d/1TqfrRnyBrZIVWLWbyqOwbUFU1upYoO6V/view?usp=sharing', keywords: ['B1stC4C11'] },
+    { title: 'ম্যালেরিয়া পরিজীবী পর্ব-১', id: 'MKrNbtcr-Kg', slide: 'https://drive.google.com/file/d/1Djl71TyRx59AWg6389rkgiDhlf20_nb1/view?usp=sharing', keywords: ['B1stC4C12'] },
+    { title: 'ম্যালেরিয়া পরিজীবী পর্ব-২ (শেষ ক্লাস)', id: '7gCPho8tGdI', slide: 'https://drive.google.com/file/d/1nI7mn0k_twA1hGpbRaPaxBzxTv7M5mE-/view?usp=sharing', keywords: ['B1stC4C13'] }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'শৈবাল ও ছত্রাক',
