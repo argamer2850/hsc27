@@ -1015,24 +1015,24 @@ function closeModal() {
     const items = document.querySelectorAll('#modal-class-list .list-item');
     items.forEach(item => item.style.display = 'flex');
 }
-document.getElementById('toggle-filter-btn').addEventListener('click', function() {
-    const iframe = document.querySelector('.custom-video-container iframe');
-    const statusText = document.getElementById('filter-status');
+// document.getElementById('toggle-filter-btn').addEventListener('click', function() {
+//     const iframe = document.querySelector('.custom-video-container iframe');
+//     const statusText = document.getElementById('filter-status');
     
-    if (iframe) {
-        // 'no-filter' ক্লাসটি অদলবদল (Toggle) করবে
-        iframe.classList.toggle('no-filter');
+//     if (iframe) {
+//         // 'no-filter' ক্লাসটি অদলবদল (Toggle) করবে
+//         iframe.classList.toggle('no-filter');
         
-        // বাটন এর লেখা পরিবর্তন করবে
-        if (iframe.classList.contains('no-filter')) {
-            statusText.innerText = 'OFF';
-            this.style.background = 'rgba(255, 0, 0, 0.2)'; // অফ থাকলে লালচে দেখাবে
-        } else {
-            statusText.innerText = 'ON';
-            this.style.background = 'transparent'; // অন থাকলে আগের মতো
-        }
-    }
-});
+//         // বাটন এর লেখা পরিবর্তন করবে
+//         if (iframe.classList.contains('no-filter')) {
+//             statusText.innerText = 'OFF';
+//             this.style.background = 'rgba(255, 0, 0, 0.2)'; // অফ থাকলে লালচে দেখাবে
+//         } else {
+//             statusText.innerText = 'ON';
+//             this.style.background = 'transparent'; // অন থাকলে আগের মতো
+//         }
+//     }
+// });
 // script.js এ কিবোর্ড লজিকের ভেতর নিচের কোডটি যুক্ত করুন
 
 let volumeTimeout;
