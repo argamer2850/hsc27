@@ -447,7 +447,13 @@ const database = {
         {
             chapter: 'পরিবেশ রসায়ন',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "দাগানো বই", link: "https://drive.google.com/file/d/1v2PCZpoBytkp1TbXRRuVWJXn34BPXFnL/view?usp=sharing" },
+                { name: "CQ-MCQ প্রাকটিস শীট", link: "https://drive.google.com/file/d/1f95mzkB2OND3AfhfQ0O1Jw_lMrYc00N-/view?usp=sharing" },
+                { name: "CQ-MCQ প্রাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1ILSDCDa_R43EHOyBogdJnXQM2x1mbKW-/view?usp=sharing" },
+                { name: "Engineering প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1DkBkPX0S4VxRJWeLGVAFs3VQxgBsDQxK/view?usp=sharing" },
+                { name: "Engineering প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1WrnmiZvD4D7fqm0GExe7NFzvILfNAXzt/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'জৈব রসায়ন',
