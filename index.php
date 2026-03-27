@@ -84,8 +84,8 @@ syncGlobalID();
 </script>
 </head>
 <body class="<?php echo $is_special_user ? 'normal-yt-mode' : ''; ?>">
-   <div id="progress-bar-container">
-    <div id="progress-bar"></div>
+   <div id="site-loader-container">
+    <div id="site-loader-bar"></div>
 </div>
 
 <div class="container">

@@ -1,18 +1,3 @@
-// পেজ একদম শুরুতে লোড হওয়ার সময় ক্লিক লক রাখতে
-document.getElementById('progress-bar-container').style.display = 'block';
-
-window.addEventListener('load', () => {
-    const progressBar = document.getElementById('progress-bar');
-    const container = document.getElementById('progress-bar-container');
-
-    progressBar.style.width = '100%';
-    setTimeout(() => {
-        container.classList.add('fade-out');
-        setTimeout(() => {
-            container.style.display = 'none'; // এখানে ক্লিক আনলক হয়ে যাবে
-        }, 500);
-    }, 400);
-});
 // রাইট ক্লিক বন্ধ করা
 document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -30,14 +15,13 @@ document.onkeydown = function(e) {
     function navTo(id, pushHistory = true) {
     const element = document.getElementById(id);
     if (!element) return;
-    // লোডিং বার শুরু করা
-    const progressBar = document.getElementById('progress-bar');
-    const container = document.getElementById('progress-bar-container');
+    const loaderBar = document.getElementById('site-loader-bar');
+    const loaderContainer = document.getElementById('site-loader-container');
     
-    // ১. ক্লিক লক করা: কন্টেইনার প্রদর্শন করা
-    container.style.display = 'block'; 
-    container.classList.remove('fade-out');
-    progressBar.style.width = '30%';
+    // লোডিং শুরু ও লক করা
+    loaderContainer.style.display = 'block';
+    loaderContainer.classList.add('active-lock');
+    loaderBar.style.width = '30%';
     isPlayerFocused = false;
 
     ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
@@ -45,17 +29,20 @@ document.onkeydown = function(e) {
     });
     
     element.classList.remove('hidden');
-    // লোডিং শেষ করার লজিক
+    // লোডিং শেষ ও লক খোলা
     setTimeout(() => {
-        progressBar.style.width = '100%';
+        loaderBar.style.width = '100%';
         
         setTimeout(() => {
-            container.classList.add('fade-out');
+            loaderContainer.classList.remove('active-lock'); // ০.৭ সেকেন্ড পর লক খুলবে
+            loaderContainer.classList.add('fade-out');
+            
             setTimeout(() => {
-                // ২. ক্লিক আনলক করা: কন্টেইনার হাইড করা
-                container.style.display = 'none';
+                loaderContainer.style.display = 'none';
+                loaderContainer.classList.remove('fade-out');
+                loaderBar.style.width = '0%';
             }, 500);
-        }, 300);
+        }, 550); // এই ৫৫০ms + আগের ১৫০ms = মোট ৭০০ms বা ০.৭ সেকেন্ড
     }, 150);
 
     // বাটনটি শুধু subject-screen (হোমপেজ) এ দেখাবে
@@ -1087,26 +1074,3 @@ function showVolumeStatus(vol) {
     }, 1000); // ১ সেকেন্ড পর চলে যাবে
 }
 
-window.addEventListener('load', () => {
-    const progressBar = document.getElementById('progress-bar');
-    const container = document.getElementById('progress-bar-container');
-
-    // পেজ লোড শেষ হলে বারটি ১০০% করবে
-    progressBar.style.width = '100%';
-
-    // কিছুক্ষণ পর বারটি ভ্যানিশ করে দেবে
-    setTimeout(() => {
-        container.classList.add('fade-out');
-        setTimeout(() => {
-            container.style.display = 'none';
-        }, 500);
-    }, 400);
-});
-
-// পেজ লোড হওয়ার সময় প্রগ্রেস বার আপডেট করার সিমুলেশন (যেহেতু ব্রাউজারে রিয়েল-টাইম পারসেন্টেজ পাওয়া কঠিন)
-document.onreadystatechange = function () {
-    const progressBar = document.getElementById('progress-bar');
-    if (document.readyState === "interactive") {
-        progressBar.style.width = "70%";
-    }
-};

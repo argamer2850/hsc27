@@ -765,31 +765,40 @@ body.normal-yt-mode #yt-player {
     /* ভিডিওর বাড়তি ব্লার দূর করতে */
     -webkit-font-smoothing: antialiased;
 }
-/* প্রগ্রেস বার স্টাইল */
-#progress-bar-container {
+
+
+
+
+#site-loader-container {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh; /* পুরো স্ক্রিন কভার করবে */
-    background: rgba(0, 0, 0, 0.05); /* হালকা আবছা ভাব, চাইলে 0 দিতে পারেন */
-    z-index: 10000; /* সবার উপরে থাকবে */
-    pointer-events: all; /* এই লেয়ার থাকা অবস্থায় নিচে ক্লিক করা যাবে না */
-    display: none; /* ডিফল্টভাবে বন্ধ থাকবে */
+    width: 100%;
+    height: 0; /* ডিফল্টভাবে উচ্চতা ০ থাকবে */
+    background: transparent;
+    z-index: 99999;
+    display: none;
+    overflow: visible; /* যাতে এর ভেতরে থাকা ৪ পিক্সেলের বারটি দেখা যায় */
 }
 
-#progress-bar {
+/* যখন ক্লিক লক (active-lock) হবে */
+#site-loader-container.active-lock {
+    height: 100vh !important; /* ক্লিক আটকানোর জন্য উচ্চতা পুরো স্ক্রিন */
+    pointer-events: all !important;
+    background: transparent !important; /* কোনো রং থাকবে না, তাই স্ক্রিন ক্লিন লাগবে */
+}
+
+#site-loader-bar {
     position: absolute;
     top: 0;
     left: 0;
     width: 0%;
-    height: 4px;
+    height: 4px; /* শুধু উপরে এই ৪ পিক্সেলই দেখা যাবে */
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
     box-shadow: 0 0 15px var(--primary);
     transition: width 0.3s ease-in-out;
 }
 
-/* যখন লোড শেষ হবে তখন হালকা ফেইড আউট অ্যানিমেশন */
 .fade-out {
     opacity: 0;
     transition: opacity 0.5s ease;
