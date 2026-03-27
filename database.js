@@ -320,13 +320,112 @@ const database = {
         },
         {
             chapter: 'আদর্শ গ্যাস ও গ্যাসের গতিতত্ত্ব',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+  {
+    title: 'লেকচার ১',
+    id: 'LQ9FRwShn3Y',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1Gby1PhKNv64G00MAhMx9faRaZsgt3OSG/view?usp=sharing" },
+      { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1Zfevqm-E-aXF_dNxSkutX6PRhfEENeU-/view?usp=sharing" },
+      { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1taXMp-R-28zP54WryJsGGh_JkrDWD_QV/view?usp=sharing" }
+    ],
+    keywords: ['P1stC10C1']
+  },
+  {
+    title: 'লেকচার ২',
+    id: 'TLPkENT5fLU',
+    slide: [
+      { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/1Se9EuM4r8r4-imxCoaUqosPq7IsQOZ9N/view?usp=sharing" },
+      { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1GNHh6L4hG6k_s7yF_xZNKlPcZe-2275E/view?usp=sharing" },
+      { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/12iemHinRaG7BNahuK5UAl9m7ESQz30hB/view?usp=sharing" }
+    ],
+    keywords: ['P1stC10C2']
+  },
+  {
+    title: 'লেকচার ৩',
+    id: 'CRDM5SgTf0c',
+    slide: 'https://drive.google.com/file/d/11bGu6EdaDVA8Ynwgzd5FDADwCiDb1Vx-/view?usp=sharing',
+    keywords: ['P1stC10C3']
+  },
+  {
+    title: 'লেকচার ৪',
+    id: 'FZhgB5VRotE',
+    slide: 'https://drive.google.com/file/d/1WIwUBj5EjQxei1fjW2iOcqjzhwT3PH4t/view?usp=sharing',
+    keywords: ['P1stC10C4']
+  },
+  {
+    title: 'লেকচার ৫',
+    id: 'EthR1apG3hM',
+    slide: 'https://drive.google.com/file/d/1zbIae8JquED7ViSvePwP2OmoZRbr5-LQ/view?usp=sharing',
+    keywords: ['P1stC10C5']
+  },
+  {
+    title: 'লেকচার ৬',
+    id: '4q3VISZS6Bg',
+    slide: 'https://drive.google.com/file/d/14ExkqT6pfRWIocmSy9KRskQB2378e1aG/view?usp=sharing',
+    keywords: ['P1stC10C6']
+  },
+  {
+    title: 'লেকচার ৭',
+    id: 'hZxFX0Zt_As',
+    slide: 'https://drive.google.com/file/d/1wZdcJE82ue1i-YzqebzD1QOppCp6FiT8/view?usp=sharing',
+    keywords: ['P1stC10C7']
+  },
+  {
+    title: 'লেকচার ৮',
+    id: 'VVnksgV1STA',
+    slide: 'https://drive.google.com/file/d/1Y6AwB1gByZ5BUw87LV43RXmJBUln2WlD/view?usp=sharing',
+    keywords: ['P1stC10C8']
+  },
+  {
+    title: 'লেকচার ৯',
+    id: 'gkFsRY1gsd0',
+    slide: 'https://drive.google.com/file/d/1rY9fX92O6YF2TnUbgwVoULzXOWIexs0L/view?usp=sharing',
+    keywords: ['P1stC10C9']
+  },
+  {
+    title: 'লেকচার ১০',
+    id: 'XHArN-c-8U8',
+    slide: 'https://drive.google.com/file/d/12CP8kiASFyd2RRc_l_tWYTP8LpXgDfRB/view?usp=sharing',
+    keywords: ['P1stC10C10']
+  },
+  {
+    title: 'লেকচার ১১',
+    id: 'PtLSTGejgnI',
+    slide: 'https://drive.google.com/file/d/19QBlJXp7026lXAPzb4o-ZX6y2D3AycJz/view?usp=sharing',
+    keywords: ['P1stC10C11']
+  },
+  {
+    title: 'লেকচার ১২ (শেষ ক্লাস)',
+    id: 'u-gkTtpo7dE',
+    slide: 'https://drive.google.com/file/d/1lNRnexqh3CAHwIVKtJ3M7V4VMACpuaj3/view?usp=sharing',
+    keywords: ['P1stC10C12']
+  }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'তাপগতিবিদ্যা',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { title: 'তাপগতিবিদ্যার শুন্যতম সূত্র', id: 'JQIDYbksDfw', slide: 'https://drive.google.com/file/d/1yXH_qJvmbSH2zEjoMohOlt7zoettccli/view?usp=sharing', keywords: ['P2ndC1C1'] },
+    { title: 'তাপমাত্রার স্কেল ও ত্রুটিপূর্ণ থার্মোমিটার', id: 'WbNKrm2oscI', slide: 'https://drive.google.com/file/d/1EKdiXNSxuCMa023xIgWfZgifL-QpDMxx/view?usp=sharing', keywords: ['P2ndC1C2'] },
+    { title: 'তাপীয় সিস্টেম, স্বাধীনতার মাত্রা, মেয়ারের প্রকল্প, তাপগতিবিদ্যার ১ম সূত্র, ক্লসিয়াসের বিবৃতি', id: 'j0vQnjekgDA', slide: 'https://drive.google.com/file/d/14VX4xfQdLtJpDx2AQu5uRZlLpQjVk2Ff/view?usp=sharing', keywords: ['P2ndC1C3'] },
+    { title: 'তাপগতীয় প্রক্রিয়া, মোলারr আপেক্ষিক তাপ, Cp & Cv', id: 'S0Tnk7g-Ldc', slide: 'https://drive.google.com/file/d/1wbmkuK3lkLi3_BSGvqxJgqDn-YViBofP/view?usp=sharing', keywords: ['P2ndC1C4'] },
+    { title: 'গ্যাসের অন্তঃস্থ শক্তির রাশিমালা, কৃতকাজ হিসাব', id: 'COmd4roIIHE', slide: 'https://drive.google.com/file/d/1iq1vYcW36MNfl1GyviBCRkkknU3t5FSU/view?usp=sharing', keywords: ['P2ndC1C5'] },
+    { title: 'লেকচার ৬', id: 'PuGPelAq_UM', slide: 'https://drive.google.com/file/d/1hDuEBwBIvHo-phtMpA5VLSOwlrrv7jnA/view?usp=sharing', keywords: ['P2ndC1C6'] },
+    { title: 'লেকচার ৭', id: 'lvMbK7bbEcs', slide: 'https://drive.google.com/file/d/1g85GzgoA363fseam3OPhxxkdwWcSrgJh/view?usp=sharing', keywords: ['P2ndC1C7'] },
+    { title: 'তাপ ইঞ্জিন', id: 'uyZshfJSxRg', slide: 'https://drive.google.com/file/d/1iDwpCIpXsnyBLFPM99IOAAQXmXXZzjKK/view?usp=sharing', keywords: ['P2ndC1C8'] },
+    { title: 'লেকচার ৯', id: 'TPyM9fKcm98', slide: 'https://drive.google.com/file/d/1josJYNAkRyALl3mvYCiRie7vuJCL4cqX/view?usp=sharing', keywords: ['P2ndC1C9'] },
+    { title: 'লেকচার ১০', id: '0_--jeNQATk', slide: 'https://drive.google.com/file/d/10f96qzxIjCxzNVNU58PagzbJM_bqV1vw/view?usp=sharing', keywords: ['P2ndC1C10'] },
+    { title: 'লেকচার ১১', id: '9PJu9GKgYt4', slide: 'https://drive.google.com/file/d/1jIjXiMZYMh7AgLvLVFA4gkBi-DkccyiB/view?usp=sharing', keywords: ['P2ndC1C11'] },
+    { title: 'লেকচার ১২ (শেষ ক্লাস)', id: 'y2q_LSPx0Hg', slide: 'https://drive.google.com/file/d/1lP4P4MZ0hfBxOdrYPnDzMer32zCL99cn/view?usp=sharing', keywords: ['P2ndC1C12'] }
+],
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট ১", link: "https://drive.google.com/file/d/1kE1qYS6jKpdbVZvLE88IVfTg1-w-btLv/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ১ সলিউশন", link: "https://drive.google.com/file/d/1fbA-ncQfOxLfGb-4STxUbPlgdn0L79U1/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২", link: "https://drive.google.com/file/d/1hLr9FJjAbec7sCtVwWqAMQAIj3D0Y8qy/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট ২ সলিউশন", link: "https://drive.google.com/file/d/1OCA7T1xAQrBWyEj3U84U5qyYkece-VsN/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'স্থির তড়িৎ',
@@ -389,8 +488,51 @@ const database = {
     'Chemistry': [
         {
             chapter: 'ল্যাবরেটরির নিরাপদ ব্যবহার',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { 
+        title: 'লেকচার ১', 
+        id: 'fM7zr0O5Ibk', 
+        slide: 'https://drive.google.com/file/d/1MzLHtwZboJUtjOExaBzy_ih_AUzfO2M4/view?usp=sharing', 
+        keywords: ['C1stC1C1'] 
+    },
+    { 
+        title: 'লেকচার ২', 
+        id: 'B-xfSYwiD6Q', 
+        slide: 'https://drive.google.com/file/d/1h9_Zb7ZkO1Wj4r2BGYaf-ppWGnt_EB0P/view?usp=sharing', 
+        keywords: ['C1stC1C2'] 
+    },
+    { 
+        title: 'লেকচার ৩', 
+        id: '', 
+        slide: 'https://drive.google.com/file/d/1acBXZYp_5xKlw8YCHkCP0K2PQaThbnOT/view?usp=sharing', 
+        keywords: ['C1stC1C3'] 
+    },
+    { 
+        title: 'লেকচার ৪', 
+        id: 'aydoNEnVTdA', 
+        slide: 'https://drive.google.com/file/d/1XPHj9y70NPxBETRX4bFOkNdkAIIK0-Sx/view?usp=sharing', 
+        keywords: ['C1stC1C4'] 
+    },
+    { 
+        title: 'লেকচার ৫', 
+        id: 'poP1jz-eq2k', 
+        slide: 'https://drive.google.com/file/d/110bNfcvs-3RhbXiL4-tV9kH4mxwKiDQ3/view?usp=sharing', 
+        keywords: ['C1stC1C5'] 
+    },
+    { 
+        title: 'লেকচার ৬', 
+        id: '_QC52gjXlTo', 
+        slide: 'https://drive.google.com/file/d/1eHgvvzyLsK3iAiSWSAp00lE7cEQhZvFb/view?usp=sharing', 
+        keywords: ['C1stC1C6'] 
+    },
+    { 
+        title: 'লেকচার ৭ (শেষ ক্লাস)', 
+        id: '2SXsFYLNlk8', 
+        slide: 'https://drive.google.com/file/d/1hVm0g9ruwBeKEZ8JfRDZroZSCkIruUu0/view?usp=sharing', 
+        keywords: ['C1stC1C7'] 
+    }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'গুণগত রসায়ন',
