@@ -1,3 +1,18 @@
+// পেজ একদম শুরুতে লোড হওয়ার সময় ক্লিক লক রাখতে
+document.getElementById('progress-bar-container').style.display = 'block';
+
+window.addEventListener('load', () => {
+    const progressBar = document.getElementById('progress-bar');
+    const container = document.getElementById('progress-bar-container');
+
+    progressBar.style.width = '100%';
+    setTimeout(() => {
+        container.classList.add('fade-out');
+        setTimeout(() => {
+            container.style.display = 'none'; // এখানে ক্লিক আনলক হয়ে যাবে
+        }, 500);
+    }, 400);
+});
 // রাইট ক্লিক বন্ধ করা
 document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -15,6 +30,14 @@ document.onkeydown = function(e) {
     function navTo(id, pushHistory = true) {
     const element = document.getElementById(id);
     if (!element) return;
+    // লোডিং বার শুরু করা
+    const progressBar = document.getElementById('progress-bar');
+    const container = document.getElementById('progress-bar-container');
+    
+    // ১. ক্লিক লক করা: কন্টেইনার প্রদর্শন করা
+    container.style.display = 'block'; 
+    container.classList.remove('fade-out');
+    progressBar.style.width = '30%';
     isPlayerFocused = false;
 
     ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
@@ -22,6 +45,18 @@ document.onkeydown = function(e) {
     });
     
     element.classList.remove('hidden');
+    // লোডিং শেষ করার লজিক
+    setTimeout(() => {
+        progressBar.style.width = '100%';
+        
+        setTimeout(() => {
+            container.classList.add('fade-out');
+            setTimeout(() => {
+                // ২. ক্লিক আনলক করা: কন্টেইনার হাইড করা
+                container.style.display = 'none';
+            }, 500);
+        }, 300);
+    }, 150);
 
     // বাটনটি শুধু subject-screen (হোমপেজ) এ দেখাবে
     const homeBtn = document.getElementById('home-top-button');
@@ -1052,3 +1087,26 @@ function showVolumeStatus(vol) {
     }, 1000); // ১ সেকেন্ড পর চলে যাবে
 }
 
+window.addEventListener('load', () => {
+    const progressBar = document.getElementById('progress-bar');
+    const container = document.getElementById('progress-bar-container');
+
+    // পেজ লোড শেষ হলে বারটি ১০০% করবে
+    progressBar.style.width = '100%';
+
+    // কিছুক্ষণ পর বারটি ভ্যানিশ করে দেবে
+    setTimeout(() => {
+        container.classList.add('fade-out');
+        setTimeout(() => {
+            container.style.display = 'none';
+        }, 500);
+    }, 400);
+});
+
+// পেজ লোড হওয়ার সময় প্রগ্রেস বার আপডেট করার সিমুলেশন (যেহেতু ব্রাউজারে রিয়েল-টাইম পারসেন্টেজ পাওয়া কঠিন)
+document.onreadystatechange = function () {
+    const progressBar = document.getElementById('progress-bar');
+    if (document.readyState === "interactive") {
+        progressBar.style.width = "70%";
+    }
+};
