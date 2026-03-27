@@ -154,16 +154,20 @@ function renderVideoSection(container, title, videos, isMain) {
         
         const label = isMain ? `Class ${i+1}: ` : "";
         
-        // --- নতুন লজিক এখানে ---
+        // --- আপনার ৩টি কন্ডিশন এখানে সেট করা হয়েছে ---
         let durationDisplay = "";
-        
-        // যদি ভিডিও আইডি থাকে
+
+        // ১. ভিডিওতে id থাকলে: শুধু duration দেখাবে (clock emoji সহ)
         if (v.id && v.id.trim() !== "") {
-            // আইডি আছে, তাই ডিউরেশন থাকলে সেটা দেখাবে, না থাকলে আইকন দেখাবে
-            durationDisplay = v.duration ? `🕒 ${v.duration}` : "▶ Play Video";
-        } else {
-            // আইডি নেই (ভিডিও আপলোড হয়নি), তাই Watch Now দেখাবে
-            durationDisplay = "Watch Now";
+            durationDisplay = v.duration ? `🕒 ${v.duration}` : "🕒 --:--"; 
+        } 
+        // ২. id ফাঁকা কিন্তু link আছে: Play icon + Get Video
+        else if ((!v.id || v.id.trim() === "") && (v.link && v.link.trim() !== "")) {
+            durationDisplay = "▶ Get Video";
+        }
+        // ৩. id ফাঁকা এবং link-ও নাই: কিছুই দেখাবে না (ফাঁকা থাকবে)
+        else {
+            durationDisplay = "";
         }
         
         d.innerHTML = `
