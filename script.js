@@ -150,11 +150,27 @@ function renderVideoSection(container, title, videos, isMain) {
     videos.forEach((v, i) => {
         const d = document.createElement('div');
         d.className = 'list-item';
-        // এখানে স্লাইড এবং কিওয়ার্ড অটোমেটিক playNow ফাংশনে চলে যাবে
         d.onclick = () => playNow(v); 
         
         const label = isMain ? `Class ${i+1}: ` : "";
-        d.innerHTML = `<span>${label}${v.title}</span> <span class="play-icon">▶ Watch Now</span>`;
+        
+        // --- নতুন লজিক এখানে ---
+        let durationDisplay = "";
+        
+        // যদি ভিডিও আইডি থাকে
+        if (v.id && v.id.trim() !== "") {
+            // আইডি আছে, তাই ডিউরেশন থাকলে সেটা দেখাবে, না থাকলে আইকন দেখাবে
+            durationDisplay = v.duration ? `🕒 ${v.duration}` : "▶ Play Video";
+        } else {
+            // আইডি নেই (ভিডিও আপলোড হয়নি), তাই Watch Now দেখাবে
+            durationDisplay = "Watch Now";
+        }
+        
+        d.innerHTML = `
+            <span>${label}${v.title}</span> 
+            <span class="play-icon">${durationDisplay}</span>
+        `;
+        
         container.appendChild(d);
     });
 }
