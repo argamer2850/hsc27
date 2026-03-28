@@ -625,7 +625,7 @@ extraSections: [
         {
             title: "Oneshot Classes",
             videos: [
-                { title: 'Oneshot Class', id: 'UuLhDTeo5Ik', slide: 'https://drive.google.com/file/d/1zKSvXv15zpF1wCo3j3Ez1YEDSCr_mpaW/view?usp=sharing', keywords: ['C1stC3OC'] }
+                { title: 'Oneshot Class', id: 'UuLhDTeo5Ik', duration: '8:03:19', slide: 'https://drive.google.com/file/d/1zKSvXv15zpF1wCo3j3Ez1YEDSCr_mpaW/view?usp=sharing', keywords: ['C1stC3OC'] }
             ]
         }
     ],
