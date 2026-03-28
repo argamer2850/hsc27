@@ -484,7 +484,10 @@ const database = {
         {
             chapter: 'পরমাণুর মডেল এবং নিউক্লিয়ার পদার্থবিজ্ঞান',
             mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট", link: "https://drive.google.com/file/d/1Ks5ADLar3tP4kTBPPuomGdjGHQcuMjyg/view?usp=sharing" },
+                { name: "প্র্যাকটিস শীট সলিউশন", link: "https://drive.google.com/file/d/1VBYYkhtrBZqno-_Qwk-UVex9O_bxfByA/view?usp=sharing" }
+            ]
         },
         {
             chapter: 'সেমিকন্ডাক্টর ও ইলেক্ট্রনিক্স',
@@ -622,7 +625,7 @@ extraSections: [
         {
             title: "Oneshot Classes",
             videos: [
-                { title: 'Oneshot Class', id: '', slide: 'https://drive.google.com/file/d/1zKSvXv15zpF1wCo3j3Ez1YEDSCr_mpaW/view?usp=sharing', keywords: ['C1stC3OC'] }
+                { title: 'Oneshot Class', id: 'UuLhDTeo5Ik', slide: 'https://drive.google.com/file/d/1zKSvXv15zpF1wCo3j3Ez1YEDSCr_mpaW/view?usp=sharing', keywords: ['C1stC3OC'] }
             ]
         }
     ],
