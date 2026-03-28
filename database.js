@@ -598,7 +598,7 @@ extraSections: [
         { title: 'লেকচার ১৩', id: 'yuWA4LcMWcY', duration: '1:51:34', slide: 'https://drive.google.com/file/d/1tDZrqIdQblXbHAA1zAsvw2I62I4RRS8V/view?usp=sharing', keywords: ['C1stC4C13'] },
         { title: 'লেকচার ১৪', id: 'WLY-cRxoW6k', duration: '1:37:40', slide: 'https://drive.google.com/file/d/1j_LjVmbNOZbM7Hx41W9hcsHOULcecW9W/view?usp=sharing', keywords: ['C1stC4C14'] },
         { title: 'লেকচার ১৫', id: 'dl74VvGQYyo', duration: '1:35:34', slide: 'https://drive.google.com/file/d/1kmznZw9tC_gURefUugfKKxuLjJS7cNaE/view?usp=sharing', keywords: ['C1stC4C15'] },
-        { title: 'লেকচার ১৬', id: 'wwAVlyiAD2Y', slide: 'https://drive.google.com/file/d/1rP7t3ALRprSls47t0GRuOj14YUVuSB64/view?usp=sharing', keywords: ['C1stC4C16'] }
+        { title: 'লেকচার ১৬', id: 'wwAVlyiAD2Y', duration: '1:22:50', slide: 'https://drive.google.com/file/d/1rP7t3ALRprSls47t0GRuOj14YUVuSB64/view?usp=sharing', keywords: ['C1stC4C16'] }
     ],
     extraSections: [
         {
@@ -813,21 +813,21 @@ extraSections: [
         title: "Archived Classes of Rakib Sir",
         videos: [
             { title: 'লেকচার ১', id: 'Yu0dmcUvyMc', duration: '1:27:34', slide: 'https://drive.google.com/file/d/1BjlcEKouQRajZjuWfnMOS1MvMtPuCVFl/view?usp=sharing', keywords: [] },
-            { title: 'লেকচার ২', id: '1VcCyzedn_c', slide: '', keywords: [] },
-  { title: 'লেকচার ৩', id: 'KbJ7w-QtaIw', slide: '', keywords: [] },
-  { title: 'লেকচার ৪', id: 'eWz6pKcstnE', slide: '', keywords: [] },
-  { title: 'লেকচার ৫', id: 'd3zZs7c5hQA', slide: '', keywords: [] },
-  { title: 'লেকচার ৬', id: 'wLQsutHjbH8', slide: '', keywords: [] },
-  { title: 'লেকচার ৭', id: 'wMDFYAIfUMc', slide: '', keywords: [] },
-  { title: 'লেকচার ৮', id: 'JWH6pnVyviQ', slide: '', keywords: [] },
-  { title: 'লেকচার ৯', id: 'ZT07xitOgwI', slide: '', keywords: [] },
-  { title: 'লেকচার ১০', id: 'f54LMavfMrM', slide: '', keywords: [] },
-  { title: 'লেকচার ১১', id: 'VjN7ax88pHc', slide: '', keywords: [] },
-  { title: 'লেকচার ১২', id: 'TncwNn0ayM4', slide: '', keywords: [] },
-  { title: 'লেকচার ১৩', id: 'YVoA-gOYGFk', slide: '', keywords: [] },
-  { title: 'লেকচার ১৪', id: 'Mtw884UaNPE', slide: '', keywords: [] },
-  { title: 'লেকচার ১৫', id: '-2ykks4GR4s', slide: '', keywords: [] },
-  { title: 'লেকচার ১৬ (শেষ ক্লাস)', id: 'Tk9ctM6EOXk', slide: '', keywords: [] }
+            { title: 'লেকচার ২', id: '1VcCyzedn_c', duration: '1:25:57', slide: 'https://drive.google.com/file/d/1LD0_fqRtzyKSqwNV1SuWNIG_xD2YA1s8/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৩', id: 'KbJ7w-QtaIw', duration: '1:32:53', slide: 'https://drive.google.com/file/d/1-gpONQMh30zoMe4pRJMaEwUmf2zwhGpy/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৪', id: 'eWz6pKcstnE', duration: '39:39', slide: 'https://drive.google.com/file/d/1rvcUZRYI8wGQ6pvM2513FKPkgB40h_vn/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৫', id: 'd3zZs7c5hQA', duration: '1:45:03', slide: 'https://drive.google.com/file/d/1FvIYGAtMh2GoJrC13yaqQ3dUuWXLeF2_/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৬', id: 'wLQsutHjbH8', duration: '1:28:59', slide: 'https://drive.google.com/file/d/1uLVVvMhWM_kJU06peCrg-TtRB9907K_I/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৭', id: 'wMDFYAIfUMc', duration: '1:38:36', slide: 'https://drive.google.com/file/d/1PB7ZAEIytCyGJH3pDwmfb6a1uefZb0uO/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৮', id: 'JWH6pnVyviQ', duration: '1:53:48', slide: 'https://drive.google.com/file/d/1varYh8V-VXgVWgZD0JMhMn524rM9MVi3/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ৯', id: 'ZT07xitOgwI', duration: '1:15:52', slide: 'https://drive.google.com/file/d/1TnhlgulEmZ4LF1siiPZtCboApDOMnxmu/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১০', id: 'f54LMavfMrM', duration: '1:24:15', slide: 'https://drive.google.com/file/d/1RGKnyCtX0YZv0OEGb5UTwiDycV39O06R/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১১', id: 'VjN7ax88pHc', duration: '1:35:19', slide: 'https://drive.google.com/file/d/1NOGp4tqe2e_i-p6IBvoFMuZyV7qc1hJk/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১২', id: 'TncwNn0ayM4', duration: '1:12:33', slide: 'https://drive.google.com/file/d/16a22sZjVnBOm5dpyxdLpUUZJIQGMZph0/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১৩', id: 'YVoA-gOYGFk', duration: '1:13:28', slide: 'https://drive.google.com/file/d/1PUt-Le3DYjVPPs7dbWnGQ1ivSzRJQJz1/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১৪', id: 'Mtw884UaNPE', duration: '1:34:35', slide: 'https://drive.google.com/file/d/1eBKlBzADaQ4JIfqFXYYKYSXJ9HlGe-ub/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১৫', id: '-2ykks4GR4s', duration: '1:17:13', slide: 'https://drive.google.com/file/d/1nUA4XFB8O1ffnnCKi9xOGjb7N0QA4oEk/view?usp=sharing', keywords: [] },
+  { title: 'লেকচার ১৬ (শেষ ক্লাস)', id: 'Tk9ctM6EOXk', duration: '1:39:09', slide: 'https://drive.google.com/file/d/1WOVfGeuJhdL1P4ej0jQPaLmmkoff3QBC/view?usp=sharing', keywords: [] }
         ]
     }
 ],
