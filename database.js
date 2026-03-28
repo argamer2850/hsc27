@@ -590,8 +590,50 @@ extraSections: [
         },
         {
             chapter: 'মৌলের পর্যায়বৃত্ত ধর্ম ও রাসায়নিক বন্ধন',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { title: 'লেকচার ১', id: 'zKqlHnmulAs', duration: '1:22:34', slide: 'https://drive.google.com/file/d/1-CwFGTnFzZL1r3w7FmGmYa-EQ86lq9UR/view?usp=sharing', keywords: ['C1stC3C1'] },
+    { title: 'লেকচার ২', id: 'QYMtiPD3wLg', duration: '1:29:34', slide: 'https://drive.google.com/file/d/1DHZ9M88W-DyzUoWz6EYDu0W28ySqhnQc/view?usp=sharing', keywords: ['C1stC3C2'] },
+    { title: 'লেকচার ৩', id: 'xBK1xNbYeCw', duration: '1:47:56', slide: 'https://drive.google.com/file/d/1fN3Aa_WGemUcY7ERBrYgR6WtUfOcsX4N/view?usp=sharing', keywords: ['C1stC3C3'] },
+    { title: 'লেকচার ৪', id: '0jpkYYlNYko', duration: '1:19:55', slide: 'https://drive.google.com/file/d/1TliRlO34hToZOAbobjjA4hP8gKZ6qPG3/view?usp=sharing', keywords: ['C1stC3C4'] },
+    { title: 'লেকচার ৫', id: '78n93qVZv9o', duration: '1:32:31', slide: 'https://drive.google.com/file/d/1ztDcBWXgk-R1LRgVcu1T5wdFckQlMFJ6/view?usp=sharing', keywords: ['C1stC3C5'] },
+    { title: 'লেকচার ৬', id: 'ToOHd8TZ2bk', duration: '1:18:20', slide: 'https://drive.google.com/file/d/1sJ0WzTWtsxOb-Fibp0HxS7URzBkBhUkv/view?usp=sharing', keywords: ['C1stC3C6'] },
+    { title: 'লেকচার ৭', id: 'NawDNMKG1rc', duration: '1:38:23', slide: 'https://drive.google.com/file/d/1bdoxE_pU7zmVr8ILc3HApSZkc5b0pqcI/view?usp=sharing', keywords: ['C1stC3C7'] },
+    { title: 'লেকচার ৮', id: 'yv3wad9dEmM', duration: '1:56:27', slide: 'https://drive.google.com/file/d/1Y_HrYdXMBU3HDy6x3RzMgBkTBvUGbFV2/view?usp=sharing', keywords: ['C1stC3C8'] },
+    { title: 'লেকচার ৯', id: '3HaziSilnUo', duration: '2:01:05', slide: 'https://drive.google.com/file/d/1m2m9ZKuH7uRqIyxhNi8RJ1N8GuRvy8IK/view?usp=sharing', keywords: ['C1stC3C9'] },
+    { title: 'লেকচার ১০', id: 'gi8pv1S9Kio', duration: '1:11:05', slide: 'https://drive.google.com/file/d/1_q6y3jWzF_ppT2ZMgPCsvvzm1u4MjlfT/view?usp=sharing', keywords: ['C1stC3C10'] },
+    { title: 'লেকচার ১১', id: 'IfOyfeTQ2Xo', duration: '1:55:49', slide: 'https://drive.google.com/file/d/1mhaNqXkRDuWBFVYHB7LSPIyiBurn0l3T/view?usp=sharing', keywords: ['C1stC3C11'] },
+    { title: 'লেকচার ১২', id: 'QjkXPb7tFkM', duration: '1:53:23', slide: 'https://drive.google.com/file/d/1HlrKoZVk3e54IT1H8xhw9n6B9lpDmwif/view?usp=sharing', keywords: ['C1stC3C12'] },
+    { title: 'লেকচার ১৩', id: 'FMABa-MfJ1Y', duration: '1:35:13', slide: 'N/A', keywords: ['C1stC3C13'] },
+    { title: 'লেকচার ১৪', id: '32yxjEvB19o', duration: '1:15:20', slide: 'https://drive.google.com/file/d/1x4FjqOZSFRWNgvUrddvgnG1kwAFWjjU1/view?usp=sharing', keywords: ['C1stC3C14'] },
+    { title: 'লেকচার ১৫', id: '8N4OaPaR_pw', duration: '1:25:51', slide: 'https://drive.google.com/file/d/1M0ADCFl-LojxXJuWqwbOsOcFMgz_5o15/view?usp=sharing', keywords: ['C1stC3C15'] },
+    { title: 'লেকচার ১৬', id: 'ENsBY7uTPVQ', duration: '1:10:10', slide: 'https://drive.google.com/file/d/1OmBbf2e6r0FcoGoySfEQTaN1dX4TMEQg/view?usp=sharing', keywords: ['C1stC3C16'] },
+    { title: 'লেকচার ১৭', id: '04zfCKJ8NAo', duration: '1:10:34', slide: 'https://drive.google.com/file/d/17pDVWA6KMUk_oY4ca_1pemksBmt9y_B9/view?usp=sharing', keywords: ['C1stC3C17'] },
+    { title: 'লেকচার ১৮', id: 'xTm4j6qAeM8', duration: '1:29:43', slide: 'https://drive.google.com/file/d/1GprMZeH_u2-bUz1RC0WWo7jd88SA6_GP/view?usp=sharing', keywords: ['C1stC3C18'] },
+    { title: 'লেকচার ১৯', id: '87WTPINNxDg', duration: '1:25:32', slide: 'https://drive.google.com/file/d/10DfTroxNVkvK61ITuxO0kTu14s8KtVNh/view?usp=sharing', keywords: ['C1stC3C19'] },
+    { title: 'লেকচার ২০', id: '4pSqVa_ZcEE', duration: '1:35:41', slide: 'https://drive.google.com/file/d/1bqwIqURqlLyTvOzzPB8YKvp0boHGIwAV/view?usp=sharing', keywords: ['C1stC3C20'] },
+    { title: 'লেকচার ২১', id: 'oAog3wE8B5I', duration: '1:30:34', slide: 'https://drive.google.com/file/d/1DCwtPocYwablzqPRc7XqT-hS9J6BrOwZ/view?usp=sharing', keywords: ['C1stC3C21'] },
+    { title: 'লেকচার ২২', id: 'sCTXa2_rqW4', duration: '1:04:11', slide: 'https://drive.google.com/file/d/1xv8PCm2GDcMLrIhq7NXB3wHqDkolw8BQ/view?usp=sharing', keywords: ['C1stC3C22'] },
+    { title: 'লেকচার ২৩', id: 'my-v2WCIFm0', duration: '1:11:28', slide: 'https://drive.google.com/file/d/135-JxGGyFcMhmlf1zxE2CTXP-JfNI6a4/view?usp=sharing', keywords: ['C1stC3C23'] },
+    { title: 'লেকচার ২৪ (শেষ ক্লাস)', id: 'bO2pej0B2_I', duration: '1:12:34', slide: 'https://drive.google.com/file/d/1U_3x8Y56GG6jb94xEpg9G4WBiTwWodpn/view?usp=sharing', keywords: ['C1stC3C24'] }
+],
+extraSections: [
+        {
+            title: "Solve Classes",
+            videos: [
+                { title: 'CQ Solve Class 1', id: 'zwaueNwl5TE', duration: '1:11:37', slide: 'https://drive.google.com/file/d/1elSssMGetrGp_3Jrfj0VVCqBcD4l8Lby/view?usp=sharing', keywords: ['C1stC3CSC1'] }
+            ]
+        },
+        {
+            title: "Oneshot Classes",
+            videos: [
+                { title: 'Oneshot Class', id: '', slide: 'https://drive.google.com/file/d/1zKSvXv15zpF1wCo3j3Ez1YEDSCr_mpaW/view?usp=sharing', keywords: ['C1stC3OC'] }
+            ]
+        }
+    ],
+            practiceSheets: [
+                { name: "প্র্যাকটিস শীট উইথ সলিউশন", link: "https://drive.google.com/file/d/1KyY7QV_6vQGsMlV1_pABjLiPq-mJCE4n/view?usp=sharing" },
+                { name: "দাগানো বই", link: "https://drive.google.com/file/d/1c2R9EELd7dvYKynYFjk714fskzuQ1iLA/view?usp=sharing" }
+            ]
         },
         {
     chapter: 'রাসায়নিক পরিবর্তন',
@@ -633,8 +675,39 @@ extraSections: [
 },
         {
             chapter: 'কর্মমুখী রসায়ন',
-            mainVideos: [{ title: 'লেকচার ১', id: 'ID_HERE', slide: 'LINK_HERE' }],
-            practiceSheets: ['LINK_HERE']
+            mainVideos: [
+    { 
+        title: 'লেকচার ১', 
+        id: 'tI4-NP260EY', duration: '1:34:40', 
+        slide: 'https://drive.google.com/file/d/1xtyfpHR4W3PnNSos7PLfv3SNsbyMstqT/view?usp=sharing', 
+        keywords: ['C1stC5C1'] 
+    },
+    { 
+        title: 'লেকচার ২', 
+        id: 'L_5QY6NGEt8', duration: '1:00:54', 
+        slide: 'N/A', 
+        keywords: ['C1stC5C2'] 
+    },
+    { 
+        title: 'লেকচার ৩', 
+        id: 'EdHa56UEn80', duration: '1:15:41', 
+        slide: 'N/A', 
+        keywords: ['C1stC5C3'] 
+    },
+    { 
+        title: 'লেকচার ৪', 
+        id: 'LXZEnx1bUns', duration: '1:06:32', 
+        slide: 'N/A', 
+        keywords: ['C1stC5C4'] 
+    },
+    { 
+        title: 'লেকচার ৫ (শেষ ক্লাস)', 
+        id: '9q1rkz08CRg', duration: '1:15:48', 
+        slide: 'https://drive.google.com/file/d/1rj1WQMUkDahDuNzGJGRkY2XU-TbnCrcF/view?usp=sharing', 
+        keywords: ['C1stC5C5'] 
+    }
+],
+            practiceSheets: ['N/A']
         },
         {
             chapter: 'পরিবেশ রসায়ন',
