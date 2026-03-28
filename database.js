@@ -265,7 +265,7 @@ const database = {
                     ], keywords: ['P1stC6C10']
                 },
                 {
-                    title: 'লেকচার ১১', id: 'qCfY5qj-OjY', duration: '1:37:55', slide: [
+                    title: 'লেকচার ১১ (শেষ ক্লাস)', id: 'qCfY5qj-OjY', duration: '1:37:55', slide: [
                         { name: "ক্লাস স্লাইড", link: "https://drive.google.com/file/d/187oK_XE_GnWfD5rcSksoF7T_FL5FSgmm/view?usp=sharing" }
                     ], keywords: ['P1stC6C11']
                 }
@@ -570,7 +570,8 @@ const database = {
     { title: 'লেকচার ১৮', id: 'ijEkOkL92do', duration: '8:26', slide: 'https://drive.google.com/file/d/19_3u7RWiwKfd4TQm4npo5QNQOVWTpaPG/view?usp=sharing', keywords: ['C1stC2C18'] },
     { title: 'লেকচার ১৯', id: 'ayFx8rc-zuA', duration: '1:19:20', slide: 'https://drive.google.com/file/d/1cEqm93Br-JdmJBb8O6kM8wBc6RZqDNxt/view?usp=sharing', keywords: ['C1stC2C19'] },
     { title: 'লেকচার ২০', id: 'OcsR6sEDoCY', duration: '1:37:12', slide: 'https://drive.google.com/file/d/1STkbEApPJtDXSX3ITCTksZDJ2Wf_7oRS/view?usp=sharing', keywords: ['C1stC2C20'] },
-    { title: 'লেকচার ২১ (শেষ ক্লাস)', id: 'fOkqRYajboc', duration: '1:55:23', slide: 'https://drive.google.com/file/d/146zZtuzN7aLde9ChlF6_sdz1rlIdQ6Oc/view?usp=sharing', keywords: ['C1stC2C21'] }
+    { title: 'লেকচার ২১', id: 'fOkqRYajboc', duration: '1:55:23', slide: 'https://drive.google.com/file/d/146zZtuzN7aLde9ChlF6_sdz1rlIdQ6Oc/view?usp=sharing', keywords: ['C1stC2C21'] },
+    { title: 'লেকচার ২২ (এডভান্সড ক্লাস-১)', id: '7KmIXYVD7Rc', duration: '1:20:27', slide: 'https://drive.google.com/file/d/1dCFB2NUVC8VdV06dxOTvtBmil1rUStgf/view?usp=sharing', keywords: ['C1stC2AC1'] }
 ],
 extraSections: [
                 {
@@ -578,13 +579,8 @@ extraSections: [
         videos: [
             { title: 'Oneshot MCQ Class', id: 'sCuPXDANUMk', duration: '3:38:00', slide: 'N/A', keywords: ['C1stC2MOC'] }
         ]
-    },
-    {
-        title: "Advanced Classes",
-        videos: [
-            { title: 'লেকচার ১', id: '7KmIXYVD7Rc', duration: '1:20:27', slide: 'https://drive.google.com/file/d/1dCFB2NUVC8VdV06dxOTvtBmil1rUStgf/view?usp=sharing', keywords: ['C1stC2AC1'] }
-        ]
     }
+    
 ],
             practiceSheets: ['N/A']
         },
