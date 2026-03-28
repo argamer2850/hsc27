@@ -279,9 +279,22 @@ const database = {
     {
         title: "Archived Classes",
         videos: [
-            { title: 'লেকচার ১', id: 'cOnbyIa8i7E', duration: '1:18:07', slide: 'https://drive.google.com/file/d/17IjGb3KzMmI0uvUsx6vg3dF5VQbGJikB/view?usp=sharing', keywords: [] }
-            
-        ]
+    { title: 'স্থিতিস্থাপকতা-১', id: 'cOnbyIa8i7E', duration: '1:18:07', slide: 'https://drive.google.com/file/d/17IjGb3KzMmI0uvUsx6vg3dF5VQbGJikB/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-২', id: 'YXvmQ8aZk_I', duration: '1:23:24', slide: 'https://drive.google.com/file/d/1sIgaD895F-gph4WpZ6F9GJ2L9n_ZYPjj/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৩', id: 'CQydOGotbaM', duration: '1:27:34', slide: 'https://drive.google.com/file/d/1DHcXaLhEDcoKTfeT1cJ50MC8G-B4lWwv/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৪', id: 'q8DvFFt3BcY', duration: '1:27:59', slide: 'https://drive.google.com/file/d/1LmUgMWzkz6g1VSEWFKh3zJXncI5LnGV1/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৫', id: 'O1Q7irghL28', duration: '1:32:05', slide: 'https://drive.google.com/file/d/1YP2JSdooa2FITkdjbwmnI6hRCOZzIX2D/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৬', id: 'RZVLeSFGvfA', duration: '1:34:23', slide: 'https://drive.google.com/file/d/1ZjHAY21EZDMSDssJq5YHJbTer6UCVoK_/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৭', id: 'I75qlzBML0A', duration: '1:09:17', slide: 'https://drive.google.com/file/d/10dAVTrqUAKe1i8oaerk1cSJwV_QZWWE1/view?usp=sharing', keywords: [] },
+    { title: 'স্থিতিস্থাপকতা-৮', id: 'IlaxOSl9ozM', duration: '1:20:22', slide: 'https://drive.google.com/file/d/1rPx5Q_sjJWzb2vv0QKhw18YKSybOrW70/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-১', id: 'XAFpeinWWoI', duration: '1:45:10', slide: 'https://drive.google.com/file/d/1Iq74rAXIioc8m8IYYfxIufrG4sDrKMvF/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-২', id: '', slide: 'https://drive.google.com/file/d/1zYm3h8IOVDLE7_v_z6NQTvJCku-DQEDV/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-৩', id: '', slide: 'https://drive.google.com/file/d/1dTOhO7ytb3ODilwjJgpyiWyGikb_hhw5/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-৪', id: 'ev1Pdcf1Yd8', duration: '1:35:47', slide: 'https://drive.google.com/file/d/1doPTcaRJXPOj1RIgYDHerUVWpchasqd8/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-৫', id: '', slide: 'https://drive.google.com/file/d/1a6GbrhkP5q2H3D0u_PEZIF4FTfohUnDU/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-৬', id: 'RsUHBTLW4m8', duration: '1:44:35', slide: 'https://drive.google.com/file/d/1ikRz1mbFOqH1OVVB37Eek774Kc2Ce-rn/view?usp=sharing', keywords: [] },
+    { title: 'প্রবাহী-৭ (শেষ ক্লাস)', id: 'PZXjHt-MbcM', duration: '1:48:36', slide: 'https://drive.google.com/file/d/1ro73HFl0cSgiUe3ELaI7GKibVzrkZkaa/view?usp=sharing', keywords: [] }
+]
     }
 ],
             practiceSheets: [
