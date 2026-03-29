@@ -162,27 +162,39 @@ function renderVideoSection(container, title, videos, isMain) {
     container.appendChild(h3);
 
     videos.forEach((v, i) => {
-        const d = document.createElement('div');
-        d.className = 'list-item';
-        d.onclick = () => playNow(v); 
-        
-        const label = isMain ? `Class ${i+1}: ` : "";
-        let durationDisplay = "";
+    const d = document.createElement('div');
+    d.className = 'list-item';
+    d.onclick = () => playNow(v); 
+    
+    const label = isMain ? `Class ${i+1}: ` : "";
+    let durationDisplay = "";
 
-        if (v.id && v.id.trim() !== "") {
-            durationDisplay = v.duration ? `🕒 ${v.duration}` : "🕒 --:--"; 
-        } 
-        else if ((!v.id || v.id.trim() === "") && (v.link && v.link.trim() !== "")) {
-            durationDisplay = "▶ Get Video";
-        }
-        
-        d.innerHTML = `
-            <span>${label}${v.title}</span> 
-            <span class="play-icon">${durationDisplay}</span>
-        `;
-        
-        container.appendChild(d);
-    });
+    // ১. যদি duration থাকে (id থাক বা না থাক), তবে সময় দেখাবে
+    if (v.duration && v.duration.trim() !== "") {
+        durationDisplay = `🕒 ${v.duration}`;
+    } 
+    // ২. যদি duration না থাকে কিন্তু link থাকে, তবে "Get Video" দেখাবে
+    else if (v.link && v.link.trim() !== "") {
+        durationDisplay = "▶ Get Video";
+    }
+    // ৩. যদি duration না থাকে কিন্তু YouTube id থাকে, তবে "🕒 --:--" দেখাবে
+    else if (v.id && v.id.trim() !== "") {
+        durationDisplay = "🕒 --:--";
+    }
+    // ৪. যদি id এবং link দুইটাই ফাঁকা থাকে, তবে "Not Uploaded" দেখাবে
+    else {
+        durationDisplay = "⏳ Not Uploaded";
+        d.style.opacity = "0.6"; // হালকা ঝাপসা করে দেওয়া যাতে বোঝা যায় এটা এখনো আসেনি
+        d.style.pointerEvents = "none"; // ক্লিক করা বন্ধ করে দেওয়া
+    }
+    
+    d.innerHTML = `
+        <span>${label}${v.title}</span> 
+        <span class="play-icon">${durationDisplay}</span>
+    `;
+    
+    container.appendChild(d);
+});
 }
 
     // --- Custom Video Player Logic --- //
