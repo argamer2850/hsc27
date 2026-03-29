@@ -2209,7 +2209,7 @@
             "chapter": "রাসায়নিক পরিবর্তন",
             "mainVideos": [
                 {
-                    "title": "লেকচার ১",
+                    "title": "গ্রিন কেমিস্ট্রি, E-Factor, Atom Economy, CFC এর সংকেত, Math & MCQ Solve",
                     "id": "g2zsPta9UMA",
                     "duration": "1:31:04",
                     "slide": "https://drive.google.com/file/d/1WCaIupiPIEwKpLVVOxkF6TCPXV6_4iro/view?usp=sharing",
@@ -2218,7 +2218,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ২",
+                    "title": "একমুখী ও উভমুখী বিক্রিয়া, বিক্রিয়াকে একমুখীকরণ, বিক্রিয়ার হার পর্ব-০১, Math Solve",
                     "id": "KAm2N3GU8qg",
                     "duration": "1:33:13",
                     "slide": "https://drive.google.com/file/d/143C1fB0Pu3pYWJl-4ZrLUKS5mz96fKOU/view?usp=sharing",
@@ -2227,7 +2227,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৩",
+                    "title": "বিক্রিয়ার হার পর্ব-০২, Math Solve, বিক্রিয়ার ক্রম পর্ব-০১ ",
                     "id": "MlTpKbEuhTY",
                     "duration": "1:41:02",
                     "slide": "https://drive.google.com/file/d/1zmtOnXmjaphfZb6F6WIMzfGjex33zzcf/view?usp=sharing",
@@ -2236,7 +2236,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৪",
+                    "title": "বিক্রিয়ার হার ধ্রুবক, বিক্রিয়ার ক্রম পর্ব-০২, Math Solve",
                     "id": "EB1aodxrujU",
                     "duration": "1:47:49",
                     "slide": "https://drive.google.com/file/d/1tW_wzoV8EgKEVr57oXr9FBh_Y9md589p/view?usp=sharing",
@@ -2245,7 +2245,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৫",
+                    "title": "বিক্রিয়ার ক্রম পর্ব-০৩, Math Solve",
                     "id": "ZB2PmU92ofA",
                     "duration": "1:37:07",
                     "slide": "https://drive.google.com/file/d/1Qu3iA0pj8GLFuZCGE66n1QwPhoeobCXe/view?usp=sharing",
@@ -2254,7 +2254,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৬",
+                    "title": "বিক্রিয়ার ক্রম Math & MCQ Solve, বিক্রিয়ার আণবিকত্ব, বিক্রিয়ার হারের উপর প্রভাব বিস্তারকারী নিয়ামকসমূহ",
                     "id": "WdESbko4AnI",
                     "duration": "1:34:21",
                     "slide": "https://drive.google.com/file/d/1jSTvM_0TB43ESkC1ZJNxu5wGv71ONhDK/view?usp=sharing",
@@ -2263,7 +2263,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৭",
+                    "title": "সক্রিয়ণ শক্তি, সংঘর্ষ তত্ত্ব, আরহেনিয়াস সমীকরণ পর্ব-০১, Math & MCQ Solve",
                     "id": "wgEBKOgbYsQ",
                     "duration": "1:37:24",
                     "slide": "https://drive.google.com/file/d/1w4wrTdnq826vciPKFCZplurpBoh4L8XR/view?usp=sharing",
@@ -2272,7 +2272,7 @@
                     ]
                 },
                 {
-                    "title": "লেকচার ৮",
+                    "title": "আরহেনিয়াস সমীকরণ পর্ব-০২, প্রভাবক, Math & MCQ Solve",
                     "id": "QmeE9Vfk9-Q",
                     "duration": "1:34:16",
                     "slide": "https://drive.google.com/file/d/1xAwRuWCKkzmRuPeI_5HqIbJcTEVekvV2/view?usp=sharing",
@@ -2351,6 +2351,15 @@
                     "keywords": [
                         "C1stC4C16"
                     ]
+                },
+                {
+                    "title": "লেকচার ১৭",
+                    "id": "qj-EibcZlOk",
+                    "slide": "https://drive.google.com/file/d/1zyRABZztU-U-59ERfNIYOODup1H7EOGo/view?usp=sharing",
+                    "keywords": [
+                        "C1stC4C17"
+                    ],
+                    "duration": "1:43:08"
                 }
             ],
             "extraSections": [
@@ -4392,8 +4401,12 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "ID_HERE",
-                    "slide": "LINK_HERE"
+                    "id": "xazdQ4qVAes",
+                    "slide": "N/A",
+                    "keywords": [
+                        "B1stC6C1"
+                    ],
+                    "duration": "1:43:28"
                 }
             ],
             "practiceSheets": [
