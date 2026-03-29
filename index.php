@@ -21,13 +21,13 @@ $user_permissions = [
 ],
     
     // ইউজার B
-    'USER_B' => [
+    'jawad' => [
         'role' => 'restricted',
-        'device_ids' => [''],
-        'ips' => [''],
+        'device_ids' => ['775fab6abff4c3e9ea6dd631'],
+        'ips' => ['103.138.120.32'],
         'allowed' => [
-            'Chemistry' => [
-                'পরিমাণগত রসায়ন' => 'ALL'
+            'Higher Math' => [
+                'অন্তরীকরণ' => 'ALL'
             ]
         ]
     ],
@@ -70,8 +70,8 @@ if (!$current_user) {
 ?>
 <?php
 
-$allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.109', '103.133.201.168', '43.245.120.36']; 
-$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b']; 
+$allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.109', '103.133.201.168', '43.245.120.36', '103.138.120.32']; 
+$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631']; 
 
 
 $special_ips = [
