@@ -258,7 +258,7 @@ syncGlobalID();
 
 <div id="home-top-button" style="margin-bottom: 20px;">
     <button class="action-btn" onclick="openAllClassesModal()" style="width: 100%; padding: 15px; border-radius: 15px; font-weight: 600; background: linear-gradient(90deg, var(--primary), var(--secondary)); border: none; color: white; cursor: pointer;">
-        📋 এখন পর্যন্ত যে যে ক্লাস আপলোড করা হয়েছে
+        📋 এখন পর্যন্ত যেসকল ক্লাস আপলোড করা হয়েছে
     </button>
 </div>
     <div id="subject-screen">
