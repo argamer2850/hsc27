@@ -68,19 +68,26 @@ document.onkeydown = function(e) {
 }
 
     function openSubject(sub) {
-        const list = document.getElementById('chapter-list');
-        document.getElementById('sub-title').innerText = sub;
-        list.innerHTML = '';
-        const chaps = database[sub] || [];
-        chaps.forEach(ch => {
-            const d = document.createElement('div');
-            d.className = 'list-item';
-            d.onclick = () => openVideoList(ch);
-            d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon">${ch.mainVideos?.length || 0} Classes</span>`;
-            list.appendChild(d);
-        });
-        navTo('chapter-screen');
-    }
+    const list = document.getElementById('chapter-list');
+    document.getElementById('sub-title').innerText = sub;
+    list.innerHTML = '';
+    const chaps = database[sub] || [];
+    
+    chaps.forEach(ch => {
+        const d = document.createElement('div');
+        d.className = 'list-item';
+        d.onclick = () => openVideoList(ch);
+        
+        // টোটাল ডিউরেশন বের করা
+        const totalSecs = getChapterTotalDuration(ch);
+        const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
+        
+        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${ch.mainVideos?.length || 0} Classes ${durationHtml}</span>`;
+        list.appendChild(d);
+    });
+    
+    navTo('chapter-screen');
+}
 
     function openVideoList(chObj) {
     const vContainer = document.getElementById('video-list-container');
@@ -1092,5 +1099,37 @@ function showVolumeStatus(vol) {
         indicator.style.opacity = "0";
         setTimeout(() => indicator.classList.add('hidden'), 300);
     }, 1000); // ১ সেকেন্ড পর চলে যাবে
+}
+// --- চ্যাপ্টারের টোটাল ডিউরেশন হিসাব করার ফাংশন --- //
+function parseDurationToSeconds(durationStr) {
+    if (!durationStr || typeof durationStr !== 'string') return 0;
+    const parts = durationStr.split(':').map(Number);
+    // যদি HH:MM:SS ফরম্যাটে থাকে
+    if (parts.length === 3) {
+        return (parts[0] || 0) * 3600 + (parts[1] || 0) * 60 + (parts[2] || 0);
+    } 
+    // যদি MM:SS ফরম্যাটে থাকে
+    else if (parts.length === 2) {
+        return (parts[0] || 0) * 60 + (parts[1] || 0);
+    }
+    return 0;
+}
+
+function formatTotalDuration(totalSeconds) {
+    if (totalSeconds === 0) return '';
+    const h = Math.floor(totalSeconds / 3600);
+    const m = Math.floor((totalSeconds % 3600) / 60);
+    if (h > 0) return `⏱️ ${h} ঘণ্টা ${m} মিনিট`;
+    return `⏱️ ${m} মিনিট`;
+}
+
+function getChapterTotalDuration(chapterObj) {
+    let total = 0;
+    if (chapterObj && chapterObj.mainVideos) {
+        chapterObj.mainVideos.forEach(v => {
+            total += parseDurationToSeconds(v.duration);
+        });
+    }
+    return total;
 }
 
