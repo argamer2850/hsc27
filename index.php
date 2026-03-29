@@ -1,27 +1,42 @@
 <?php
 // ১. ইউজারদের ডাটা এবং পারমিশন লিস্ট
 $user_permissions = [
-    // অ্যাডমিন: এখানে একাধিক Device ID এবং IP যোগ করতে পারবেন
-    'ADMIN_USER' => [
+    'Me' => [
         'role' => 'admin', 
-        'device_ids' => ['832c0468e1719fe896d4a7a3', 'c0732ab2433ddd821a104109', '2577a9cc6a36d8fe0a237c1b', 'a3d7b4a440f1416b96b5522d'],
-        'ips' => ['202.181.4.166', '103.174.215.88', '103.144.49.109', '43.245.120.36', '116.206.255.42'] 
+        'device_ids' => ['832c0468e1719fe896d4a7a3'],
+        'ips' => ['202.181.4.166'] 
     ],
-    
-    // ইউজার A: মাল্টিপল ডিভাইস ও আইপি সাপোর্ট
-    'sadik' => [
-    'role' => 'restricted',
-    'device_ids' => ['833e2a5a3d7b908de4bf619d'],
-    'ips' => ['103.133.201.168'],
-    'allowed' => [
-        'Physics'   => 'ALL',
-        'Chemistry'      => 'ALL',
-        'Higher Math' => 'ALL' // এভাবে আপনি যত খুশি সাবজেক্ট যোগ করতে পারেন
-    ]
-],
-    
-    // ইউজার B
-    'jawad' => [
+    'Me proxy' => [
+        'role' => 'admin', 
+        'device_ids' => ['832c0468e1719fe896d4a7a3'],
+        'ips' => ['103.174.215.88'] 
+    ],
+    'Siam' => [
+        'role' => 'admin', 
+        'device_ids' => ['c0732ab2433ddd821a104109'],
+        'ips' => ['103.144.49.109'] 
+    ],
+    'Mahian' => [
+        'role' => 'admin', 
+        'device_ids' => ['2577a9cc6a36d8fe0a237c1b'],
+        'ips' => ['43.245.120.36'] 
+    ],
+    'Rakib' => [
+        'role' => 'admin', 
+        'device_ids' => ['a3d7b4a440f1416b96b5522d'],
+        'ips' => ['116.206.255.42'] 
+    ],
+    'Sadik' => [
+        'role' => 'restricted',
+        'device_ids' => ['833e2a5a3d7b908de4bf619d'],
+        'ips' => ['103.133.201.168'],
+        'allowed' => [
+            'Physics' => 'ALL',
+            'Chemistry' => 'ALL',
+            'Higher Math' => 'ALL'
+        ]
+    ],
+    'Jawad' => [
         'role' => 'restricted',
         'device_ids' => ['775fab6abff4c3e9ea6dd631'],
         'ips' => ['103.138.120.32'],
@@ -30,40 +45,28 @@ $user_permissions = [
                 'অন্তরীকরণ' => 'ALL'
             ]
         ]
-    ],
-    
-    // ইউজার C
-    'USER_C' => [
-        'role' => 'restricted',
-        'device_ids' => [''],
-        'ips' => [''],
-        'allowed' => [
-            'Biology' => [
-                'কোষ ও এর গঠন' => ['লেকচার ১', 'লেকচার ২', 'লেকচার ৩']
-            ]
-        ]
     ]
 ];
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
-$device_id = isset($_COOKIE['dev_token']) ? $_COOKIE['dev_token'] : null;
+$device_id = isset($_GET['device_id']) ? $_GET['device_id'] : (isset($_COOKIE['dev_token']) ? $_COOKIE['dev_token'] : null);
+
+$current_user_data = null;
+$clarity_name = "Unknown"; 
 
 // এক্সেস চেক করার লজিক
-$current_user = null;
-
-foreach ($user_permissions as $key => $data) {
-    // চেক করা হচ্ছে ইউজারের device_id অথবা ip কি ওই ইউজারের অনুমোদিত লিস্টে আছে কি না
+foreach ($user_permissions as $username => $data) {
     $id_match = ($device_id && in_array($device_id, $data['device_ids']));
     $ip_match = in_array($user_ip, $data['ips']);
 
     if ($id_match || $ip_match) {
-        $current_user = $data;
-        break; // ইউজার মিলে গেলে লুপ থেকে বের হয়ে যাবে
+        $current_user_data = $data;
+        $clarity_name = $username; 
+        break; 
     }
 }
 
-if (!$current_user) {
-    // যদি কোনো লিস্টেই না পাওয়া যায়
+if (!$current_user_data) {
     include('access-request-page.php');
     exit;
 }
@@ -116,7 +119,7 @@ $full_db = json_decode($full_db_json, true);
 $filtered_db = [];
 
 // যদি অ্যাডমিন হয়, তবে সম্পূর্ণ ডাটাবেস দিয়ে দিন
-if ($current_user['role'] === 'admin') {
+if ($current_user_data['role'] === 'admin') {
     $filtered_db = $full_db;
 } else {
     // রেস্ট্রিক্টেড ইউজারের জন্য ফিল্টারিং
@@ -185,7 +188,9 @@ if ($current_user['role'] === 'admin') {
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "vyo3ldtrwc");
+    })(window, document, "clarity", "script", "w3i6kaomof");
+    // PHP থেকে পাওয়া নির্দিষ্ট ইউজারের নাম Clarity-তে পাঠিয়ে দেওয়া হচ্ছে
+    window.clarity("identify", "<?php echo $clarity_name; ?>");
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
