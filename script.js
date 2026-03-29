@@ -808,6 +808,7 @@ window.onload = function() {
     if (window.location.hash) {
         window.history.replaceState(null, null, window.location.pathname);
     }
+    renderSubjectCards(); // কার্ডগুলো জেনারেট করবে
     // হোম স্ক্রিন দেখাবে
     navTo('subject-screen', false);
 };
@@ -1133,3 +1134,18 @@ function getChapterTotalDuration(chapterObj) {
     return total;
 }
 
+function renderSubjectCards() {
+    const container = document.getElementById('subject-cards-container');
+    if (!container) return;
+
+    container.innerHTML = ''; // আগের সব কার্ড পরিষ্কার করা
+
+    // database অবজেক্টের মধ্যে এখন শুধু পারমিশন পাওয়া সাবজেক্টগুলোই আছে
+    Object.keys(database).forEach(subject => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => openSubject(subject);
+        card.innerHTML = `<h3>${subject}</h3>`;
+        container.appendChild(card);
+    });
+}

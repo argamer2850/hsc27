@@ -1,4 +1,74 @@
 <?php
+// ১. ইউজারদের ডাটা এবং পারমিশন লিস্ট
+$user_permissions = [
+    // অ্যাডমিন: এখানে একাধিক Device ID এবং IP যোগ করতে পারবেন
+    'ADMIN_USER' => [
+        'role' => 'admin', 
+        'device_ids' => ['832c0468e1719fe896d4a7a3', 'c0732ab2433ddd821a104109', '2577a9cc6a36d8fe0a237c1b', 'a3d7b4a440f1416b96b5522d'],
+        'ips' => ['202.181.4.166', '103.174.215.88', '103.144.49.109', '43.245.120.36', '116.206.255.42'] 
+    ],
+    
+    // ইউজার A: মাল্টিপল ডিভাইস ও আইপি সাপোর্ট
+    'sadik' => [
+    'role' => 'restricted',
+    'device_ids' => ['833e2a5a3d7b908de4bf619d'],
+    'ips' => ['103.133.201.168'],
+    'allowed' => [
+        'Physics'   => 'ALL',
+        'Chemistry'      => 'ALL',
+        'Higher Math' => 'ALL' // এভাবে আপনি যত খুশি সাবজেক্ট যোগ করতে পারেন
+    ]
+],
+    
+    // ইউজার B
+    'USER_B' => [
+        'role' => 'restricted',
+        'device_ids' => [''],
+        'ips' => [''],
+        'allowed' => [
+            'Chemistry' => [
+                'পরিমাণগত রসায়ন' => 'ALL'
+            ]
+        ]
+    ],
+    
+    // ইউজার C
+    'USER_C' => [
+        'role' => 'restricted',
+        'device_ids' => [''],
+        'ips' => [''],
+        'allowed' => [
+            'Biology' => [
+                'কোষ ও এর গঠন' => ['লেকচার ১', 'লেকচার ২', 'লেকচার ৩']
+            ]
+        ]
+    ]
+];
+
+$user_ip = $_SERVER['REMOTE_ADDR'];
+$device_id = isset($_COOKIE['dev_token']) ? $_COOKIE['dev_token'] : null;
+
+// এক্সেস চেক করার লজিক
+$current_user = null;
+
+foreach ($user_permissions as $key => $data) {
+    // চেক করা হচ্ছে ইউজারের device_id অথবা ip কি ওই ইউজারের অনুমোদিত লিস্টে আছে কি না
+    $id_match = ($device_id && in_array($device_id, $data['device_ids']));
+    $ip_match = in_array($user_ip, $data['ips']);
+
+    if ($id_match || $ip_match) {
+        $current_user = $data;
+        break; // ইউজার মিলে গেলে লুপ থেকে বের হয়ে যাবে
+    }
+}
+
+if (!$current_user) {
+    // যদি কোনো লিস্টেই না পাওয়া যায়
+    include('access-request-page.php');
+    exit;
+}
+?>
+<?php
 
 $allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.109', '103.133.201.168', '43.245.120.36']; 
 $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b']; 
@@ -38,8 +108,78 @@ if (!$is_access_allowed) {
 }
 ?>
 <!DOCTYPE html>
+<?php
+// JSON ফাইল থেকে সম্পূর্ণ ডাটাবেস লোড করা
+$full_db_json = file_get_contents('data.json'); // অথবা আপনার PHP Array
+$full_db = json_decode($full_db_json, true);
+
+$filtered_db = [];
+
+// যদি অ্যাডমিন হয়, তবে সম্পূর্ণ ডাটাবেস দিয়ে দিন
+if ($current_user['role'] === 'admin') {
+    $filtered_db = $full_db;
+} else {
+    // রেস্ট্রিক্টেড ইউজারের জন্য ফিল্টারিং
+    $allowed_data = $current_user['allowed'];
+
+    foreach ($full_db as $subject_name => $chapters) {
+        // যদি এই সাবজেক্টের পারমিশন না থাকে, তবে স্কিপ করো
+        if (!array_key_exists($subject_name, $allowed_data)) continue;
+        
+        $subject_permission = $allowed_data[$subject_name];
+        $filtered_chapters = [];
+
+        foreach ($chapters as $chapter) {
+            $chapter_name = $chapter['chapter'];
+
+            // যদি সাবজেক্টের ভ্যালু 'ALL' হয়, তবে সব চ্যাপ্টার দিয়ে দাও
+            if ($subject_permission === 'ALL') {
+                $filtered_chapters[] = $chapter;
+                continue;
+            }
+
+            // যদি এই চ্যাপ্টারের পারমিশন না থাকে, স্কিপ করো
+            if (!array_key_exists($chapter_name, $subject_permission)) continue;
+
+            $chapter_permission = $subject_permission[$chapter_name];
+
+            // যদি চ্যাপ্টারের ভ্যালু 'ALL' হয়, তবে চ্যাপ্টারের সব ভিডিও দিয়ে দাও
+            if ($chapter_permission === 'ALL') {
+                $filtered_chapters[] = $chapter;
+                continue;
+            }
+
+            // যদি নির্দিষ্ট ভিডিওর পারমিশন থাকে (যেমন: ['লেকচার ১', 'লেকচার ২'])
+            if (is_array($chapter_permission)) {
+                $filtered_chapter = $chapter;
+                $filtered_main_videos = [];
+                
+                foreach ($chapter['mainVideos'] as $video) {
+                    if (in_array($video['title'], $chapter_permission)) {
+                        $filtered_main_videos[] = $video;
+                    }
+                }
+                $filtered_chapter['mainVideos'] = $filtered_main_videos;
+                
+                // Extra sections এর ফিল্টারিং চাইলে এখানে লজিক বসাতে পারেন
+                
+                $filtered_chapters[] = $filtered_chapter;
+            }
+        }
+        
+        if (!empty($filtered_chapters)) {
+            $filtered_db[$subject_name] = $filtered_chapters;
+        }
+    }
+}
+?>
 <html lang="bn">
 <head>
+    <script>
+        const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
+        // PHP থেকে ফিল্টার করা ডাটাবেস সরাসরি JS এ পাঠিয়ে দেওয়া হলো
+        const database = <?php echo json_encode($filtered_db); ?>;
+    </script>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -129,15 +269,8 @@ syncGlobalID();
     
     <button onclick="handleSearch()" style="padding: 10px 20px; border-radius: 25px; background: var(--primary); color: white; border: none; cursor: pointer;">সার্চ</button>
 </div>
-        <div class="grid-layout">
-            <div class="card" onclick="openSubject('Physics')"><h3>Physics</h3></div>
-            <div class="card" onclick="openSubject('Chemistry')"><h3>Chemistry</h3></div>
-            <div class="card" onclick="openSubject('Higher Math')"><h3>Higher Math</h3></div>
-            <div class="card" onclick="openSubject('Biology')"><h3>Biology</h3></div>
-            <div class="card" onclick="openSubject('English')"><h3>English</h3></div>
-            <div class="card" onclick="openSubject('Bangla')"><h3>Bangla</h3></div>
-            <div class="card" onclick="openSubject('ICT')"><h3>ICT</h3></div>
-        </div>
+        <div class="grid-layout" id="subject-cards-container">
+    </div>
     </div>
     
 
@@ -246,7 +379,6 @@ syncGlobalID();
         <span id="theme-icon">☀️</span>
     </div>
 </button>
-<script src="database.js"></script>
 <script src="script.js?v=11"></script>
 <script src="https://www.youtube.com/iframe_api" defer></script>
 </body>
