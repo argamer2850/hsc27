@@ -79,7 +79,7 @@ document.onkeydown = function(e) {
         d.onclick = () => openVideoList(ch);
         
         // টোটাল ডিউরেশন বের করা
-        const totalSecs = getChapterTotalDuration(ch);
+        const totalSecs = getVideoListTotalDuration(ch.mainVideos);
         const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
         d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${ch.mainVideos?.length || 0} Classes ${durationHtml}</span>`;
@@ -150,8 +150,15 @@ if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
 // ভিডিও লিস্ট রেন্ডার করার জন্য একটি কমন ফাংশন (সহজ করার জন্য)
 function renderVideoSection(container, title, videos, isMain) {
     const h3 = document.createElement('h3');
-    h3.style = `color: ${isMain ? 'var(--primary)' : 'var(--accent)'}; margin: 25px 0 15px 5px; font-size: 1.2rem;`;
-    h3.innerText = title;
+    // ফ্লেক্সবক্স ব্যবহার করা হয়েছে যাতে টাইটেল বামে আর ডিউরেশন ডানে থাকে
+    h3.style = `color: ${isMain ? 'var(--primary)' : 'var(--accent)'}; margin: 25px 0 15px 5px; font-size: 1.2rem; display: flex; justify-content: space-between; align-items: center;`;
+
+    // সেকশনের মোট ডিউরেশন বের করা (আমাদের নতুন ফাংশন ব্যবহার করে)
+    const sectionTotalSecs = getVideoListTotalDuration(videos);
+    const durationText = sectionTotalSecs > 0 ? `<span style="font-size: 0.85rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(sectionTotalSecs)}</span>` : '';
+
+    // টাইটেল এবং ডিউরেশন সেট করা
+    h3.innerHTML = `<span>${title}</span> ${durationText}`;
     container.appendChild(h3);
 
     videos.forEach((v, i) => {
@@ -160,21 +167,13 @@ function renderVideoSection(container, title, videos, isMain) {
         d.onclick = () => playNow(v); 
         
         const label = isMain ? `Class ${i+1}: ` : "";
-        
-        // --- আপনার ৩টি কন্ডিশন এখানে সেট করা হয়েছে ---
         let durationDisplay = "";
 
-        // ১. ভিডিওতে id থাকলে: শুধু duration দেখাবে (clock emoji সহ)
         if (v.id && v.id.trim() !== "") {
             durationDisplay = v.duration ? `🕒 ${v.duration}` : "🕒 --:--"; 
         } 
-        // ২. id ফাঁকা কিন্তু link আছে: Play icon + Get Video
         else if ((!v.id || v.id.trim() === "") && (v.link && v.link.trim() !== "")) {
             durationDisplay = "▶ Get Video";
-        }
-        // ৩. id ফাঁকা এবং link-ও নাই: কিছুই দেখাবে না (ফাঁকা থাকবে)
-        else {
-            durationDisplay = "";
         }
         
         d.innerHTML = `
@@ -1124,15 +1123,7 @@ function formatTotalDuration(totalSeconds) {
     return `⏱️ ${m} মিনিট`;
 }
 
-function getChapterTotalDuration(chapterObj) {
-    let total = 0;
-    if (chapterObj && chapterObj.mainVideos) {
-        chapterObj.mainVideos.forEach(v => {
-            total += parseDurationToSeconds(v.duration);
-        });
-    }
-    return total;
-}
+
 
 function renderSubjectCards() {
     const container = document.getElementById('subject-cards-container');
@@ -1148,4 +1139,16 @@ function renderSubjectCards() {
         card.innerHTML = `<h3>${subject}</h3>`;
         container.appendChild(card);
     });
+}
+// এটি নতুন ফাংশন, যা যেকোনো ভিডিও অ্যারের মোট সময় বের করবে
+function getVideoListTotalDuration(videoArray) {
+    let total = 0;
+    if (videoArray && Array.isArray(videoArray)) {
+        videoArray.forEach(v => {
+            if (v.duration) {
+                total += parseDurationToSeconds(v.duration);
+            }
+        });
+    }
+    return total;
 }
