@@ -11,11 +11,6 @@ $user_permissions = [
         'device_ids' => ['832c0468e1719fe896d4a7a3'],
         'ips' => ['103.174.215.88'] 
     ],
-    'Jubayer' => [
-        'role' => 'admin', 
-        'device_ids' => ['05e2aa8373f3618b28718085'],
-        'ips' => ['104.28.166.114'] 
-    ],
     'Siam' => [
         'role' => 'admin', 
         'device_ids' => ['c0732ab2433ddd821a104109'],
@@ -48,6 +43,16 @@ $user_permissions = [
         'allowed' => [
             'Higher Math' => [
                 'অন্তরীকরণ' => 'ALL'
+            ]
+        ]
+    ],
+    'Jubayer' => [
+        'role' => 'restricted',
+        'device_ids' => ['05e2aa8373f3618b28718085'],
+        'ips' => ['104.28.166.114'],
+        'allowed' => [
+            'Higher Math' => [
+                'যোগজীকরণ' => 'ALL'
             ]
         ]
     ]
@@ -128,7 +133,7 @@ if ($current_user_data['role'] === 'admin') {
     $filtered_db = $full_db;
 } else {
     // রেস্ট্রিক্টেড ইউজারের জন্য ফিল্টারিং
-    $allowed_data = $current_user['allowed'];
+    $allowed_data = $current_user_data['allowed'];
 
     foreach ($full_db as $subject_name => $chapters) {
         // যদি এই সাবজেক্টের পারমিশন না থাকে, তবে স্কিপ করো
