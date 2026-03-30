@@ -5115,20 +5115,25 @@
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         },
         {
             "chapter": "English 2nd Paper",
             "mainVideos": [
                 {
-                    "title": "লেকচার ১",
-                    "id": "ID_HERE",
-                    "slide": "LINK_HERE"
+                    "title": "Identification of Phrase & Clause",
+                    "id": "CMxr6kCinsA",
+                    "slide": "https://drive.google.com/file/d/1pMj6KXQJStqpESNLh5-yCdnn5bF1r22M/view?usp=sharing",
+                    "keywords": [
+                        "Identification of Phrase & Clause",
+                        "Identification of Phrase and Clause"
+                    ],
+                    "duration": "2:11:52"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         }
     ],
