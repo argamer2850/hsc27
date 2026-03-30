@@ -2569,13 +2569,161 @@
         {
             "chapter": "ম্যাট্রিক্স ও নির্ণায়ক",
             "mainVideos": [
+  {
+    "title": "লেকচার ১",
+    "id": "Jk7f_Ih4I90",
+    "slide": "https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing",
+    "keywords": [
+      "M1stC1C1"
+    ]
+  },
+  {
+    "title": "লেকচার ২",
+    "id": "GaJdeZij-0o",
+    "slide": "https://drive.google.com/file/d/1tB6GUTLmY6sSJwiGs9JDya4LufpPraOF/view?usp=sharing",
+    "keywords": [
+      "M1stC1C2"
+    ]
+  },
+  {
+    "title": "লেকচার ৩",
+    "id": "z5scZrBNYUk",
+    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1fvVszQ1vWMoFZdxlh35Xv1I1wvn4RRD1/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1yAw_BKyrIicRTCZ5kFghi8XEz9sWsYD8/view?usp=sharing"
+                        }
+                        
+                    ],
+    "keywords": [
+      "M1stC1C3"
+    ]
+  },
+  {
+    "title": "লেকচার ৪",
+    "id": "",
+    "link": "",
+    "slide": "https://drive.google.com/file/d/1Uml2wlqYSHp9gJw9DCPiXvJc0EZXCBg3/view?usp=sharing",
+    "keywords": [
+      "M1stC1C4"
+    ]
+  },
+  {
+    "title": "লেকচার ৫",
+    "id": "dDSrcJ793wE",
+    "slide": "https://drive.google.com/file/d/1jzu07kcFpQdivuAIl_RPx-bDKmKSfbOb/view?usp=sharing",
+    "keywords": [
+      "M1stC1C5"
+    ]
+  },
+  {
+    "title": "লেকচার ৬",
+    "id": "8hfnhLZ8WdI",
+    "slide": "https://drive.google.com/file/d/1xO4tFQ42ZbXpRF_Sx78P0gNWYsqhTet0/view?usp=sharing",
+    "keywords": [
+      "M1stC1C6"
+    ]
+  },
+  {
+    "title": "লেকচার ৭",
+    "id": "OKHY1ujzQlY",
+    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1XIvmkm00nOJiEyJpZjywFU7RVzRbQHzy/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1iMF5E0tI8OQ31ldNVWfkwTRPTYVGZDqZ/view?usp=sharing"
+                        }
+                        
+                    ],
+    "keywords": [
+      "M1stC1C7"
+    ]
+  },
+  {
+    "title": "লেকচার ৮",
+    "id": "L43bCtOHrgE",
+    "slide": "https://drive.google.com/file/d/1Oju33rRagqvMA_OrJhqgaY50nL1sAgeF/view?usp=sharing",
+    "keywords": [
+      "M1stC1C8"
+    ]
+  },
+  {
+    "title": "লেকচার ৯",
+    "id": "i2xBpqsrSyc",
+    "slide": "https://drive.google.com/file/d/10SQSCq7NSdV_HyHAMN-nWKyEx8skmSLi/view?usp=sharing",
+    "keywords": [
+      "M1stC1C9"
+    ]
+  },
+  {
+    "title": "লেকচার ১০ (শেষ ক্লাস)",
+    "id": "_AF0woI1U_Q",
+    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/19-_3SUqMTHtR9oInRyavfnpNn7r5sVEJ/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1jdRI4NmXxN8JVY4XG3lsdlCimbG8Jfe_/view?usp=sharing"
+                        }
+                        
+                    ],
+    "keywords": [
+      "M1stC1C10"
+    ]
+  }
+],
+"extraSections": [
                 {
-                    "title": "লেকচার ১",
-                    "id": "Jk7f_Ih4I90",
-                    "duration": "1:36:10",
-                    "slide": "https://drive.google.com/file/d/1tJnBIAJMhlDIcTvuDXrcFdxe2F1_0lxE/view?usp=sharing",
-                    "keywords": [
-                        "M1stC1C1"
+                    "title": "Calculator Hacks",
+                    "videos": [
+                        {
+                            "title": "Calculator Hacks",
+                            "id": "W38HfmpThQw",
+                            "slide": "https://drive.google.com/file/d/1mgkaTe-HgUVbGk3I0ApCArM31Qmb7JbM/view?usp=sharing",
+                            "keywords": [
+                                "M1stC1CH"
+                            ]
+                        }
+                        
+                    ]
+                },
+                {
+                    "title": "Doubt Solving Classes",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১-৪",
+                            "id": "8hYFC6YrtBM",
+                            "slide": "https://drive.google.com/file/d/1yocd6zgG0Numq5jsTWjHLt8-uHpHmFzs/view?usp=sharing",
+                            "keywords": [
+                                "M1stC1DSC1"
+                            ]
+                        },
+                        {
+                            "title": "লেকচার ৫-৭",
+                            "id": "cNTo4qqtEb8",
+                            "slide": "https://drive.google.com/file/d/1jtsW1-pggmYxGu9b4dqkdDu987ecToIY/view?usp=sharing",
+                            "keywords": [
+                                "M1stC1DSC2"
+                            ]
+                        },
+                        {
+                            "title": "লেকচার ৮-১০",
+                            "id": "YPTbL6hxrfY",
+                            "slide": "https://drive.google.com/file/d/1nx8-h2kkgi5P_DT4IbeMe3L-3gfg9LqB/view?usp=sharing",
+                            "keywords": [
+                                "M1stC1DSC3"
+                            ]
+                        }
+                        
                     ]
                 }
             ],
