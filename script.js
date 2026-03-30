@@ -1129,10 +1129,24 @@ function parseDurationToSeconds(durationStr) {
 
 function formatTotalDuration(totalSeconds) {
     if (totalSeconds === 0) return '';
+    
     const h = Math.floor(totalSeconds / 3600);
     const m = Math.floor((totalSeconds % 3600) / 60);
-    if (h > 0) return `⏱️ ${h} ঘণ্টা ${m} মিনিট`;
-    return `⏱️ ${m} মিনিট`;
+    
+    // যদি শুধু ঘণ্টা থাকে (মিনিট ০)
+    if (h > 0 && m === 0) {
+        return `⏱️ ${h} ঘণ্টা`;
+    }
+    // যদি ঘণ্টা এবং মিনিট উভয়ই থাকে
+    if (h > 0 && m > 0) {
+        return `⏱️ ${h} ঘণ্টা ${m} মিনিট`;
+    }
+    // যদি শুধু মিনিট থাকে (ঘণ্টা ০)
+    if (m > 0) {
+        return `⏱️ ${m} মিনিট`;
+    }
+    
+    return ''; // যদি সেকেন্ড ১ মিনিটের কম হয়
 }
 
 
