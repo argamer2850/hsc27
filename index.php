@@ -11,6 +11,11 @@ $user_permissions = [
         'device_ids' => ['832c0468e1719fe896d4a7a3'],
         'ips' => ['103.174.215.88'] 
     ],
+    'Jubayer' => [
+        'role' => 'admin', 
+        'device_ids' => ['05e2aa8373f3618b28718085'],
+        'ips' => ['104.28.166.114'] 
+    ],
     'Siam' => [
         'role' => 'admin', 
         'device_ids' => ['c0732ab2433ddd821a104109'],
