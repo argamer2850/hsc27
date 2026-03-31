@@ -978,13 +978,7 @@
         },
         {
             "chapter": "পদার্থের গাঠনিক ধর্ম",
-            "mainVideos": [
-                {
-                    "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
-                }
-            ],
+            
             "extraSections": [
                 {
                     "title": "Archived Classes",
@@ -3369,14 +3363,7 @@
         },
         {
             "chapter": "যোগজীকরণ",
-            "mainVideos": [
-                {
-                    "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE",
-                    "keywords": []
-                }
-            ],
+            
             "extraSections": [
                 {
                     "title": "Archived Classes of Rakib Sir",
