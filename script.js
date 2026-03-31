@@ -93,24 +93,28 @@ document.onkeydown = function(e) {
         d.className = 'list-item';
         d.onclick = () => openVideoList(ch);
         
-        // ১. ভিডিও সংখ্যা গণনার লজিক পরিবর্তন
         let totalVideos = 0;
+        let totalSecs = 0; // ডিউরেশন ট্র্যাক করার জন্য শুরুতে ০ ধরলাম
+
+        // ১. ভিডিও সংখ্যা এবং ডিউরেশন গণনার লজিক
         if (ch.mainVideos && ch.mainVideos.length > 0) {
+            // যদি মেইন ভিডিও থাকে
             totalVideos = ch.mainVideos.length;
+            totalSecs = getVideoListTotalDuration(ch.mainVideos);
         } else if (ch.extraSections && ch.extraSections.length > 0) {
-            // যদি মেইন ভিডিও না থাকে, তবে এক্সট্রা সেকশনের সব ভিডিও যোগ হবে
+            // যদি মেইন ভিডিও না থাকে, তবে এক্সট্রা সেকশনের ভিডিও ও ডিউরেশন যোগ হবে
             ch.extraSections.forEach(section => {
-                if (section.videos) {
+                if (section.videos && section.videos.length > 0) {
                     totalVideos += section.videos.length;
+                    totalSecs += getVideoListTotalDuration(section.videos);
                 }
             });
         }
 
-        // ২. টোটাল ডিউরেশন বের করা (শুধুমাত্র মেইন ভিডিওর জন্য আগের মতোই থাকছে)
-        const totalSecs = getVideoListTotalDuration(ch.mainVideos);
+        // ২. ডিউরেশন ফরম্যাট করা (টোটাল সেকেন্ড ০ এর বেশি হলে দেখাবে)
         const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
-        // ৩. ইনার এইচটিএমএল এ totalVideos ব্যবহার করা হয়েছে
+        // ৩. ইনার এইচটিএমএল আউটপুট
         d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${totalVideos} Classes ${durationHtml}</span>`;
         list.appendChild(d);
     });
