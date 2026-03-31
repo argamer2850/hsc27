@@ -13,6 +13,9 @@ document.onkeydown = function(e) {
     
 
     function navTo(id, pushHistory = true) {
+        if(id === 'subject-screen') {
+        sessionStorage.removeItem('currentScreen'); // এখানেও sessionStorage
+    }
     const element = document.getElementById(id);
     if (!element) return;
     const loaderBar = document.getElementById('site-loader-bar');
@@ -68,6 +71,8 @@ document.onkeydown = function(e) {
 }
 
     function openSubject(sub) {
+        sessionStorage.setItem('currentSubject', sub);
+    sessionStorage.setItem('currentScreen', 'chapter-screen');
     const list = document.getElementById('chapter-list');
     document.getElementById('sub-title').innerText = sub;
     list.innerHTML = '';
@@ -90,6 +95,8 @@ document.onkeydown = function(e) {
 }
 
     function openVideoList(chObj) {
+        sessionStorage.setItem('currentChapter', chObj.chapter);
+    sessionStorage.setItem('currentScreen', 'video-list-screen');
     const vContainer = document.getElementById('video-list-container');
     const mContainer = document.getElementById('chap-materials');
     document.getElementById('chap-title').innerText = chObj.chapter;
@@ -432,6 +439,8 @@ document.getElementById('speed-input').addEventListener('input', (e) => {
    let shouldAutoFullscreen = false; // এটি গ্লোবাল ডিক্লেয়ার করুন
 
 function playNow(video) {
+    sessionStorage.setItem('currentVideo', video.title);
+    sessionStorage.setItem('currentScreen', 'player-screen');
     const videoContainer = document.querySelector('.custom-video-container');
     const linkContainer = document.getElementById('external-link-container');
     const notUploadedContainer = document.getElementById('not-uploaded-container');
@@ -815,13 +824,47 @@ function handleSearch() {
 }
 // রিলোড দিলে সবসময় হোম পেজে (subject-screen) ফিরিয়ে নেওয়ার কোড
 window.onload = function() {
-    // URL থেকে পুরনো সব হ্যাশ (#) মুছে ফেলে ফ্রেশ করবে
     if (window.location.hash) {
         window.history.replaceState(null, null, window.location.pathname);
     }
-    renderSubjectCards(); // কার্ডগুলো জেনারেট করবে
-    // হোম স্ক্রিন দেখাবে
-    navTo('subject-screen', false);
+    renderSubjectCards(); 
+
+    // রিলোড ম্যানেজমেন্ট (sessionStorage থেকে ডাটা নেওয়া হচ্ছে)
+    const lastScreen = sessionStorage.getItem('currentScreen');
+    const sub = sessionStorage.getItem('currentSubject');
+    const chap = sessionStorage.getItem('currentChapter');
+    const vidTitle = sessionStorage.getItem('currentVideo');
+
+    if (lastScreen && sub && database[sub]) {
+        if (lastScreen === 'chapter-screen') {
+            openSubject(sub);
+        } 
+        else if ((lastScreen === 'video-list-screen' || lastScreen === 'player-screen') && chap) {
+            const chObj = database[sub].find(c => c.chapter === chap);
+            if (chObj) {
+                openSubject(sub); // ব্যাকগ্রাউন্ড রেডি করার জন্য
+                openVideoList(chObj); 
+                
+                if (lastScreen === 'player-screen' && vidTitle) {
+                    // ভিডিওটি খোঁজার চেষ্টা
+                    let targetVid = chObj.mainVideos?.find(v => v.title === vidTitle);
+                    if(!targetVid && chObj.extraSections) {
+                        chObj.extraSections.forEach(sec => {
+                            let found = sec.videos?.find(v => v.title === vidTitle);
+                            if(found) targetVid = found;
+                        });
+                    }
+                    if(targetVid) {
+                        playNow(targetVid);
+                    }
+                }
+            } else {
+                navTo('subject-screen', false);
+            }
+        }
+    } else {
+        navTo('subject-screen', false);
+    }
 };
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
@@ -1178,3 +1221,38 @@ function getVideoListTotalDuration(videoArray) {
     }
     return total;
 }
+let previousOnlineCount = -1; // -1 দিলাম যাতে প্রথমবারেই সাউন্ড না বাজে
+const notificationSound = new Audio('notification.mp3');
+
+function checkOnlineUsers() {
+    fetch('heartbeat.php')
+        .then(response => response.json())
+        .then(data => {
+            const currentCount = data.count;
+            const textElement = document.getElementById('online-text');
+            
+            if (textElement) {
+                if (currentCount === 0) {
+                    textElement.innerText = "আপনি একাই আছেন";
+                    textElement.style.color = "#94a3b8"; // একা থাকলে একটু হালকা কালার
+                } else {
+                    textElement.innerText = `আপনার সাথে আরও ${currentCount} জন আছেন`;
+                    textElement.style.color = "#10b981"; // কেউ থাকলে সবুজ কালার
+                }
+            }
+
+            // যদি আগের চেয়ে ইউজার সংখ্যা বাড়ে এবং আগে থেকে ডাটা লোড হয়ে থাকে
+            if (currentCount > previousOnlineCount && previousOnlineCount !== -1) {
+                notificationSound.play().catch(e => console.log("Auto-play blocked by browser."));
+            }
+            
+            previousOnlineCount = currentCount;
+        })
+        .catch(err => console.error('Error fetching heartbeat:', err));
+}
+
+// প্রথমবার সাথে সাথে চেক করবে
+checkOnlineUsers();
+
+// এরপর প্রতি ১০ সেকেন্ড পরপর চেক করবে
+setInterval(checkOnlineUsers, 10000);

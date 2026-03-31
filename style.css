@@ -459,3 +459,4 @@ input[type="text"]:focus {
     border-color: var(--primary) !important;
     box-shadow: 4px 4px 0px rgba(79, 70, 229, 0.3) !important;
 }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
