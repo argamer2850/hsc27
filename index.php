@@ -247,10 +247,10 @@ syncGlobalID();
 <div class="container">
     <nav>
         <a href="javascript:void(0)" onclick="goHome()" style="text-decoration: none; color: inherit;"><div class="logo">HSC<span>27</span></div></a>
-        <div id="online-status" style="font-size: 0.85rem; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+        <!-- <div id="online-status" style="font-size: 0.85rem; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 6px;">
     <span style="display:inline-block; width:8px; height:8px; background:#10b981; border-radius:50%; animation: blink 1.5s infinite;"></span>
     <span id="online-text">চেক করা হচ্ছে...</span>
-</div>
+</div> -->
         <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
     </nav>
 <div id="videoListModal" class="modal-overlay" style="display:none;">

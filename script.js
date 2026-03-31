@@ -1231,41 +1231,41 @@ function getVideoListTotalDuration(videoArray) {
     }
     return total;
 }
-let previousOnlineCount = -1; // -1 দিলাম যাতে প্রথমবারেই সাউন্ড না বাজে
-const notificationSound = new Audio('notification.mp3');
+// let previousOnlineCount = -1; // -1 দিলাম যাতে প্রথমবারেই সাউন্ড না বাজে
+// const notificationSound = new Audio('notification.mp3');
 
-function checkOnlineUsers() {
-    fetch('heartbeat.php')
-        .then(response => response.json())
-        .then(data => {
-            const currentCount = data.count;
-            const textElement = document.getElementById('online-text');
+// function checkOnlineUsers() {
+//     fetch('heartbeat.php')
+//         .then(response => response.json())
+//         .then(data => {
+//             const currentCount = data.count;
+//             const textElement = document.getElementById('online-text');
             
-            if (textElement) {
-                if (currentCount === 0) {
-                    textElement.innerText = "আপনি একাই আছেন";
-                    textElement.style.color = "#94a3b8"; // একা থাকলে একটু হালকা কালার
-                } else {
-                    textElement.innerText = `আপনার সাথে আরও ${currentCount} জন আছেন`;
-                    textElement.style.color = "#10b981"; // কেউ থাকলে সবুজ কালার
-                }
-            }
+//             if (textElement) {
+//                 if (currentCount === 0) {
+//                     textElement.innerText = "আপনি একাই আছেন";
+//                     textElement.style.color = "#94a3b8"; // একা থাকলে একটু হালকা কালার
+//                 } else {
+//                     textElement.innerText = `আপনার সাথে আরও ${currentCount} জন আছেন`;
+//                     textElement.style.color = "#10b981"; // কেউ থাকলে সবুজ কালার
+//                 }
+//             }
 
-            // যদি আগের চেয়ে ইউজার সংখ্যা বাড়ে এবং আগে থেকে ডাটা লোড হয়ে থাকে
-            if (currentCount > previousOnlineCount && previousOnlineCount !== -1) {
-                notificationSound.play().catch(e => console.log("Auto-play blocked by browser."));
-            }
+//             // যদি আগের চেয়ে ইউজার সংখ্যা বাড়ে এবং আগে থেকে ডাটা লোড হয়ে থাকে
+//             if (currentCount > previousOnlineCount && previousOnlineCount !== -1) {
+//                 notificationSound.play().catch(e => console.log("Auto-play blocked by browser."));
+//             }
             
-            previousOnlineCount = currentCount;
-        })
-        .catch(err => console.error('Error fetching heartbeat:', err));
-}
+//             previousOnlineCount = currentCount;
+//         })
+//         .catch(err => console.error('Error fetching heartbeat:', err));
+// }
 
-// প্রথমবার সাথে সাথে চেক করবে
-checkOnlineUsers();
+// // প্রথমবার সাথে সাথে চেক করবে
+// checkOnlineUsers();
 
-// এরপর প্রতি ১০ সেকেন্ড পরপর চেক করবে
-setInterval(checkOnlineUsers, 10000);
+// // এরপর প্রতি ১০ সেকেন্ড পরপর চেক করবে
+// setInterval(checkOnlineUsers, 10000);
 function goHome() {
     // সেশন স্টোরেজ পুরো ক্লিয়ার করে দিবে যাতে রিলোড দিলে আর আগের জায়গায় না নেয়
     sessionStorage.clear();
