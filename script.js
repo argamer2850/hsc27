@@ -13,11 +13,21 @@ document.onkeydown = function(e) {
     
 
     function navTo(id, pushHistory = true) {
-        if(id === 'subject-screen') {
-        sessionStorage.removeItem('currentScreen'); // এখানেও sessionStorage
-    }
     const element = document.getElementById(id);
     if (!element) return;
+
+    // সেশন স্টোরেজে বর্তমান স্ক্রিন সেভ করা
+    sessionStorage.setItem('currentScreen', id);
+
+    // যদি ব্যাকে গিয়ে সাবজেক্ট বা চ্যাপ্টার স্ক্রিনে যান, তাহলে ভিডিওর তথ্য মুছে ফেলা
+    if (id === 'subject-screen') {
+        sessionStorage.clear(); // সব পরিষ্কার
+    } else if (id === 'chapter-screen') {
+        sessionStorage.removeItem('currentChapter');
+        sessionStorage.removeItem('currentVideo');
+    } else if (id === 'video-list-screen') {
+        sessionStorage.removeItem('currentVideo');
+    }
     const loaderBar = document.getElementById('site-loader-bar');
     const loaderContainer = document.getElementById('site-loader-container');
     
@@ -1256,3 +1266,13 @@ checkOnlineUsers();
 
 // এরপর প্রতি ১০ সেকেন্ড পরপর চেক করবে
 setInterval(checkOnlineUsers, 10000);
+function goHome() {
+    // সেশন স্টোরেজ পুরো ক্লিয়ার করে দিবে যাতে রিলোড দিলে আর আগের জায়গায় না নেয়
+    sessionStorage.clear();
+    
+    // হোম স্ক্রিনে পাঠিয়ে দিবে
+    navTo('subject-screen');
+    
+    // পেজটা একবার হার্ড রিফ্রেশ বা স্টেট ক্লিন করার জন্য নিচের লাইনটি দিতে পারেন (ঐচ্ছিক)
+    window.location.reload(); 
+}
