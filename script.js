@@ -16,6 +16,20 @@ document.onkeydown = function(e) {
     const element = document.getElementById(id);
     if (!element) return;
 
+    // বর্তমান সাবজেক্টটি নিন
+    const currentSub = sessionStorage.getItem('currentSubject');
+    const videoMeta = document.querySelector('.video-meta');
+
+    if (videoMeta) {
+        // লজিক: যদি সাবজেক্ট (Bangla বা English) হয় এবং আমরা ভিডিও লিস্ট স্ক্রিনে থাকি, তবেই হাইড হবে
+        if ((currentSub === 'Bangla' || currentSub === 'English') && id === 'video-list-screen') {
+            videoMeta.style.display = 'none';
+        } else {
+            // অন্য সব সাবজেক্ট বা অন্য সব স্ক্রিনে (যেমন ভিডিও প্লেয়ার) এটি দেখা যাবে
+            videoMeta.style.display = 'block';
+        }
+    }
+
     // সেশন স্টোরেজে বর্তমান স্ক্রিন সেভ করা
     sessionStorage.setItem('currentScreen', id);
 
@@ -81,7 +95,7 @@ document.onkeydown = function(e) {
 }
 
     function openSubject(sub) {
-        sessionStorage.setItem('currentSubject', sub);
+    sessionStorage.setItem('currentSubject', sub);
     sessionStorage.setItem('currentScreen', 'chapter-screen');
     const list = document.getElementById('chapter-list');
     document.getElementById('sub-title').innerText = sub;
@@ -93,11 +107,25 @@ document.onkeydown = function(e) {
         d.className = 'list-item';
         d.onclick = () => openVideoList(ch);
         
-        // টোটাল ডিউরেশন বের করা
+        // ১. ভিডিও সংখ্যা গণনার লজিক পরিবর্তন
+        let totalVideos = 0;
+        if (ch.mainVideos && ch.mainVideos.length > 0) {
+            totalVideos = ch.mainVideos.length;
+        } else if (ch.extraSections && ch.extraSections.length > 0) {
+            // যদি মেইন ভিডিও না থাকে, তবে এক্সট্রা সেকশনের সব ভিডিও যোগ হবে
+            ch.extraSections.forEach(section => {
+                if (section.videos) {
+                    totalVideos += section.videos.length;
+                }
+            });
+        }
+
+        // ২. টোটাল ডিউরেশন বের করা (শুধুমাত্র মেইন ভিডিওর জন্য আগের মতোই থাকছে)
         const totalSecs = getVideoListTotalDuration(ch.mainVideos);
         const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
-        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${ch.mainVideos?.length || 0} Classes ${durationHtml}</span>`;
+        // ৩. ইনার এইচটিএমএল এ totalVideos ব্যবহার করা হয়েছে
+        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${totalVideos} Classes ${durationHtml}</span>`;
         list.appendChild(d);
     });
     
@@ -105,8 +133,12 @@ document.onkeydown = function(e) {
 }
 
     function openVideoList(chObj) {
-        sessionStorage.setItem('currentChapter', chObj.chapter);
+    // বর্তমান সাবজেক্টটি সেশন থেকে নিন
+    const currentSub = sessionStorage.getItem('currentSubject'); 
+    
+    sessionStorage.setItem('currentChapter', chObj.chapter);
     sessionStorage.setItem('currentScreen', 'video-list-screen');
+    
     const vContainer = document.getElementById('video-list-container');
     const mContainer = document.getElementById('chap-materials');
     document.getElementById('chap-title').innerText = chObj.chapter;
@@ -124,43 +156,51 @@ document.onkeydown = function(e) {
         });
     }
 
-    // চ্যাপ্টার ম্যাটেরিয়ালস (আগের মতোই)
+    // চ্যাপ্টার ম্যাটেরিয়ালস কন্টেইনার ক্লিয়ার করা
     mContainer.innerHTML = ''; 
-if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
-    chObj.practiceSheets.forEach((item) => {
-        let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
-        let link = typeof item === 'object' ? item.link : item;
-        let isClickable = true;
 
-        if (typeof item === 'object') btnName = `📥 ${item.name}`;
-
-        // কন্ডিশন চেক
-        if (link === 'N/A') {
-            btnName = "🚫 এই চ্যাপ্টারের প্রাকটিস শীট প্রোভাইড করা হয়নি।";
-            isClickable = false;
-        } else if (!link || link === 'LINK_HERE' || link === '') {
-            btnName = "⏳ এই চ্যাপ্টারের প্রাকটিস শীট এড করা হয়নি";
-            isClickable = false;
-        }
-
-        const matBtn = document.createElement(isClickable ? 'a' : 'div');
-        matBtn.className = 'action-btn btn-sheet';
-        matBtn.innerHTML = btnName;
+    // --- পরিবর্তন এখানে শুরু ---
+    // যদি সাবজেক্ট 'Bangla' অথবা 'English' হয়, তবে এই অংশটি রান করবে না (return করবে না, জাস্ট স্কিপ করবে)
+    if (currentSub !== 'Bangla' && currentSub !== 'English') {
         
-        if (isClickable) {
-            matBtn.href = link;
-            matBtn.target = "_blank";
-        } else {
-            matBtn.style.cursor = "default";
-            matBtn.style.opacity = "0.7";
-            matBtn.style.background = "#334155"; // হালকা কালার যাতে বোঝা যায় এটা ক্লিক হবে না
+        if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
+            chObj.practiceSheets.forEach((item) => {
+                let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
+                let link = typeof item === 'object' ? item.link : item;
+                let isClickable = true;
+
+                if (typeof item === 'object') btnName = `📥 ${item.name}`;
+
+                // কন্ডিশন চেক
+                if (link === 'N/A') {
+                    btnName = "🚫 এই চ্যাপ্টারের প্রাকটিস শীট প্রোভাইড করা হয়নি।";
+                    isClickable = false;
+                } else if (!link || link === 'LINK_HERE' || link === '') {
+                    btnName = "⏳ এই চ্যাপ্টারের প্রাকটিস শীট এড করা হয়নি";
+                    isClickable = false;
+                }
+
+                const matBtn = document.createElement(isClickable ? 'a' : 'div');
+                matBtn.className = 'action-btn btn-sheet';
+                matBtn.innerHTML = btnName;
+                
+                if (isClickable) {
+                    matBtn.href = link;
+                    matBtn.target = "_blank";
+                } else {
+                    matBtn.style.cursor = "default";
+                    matBtn.style.opacity = "0.7";
+                    matBtn.style.background = "#334155"; 
+                }
+                
+                matBtn.style.display = "block";
+                matBtn.style.marginBottom = "10px";
+                mContainer.appendChild(matBtn);
+            });
         }
-        
-        matBtn.style.display = "block";
-        matBtn.style.marginBottom = "10px";
-        mContainer.appendChild(matBtn);
-    });
-}
+    }
+    // --- পরিবর্তন এখানে শেষ ---
+
     navTo('video-list-screen');
 }
 
