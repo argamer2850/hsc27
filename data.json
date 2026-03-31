@@ -5220,17 +5220,23 @@
         },
         {
             "chapter": "English 2nd Paper",
-            "mainVideos": [
+            "extraSections": [
                 {
                     "title": "Identification of Phrase & Clause",
-                    "id": "CMxr6kCinsA",
-                    "slide": "https://drive.google.com/file/d/1pMj6KXQJStqpESNLh5-yCdnn5bF1r22M/view?usp=sharing",
-                    "keywords": [
+                    "videos": [
+                        {
+                            "title": "Class 1",
+                            "id": "CMxr6kCinsA",
+                            "slide": "https://drive.google.com/file/d/1pMj6KXQJStqpESNLh5-yCdnn5bF1r22M/view?usp=sharing",
+                            "keywords": [
                         "Identification of Phrase & Clause",
                         "Identification of Phrase and Clause"
                     ],
                     "duration": "2:11:52"
+                        }
+                    ]
                 }
+                
             ],
             "practiceSheets": [
                 "N/A"
@@ -5240,12 +5246,21 @@
     "Bangla": [
         {
             "chapter": "Bangla 1st Paper",
-            "mainVideos": [
+            "extraSections": [
                 {
-                    "title": "লেকচার ১",
-                    "id": "ID_HERE",
-                    "slide": "LINK_HERE"
+                    "title": "জীবন ও বৃক্ষ",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "",
+                            "slide": "",
+                            "keywords": [
+                                ""
+                            ]
+                        }
+                    ]
                 }
+                
             ],
             "practiceSheets": [
                 "LINK_HERE"
