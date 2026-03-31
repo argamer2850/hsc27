@@ -1683,7 +1683,7 @@
                 },
                 {
                     "title": "লেকচার ৩",
-                    "id": "",
+                    "id": "ID_HERE",
                     "slide": "https://drive.google.com/file/d/1acBXZYp_5xKlw8YCHkCP0K2PQaThbnOT/view?usp=sharing",
                     "keywords": [
                         "C1stC1C3"
@@ -5207,12 +5207,20 @@
     "English": [
         {
             "chapter": "English 1st Paper",
-            "mainVideos": [
+            "extraSections": [
                 {
-                    "title": "Lecture 1",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "title": "Unit 1",
+                    "videos": [
+                        {
+                            "title": "Class 1",
+                            "id": "",
+                            "slide": "",
+                            "keywords": []
+                        }
+                    ]   
                 }
+                
+                
             ],
             "practiceSheets": [
                 "N/A"
@@ -5269,12 +5277,21 @@
         },
         {
             "chapter": "Bangla 2nd Paper",
-            "mainVideos": [
+            "extraSections": [
                 {
-                    "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "title": "সমাস",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "",
+                            "slide": "",
+                            "keywords": [
+                                ""
+                            ]
+                        }
+                    ]
                 }
+                
             ],
             "practiceSheets": [
                 "LINK_HERE"

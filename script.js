@@ -16,20 +16,6 @@ document.onkeydown = function(e) {
     const element = document.getElementById(id);
     if (!element) return;
 
-    // বর্তমান সাবজেক্টটি নিন
-    const currentSub = sessionStorage.getItem('currentSubject');
-    const videoMeta = document.querySelector('.video-meta');
-
-    if (videoMeta) {
-        // লজিক: যদি সাবজেক্ট (Bangla বা English) হয় এবং আমরা ভিডিও লিস্ট স্ক্রিনে থাকি, তবেই হাইড হবে
-        if ((currentSub === 'Bangla' || currentSub === 'English') && id === 'video-list-screen') {
-            videoMeta.style.display = 'none';
-        } else {
-            // অন্য সব সাবজেক্ট বা অন্য সব স্ক্রিনে (যেমন ভিডিও প্লেয়ার) এটি দেখা যাবে
-            videoMeta.style.display = 'block';
-        }
-    }
-
     // সেশন স্টোরেজে বর্তমান স্ক্রিন সেভ করা
     sessionStorage.setItem('currentScreen', id);
 
@@ -133,73 +119,64 @@ document.onkeydown = function(e) {
 }
 
     function openVideoList(chObj) {
-    // বর্তমান সাবজেক্টটি সেশন থেকে নিন
-    const currentSub = sessionStorage.getItem('currentSubject'); 
-    
     sessionStorage.setItem('currentChapter', chObj.chapter);
     sessionStorage.setItem('currentScreen', 'video-list-screen');
     
     const vContainer = document.getElementById('video-list-container');
     const mContainer = document.getElementById('chap-materials');
+    const videoMeta = document.querySelector('.video-meta'); // মেটা ডিভটি ধরলাম
+    
     document.getElementById('chap-title').innerText = chObj.chapter;
     vContainer.innerHTML = '';
-    
-    // মেইন ক্লাস সেকশন
+    mContainer.innerHTML = '';
+
+    // মেইন ক্লাস সেকশন রেন্ডার করা
     if (chObj.mainVideos && chObj.mainVideos.length > 0) {
         renderVideoSection(vContainer, "⭐ মেইন ক্লাস (Main Classes)", chObj.mainVideos, true);
     }
 
-    // মাল্টিপল এক্সট্রা সেকশন (স্লাইড ও কিওয়ার্ড সাপোর্টসহ)
+    // এক্সট্রা সেকশন রেন্ডার করা
     if (chObj.extraSections && chObj.extraSections.length > 0) {
         chObj.extraSections.forEach(section => {
             renderVideoSection(vContainer, section.title, section.videos, false);
         });
     }
 
-    // চ্যাপ্টার ম্যাটেরিয়ালস কন্টেইনার ক্লিয়ার করা
-    mContainer.innerHTML = ''; 
+    // --- মেটা ডিভ হাইড/শো করার লজিক শুরু ---
+    let hasValidMaterial = false;
 
-    // --- পরিবর্তন এখানে শুরু ---
-    // যদি সাবজেক্ট 'Bangla' অথবা 'English' হয়, তবে এই অংশটি রান করবে না (return করবে না, জাস্ট স্কিপ করবে)
-    if (currentSub !== 'Bangla' && currentSub !== 'English') {
-        
-        if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
-            chObj.practiceSheets.forEach((item) => {
-                let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
-                let link = typeof item === 'object' ? item.link : item;
-                let isClickable = true;
-
-                if (typeof item === 'object') btnName = `📥 ${item.name}`;
-
-                // কন্ডিশন চেক
-                if (link === 'N/A') {
-                    btnName = "🚫 এই চ্যাপ্টারের প্রাকটিস শীট প্রোভাইড করা হয়নি।";
-                    isClickable = false;
-                } else if (!link || link === 'LINK_HERE' || link === '') {
-                    btnName = "⏳ এই চ্যাপ্টারের প্রাকটিস শীট এড করা হয়নি";
-                    isClickable = false;
-                }
-
-                const matBtn = document.createElement(isClickable ? 'a' : 'div');
-                matBtn.className = 'action-btn btn-sheet';
-                matBtn.innerHTML = btnName;
-                
-                if (isClickable) {
-                    matBtn.href = link;
-                    matBtn.target = "_blank";
-                } else {
-                    matBtn.style.cursor = "default";
-                    matBtn.style.opacity = "0.7";
-                    matBtn.style.background = "#334155"; 
-                }
-                
-                matBtn.style.display = "block";
-                matBtn.style.marginBottom = "10px";
-                mContainer.appendChild(matBtn);
-            });
-        }
+    if (chObj.practiceSheets && chObj.practiceSheets.length > 0) {
+        // চেক করছি কোনো একটা লিংকেও আসল ডাটা আছে কি না
+        hasValidMaterial = chObj.practiceSheets.some(item => {
+            let link = typeof item === 'object' ? item.link : item;
+            return link && link !== 'N/A' && link !== 'LINK_HERE' && link !== '';
+        });
     }
-    // --- পরিবর্তন এখানে শেষ ---
+
+    if (!hasValidMaterial) {
+        // যদি কোনো ভ্যালিড লিংক না থাকে, তবে পুরো মেটা ডিভ হাইড
+        videoMeta.style.display = 'none';
+    } else {
+        // যদি ভ্যালিড ডাটা থাকে, তবে মেটা ডিভ শো করবে এবং বাটন তৈরি হবে
+        videoMeta.style.display = 'block';
+        
+        chObj.practiceSheets.forEach((item) => {
+            let btnName = "📥 ডাউনলোড ম্যাটেরিয়াল";
+            let link = typeof item === 'object' ? item.link : item;
+            
+            if (typeof item === 'object') btnName = `📥 ${item.name}`;
+
+            const matBtn = document.createElement('a');
+            matBtn.className = 'action-btn btn-sheet';
+            matBtn.innerHTML = btnName;
+            matBtn.href = link;
+            matBtn.target = "_blank";
+            matBtn.style.display = "block";
+            matBtn.style.marginBottom = "10px";
+            mContainer.appendChild(matBtn);
+        });
+    }
+    // --- লজিক শেষ ---
 
     navTo('video-list-screen');
 }
