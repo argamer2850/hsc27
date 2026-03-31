@@ -1,608 +1,319 @@
 :root {
-            --primary: #8b5cf6;
-            --secondary: #d946ef;
-            --accent: #06b6d4;
-            --bg-dark: #020617;
-            --card-bg: rgba(15, 23, 42, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
-            --neon-glow: 0 0 15px rgba(139, 92, 246, 0.3);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Hind Siliguri', sans-serif; }
-        
-        body {
-        /* সিলেক্ট করা বন্ধ করার জন্য */
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    /* New Flat & Bold Color Palette */
+    --primary: #4f46e5;      /* Deep Indigo */
+    --secondary: #ec4899;    /* Pink */
+    --accent: #f59e0b;       /* Amber/Warm Yellow */
+    --bg-dark: #0f172a;      /* Slate 900 */
+    --card-bg: #1e293b;      /* Slate 800 */
+    --glass-border: #334155; /* Solid Border instead of transparent */
+    --text-main: #f8fafc;
     
-    /* ড্র্যাগ করা বন্ধ করার জন্য */
+    /* Structure */
+    --radius-main: 12px;
+    --radius-btn: 8px;
+    --hard-shadow: 5px 5px 0px rgba(0, 0, 0, 0.5);
+    --hard-shadow-hover: 6px 6px 0px var(--primary);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', 'Hind Siliguri', sans-serif; 
+}
+
+body {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     -webkit-user-drag: none;
-            background: var(--bg-dark);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
-            color: var(--text-main);
-            min-height: 100vh;
-            padding: 20px;
-            overflow-x: hidden;
-        }
+    background: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    /* Subtle dot pattern instead of gradients for a cleaner look */
+    background-image: radial-gradient(var(--glass-border) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
 
-        .container { max-width: 1000px; margin: 0 auto; position: relative; }
-        .shared-style-box {
-             max-width: 1000px; 
-             margin: 0 auto; 
-             position: relative;
-        }
+.container { max-width: 1000px; margin: 0 auto; position: relative; }
+.shared-style-box { max-width: 1000px; margin: 0 auto; position: relative; }
 
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 30px; 
-            background: rgba(15, 23, 42, 0.8); 
-            border-radius: 24px;
-            border: 1px solid var(--glass-border); 
-            margin-bottom: 40px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .logo { font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
-        .logo span { color: var(--accent); text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+/* Navigation */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 30px; 
+    background: var(--card-bg); 
+    border-radius: var(--radius-main);
+    border: 2px solid var(--glass-border); 
+    margin-bottom: 40px;
+    box-shadow: var(--hard-shadow);
+}
+.logo { font-size: 1.8rem; font-weight: 800; color: #fff; letter-spacing: 1px; text-transform: uppercase; }
+.logo span { color: var(--accent); }
 
-        .hidden { display: none !important; }
-        
-        .btn-back {
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border);
-            color: #cbd5e1; padding: 10px 22px; border-radius: 14px;
-            cursor: pointer; margin-bottom: 25px; transition: 0.4s; font-size: 0.9rem;
-            font-weight: 500;
-        }
-        .btn-back:hover { 
-            background: var(--primary); color: #fff; 
-            box-shadow: var(--neon-glow);
-            transform: translateX(-5px);
-        }
+.hidden { display: none !important; }
 
-        .grid-layout {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px; animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-        .card {
-            background: var(--card-bg); 
-            border: 1px solid var(--glass-border);
-            padding: 50px 20px; border-radius: 30px; text-align: center;
-            cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden;
-        }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
-            transform: translateX(-100%); transition: 0.6s;
-        }
-        .card:hover::before { transform: translateX(100%); }
-        .card:hover { 
-            transform: translateY(-10px) scale(1.02); 
-            background: rgba(30, 41, 59, 0.8);
-            border-color: var(--primary); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--neon-glow);
-        }
-        .card h3 { font-size: 1.4rem; letter-spacing: 1px; }
+/* Back Button */
+.btn-back {
+    background: var(--card-bg); 
+    border: 2px solid var(--glass-border);
+    color: #cbd5e1; padding: 10px 22px; border-radius: var(--radius-btn);
+    cursor: pointer; margin-bottom: 25px; transition: 0.2s ease; font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+}
+.btn-back:hover { 
+    background: var(--primary); 
+    color: #fff; 
+    border-color: var(--primary);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+}
 
-        .list-item {
-            background: var(--card-bg); padding: 20px 28px; border-radius: 20px;
-            margin-bottom: 15px; display: flex; justify-content: space-between;
-            align-items: center; cursor: pointer; border: 1px solid var(--glass-border);
-            transition: 0.3s ease;
-        }
-        .list-item:hover { 
-            background: rgba(255,255,255,0.08); 
-            border-color: var(--accent);
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        .play-icon { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+/* Grids & Cards */
+.grid-layout {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px; animation: slideUp 0.4s ease-out;
+}
+.card {
+    background: var(--card-bg); 
+    border: 2px solid var(--glass-border);
+    padding: 40px 20px; border-radius: var(--radius-main); text-align: center;
+    cursor: pointer; transition: all 0.2s ease;
+    box-shadow: var(--hard-shadow);
+}
+.card:hover { 
+    transform: translate(-4px, -4px); 
+    background: #1e293b;
+    border-color: var(--primary); 
+    box-shadow: var(--hard-shadow-hover);
+}
+.card h3 { font-size: 1.3rem; letter-spacing: 0.5px; font-weight: 700; color: #fff; }
 
-        /* Custom Video Player Styles */
-        .custom-video-container {
-            position: relative;
-            background: #000;
-            border-radius: 32px;
-            overflow: hidden;
-            aspect-ratio: 16/9;
-            margin-bottom: 25px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-            border: 1px solid var(--glass-border);
-            display: flex;
-            flex-direction: column;
-            resize: both;
+/* List Items */
+.list-item {
+    background: var(--card-bg); padding: 18px 24px; border-radius: var(--radius-main);
+    margin-bottom: 15px; display: flex; justify-content: space-between;
+    align-items: center; cursor: pointer; border: 2px solid var(--glass-border);
+    transition: 0.2s ease;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+}
+.list-item:hover { 
+    border-color: var(--accent);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--accent);
+}
+.play-icon { color: var(--accent); font-weight: 700; font-size: 0.95rem; background: rgba(245, 158, 11, 0.1); padding: 4px 10px; border-radius: 6px;}
+
+/* Custom Video Player */
+.custom-video-container {
+    position: relative;
+    background: #000;
+    border-radius: var(--radius-main);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--hard-shadow);
+    border: 2px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    resize: both;
     min-width: 300px;
     min-height: 168px;
-        }
-        .resize-handle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--primary);
-    cursor: nwse-resize;
-    z-index: 999;
-    border-top-left-radius: 10px;
 }
-/* ডেস্কটপের জন্য রিসাইজ অপশন থাকবে */
-@media (min-width: 1025px) {
-    .custom-video-container {
-        resize: both;
-    }
+.resize-handle {
+    position: absolute; bottom: 0; right: 0; width: 20px; height: 20px;
+    background: var(--primary); cursor: nwse-resize; z-index: 999;
+    border-top-left-radius: 8px;
 }
-
-/* মোবাইল এবং ট্যাবলেটের জন্য রিসাইজ পুরোপুরি বন্ধ */
+@media (min-width: 1025px) { .custom-video-container { resize: both; } }
 @media (max-width: 1024px) {
-    .custom-video-container {
-        resize: none !important;
-    }
-    
-    /* রিসাইজ হ্যান্ডেল আইকনটি লুকিয়ে ফেলার জন্য (যদি আলাদা ডিভ থাকে) */
-    .resize-handle {
-        display: none !important;
-        pointer-events: none !important;
-    }
+    .custom-video-container { resize: none !important; }
+    .resize-handle { display: none !important; pointer-events: none !important; }
 }
         
-        #yt-player {
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Prevents clicking through to YouTube */
-        }
+#yt-player { width: 100%; height: 100%; pointer-events: none; }
+.video-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 60px; z-index: 10; cursor: pointer; }
 
-        /* Overlay to block direct interaction with iframe */
-        .video-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 60px;
-            z-index: 10;
-            cursor: pointer;
-        }
-
-        .custom-controls {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            z-index: 20;
-            border-top: 1px solid var(--glass-border);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        
-.custom-video-container .custom-controls {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.custom-video-container.show-controls .custom-controls {
-    opacity: 1;
-}
-.custom-video-container.hide-cursor,
-.custom-video-container.hide-cursor .video-overlay {
-    cursor: none;
-}
-
-
-        .control-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-            padding: 5px;
-        }
-        .control-btn:hover { color: var(--accent); }
-        .control-btn svg { width: 22px; height: 22px; fill: currentColor; }
-
-        .progress-container {
-            flex-grow: 1;
-            height: 6px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 5px;
-            cursor: pointer;
-            position: relative;
-        }
-        .progress-bar {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 5px;
-            width: 0%;
-            position: relative;
-        }
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: -4px;
-            width: 14px;
-            height: 14px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        .time-display { font-size: 0.8rem; color: #cbd5e1; font-family: 'Poppins', sans-serif; min-width: 90px; text-align: center; }
-
-        .volume-container { display: flex; align-items: center; gap: 5px; }
-        .volume-slider {
-            width: 60px; height: 4px;
-            -webkit-appearance: none; background: rgba(255,255,255,0.2);
-            border-radius: 5px; cursor: pointer;
-        }
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none; width: 12px; height: 12px;
-            background: var(--accent); border-radius: 50%;
-        }
-
-        .speed-select {
-            background: transparent; border: 1px solid var(--glass-border);
-            color: #fff; padding: 2px 5px; border-radius: 5px; cursor: pointer;
-            font-size: 0.8rem; outline: none;
-        }
-        .speed-select option { background: var(--bg-dark); }
-
-        .video-meta {
-            background: var(--card-bg); padding: 30px; border-radius: 30px;
-            border: 1px solid var(--glass-border); backdrop-filter: blur(10px);
-        }
-
-        .mat-box {
-            display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;
-        }
-        .action-btn {
-            padding: 14px 28px; border-radius: 16px; text-decoration: none;
-            font-weight: 600; font-size: 0.95rem; transition: 0.4s; 
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .btn-slide { background: var(--accent); color: #020617; }
-        .btn-sheet { background: var(--primary); color: #fff; }
-        .action-btn:hover { 
-            opacity: 1; transform: translateY(-3px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-
-
-
-/* ইনপুট বক্স থেকে আপ-ডাউন অ্যারো বাটন সরানোর জন্য */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-input[type=number] {
-    -moz-appearance: textfield; /* ফায়ারফক্সের জন্য */
-}
-
-/* সংখ্যার সাথে 'x' গ্যাপহীনভাবে বসানোর জন্য */
-.speed-wrapper {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-}
-
-.speed-select {
-    padding-right: 12px !important; /* ডানে একটু জায়গা রাখা যাতে 'x' বসানো যায় */
-    width: 45px !important;
-    text-align: center;
-}
-
-.speed-wrapper::after {
-    content: 'x';
-    position: absolute;
-    right: 4px; /* সংখ্যার একদম গা ঘেঁষে থাকার জন্য এই মানটি প্রয়োজন অনুযায়ী সামান্য পরিবর্তন করতে পারেন */
-    color: #cbd5e1;
-    pointer-events: none;
-    font-size: 0.85rem;
-}
-
-        h2 { font-weight: 700; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(40px); filter: blur(10px); } 
-            to { opacity: 1; transform: translateY(0); filter: blur(0); } 
-        }
-        /* মোবাইলের জন্য কন্ট্রোল বার অ্যাডজাস্টমেন্ট */
-@media (max-width: 600px) {
-    .custom-controls {
-        gap: 8px;
-        padding: 5px 10px;
-    }
-    .time-display { min-width: 60px; font-size: 0.7rem; }
-    .volume-container { display: none; } /* মোবাইলে ভলিউম স্লাইডার জায়গা কম নেয় তাই হাইড */
-    .speed-select { font-size: 0.7rem; }
-}
-
-/* অটো-হাইড ট্রানজিশন */
+/* Controls */
 .custom-controls {
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: #0f172a; border-top: 2px solid var(--glass-border);
+    padding: 12px 20px; display: flex; align-items: center; gap: 15px;
+    z-index: 20; opacity: 0; transition: opacity 0.3s;
 }
-.custom-controls.active {
-    opacity: 1;
+.custom-video-container .custom-controls { opacity: 0; transition: opacity 0.3s ease; }
+.custom-video-container.show-controls .custom-controls { opacity: 1; }
+.custom-video-container.hide-cursor, .custom-video-container.hide-cursor .video-overlay { cursor: none; }
+
+.control-btn {
+    background: transparent; border: none; color: #fff;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: 0.2s; padding: 5px; border-radius: 6px;
+}
+.control-btn:hover { color: var(--accent); background: rgba(255,255,255,0.1); }
+.control-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* Progress Bar */
+.progress-container {
+    flex-grow: 1; height: 8px; background: rgba(255,255,255,0.1);
+    border-radius: 4px; cursor: pointer; position: relative; border: 1px solid rgba(255,255,255,0.05);
+}
+.progress-bar {
+    height: 100%; background: var(--accent); border-radius: 4px; width: 0%; position: relative;
+}
+.progress-bar::after {
+    content: ''; position: absolute; right: -6px; top: -3px; width: 14px; height: 14px;
+    background: #fff; border-radius: 50%; box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
-        #time-preview {
-    position: absolute;
-    bottom: 30px;
-    background: rgba(0,0,0,0.8);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    display: none;
-    pointer-events: none;
-    transform: translateX(-50%);
-    border: 1px solid rgba(255,255,255,0.2);
+.time-display { font-size: 0.85rem; font-weight: 600; color: #e2e8f0; min-width: 90px; text-align: center; }
+
+/* Volume & Speed */
+.volume-container { display: flex; align-items: center; gap: 5px; }
+.volume-slider {
+    width: 60px; height: 6px; -webkit-appearance: none; background: rgba(255,255,255,0.2);
+    border-radius: 3px; cursor: pointer;
 }
-/* বাটন পজিশন ও অ্যানিমেশন */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 14px; height: 14px; background: #fff; border-radius: 50%;
+}
+.speed-select {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; padding: 4px 6px; border-radius: 4px; cursor: pointer;
+    font-size: 0.85rem; font-weight: bold; outline: none;
+}
+.speed-select option { background: var(--bg-dark); }
+
+/* Meta Boxes & Buttons */
+.video-meta {
+    background: var(--card-bg); padding: 30px; border-radius: var(--radius-main);
+    border: 2px solid var(--glass-border); box-shadow: var(--hard-shadow);
+}
+.mat-box { display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+
+.action-btn {
+    padding: 12px 24px; border-radius: var(--radius-btn); text-decoration: none;
+    font-weight: 700; font-size: 0.95rem; transition: 0.2s; 
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 2px solid transparent; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.btn-slide { background: var(--accent); color: #0f172a; border-color: #d97706; }
+.btn-sheet { background: var(--primary); color: #fff; border-color: #3730a3; }
+.action-btn:hover { 
+    transform: translate(-2px, -2px); 
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+}
+
+/* Specific inputs & spans */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+.speed-wrapper { position: relative; display: inline-flex; align-items: center; }
+.speed-select { padding-right: 14px !important; width: 50px !important; text-align: center; }
+.speed-wrapper::after {
+    content: 'x'; position: absolute; right: 6px; color: #cbd5e1;
+    pointer-events: none; font-size: 0.85rem; font-weight: bold;
+}
+
+h2 { font-weight: 800; color: #fff; }
+
+@keyframes slideUp { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .custom-controls { gap: 8px; padding: 8px 10px; }
+    .time-display { min-width: 60px; font-size: 0.75rem; }
+    .volume-container { display: none; } 
+    .speed-select { font-size: 0.75rem; }
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+#time-preview {
+    position: absolute; bottom: 25px; background: #fff; color: #0f172a;
+    padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 12px;
+    display: none; pointer-events: none; transform: translateX(-50%);
+    border: 2px solid #0f172a;
+}
+
+/* Theme Toggle Button */
 .theme-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: absolute; top: 20px; right: 20px; z-index: 9999;
+    width: 50px; height: 50px; border-radius: var(--radius-btn);
+    background: var(--card-bg); border: 2px solid var(--glass-border);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; transition: all 0.2s ease;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
 }
-
 .theme-btn:hover {
-    transform: scale(1.1) rotate(15deg);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+    border-color: var(--primary);
 }
 
-/* লাইট মোড ভ্যারিয়েবল ও টেক্সট কালার ফিক্স */
+/* =========================================
+   LIGHT MODE REVAMP (Clean & Corporate)
+   ========================================= */
 body.light-mode {
-    background: #f0f2f5;
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #1a202c;
+    background: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    color: #0f172a;
 }
-
-/* লাইট মোডে সব কার্ড এবং টেক্সট পরিষ্কার করা */
 body.light-mode .card, 
 body.light-mode .list-item,
 body.light-mode nav,
 body.light-mode .modal-content {
-    background: rgba(255, 255, 255, 0.7) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-    color: #1a202c !important;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    color: #0f172a !important;
+    box-shadow: 4px 4px 0px #cbd5e1 !important;
 }
-body.light-mode .modal-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+body.light-mode .card:hover,
+body.light-mode .list-item:hover {
+    border-color: var(--primary) !important;
+    box-shadow: 6px 6px 0px var(--primary) !important;
 }
-body.light-mode .modal-item:hover {
-    background: rgba(0, 0, 0, 0.03) !important;
-}
-body.light-mode .modal-header {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-body.light-mode h1, 
-body.light-mode h2, 
-body.light-mode h3, 
-body.light-mode p, 
-body.light-mode span {
-    color: #1a202c !important;
-    -webkit-text-fill-color: #1a202c !important; /* গ্রেডিয়েন্ট টেক্সট থাকলে সেটা ফিক্স করবে */
-}
-/* লাইট মোড ফিক্স - নিচের কোডটুকু সবার নিচে যোগ করুন */
-
-/* ১. লোগো এবং সাব-হেডিং ফিক্স */
-body.light-mode .logo {
-    color: #1a202c !important;
-}
-body.light-mode nav div {
-    color: #4a5568 !important; /* All In One Place লেখা */
-}
-
-/* ২. ব্যাক বাটন (Back Button) ফিক্স */
 body.light-mode .btn-back {
-    background: rgba(0, 0, 0, 0.05) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
-    color: #2d3748 !important;
+    background: #ffffff !important;
+    border: 2px solid #cbd5e1 !important;
+    color: #334155 !important;
+    box-shadow: 3px 3px 0px #cbd5e1 !important;
 }
 body.light-mode .btn-back:hover {
     background: var(--primary) !important;
     color: #ffffff !important;
+    border-color: var(--primary) !important;
+    box-shadow: 5px 5px 0px var(--primary) !important;
 }
-
-/* ৩. চ্যাপ্টার ম্যাটেরিয়ালস এবং ভিডিও মেটা বক্স ফিক্স */
 body.light-mode .video-meta {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    box-shadow: 4px 4px 0px #cbd5e1 !important;
 }
-body.light-mode .video-meta h4, 
-body.light-mode .video-meta h2 {
-    color: #1a202c !important;
+body.light-mode h1, body.light-mode h2, body.light-mode h3, 
+body.light-mode p, body.light-mode span, body.light-mode .logo {
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a !important; 
 }
-
-/* ৪. ক্লাস স্লাইড বাটন ফিক্স (যদি প্রয়োজন হয়) */
-body.light-mode .btn-slide {
-    color: #000 !important; /* স্লাইড বাটনের টেক্সট কালো করার জন্য */
-}
-
-/* ৫. প্লেয়ার স্ক্রিনের টাইটেল ফিক্স */
-body.light-mode #vid-title {
-    color: #1a202c !important;
-}
-
-/* ৬. সার্চ বক্স ফিক্স */
+body.light-mode nav div { color: #64748b !important; }
+body.light-mode .btn-slide { color: #000 !important; }
 body.light-mode #search-box {
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: #1a202c !important;
-    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important; color: #0f172a !important;
+    border: 2px solid #cbd5e1 !important; font-weight: 500;
 }
+body.light-mode #search-box::placeholder { color: #94a3b8 !important; }
 
-
-/* আইকন অ্যানিমেশন */
-.sun-moon-container {
-    transition: transform 0.5s ease;
-}
-body.light-mode .sun-moon-container {
-    transform: rotate(360deg);
-}
-/* শুধু পিসি বা বড় স্ক্রিনের জন্য */
-@media (min-width: 1025px) {
-    /* এখানে নিশ্চিত করুন আপনার ICT কার্ডটি কত নম্বর আইটেম। 
-       যদি এটি ৭ম কার্ড হয়, তবে nth-child(7) হবে। */
-    .grid-layout .card:nth-child(7):last-child {
-        grid-column: 1 / -1; /* কার্ডটিকে পুরো লাইন জুড়ে বিস্তৃত করবে */
-        justify-self: center; /* এবার ওই লাইনের ঠিক মাঝখানে বসাবে */
-        width: 280px; /* কার্ডের একটি নির্দিষ্ট প্রস্থ দিন যাতে দেখতে সুন্দর লাগে */
-    }
-}
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 10000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    width: 90%;
-    max-width: 550px;
-    max-height: 85vh;
-    overflow-y: auto;
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 20px;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-}
-
-.close-btn {
-    background: none;
-    border: none;
-    color: #ff4444;
-    font-size: 32px;
-    cursor: pointer;
-}
-
-.modal-item {
-    padding: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: 0.3s;
-}
-
-.modal-item:hover {
-    background: rgba(255,255,255,0.05);
-}
-#video-overlay {
-    touch-action: manipulation;
-}
-/* --- মোবাইল রেস্পন্সিভ সলিউশন (A-Z) --- */
-
-@media (max-width: 768px) {
-    /* ১. পুরো কন্টেইনারের গ্যাপ ঠিক করা */
-    .container {
-        padding: 10px;
-        width: 100%;
-    }
-
-    /* ২. লোগো এবং উপরের বারটি মোবাইলে সুন্দর করা */
-    nav {
-        padding: 15px 10px;
-        flex-direction: column; /* লোগো উপরে এবং সাবটাইটেল নিচে আনবে */
-        gap: 8px;
-        text-align: center;
-    }
-
-    /* ৩. সার্চ বক্সটি বড় করা যাতে টাইপ করতে সুবিধা হয় */
-    .search-container {
-        width: 100% !important;
-        margin: 15px 0;
-    }
-    #search-box {
-        width: 100% !important;
-        font-size: 0.9rem;
-    }
-
-    /* ৪. ভিডিও প্লেয়ারটি মোবাইলে স্ক্রিনের সাথে ফিট করা */
-    .custom-video-container {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9; /* ভিডিওর রেশিও ঠিক রাখবে */
-        border-radius: 12px;
-        margin-bottom: 15px;
-    }
-
-    /* ৫. সাবজেক্ট কার্ড বা গ্রিড লেআউট ঠিক করা */
-    .grid-layout {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
-        gap: 12px;
-        padding: 5px;
-    }
-
-    /* ৬. বাটনের সাইজ মোবাইলের আঙ্গুলের মাপ অনুযায়ী ঠিক করা */
-    .action-btn {
-        padding: 10px;
-        font-size: 0.85rem;
-    }
-
-    /* ৭. মোডাল বা পপআপ উইন্ডোটি মোবাইলে ফুল স্ক্রিন করা */
-    .modal-content {
-        width: 95%;
-        padding: 15px;
-        margin: 10px;
-    }
-}
-
-/* অতি ক্ষুদ্র ফোনের জন্য (যেমন iPhone SE) */
-@media (max-width: 380px) {
-    .grid-layout {
-        grid-template-columns: 1fr 1fr; /* প্রতি লাইনে ২টা করে কার্ড */
-    }
-    .logo {
-        font-size: 1.5rem;
-    }
-}
-/* লাইট মোডেও ভিডিও কন্ট্রোলের টেক্সট সাদা রাখার চূড়ান্ত সমাধান */
+/* Custom Controls in Light Mode */
 body.light-mode .custom-controls span, 
 body.light-mode .custom-controls div,
 body.light-mode .time-display,
@@ -613,193 +324,138 @@ body.light-mode #duration {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
+body.light-mode .modal-content svg,
+body.light-mode .modal-content svg circle,
+body.light-mode .modal-content svg line {
+    stroke: #0f172a !important;
+}
 
+.sun-moon-container { transition: transform 0.4s ease; }
+body.light-mode .sun-moon-container { transform: rotate(360deg); }
+
+@media (min-width: 1025px) {
+    .grid-layout .card:nth-child(7):last-child {
+        grid-column: 1 / -1; justify-self: center; width: 280px;
+    }
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.9); z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+}
+.modal-content {
+    width: 90%; max-width: 550px; max-height: 85vh; overflow-y: auto;
+    background: var(--card-bg); border: 2px solid var(--glass-border);
+    border-radius: var(--radius-main); padding: 25px;
+    box-shadow: var(--hard-shadow);
+}
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid var(--glass-border); padding-bottom: 15px; margin-bottom: 15px;
+}
+.close-btn { background: none; border: none; color: #ef4444; font-size: 32px; cursor: pointer; font-weight: bold;}
+.modal-item {
+    padding: 15px; border-bottom: 2px solid var(--glass-border);
+    display: flex; justify-content: space-between; align-items: center; transition: 0.2s;
+}
+.modal-item:hover { background: rgba(255,255,255,0.05); }
+
+#video-overlay { touch-action: manipulation; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .container { padding: 10px; width: 100%; }
+    nav { padding: 15px 10px; flex-direction: column; gap: 12px; text-align: center; }
+    .search-container { width: 100% !important; margin: 15px 0; }
+    #search-box { width: 100% !important; font-size: 0.95rem; }
+    .custom-video-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 15px; }
+    .grid-layout { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; gap: 15px; padding: 5px; }
+    .action-btn { padding: 10px; font-size: 0.85rem; }
+    .modal-content { width: 95%; padding: 15px; margin: 10px; }
+}
+@media (max-width: 380px) {
+    .grid-layout { grid-template-columns: 1fr 1fr; }
+    .logo { font-size: 1.5rem; }
+}
+
+/* Video specific fixes */
 .custom-video-container iframe {
-    /* Brightness & Contrast - অধিকাংশ আধুনিক ব্রাউজারে চলে */
     -webkit-filter: brightness(1.04) contrast(1.10) !important;
     filter: brightness(1.04) contrast(1.10) !important;
-
-    /* Transition - ট্রানজিশন বন্ধ রাখার জন্য */
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-
-    /* Image Rendering - শার্পনেস নিশ্চিত করার মূল অংশ */
-    image-rendering: -webkit-optimize-contrast !important; /* Safari-র জন্য */
-    image-rendering: -moz-crisp-edges !important;          /* পুরনো Firefox-এর জন্য */
-    image-rendering: crisp-edges !important;               /* স্ট্যান্ডার্ড */
-    image-rendering: pixelated !important;                 /* Chrome/Edge/Opera-র জন্য */
-
-    /* Hardware Acceleration - ফ্লিকারিং রোধ এবং স্মুথনেসের জন্য */
+    -webkit-transition: none !important; transition: none !important;
+    image-rendering: -webkit-optimize-contrast !important; 
+    image-rendering: crisp-edges !important;               
     -webkit-backface-visibility: hidden !important;
     backface-visibility: hidden !important;
-    
     -webkit-transform: translateZ(0) !important;
-    -moz-transform: translateZ(0) !important;
     transform: translateZ(0) !important;
-
-    /* অতিরিক্ত সতর্কতা: কিছু ব্রাউজারে ভিডিওর বাড়তি ব্লার দূর করতে */
     -webkit-font-smoothing: antialiased;
 }
 .custom-video-container iframe.no-filter {
-    filter: none !important;
-    -webkit-filter: none !important;
-    image-rendering: auto !important;
-    transform: none !important;
+    filter: none !important; -webkit-filter: none !important;
+    image-rendering: auto !important; transform: none !important;
 }
-/* style.css এর শেষে যোগ করুন */
 .volume-status-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 15px 25px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 100;
-    pointer-events: none; /* যাতে ক্লিক করলে ভিডিও পজ না হয় */
-    transition: opacity 0.3s ease;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: #0f172a; border: 2px solid var(--glass-border); color: white;
+    padding: 15px 25px; border-radius: var(--radius-main); display: flex; flex-direction: column;
+    align-items: center; gap: 10px; z-index: 100; pointer-events: none; transition: opacity 0.3s ease;
+    box-shadow: var(--hard-shadow);
 }
+.volume-status-overlay svg { width: 40px; height: 40px; fill: var(--accent); }
+.volume-status-overlay span { font-size: 1.2rem; font-weight: bold; }
 
-.volume-status-overlay svg {
-    width: 40px;
-    height: 40px;
-    fill: var(--accent);
-}
+#video-container:fullscreen { resize: none !important; border-radius: 0 !important; padding: 0 !important; margin: 0 !important; border: none; }
+#video-container:fullscreen .resize-handle { display: none !important; }
+#video-container:-webkit-full-screen { border-radius: 0 !important; }
+#video-container:-moz-full-screen { border-radius: 0 !important; }
+#video-container:fullscreen iframe, #video-container:fullscreen video { border-radius: 0 !important; }
 
-.volume-status-overlay span {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-/* ফুলস্ক্রিন মোডে রিসাইজ অপশন এবং হ্যান্ডেল বন্ধ করার জন্য */
-#video-container:fullscreen {
-    resize: none !important;
-}
+.action-btn.btn-slide:not(a), .action-btn.btn-sheet:not(a) { color: #ffffff !important; border-color: transparent !important; }
 
-/* যদি আপনি আলাদা কোনো রিসাইজ হ্যান্ডেল ডিভ ব্যবহার করেন (যেমন .resize-handle) */
-#video-container:fullscreen .resize-handle {
-    display: none !important;
-}
-/* যখন ভিডিও কন্টেইনার ফুলস্ক্রিন হবে, তখন বর্ডার রেডিয়াস ০ হয়ে যাবে */
-#video-container:fullscreen {
-    border-radius: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* সাফারি এবং পুরানো ক্রোম ব্রাউজারের জন্য */
-#video-container:-webkit-full-screen {
-    border-radius: 0 !important;
-}
-
-/* মজিলা ফায়ারফক্সের জন্য */
-#video-container:-moz-full-screen {
-    border-radius: 0 !important;
-}
-
-/* ভিডিওর ভেতরের আইফ্রেম বা ভিডিও এলিমেন্টকেও ফুল রিসেট করা */
-#video-container:fullscreen iframe,
-#video-container:fullscreen video {
-    border-radius: 0 !important;
-}
-/* লাইট মোডে মোডাল সার্চ আইকন সাদা করার জন্য */
-body.light-mode .modal-content svg {
-    stroke: #ffffff !important;
-}
-
-/* সার্চ আইকনটি যদি ফিল করা থাকে তবে নিচেরটি ব্যবহার করুন */
-body.light-mode .modal-content svg circle,
-body.light-mode .modal-content svg line {
-    stroke: #ffffff !important;
-}
-/* ডিজেবল করা বাটনের টেক্সট কালার ফিক্স */
-.action-btn.btn-slide:not(a), 
-.action-btn.btn-sheet:not(a) {
-    color: #ffffff !important;
-}
-/* নির্দিষ্ট আইপির জন্য নর্মাল ইউটিউব প্লেয়ারের স্টাইল */
 body.normal-yt-mode .custom-controls,
 body.normal-yt-mode .video-overlay,
-body.normal-yt-mode .resize-handle {
-    display: none !important; /* কাস্টম কন্ট্রোল এবং ওভারলে লুকিয়ে ফেলা হবে */
-}
-
-body.normal-yt-mode #yt-player {
-    pointer-events: auto !important; /* ইউটিউবের নর্মাল প্লেয়ারে ক্লিক করার পারমিশন */
-}
-/* --- Special User Player Enhancement --- */
-
-/* শুধুমাত্র যখন স্পেশাল ইউজার লগইন থাকবে (body-তে normal-yt-mode ক্লাস থাকবে) */
+body.normal-yt-mode .resize-handle { display: none !important; }
+body.normal-yt-mode #yt-player { pointer-events: auto !important; }
 body.normal-yt-mode .custom-video-container iframe,
 body.normal-yt-mode #yt-player {
-    /* Brightness ও Contrast বৃদ্ধি */
     -webkit-filter: brightness(1.04) contrast(1.10) !important;
     filter: brightness(1.04) contrast(1.10) !important;
-
-    /* Transition বন্ধ রাখা */
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-
-    /* Image Rendering - শার্পনেস নিশ্চিত করার অংশ */
-    image-rendering: -webkit-optimize-contrast !important; 
-    image-rendering: -moz-crisp-edges !important;          
+    -webkit-transition: none !important; transition: none !important;
     image-rendering: crisp-edges !important;               
-    image-rendering: pixelated !important;                 
-
-    /* Hardware Acceleration - স্মুথনেসের জন্য */
-    -webkit-backface-visibility: hidden !important;
-    backface-visibility: hidden !important;
-    
-    -webkit-transform: translateZ(0) !important;
-    -moz-transform: translateZ(0) !important;
-    transform: translateZ(0) !important;
-
-    /* ভিডিওর বাড়তি ব্লার দূর করতে */
+    -webkit-backface-visibility: hidden !important; backface-visibility: hidden !important;
+    -webkit-transform: translateZ(0) !important; transform: translateZ(0) !important;
     -webkit-font-smoothing: antialiased;
 }
 
-
-
-
 #site-loader-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0; /* ডিফল্টভাবে উচ্চতা ০ থাকবে */
-    background: transparent;
-    z-index: 99999;
-    display: none;
-    overflow: visible; /* যাতে এর ভেতরে থাকা ৪ পিক্সেলের বারটি দেখা যায় */
+    position: fixed; top: 0; left: 0; width: 100%; height: 0;
+    background: transparent; z-index: 99999; display: none; overflow: visible; 
 }
-
-/* যখন ক্লিক লক (active-lock) হবে */
 #site-loader-container.active-lock {
-    height: 100vh !important; /* ক্লিক আটকানোর জন্য উচ্চতা পুরো স্ক্রিন */
-    pointer-events: all !important;
-    background: transparent !important; /* কোনো রং থাকবে না, তাই স্ক্রিন ক্লিন লাগবে */
+    height: 100vh !important; pointer-events: all !important; background: transparent !important; 
 }
-
 #site-loader-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px; /* শুধু উপরে এই ৪ পিক্সেলই দেখা যাবে */
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-    box-shadow: 0 0 15px var(--primary);
+    position: absolute; top: 0; left: 0; width: 0%; height: 5px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
     transition: width 0.3s ease-in-out;
 }
+.fade-out { opacity: 0; transition: opacity 0.5s ease; }
 
-.fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease;
+/* Custom Inputs styling */
+input[type="text"] {
+    background: var(--card-bg) !important;
+    border: 2px solid var(--glass-border) !important;
+    border-radius: var(--radius-main) !important;
+    color: var(--text-main) !important;
+    font-weight: 500;
+    transition: 0.2s;
+}
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary) !important;
+    box-shadow: 4px 4px 0px rgba(79, 70, 229, 0.3) !important;
 }
