@@ -98,10 +98,10 @@ $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c07
 
 
 $special_ips = [
-    '103.144.49.109', '103.174.215.88']; 
+    '103.144.49.109']; 
 
 $special_device_ids = [
-    'c0732ab2433ddd821a104109', '832c0468e1719fe896d4a7a3'];
+    'c0732ab2433ddd821a104109'];
 
 $user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
