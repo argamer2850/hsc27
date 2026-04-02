@@ -6121,12 +6121,79 @@
         {
             "chapter": "মানব শারীরতত্ত্ব - পরিপাক ও শোষণ",
             "mainVideos": [
-                {
-                    "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
-                }
-            ],
+  {
+    "title": "পৌষ্টিকতন্ত্র ও লালাগ্রন্থি",
+    "id": "0BT6dGctHOc",
+    "slide": "https://drive.google.com/file/d/1noUGD6nI_LwoF-WK6Hhjzx63GJiJZfAg/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C1"
+    ]
+  },
+  {
+    "title": "লালা গ্রন্থি",
+    "id": "hbiCENo25lo",
+    "slide": "https://drive.google.com/file/d/1ls3ZuOgeUCaq7XqcueivvTp_LKRqGY-s/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C2"
+    ]
+  },
+  {
+    "title": "পাকস্থলী ও বিস্তারিত",
+    "id": "2Tm34KNIklk",
+    "slide": "https://drive.google.com/file/d/11nwQ-zOBEUuKn5dC56uBulGPevoFx4pi/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C3"
+    ]
+  },
+  {
+    "title": "স্থূলতা",
+    "id": "DT92gSy3L4Y",
+    "slide": "https://drive.google.com/file/d/1ibjcV-ZHPfdcWI5deX4HTkVkxAlDaMfq/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C4"
+    ]
+  },
+  {
+    "title": "ক্ষুদ্রান্ত্র ও আন্ত্রিক গ্রন্থি",
+    "id": "NpLlxyWnTaw",
+    "slide": "https://drive.google.com/file/d/1cPPpyrOyVZOu1ADnh40buSe1LUVyK0tI/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C5"
+    ]
+  },
+  {
+    "title": "লেকচার ৬",
+    "id": "5fdgBQDH1Tg",
+    "slide": "https://drive.google.com/file/d/1pXsuezxQdIhtAc2rEq50mWFfbN_cew4R/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C6"
+    ]
+  },
+  {
+    "title": "লেকচার ৭",
+    "id": "rAN3QIPYq20",
+    "slide": "https://drive.google.com/file/d/1HMqFv3Y2KrGqw3XEGl2ExQxu9Xt62v2e/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C7"
+    ]
+  },
+  {
+    "title": "লেকচার ৮",
+    "id": "IR5qNFM5lLY",
+    "slide": "https://drive.google.com/file/d/13d5EU32QrUIMVSDNAKE9YcTxFpbRfh8f/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C8"
+    ]
+  },
+  {
+    "title": "লেকচার ৯ (শেষ ক্লাস)",
+    "id": "fuK7qsgenXE",
+    "slide": "https://drive.google.com/file/d/1U5MFIDHiu7kmvK0nEUo-Lf1UUsoMaSn4/view?usp=sharing",
+    "keywords": [
+      "B2ndC3C9"
+    ]
+  }
+],
             "practiceSheets": [
                 "LINK_HERE"
             ]
