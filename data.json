@@ -3257,8 +3257,30 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "mQymmMjZ598",
+                    "slide": "https://drive.google.com/file/d/12wJU5DEmMK8biHCk2eKIlUM-lwgVxjmi/view?usp=sharing",
+                    "keywords": [
+                        "M1stC5C1"
+                    ],
+                    "duration": "1:12:01"
+                },
+                {
+                    "title": "লেকচার ২",
+                    "id": "r9A8EnNxeVI",
+                    "slide": "https://drive.google.com/file/d/1ZBozpRVH5oeyRj0rWTm8SkK99tH8CxH5/view?usp=sharing",
+                    "keywords": [
+                        "M1stC5C2"
+                    ],
+                    "duration": "1:18:12"
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "mpRXIiMobBs",
+                    "slide": "https://drive.google.com/file/d/1eccSrEM5msY2gi6WBd4wTd2NMkcqGoAl/view?usp=sharing",
+                    "keywords": [
+                        "M1stC5C3"
+                    ],
+                    "duration": "1:03:53"
                 }
             ],
             "practiceSheets": [
