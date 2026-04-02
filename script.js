@@ -522,57 +522,48 @@ function playNow(video) {
         }
     }
     
-    // স্লাইড বাটন লজিক (আপডেটেড - ফাঁকা থাকলেও মেসেজ দেখাবে)
+    // স্লাইড বাটন লজিক (আপডেটেড - Practice Sheets এর মতো মেকানিজম)
     const slideContainer = document.getElementById('slide-buttons-container');
     if (slideContainer) {
         slideContainer.innerHTML = '';
 
-        // স্লাইড যদি না থাকে অথবা ফাঁকা থাকে
         let slides = video.slide;
-        
-        // এখানে লজিক পরিবর্তন করা হয়েছে যাতে ফাঁকা থাকলেও কাজ করে
         const slidesArray = (slides && Array.isArray(slides)) 
                             ? slides 
                             : [{ name: "ক্লাস স্লাইড", link: slides || '' }];
         
-        slidesArray.forEach(s => {
-            let btnText = `📄 ${s.name}`;
-            let isClickable = true;
-
-            // কন্ডিশন ১: যদি N/A থাকে
-            if (s.link === 'N/A') {
-                btnText = "🚫 এই ক্লাসের স্লাইড প্রোভাইড করা হয়নি।";
-                isClickable = false;
-            } 
-            // কন্ডিশন ২: যদি ফাঁকা থাকে, LINK_HERE থাকে অথবা # থাকে
-            else if (!s.link || s.link === 'LINK_HERE' || s.link === '' || s.link === '#') {
-                btnText = "⏳ এই ক্লাসের স্লাইড এড করা হয়নি";
-                isClickable = false;
-            }
-
-            const btn = document.createElement(isClickable ? 'a' : 'div');
-            btn.className = 'action-btn btn-slide';
-            btn.style.marginBottom = "10px";
-            btn.style.display = "block";
-            
-            // লাইট থিম ইস্যুর জন্য ইন-লাইন সাদা কালার রাখা হলো
-            btn.style.color = "#ffffff"; 
-            btn.innerHTML = btnText;
-            
-            if (isClickable) {
-                btn.href = s.link;
-                btn.target = "_blank";
-            } else {
-                btn.style.cursor = "default";
-                btn.style.opacity = "0.8";
-                btn.style.background = "#334155"; 
-            }
-            slideContainer.appendChild(btn);
+        // চেক করছি কোনো একটা স্লাইডের লিংকেও আসল ডাটা আছে কি না
+        let hasValidSlide = slidesArray.some(s => {
+            return s.link && s.link !== 'N/A' && s.link !== 'LINK_HERE' && s.link !== '' && s.link !== '#';
         });
+
+        if (!hasValidSlide) {
+            // যদি কোনো ভ্যালিড লিংক না থাকে, তবে স্লাইড কন্টেইনারটি হাইড করে দিবো
+            slideContainer.style.display = 'none';
+        } else {
+            // ভ্যালিড ডাটা থাকলে কন্টেইনার শো করবে এবং বাটন তৈরি হবে
+            slideContainer.style.display = 'flex'; // আপনার css অনুযায়ী flex
+            
+            slidesArray.forEach(s => {
+                // শুধুমাত্র ভ্যালিড লিংকগুলোর জন্যই বাটন বানাবো
+                if (s.link && s.link !== 'N/A' && s.link !== 'LINK_HERE' && s.link !== '' && s.link !== '#') {
+                    const btn = document.createElement('a');
+                    btn.className = 'action-btn btn-slide';
+                    btn.style.marginBottom = "10px";
+                    btn.style.display = "block";
+                    btn.style.color = "#ffffff"; 
+                    btn.innerHTML = `📄 ${s.name}`;
+                    btn.href = s.link;
+                    btn.target = "_blank";
+                    
+                    slideContainer.appendChild(btn);
+                }
+            });
+        }
     }
 
     navTo('player-screen');
-}
+} // playNow ফাংশন এখানে শেষ
     // কন্ট্রোল অটো-হাইড লজিক
 // কন্ট্রোল অটো-হাইড লজিক
 let controlTimeout;
