@@ -951,123 +951,123 @@ function playSpecificVideo(subjectName, chapterName, videoTitle) {
 // পপআপ খোলার এবং লিস্ট জেনারেট করার ফাংশন
 // পপআপ খোলার এবং সব ভিডিওর লিস্ট জেনারেট করার সংশোধিত ফাংশন
 // পপআপে সব ক্লাসের লিস্ট দেখানোর আপডেট লজিক
-function openAllClassesModal() {
-    const modal = document.getElementById('videoListModal');
-    const listBody = document.getElementById('modal-class-list');
-    listBody.innerHTML = '';
-    let totalVideoCount = 0;
+// function openAllClassesModal() {
+//     const modal = document.getElementById('videoListModal');
+//     const listBody = document.getElementById('modal-class-list');
+//     listBody.innerHTML = '';
+//     let totalVideoCount = 0;
 
-    // ভিডিওটি 'Valid Class' কিনা তা চেক করার ফাংশন
-    const isValidClass = (v) => {
-        const hasId = v.id && !['', '#', 'ID_HERE', 'LINK_HERE', 'LINK'].includes(v.id.trim());
-        const hasLink = v.link && !['', '#', 'LINK_HERE', 'N/A'].includes(v.link.trim());
-        return hasId || hasLink;
-    };
+//     // ভিডিওটি 'Valid Class' কিনা তা চেক করার ফাংশন
+//     const isValidClass = (v) => {
+//         const hasId = v.id && !['', '#', 'ID_HERE', 'LINK_HERE', 'LINK'].includes(v.id.trim());
+//         const hasLink = v.link && !['', '#', 'LINK_HERE', 'N/A'].includes(v.link.trim());
+//         return hasId || hasLink;
+//     };
 
-    for (const subject in database) {
-        database[subject].forEach(chapterObj => {
+//     for (const subject in database) {
+//         database[subject].forEach(chapterObj => {
             
-            // ১. মেইন ভিডিও চেক
-            if (chapterObj.mainVideos) {
-                chapterObj.mainVideos.forEach(video => {
-                    if (isValidClass(video)) {
-                        totalVideoCount++;
-                        createModalItem(listBody, subject, chapterObj, video, "Main");
-                    }
-                });
-            }
+//             // ১. মেইন ভিডিও চেক
+//             if (chapterObj.mainVideos) {
+//                 chapterObj.mainVideos.forEach(video => {
+//                     if (isValidClass(video)) {
+//                         totalVideoCount++;
+//                         createModalItem(listBody, subject, chapterObj, video, "Main");
+//                     }
+//                 });
+//             }
 
-            // ২. এক্সট্রা সেকশন এবং তার ভেতরের ভিডিও চেক
-            if (chapterObj.extraSections) {
-                chapterObj.extraSections.forEach(section => {
-                    if (section.videos) {
-                        section.videos.forEach(video => {
-                            if (isValidClass(video)) {
-                                totalVideoCount++;
-                                createModalItem(listBody, subject, chapterObj, video, section.title);
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
+//             // ২. এক্সট্রা সেকশন এবং তার ভেতরের ভিডিও চেক
+//             if (chapterObj.extraSections) {
+//                 chapterObj.extraSections.forEach(section => {
+//                     if (section.videos) {
+//                         section.videos.forEach(video => {
+//                             if (isValidClass(video)) {
+//                                 totalVideoCount++;
+//                                 createModalItem(listBody, subject, chapterObj, video, section.title);
+//                             }
+//                         });
+//                     }
+//                 });
+//             }
+//         });
+//     }
 
-    const modalHeader = modal.querySelector('h2');
-    modalHeader.innerHTML = `🎥 ক্লাসের তালিকা (মোট: ${totalVideoCount}টি)`;
+//     const modalHeader = modal.querySelector('h2');
+//     modalHeader.innerHTML = `🎥 ক্লাসের তালিকা (মোট: ${totalVideoCount}টি)`;
 
-    if (totalVideoCount === 0) {
-        listBody.innerHTML = '<p style="text-align:center; padding: 20px; color: #94a3b8;">এখনো কোনো ক্লাস আপলোড করা হয়নি।</p>';
-    }
+//     if (totalVideoCount === 0) {
+//         listBody.innerHTML = '<p style="text-align:center; padding: 20px; color: #94a3b8;">এখনো কোনো ক্লাস আপলোড করা হয়নি।</p>';
+//     }
 
-    modal.style.display = 'flex';
-}
+//     modal.style.display = 'flex';
+// }
 
 // লিস্ট আইটেম তৈরি করার হেল্পার ফাংশন (আগের মতোই)
-function createModalItem(listBody, subject, chapterObj, video, typeLabel) {
-    const item = document.createElement('div');
-    item.className = 'list-item';
+// function createModalItem(listBody, subject, chapterObj, video, typeLabel) {
+//     const item = document.createElement('div');
+//     item.className = 'list-item';
     
-    if (typeLabel !== "Main") {
-        item.style.borderLeft = "4px solid var(--secondary)";
-    }
+//     if (typeLabel !== "Main") {
+//         item.style.borderLeft = "4px solid var(--secondary)";
+//     }
 
-    item.innerHTML = `
-        <div style="flex:1; text-align:left;">
-            <div style="font-size: 0.75rem; color: var(--accent); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
-            <div style="font-weight: 600; font-size: 0.95rem;">${video.title} ${typeLabel !== 'Main' ? '('+typeLabel+')' : ''}</div>
-        </div>
-        <button class="action-btn" style="font-size: 0.8rem; padding: 8px 15px; ${typeLabel !== 'Main' ? 'background: var(--secondary);' : ''}">Play</button>
-    `;
+//     item.innerHTML = `
+//         <div style="flex:1; text-align:left;">
+//             <div style="font-size: 0.75rem; color: var(--accent); opacity: 0.8;">${subject} • ${chapterObj.chapter}</div>
+//             <div style="font-weight: 600; font-size: 0.95rem;">${video.title} ${typeLabel !== 'Main' ? '('+typeLabel+')' : ''}</div>
+//         </div>
+//         <button class="action-btn" style="font-size: 0.8rem; padding: 8px 15px; ${typeLabel !== 'Main' ? 'background: var(--secondary);' : ''}">Play</button>
+//     `;
     
-    // এখানে typeLabel পাস করা হয়েছে
-    item.onclick = () => {
-        playFromModal(subject, chapterObj.chapter, video.title, typeLabel);
-    };
-    listBody.appendChild(item);
-}
+//     // এখানে typeLabel পাস করা হয়েছে
+//     item.onclick = () => {
+//         playFromModal(subject, chapterObj.chapter, video.title, typeLabel);
+//     };
+//     listBody.appendChild(item);
+// }
 
 
 // মোডাল থেকে ভিডিও প্লে করার সংশোধিত ফাংশন
-function playFromModal(subjectName, chapterName, videoTitle, typeLabel) {
-    closeModal();
-    const subject = database[subjectName];
-    const ch = subject.find(c => c.chapter === chapterName);
+// function playFromModal(subjectName, chapterName, videoTitle, typeLabel) {
+//     closeModal();
+//     const subject = database[subjectName];
+//     const ch = subject.find(c => c.chapter === chapterName);
     
-    let v;
+//     let v;
 
-    // যদি টাইপ 'Main' হয় তবে শুধু মেইন ভিডিওতে খুঁজবে
-    if (typeLabel === "Main") {
-        v = ch.mainVideos.find(vid => vid.title === videoTitle);
-    } 
-    // অন্যথায় নির্দিষ্ট এক্সট্রা সেকশনে খুঁজবে
-    else if (ch.extraSections) {
-        const targetSection = ch.extraSections.find(sec => sec.title === typeLabel);
-        if (targetSection) {
-            v = targetSection.videos.find(vid => vid.title === videoTitle);
-        }
-    }
+//     // যদি টাইপ 'Main' হয় তবে শুধু মেইন ভিডিওতে খুঁজবে
+//     if (typeLabel === "Main") {
+//         v = ch.mainVideos.find(vid => vid.title === videoTitle);
+//     } 
+//     // অন্যথায় নির্দিষ্ট এক্সট্রা সেকশনে খুঁজবে
+//     else if (ch.extraSections) {
+//         const targetSection = ch.extraSections.find(sec => sec.title === typeLabel);
+//         if (targetSection) {
+//             v = targetSection.videos.find(vid => vid.title === videoTitle);
+//         }
+//     }
     
-    if (v) {
-        openSubject(subjectName);
-        openVideoList(ch);
-        playNow(v);
-    }
-}
+//     if (v) {
+//         openSubject(subjectName);
+//         openVideoList(ch);
+//         playNow(v);
+//     }
+// }
 
-function closeModal() {
-    document.getElementById('videoListModal').style.display = 'none';
-}
+// function closeModal() {
+//     document.getElementById('videoListModal').style.display = 'none';
+// }
 
 
 
 // পপআপের বাইরে ক্লিক করলে বন্ধ হবে
-window.onclick = function(event) {
-    const modal = document.getElementById('videoListModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-}
+// window.onclick = function(event) {
+//     const modal = document.getElementById('videoListModal');
+//     if (event.target == modal) {
+//         closeModal();
+//     }
+// }
 
 // নেভিগেশন চেক: হোম পেজ ছাড়া অন্য কোথাও বাটন দেখাবে না
 function checkHomeButton() {
@@ -1106,41 +1106,41 @@ videoOverlay.addEventListener('touchstart', function (e) {
     lastTap = now;
 });
 // পপআপের ভেতরে সার্চ করার ফাংশন
-document.addEventListener('input', function (e) {
-    if (e.target && e.target.id === 'modal-search-box') {
-        const searchTerm = e.target.value.toLowerCase();
-        const modalList = document.getElementById('modal-class-list');
-        const sections = modalList.getElementsByTagName('div'); // প্রতিটি সাবজেক্ট সেকশন
+// document.addEventListener('input', function (e) {
+//     if (e.target && e.target.id === 'modal-search-box') {
+//         const searchTerm = e.target.value.toLowerCase();
+//         const modalList = document.getElementById('modal-class-list');
+//         const sections = modalList.getElementsByTagName('div'); // প্রতিটি সাবজেক্ট সেকশন
 
-        for (let section of sections) {
-            // যদি এটি একটি চ্যাপ্টার আইটেম হয়
-            if (section.classList.contains('list-item')) {
-                const chapterName = section.textContent.toLowerCase();
-                if (chapterName.includes(searchTerm)) {
-                    section.style.display = 'flex';
-                } else {
-                    section.style.display = 'none';
-                }
-            }
+//         for (let section of sections) {
+//             // যদি এটি একটি চ্যাপ্টার আইটেম হয়
+//             if (section.classList.contains('list-item')) {
+//                 const chapterName = section.textContent.toLowerCase();
+//                 if (chapterName.includes(searchTerm)) {
+//                     section.style.display = 'flex';
+//                 } else {
+//                     section.style.display = 'none';
+//                 }
+//             }
             
-            // সাবজেক্টের হেডার (যেমন: Physics, Chemistry) গুলোকে ম্যানেজ করা
-            if (section.tagName === 'H3') {
-                // আপাতত হেডারগুলো দেখাবে, তবে সার্চের সাথে সামঞ্জস্য রাখতে চাইলে এখানে আরও কোড যোগ করা যায়
-            }
-        }
-    }
-});
+//             // সাবজেক্টের হেডার (যেমন: Physics, Chemistry) গুলোকে ম্যানেজ করা
+//             if (section.tagName === 'H3') {
+//                 // আপাতত হেডারগুলো দেখাবে, তবে সার্চের সাথে সামঞ্জস্য রাখতে চাইলে এখানে আরও কোড যোগ করা যায়
+//             }
+//         }
+//     }
+// });
 
 // যখন পপআপ বন্ধ হবে, সার্চ বক্স খালি করে দেওয়া
-function closeModal() {
-    document.getElementById('videoListModal').style.display = 'none';
-    const searchBox = document.getElementById('modal-search-box');
-    if(searchBox) searchBox.value = ''; // সার্চ ক্লিয়ার করা
+// function closeModal() {
+//     document.getElementById('videoListModal').style.display = 'none';
+//     const searchBox = document.getElementById('modal-search-box');
+//     if(searchBox) searchBox.value = ''; // সার্চ ক্লিয়ার করা
     
-    // সব লিস্ট আবার আগের মতো দেখানো
-    const items = document.querySelectorAll('#modal-class-list .list-item');
-    items.forEach(item => item.style.display = 'flex');
-}
+//     // সব লিস্ট আবার আগের মতো দেখানো
+//     const items = document.querySelectorAll('#modal-class-list .list-item');
+//     items.forEach(item => item.style.display = 'flex');
+// }
 // document.getElementById('toggle-filter-btn').addEventListener('click', function() {
 //     const iframe = document.querySelector('.custom-video-container iframe');
 //     const statusText = document.getElementById('filter-status');

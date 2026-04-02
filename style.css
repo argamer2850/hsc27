@@ -272,12 +272,12 @@ body.light-mode {
 body.light-mode .card, 
 body.light-mode .list-item,
 body.light-mode nav,
-body.light-mode .modal-content {
+/* body.light-mode .modal-content {
     background: #ffffff !important;
     border: 2px solid #e2e8f0 !important;
     color: #0f172a !important;
     box-shadow: 4px 4px 0px #cbd5e1 !important;
-}
+} */
 body.light-mode .card:hover,
 body.light-mode .list-item:hover {
     border-color: var(--primary) !important;
@@ -324,11 +324,11 @@ body.light-mode #duration {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
-body.light-mode .modal-content svg,
+/* body.light-mode .modal-content svg,
 body.light-mode .modal-content svg circle,
 body.light-mode .modal-content svg line {
     stroke: #0f172a !important;
-}
+} */
 
 .sun-moon-container { transition: transform 0.4s ease; }
 body.light-mode .sun-moon-container { transform: rotate(360deg); }
@@ -340,7 +340,7 @@ body.light-mode .sun-moon-container { transform: rotate(360deg); }
 }
 
 /* Modals */
-.modal-overlay {
+/* .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(15, 23, 42, 0.9); z-index: 10000;
     display: flex; justify-content: center; align-items: center;
@@ -360,7 +360,7 @@ body.light-mode .sun-moon-container { transform: rotate(360deg); }
     padding: 15px; border-bottom: 2px solid var(--glass-border);
     display: flex; justify-content: space-between; align-items: center; transition: 0.2s;
 }
-.modal-item:hover { background: rgba(255,255,255,0.05); }
+.modal-item:hover { background: rgba(255,255,255,0.05); } */
 
 #video-overlay { touch-action: manipulation; }
 
@@ -373,7 +373,7 @@ body.light-mode .sun-moon-container { transform: rotate(360deg); }
     .custom-video-container { width: 100% !important; height: auto !important; aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 15px; }
     .grid-layout { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; gap: 15px; padding: 5px; }
     .action-btn { padding: 10px; font-size: 0.85rem; }
-    .modal-content { width: 95%; padding: 15px; margin: 10px; }
+    /* .modal-content { width: 95%; padding: 15px; margin: 10px; } */
 }
 @media (max-width: 380px) {
     .grid-layout { grid-template-columns: 1fr 1fr; }

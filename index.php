@@ -13,8 +13,8 @@ $user_permissions = [
     ],
     'Siam' => [
         'role' => 'admin', 
-        'device_ids' => ['c0732ab2433ddd821a104109'],
-        'ips' => ['103.144.49.109'] 
+        'device_ids' => ['3861012ecf7f00e0630a375e'],
+        'ips' => ['103.144.49.105'] 
     ],
     'Mahian' => [
         'role' => 'admin', 
@@ -93,8 +93,8 @@ if (!$current_user_data) {
 ?>
 <?php
 
-$allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.109', '103.133.201.168', '43.245.120.36', '103.138.120.32', '104.28.166.114', '103.51.2.19']; 
-$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', 'c0732ab2433ddd821a104109', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631', '05e2aa8373f3618b28718085', 'c700802c75fd953974bb1ba8']; 
+$allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.105', '103.133.201.168', '43.245.120.36', '103.138.120.32', '104.28.166.114', '103.51.2.19']; 
+$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', '3861012ecf7f00e0630a375e', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631', '05e2aa8373f3618b28718085', 'c700802c75fd953974bb1ba8']; 
 
 
 $special_ips = [
@@ -262,7 +262,7 @@ syncGlobalID();
 </div> -->
         <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 500; letter-spacing: 1px;">All In One Place</div>
     </nav>
-<div id="videoListModal" class="modal-overlay" style="display:none;">
+<!-- <div id="videoListModal" class="modal-overlay" style="display:none;">
     <div class="modal-content shared-style-box">
         <div class="modal-header">
             <h2 style="color: var(--primary);">🎥 যুক্ত হওয়া ক্লাসের তালিকা</h2>
@@ -279,17 +279,17 @@ syncGlobalID();
         <input type="text" id="modal-search-box" placeholder="চ্যাপ্টারের নাম লিখে সার্চ দিন..." 
         style="width: 100%; padding: 12px 12px 12px 42px; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(15, 23, 42, 0.8); color: white; outline: none; font-size: 0.95rem; display: block;">
     </div>
-</div>
-        <div id="modal-class-list" class="modal-body">
+</div> -->
+        <!-- <div id="modal-class-list" class="modal-body">
             </div>
     </div>
-</div>
+</div> -->
 
-<div id="home-top-button" style="margin-bottom: 20px;">
+<!-- <div id="home-top-button" style="margin-bottom: 20px;">
     <button class="action-btn" onclick="openAllClassesModal()" style="width: 100%; padding: 15px; border-radius: 15px; font-weight: 600; background: linear-gradient(90deg, var(--primary), var(--secondary)); border: none; color: white; cursor: pointer;">
         📋 এখন পর্যন্ত যেসকল ক্লাস আপলোড করা হয়েছে
     </button>
-</div>
+</div> -->
     <div id="subject-screen">
         <h2 style="margin-bottom: 40px; text-align: center; font-size: 2rem;">কোন বিষয়ের কোর্স দেখতে চান?</h2>
         <div style="margin-bottom: 40px; text-align: center; display: flex; justify-content: center; gap: 10px;">
