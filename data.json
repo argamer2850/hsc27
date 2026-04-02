@@ -3256,12 +3256,83 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "D-D2ebTTNGk",
+                    "slide": "https://drive.google.com/file/d/1TAe0CxeVx19vLPrydUON8Sg2KpY5ac6O/view?usp=sharing",
+                    "keywords": [
+                        "M1stC6C1"
+                    ],
+                    "duration": "1:36:05"
+                },
+                {
+                    "title": "লেকচার ২",
+                    "id": "tDdNpynnrrY",
+                    "slide": "https://drive.google.com/file/d/1NP4BtaNIJakSZNwWSCLTRaJN0QFXRkIp/view?usp=sharing",
+                    "keywords": [
+                        "M1stC6C2"
+                    ],
+                    "duration": "1:24:42"
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "Gw3m36Q1KCM",
+                    "slide": "https://drive.google.com/file/d/1sJ05Zy-alxY_AMm6ukp84ZrUa7CDZTlT/view?usp=sharing",
+                    "keywords": [
+                        "M1stC6C3"
+                    ],
+                    "duration": "1:37:49"
+                },
+                {
+                    "title": "লেকচার ৪ (শেষ ক্লাস)",
+                    "id": "1dtC6bkEZjE",
+                    "slide": "https://drive.google.com/file/d/1701XWB1_jNxXljCg6K-asK9sTU1XGeM4/view?usp=sharing",
+                    "keywords": [
+                        "M1stC6C4"
+                    ],
+                    "duration": "1:18:43"
+                }
+            ],
+            "extraSections": [
+                {
+                    "title": "Doubt Solving Classes",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১-৪ পার্ট ১",
+                            "id": "0x0sXk-PQg8",
+                            "slide": "https://drive.google.com/file/d/1mREyxwWSPQnHgZGg36GbMuus3vH6jAvT/view?usp=sharing",
+                            "keywords": [
+                                "M1stC6DSC1P1"
+                            ],
+                            "duration": "1:19:59"
+                        },
+                        {
+                            "title": "লেকচার ১-৪ পার্ট ২",
+                            "id": "v-ZbTir06OU",
+                            "slide": "https://drive.google.com/file/d/1Q-cKRp50syL6aHy4vA1wcSDRbmVj2TSE/view?usp=sharing",
+                            "keywords": [
+                                "M1stC6DSC1P2"
+                            ],
+                            "duration": "1:10:11"
+                        }
+                    ]
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                {
+                    "name": "CQ-MCQ প্র্যাকটিস শীট",
+                    "link": "https://drive.google.com/file/d/1w65T0QxQ-jYu1_DuUtey3pRjqXYRezVd/view?usp=sharing"
+                },
+                {
+                    "name": "CQ-MCQ প্র্যাকটিস শীট সলিউশন",
+                    "link": "https://drive.google.com/file/d/1hDip2_GNOAavNcDkZppktXt9k5RbT-yu/view?usp=sharing"
+                },
+                {
+                    "name": "Engineering প্র্যাকটিস শীট",
+                    "link": "https://drive.google.com/file/d/1Hf5_jpBxqgeAiKJFAxUYo2ofn4A0r88d/view?usp=sharing"
+                },
+                {
+                    "name": "Engineering প্র্যাকটিস শীট সলিউশন",
+                    "link": "https://drive.google.com/file/d/1Ftq7pdrtO4ur94ZIcpRqlsJTX3EW4qp_/view?usp=sharing"
+                }
             ]
         },
         {
