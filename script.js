@@ -12,73 +12,9 @@ document.onkeydown = function(e) {
 }
     
 
-    function navTo(id, pushHistory = true) {
-    const element = document.getElementById(id);
-    if (!element) return;
-
-    // সেশন স্টোরেজে বর্তমান স্ক্রিন সেভ করা
-    sessionStorage.setItem('currentScreen', id);
-
-    // যদি ব্যাকে গিয়ে সাবজেক্ট বা চ্যাপ্টার স্ক্রিনে যান, তাহলে ভিডিওর তথ্য মুছে ফেলা
-    if (id === 'subject-screen') {
-        sessionStorage.clear(); // সব পরিষ্কার
-    } else if (id === 'chapter-screen') {
-        sessionStorage.removeItem('currentChapter');
-        sessionStorage.removeItem('currentVideo');
-    } else if (id === 'video-list-screen') {
-        sessionStorage.removeItem('currentVideo');
-    }
-    const loaderBar = document.getElementById('site-loader-bar');
-    const loaderContainer = document.getElementById('site-loader-container');
     
-    // লোডিং শুরু ও লক করা
-    loaderContainer.style.display = 'block';
-    loaderContainer.classList.add('active-lock');
-    loaderBar.style.width = '30%';
-    isPlayerFocused = false;
 
-    ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
-        document.getElementById(s).classList.add('hidden');
-    });
     
-    element.classList.remove('hidden');
-    // লোডিং শেষ ও লক খোলা
-    setTimeout(() => {
-        loaderBar.style.width = '100%';
-        
-        setTimeout(() => {
-            loaderContainer.classList.remove('active-lock'); // ০.৭ সেকেন্ড পর লক খুলবে
-            loaderContainer.classList.add('fade-out');
-            
-            setTimeout(() => {
-                loaderContainer.style.display = 'none';
-                loaderContainer.classList.remove('fade-out');
-                loaderBar.style.width = '0%';
-            }, 500);
-        }, 550); // এই ৫৫০ms + আগের ১৫০ms = মোট ৭০০ms বা ০.৭ সেকেন্ড
-    }, 150);
-
-    // বাটনটি শুধু subject-screen (হোমপেজ) এ দেখাবে
-    const homeBtn = document.getElementById('home-top-button');
-    if (id === 'subject-screen') {
-        homeBtn.style.display = 'block';
-    } else {
-        homeBtn.style.display = 'none';
-    }
-
-    if (pushHistory) {
-        window.history.pushState({ screen: id }, "", `#${id}`);
-    }
-    window.scrollTo(0,0);
-}
-
-    function stopAndNavTo(id) {
-    if(player && player.pauseVideo) player.pauseVideo();
-    
-    // ভিডিও প্লেয়ার থেকে বের হওয়ার সময়ও ব্রাউজারের হিস্ট্রি আপডেটের জন্য 
-    // navTo-তে 'true' পাঠাতে হবে।
-    navTo(id, true); 
-}
 
     function openSubject(sub) {
     sessionStorage.setItem('currentSubject', sub);
@@ -631,24 +567,7 @@ container.addEventListener('mouseleave', () => {
     clearTimeout(cursorTimeout);
 });
 
-window.addEventListener('popstate', (event) => {
-    // ভিডিও পজ করা
-    if (typeof player !== 'undefined' && player.pauseVideo) {
-        player.pauseVideo();
-    }
 
-    // যদি হিস্ট্রিতে স্ক্রিনের নাম থাকে তবে সেটি দেখাবে, না থাকলে হোম পেজে পাঠাবে
-    if (event.state && event.state.screen) {
-        const screens = ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'];
-        if (screens.includes(event.state.screen)) {
-            navTo(event.state.screen, false);
-        } else {
-            navTo('subject-screen', false);
-        }
-    } else {
-        navTo('subject-screen', false);
-    }
-});
 
 // --- Updated Seek Logic --- //
 let seekAccumulator = 0; 
@@ -1288,3 +1207,112 @@ function goHome() {
     // পেজটা একবার হার্ড রিফ্রেশ বা স্টেট ক্লিন করার জন্য নিচের লাইনটি দিতে পারেন (ঐচ্ছিক)
     window.location.reload(); 
 }
+// ব্রাউজার হিস্ট্রি ট্র্যাক করার জন্য একটি ভেরিয়েবল
+let appHistoryCount = 0;
+
+// navTo ফাংশন (আপডেট করা হয়েছে)
+function navTo(id, pushHistory = true) {
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    // সেশন স্টোরেজে বর্তমান স্ক্রিন সেভ করা
+    sessionStorage.setItem('currentScreen', id);
+
+    if (id === 'subject-screen') {
+        sessionStorage.clear(); 
+    } else if (id === 'chapter-screen') {
+        sessionStorage.removeItem('currentChapter');
+        sessionStorage.removeItem('currentVideo');
+    } else if (id === 'video-list-screen') {
+        sessionStorage.removeItem('currentVideo');
+    }
+    
+    const loaderBar = document.getElementById('site-loader-bar');
+    const loaderContainer = document.getElementById('site-loader-container');
+    
+    if(loaderContainer && loaderBar) {
+        loaderContainer.style.display = 'block';
+        loaderContainer.classList.add('active-lock');
+        loaderBar.style.width = '30%';
+    }
+    
+    isPlayerFocused = false;
+
+    ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'].forEach(s => {
+        const el = document.getElementById(s);
+        if(el) el.classList.add('hidden');
+    });
+    
+    element.classList.remove('hidden');
+    
+    if(loaderContainer && loaderBar) {
+        setTimeout(() => {
+            loaderBar.style.width = '100%';
+            setTimeout(() => {
+                loaderContainer.classList.remove('active-lock');
+                loaderContainer.classList.add('fade-out');
+                setTimeout(() => {
+                    loaderContainer.style.display = 'none';
+                    loaderContainer.classList.remove('fade-out');
+                    loaderBar.style.width = '0%';
+                }, 500);
+            }, 550);
+        }, 150);
+    }
+
+    const homeBtn = document.getElementById('home-top-button');
+    if(homeBtn) {
+        if (id === 'subject-screen') {
+            homeBtn.style.display = 'block';
+        } else {
+            homeBtn.style.display = 'none';
+        }
+    }
+
+    if (pushHistory) {
+        appHistoryCount++; // হিস্ট্রি কাউন্ট বাড়ানো হলো
+        window.history.pushState({ screen: id }, "", `#${id}`);
+    }
+    window.scrollTo(0,0);
+}
+
+// ওয়েবসাইটের ভিতরের ব্যাক বাটনের জন্য নতুন ফাংশন
+function goBackUI(fallbackId) {
+    if (appHistoryCount > 0) {
+        window.history.back(); // ব্রাউজারের অরিজিনাল ব্যাক ফাংশন কাজ করবে
+    } else {
+        navTo(fallbackId, true);
+    }
+}
+
+// stopAndNavTo ফাংশন (আপডেট করা হয়েছে)
+function stopAndNavTo(id) {
+    if(player && player.pauseVideo) {
+        try { player.pauseVideo(); } catch(e) {}
+    }
+    goBackUI(id); 
+}
+
+// ব্রাউজার/ফোনের ব্যাক বাটন কন্ট্রোল (আপডেট করা হয়েছে)
+window.addEventListener('popstate', (event) => {
+    if (appHistoryCount > 0) {
+        appHistoryCount--;
+    }
+
+    // ভিডিও পজ করা
+    if (typeof player !== 'undefined' && player.pauseVideo) {
+        try { player.pauseVideo(); } catch(e) {}
+    }
+
+    // যদি হিস্ট্রিতে স্ক্রিনের নাম থাকে তবে সেটি দেখাবে, না থাকলে হোম পেজে পাঠাবে
+    if (event.state && event.state.screen) {
+        const screens = ['subject-screen', 'chapter-screen', 'video-list-screen', 'player-screen'];
+        if (screens.includes(event.state.screen)) {
+            navTo(event.state.screen, false);
+        } else {
+            navTo('subject-screen', false);
+        }
+    } else {
+        navTo('subject-screen', false);
+    }
+});

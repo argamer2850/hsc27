@@ -304,13 +304,13 @@ syncGlobalID();
     
 
     <div id="chapter-screen" class="hidden">
-        <button class="btn-back" onclick="navTo('subject-screen')">← ফিরে যান</button>
+        <button class="btn-back" onclick="goBackUI('subject-screen')">← ফিরে যান</button>
         <h2 id="sub-title" style="margin-bottom: 30px; font-size: 1.8rem;"></h2>
         <div id="chapter-list"></div>
     </div>
 
     <div id="video-list-screen" class="hidden">
-        <button class="btn-back" onclick="navTo('chapter-screen')">← চ্যাপ্টার লিস্ট</button>
+        <button class="btn-back" onclick="goBackUI('chapter-screen')">← চ্যাপ্টার লিস্ট</button>
         <h2 id="chap-title" style="margin-bottom: 30px; font-size: 1.8rem;"></h2>
         <div id="video-list-container"></div>
         
