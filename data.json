@@ -6686,12 +6686,65 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "GtIb27B9P5Q",
+                    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1DVJUIdPJMEfBogOBphuhnFCR3POgDqo_/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1pFHAWvoN5YGaYgjz4P-zFTWBO-qfuO4A/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট সলিউশন",
+                            "link": "https://drive.google.com/file/d/1TQcMRHJAQR7aotghiy-hi9pqBl4JEYuV/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC2C1"
+                    ],
+                    "duration": "1:06:03"
+                },
+                {
+                    "title": "লেকচার ২",
+                    "id": "z-EI12YSf1A",
+                    "slide": "https://drive.google.com/file/d/1dquwq7AMqziy6ewMg4AsFO6PONKdAawn/view?usp=sharing",
+                    "keywords": [
+                        "IC2C2"
+                    ],
+                    "duration": "1:17:46"
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "0huGBJAkKZI",
+                    "slide": "https://drive.google.com/file/d/10E_gZvTWXHIcdStK1SOD1usy2CB3ry3i/view?usp=sharing",
+                    "keywords": [
+                        "IC2C3"
+                    ],
+                    "duration": "1:33:05"
+                },
+                {
+                    "title": "লেকচার ৪",
+                    "id": "bUmI9EaOgDU",
+                    "slide": "https://drive.google.com/file/d/12nV2Sg-p9PrrgIBWMUnu-l0cePqc6V8N/view?usp=sharing",
+                    "keywords": [
+                        "IC2C4"
+                    ],
+                    "duration": "1:09:16"
+                },
+                {
+                    "title": "লেকচার ৫ (শেষ ক্লাস)",
+                    "id": "e7K88528Axg",
+                    "slide": "https://drive.google.com/file/d/1eOWG51gHMj7Zxgl5ViJK3t0rAeELEcBx/view?usp=sharing",
+                    "keywords": [
+                        "IC2C5"
+                    ],
+                    "duration": "1:23:28"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         },
         {
