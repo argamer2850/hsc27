@@ -5608,111 +5608,108 @@
         },
         {
             "chapter": "উদ্ভিদ শারীরতত্ত্ব",
-            "mainVideos": [
+            "extraSections": [
                 {
-                    "title": "অধ্যায় পরিচিতি",
-                    "id": "sD0EXiZrWfM",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "20:24"
-                },
-                {
-                    "title": "কার্বন ডাই অক্সাইড ও কনট্যাক্ট এক্সচেঞ্জ মতবাদ",
-                    "id": "K0ZBsyNNnNQ",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "24:30"
-                },
-                {
-                    "title": "নিষ্ক্রিয় পরিশোষণ",
-                    "id": "jJtT1isCrI0",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "14:16"
-                },
-                {
-                    "title": "লুনডেগর্ড এর মতবাদ, প্রোটন অ্যানায়ন কো-ট্রান্সপোর্ট",
-                    "id": "Q6vybr4rsLo",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "35:24"
-                },
-                {
-                    "title": "প্রস্বেদন, পত্ররন্ধ্রের গঠন",
-                    "id": "58RmGNf_W7I",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "27:11"
-                },
-                {
-                    "title": "পত্ররন্ধ্র খোলা ও বন্ধ হবার কৌশল",
-                    "id": "MLI9BUmiXn8",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "16:30"
-                },
-                {
-                    "title": "প্রোটন পাম্প মতবাদ, পত্ররন্ধ্র খোলা-বন্ধ হবার কৌশল",
-                    "id": "Pgb7R6MM7rk",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "18:18"
-                },
-                {
-                    "title": "Photosynthesis Introduction and Pigments",
-                    "id": "X8ViZuusPeQ",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "23:11"
-                },
-                {
-                    "title": "Site of Photosynthesis, সালোকসংশ্লেষণ কোথায় হয়?",
-                    "id": "ZnLrW_-E4EI",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "11:48"
-                },
-                {
-                    "title": "Light Chemical Reaction, আলোক রাসায়নিক ক্রিয়া",
-                    "id": "AEw009Vg9lE",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "17:36"
-                },
-                {
-                    "title": "চক্রীয় ফটোফসফোরাইলেশন",
-                    "id": "Tu3BuiSBmKE",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "6:58"
-                },
-                {
-                    "title": "অচক্রীয় ফটোফসফোরাইলেশন",
-                    "id": "mcJf0rZgrwc",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "16:59"
-                },
-                {
-                    "title": "সবাত ও অবাত শ্বসন",
-                    "id": "rXTwOF_fxhU",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "12:20"
-                },
-                {
-                    "title": "গ্লাইকোলাইসিস",
-                    "id": "2qzjYVDL7i4",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "15:09"
-                },
-                {
-                    "title": "অবাত শ্বসন",
-                    "id": "FXKnXBW4h_8",
-                    "slide": "N/A",
-                    "keywords": [],
-                    "duration": "10:10"
+                    "title": "Archived Classes",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "_68Pw5kSPrs",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1W67lTV6stfkgZUx2H16I7tK90pEXlEck/view?usp=sharing"
+                                },
+                                {
+                                    "name": "প্র্যাকটিস শীট",
+                                    "link": "https://drive.google.com/file/d/1ELN_-udMJPBN99jvSkdKwXO8WYrWqoP4/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "1:37:53"
+                        },
+                        {
+                            "title": "লেকচার ২",
+                            "id": "dzqJg6cMMCw",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1AAJtB6HV2FaCFUrg6D7cYHtpMyQQtLIO/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "1:30:22"
+                        },
+                        {
+                            "title": "লেকচার ৩",
+                            "id": "-LXJRpVNhIo",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1GxRqNsI3GqWRbY2L2UmUnVVXqoe5XLRE/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "1:12:50"
+                        },
+                        {
+                            "title": "লেকচার ৪",
+                            "id": "TCpIic5wzTI",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1u242HzKVEgWemt4Hu9yMIcjDK9dJyf0a/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "1:16:25"
+                        },
+                        {
+                            "title": "লেকচার ৫",
+                            "id": "-LLeB48q5Gs",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1OVnwUPJfjIAEJl0fbAQMK_YzHcz9xPlW/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "53:38"
+                        },
+                        {
+                            "title": "লেকচার ৬",
+                            "id": "HOXVKVkkWOU",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://drive.google.com/file/d/1mH7r5t51Cbo3l2ESUZmMUVJW3ZT2qiNa/view?usp=sharing"
+                                }
+                            ],
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "1:51:20"
+                        },
+                        {
+                            "title": "লেকচার ৭ (শেষ ক্লাস)",
+                            "id": "J7UYGCJvwq4",
+                            "slide": "N/A",
+                            "keywords": [
+                                ""
+                            ],
+                            "duration": "48:31"
+                        }
+                    ]
                 }
             ],
             "practiceSheets": [
