@@ -48,14 +48,10 @@ $user_permissions = [
         ]
     ],
     'Jubayer' => [
-        'role' => 'restricted',
+        'role' => 'admin', 
         'device_ids' => ['05e2aa8373f3618b28718085'],
-        'ips' => ['104.28.166.114'],
-        'allowed' => [
-            'Higher Math' => [
-                'যোগজীকরণ' => 'ALL'
-            ]
-        ]
+        'ips' => ['104.28.166.114']
+        
     ],
     'Adeeb' => [
         'role' => 'restricted',
