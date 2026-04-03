@@ -48,7 +48,7 @@ document.onkeydown = function(e) {
         }
 
         // ২. ডিউরেশন ফরম্যাট করা (টোটাল সেকেন্ড ০ এর বেশি হলে দেখাবে)
-        const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: #94a3b8; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
+        const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: white; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
         // ৩. ইনার এইচটিএমএল আউটপুট
         d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: right;">${totalVideos} Classes ${durationHtml}</span>`;
