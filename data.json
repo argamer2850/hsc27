@@ -6647,12 +6647,38 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "N7lIqNQxFmU",
+                    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1KSuI3-_Ibv7Ss0U3GA9BEf-PyhiwjQcm/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1hNwCTg8XVy31kwboxkfG6FPIAlcTU7IY/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট সলিউশন",
+                            "link": "https://drive.google.com/file/d/1KdIuSHphPaxGTJHSqds0O2m4Wd2JPKPI/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC1C1"
+                    ],
+                    "duration": "1:37:03"
+                },
+                {
+                    "title": "লেকচার ২ (শেষ ক্লাস)",
+                    "id": "W3VhAOEXazc",
+                    "slide": "https://drive.google.com/file/d/1KsPnvfHQl94yQvmBLGcA5kBLNXaF7w9h/view?usp=sharing",
+                    "keywords": [
+                        "IC1C2"
+                    ],
+                    "duration": "1:43:40"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         },
         {
