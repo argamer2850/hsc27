@@ -265,7 +265,7 @@ if ($current_user_data['role'] === 'admin') {
             <h2>কোন বিষয়ের কোর্স দেখতে চান?</h2>
             
             <div class="search-wrapper">
-                <input type="text" id="search-box" placeholder="কীওয়ার্ডটি বসান... (যেমন: P1stC1C1)">
+                <input type="text" id="search-box" placeholder="ভিডিওর কীওয়ার্ডটি বসান... (যেমন: P1stC1C1)">
                 <button onclick="handleSearch()" class="search-btn">সার্চ করুন</button>
             </div>
             
