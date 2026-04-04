@@ -6881,12 +6881,103 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
+                    "id": "SIUWpDrKVoM",
+                    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1Fx8ZDuA1blVQy1kk-bx6LIwPclaRGSdN/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/15EQbnqsRa_MH3XcOnCFUUhQ6PfhzhUyW/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট সলিউশন",
+                            "link": "https://drive.google.com/file/d/1tSZalDr4saMZ3KLxi1y_VcbqHdhr5Hz8/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC4C1"
+                    ],
+                    "duration": "1:03:27"
+                },
+                {
+                    "title": "লেকচার ২",
                     "id": "",
-                    "slide": "LINK_HERE"
+                    "link": "https://www.facebook.com/share/v/1bH1VEPugs/",
+                    "duration": "1:17:14",
+                    "slide": "https://drive.google.com/file/d/1ymYVWDqJK0vhXBJKZehpMlVpJieBpKek/view?usp=sharing",
+                    "keywords": [
+                        "IC4C2"
+                    ]
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "_wxsUQC5_uk",
+                    "slide": "https://drive.google.com/file/d/1L3ULnx8Js9cuseTDPSukf5zgBxEZKcK7/view?usp=sharing",
+                    "keywords": [
+                        "IC4C3"
+                    ],
+                    "duration": "1:22:35"
+                },
+                {
+                    "title": "লেকচার ৪",
+                    "id": "9h1q-t1D3ng",
+                    "slide": "https://drive.google.com/file/d/1rs7scmSsHKFtESp4PusCLfwcdz5GPaRS/view?usp=sharing",
+                    "keywords": [
+                        "IC4C4"
+                    ],
+                    "duration": "1:24:00"
+                },
+                {
+                    "title": "লেকচার ৫",
+                    "id": "",
+                    "link": "https://www.facebook.com/share/v/1CX3QAB4Yb/",
+                    "duration": "1:21:03",
+                    "slide": "https://drive.google.com/file/d/1z1AxozxjMHKTItlxMcIrkpCBsLuIElwx/view?usp=sharing",
+                    "keywords": [
+                        "IC4C5"
+                    ]
+                },
+                {
+                    "title": "লেকচার ৬",
+                    "id": "ndkqBGpGwXo",
+                    "slide": "https://drive.google.com/file/d/1HpnIPg_WqaeJhNWInN3zSIR1bh2yjeAI/view?usp=sharing",
+                    "keywords": [
+                        "IC4C6"
+                    ],
+                    "duration": "1:08:53"
+                },
+                {
+                    "title": "লেকচার ৭",
+                    "id": "shPSO1_ddGI",
+                    "slide": "https://drive.google.com/file/d/1H-Drl36OKEeSBlj2VhQWdImLhfaIaBWr/view?usp=sharing",
+                    "keywords": [
+                        "IC4C7"
+                    ],
+                    "duration": "1:24:21"
+                },
+                {
+                    "title": "লেকচার ৮ (শেষ ক্লাস)",
+                    "id": "7UWqtLrnFNA",
+                    "slide": [
+                        {
+                            "name": "CQ প্রাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1mzZT1NZranKO24ZSTsc7Z_xPoork2wcI/view?usp=sharing"
+                        },
+                        {
+                            "name": "MCQ প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1PlJJMWCME3_jARDVKDcTZfXghdg_ZrYG/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC4C8"
+                    ],
+                    "duration": "49:32"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         },
         {
@@ -6894,12 +6985,128 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "9qTSVFJzZLU",
+                    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1XM7QAEcuPm-fe7yV1bC3w_CUzbEeKWLw/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/12dbbx_exmVE3XpclZ8CNzZL6k7IS2A6n/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট সলিউশন",
+                            "link": "https://drive.google.com/file/d/1xX1FHAVkZ3ZEcHxshcsgiNkb-RFN761X/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC5C1"
+                    ],
+                    "duration": "1:16:49"
+                },
+                {
+                    "title": "লেকচার ২",
+                    "id": "cJiUQp2OMNg",
+                    "slide": "https://drive.google.com/file/d/1tR7h-MXBQg1LSPT6IBHKkQD1BrwTLQUS/view?usp=sharing",
+                    "keywords": [
+                        "IC5C2"
+                    ],
+                    "duration": "1:31:04"
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "KxoeoKye7hY",
+                    "slide": "https://drive.google.com/file/d/1QjOAYYuApDfDzE9P6eltiGVkTryLixMc/view?usp=sharing",
+                    "keywords": [
+                        "IC5C3"
+                    ],
+                    "duration": "1:13:51"
+                },
+                {
+                    "title": "লেকচার ৪",
+                    "id": "ETpqqhbFEUs",
+                    "slide": "https://drive.google.com/file/d/11yuX0UKg7vGJ6Ok69y1jAMIucxJccpG-/view?usp=sharing",
+                    "keywords": [
+                        "IC5C4"
+                    ],
+                    "duration": "1:32:42"
+                },
+                {
+                    "title": "লেকচার ৫",
+                    "id": "S6mRGXWb4Zw",
+                    "slide": "https://drive.google.com/file/d/1XxVPThB2scOfBWKLJXsH6_hzr4yhJV6z/view?usp=sharing",
+                    "keywords": [
+                        "IC5C5"
+                    ],
+                    "duration": "1:22:53"
+                },
+                {
+                    "title": "লেকচার ৬",
+                    "id": "9n7LeNUr-0M",
+                    "slide": "https://drive.google.com/file/d/1ElVqn2Yr-_jzayMmpgPbNsZeqowrP8SV/view?usp=sharing",
+                    "keywords": [
+                        "IC5C6"
+                    ],
+                    "duration": "1:09:24"
+                },
+                {
+                    "title": "লেকচার ৭",
+                    "id": "YTPtE8h-_cY",
+                    "slide": "https://drive.google.com/file/d/1P1qT6c6Ac2_eabe_w7q7usA1vsJ3W3Hn/view?usp=sharing",
+                    "keywords": [
+                        "IC5C7"
+                    ],
+                    "duration": "1:18:45"
+                },
+                {
+                    "title": "লেকচার ৮",
+                    "id": "g_Lmnr8Q7RY",
+                    "slide": "https://drive.google.com/file/d/1b3pFy18mo8IQADtQhuoiTIlzOl_8cq-c/view?usp=sharing",
+                    "keywords": [
+                        "IC5C8"
+                    ],
+                    "duration": "1:09:27"
+                },
+                {
+                    "title": "লেকচার ৯",
+                    "id": "f6wKfesLK6Q",
+                    "slide": "https://drive.google.com/file/d/119CVoA5EfD4FpL8Xuh2LLpOPXrEiKeYD/view?usp=sharing",
+                    "keywords": [
+                        "IC5C9"
+                    ],
+                    "duration": "1:28:52"
+                },
+                {
+                    "title": "লেকচার ১০",
+                    "id": "eym5YKGiNOw",
+                    "slide": "https://drive.google.com/file/d/1cVa_4Aivl_kZEj78mrQQZdwLKQiWD-E3/view?usp=sharing",
+                    "keywords": [
+                        "IC5C10"
+                    ],
+                    "duration": "1:16:02"
+                },
+                {
+                    "title": "লেকচার ১১",
+                    "id": "indrKGUG_kg",
+                    "slide": "https://drive.google.com/file/d/1mighaBNjDUd6hsM5P2NjVeM8xBltyBbW/view?usp=sharing",
+                    "keywords": [
+                        "IC5C11"
+                    ],
+                    "duration": "1:38:21"
+                },
+                {
+                    "title": "CQ & MCQ Class (শেষ ক্লাস)",
+                    "id": "oJOK1Y0sozY",
+                    "slide": "https://drive.google.com/file/d/1BAUqBJ8a2ganG5D7no-JBlnOiXOyOd-Q/view?usp=sharing",
+                    "keywords": [
+                        "IC5C12"
+                    ],
+                    "duration": "1:36:02"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         },
         {
@@ -6907,12 +7114,56 @@
             "mainVideos": [
                 {
                     "title": "লেকচার ১",
-                    "id": "",
-                    "slide": "LINK_HERE"
+                    "id": "D54MGAJu35U",
+                    "slide": [
+                        {
+                            "name": "ক্লাস স্লাইড",
+                            "link": "https://drive.google.com/file/d/1k5gQPETSxGcbEe2NMvWrHwahpto-gy4b/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট",
+                            "link": "https://drive.google.com/file/d/1JKpbAsIFR_w1qCkz38sa6RrRCD5eUq2O/view?usp=sharing"
+                        },
+                        {
+                            "name": "প্র্যাকটিস শীট সলিউশন",
+                            "link": "https://drive.google.com/file/d/1D7pIjjNe0m9yi5yZ20c9ITA2JoUcMykX/view?usp=sharing"
+                        }
+                    ],
+                    "keywords": [
+                        "IC6C1"
+                    ],
+                    "duration": "1:10:35"
+                },
+                {
+                    "title": "লেকচার ২",
+                    "id": "oO19kmaT4Eg",
+                    "slide": "https://drive.google.com/file/d/1I2e2A8Snyql5iDzm10x7Gq6MWpJdmtuL/view?usp=sharing",
+                    "keywords": [
+                        "IC6C2"
+                    ],
+                    "duration": "1:08:49"
+                },
+                {
+                    "title": "লেকচার ৩",
+                    "id": "jSE4uT7NAi8",
+                    "slide": "https://drive.google.com/file/d/1Ho1yR5rdIZK1q782gJu4tMKXZKTs4HhW/view?usp=sharing",
+                    "keywords": [
+                        "IC6C3"
+                    ],
+                    "duration": "48:20"
+                },
+                {
+                    "title": "লেকচার ৪ (শেষ ক্লাস)",
+                    "id": "DkYTx6M6hII",
+                    "slide": "https://drive.google.com/file/d/1CP_kaUu-gSvYG_IzNqN7K3JtLLam57-W/view?usp=sharing",
+                    "keywords": [
+                        "IC6C4"
+                    ],
+                    "duration": "1:00:29"
                 }
             ],
             "practiceSheets": [
-                "LINK_HERE"
+                "N/A"
             ]
         }
     ]
