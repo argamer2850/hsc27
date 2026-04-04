@@ -20,7 +20,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    font-family: 'Poppins', 'Hind Siliguri', sans-serif; 
+    font-family: 'Poppins', 'Tiro Bangla', serif;
 }
 
 body {
@@ -38,6 +38,7 @@ body {
         radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.12) 0%, transparent 50%),
         radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
     background-attachment: fixed;
+    line-height: 1.6;
 }
 
 .container { max-width: 1050px; margin: 0 auto; position: relative; z-index: 1; }
