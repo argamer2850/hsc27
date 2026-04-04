@@ -38,13 +38,12 @@ document.onkeydown = function(e) {
             totalVideos = ch.mainVideos.length;
             totalSecs = getVideoListTotalDuration(ch.mainVideos);
         } else if (ch.extraSections && ch.extraSections.length > 0) {
-            // যদি মেইন ভিডিও না থাকে, তবে এক্সট্রা সেকশনের ভিডিও ও ডিউরেশন যোগ হবে
-            ch.extraSections.forEach(section => {
-                if (section.videos && section.videos.length > 0) {
-                    totalVideos += section.videos.length;
-                    totalSecs += getVideoListTotalDuration(section.videos);
-                }
-            });
+            // যদি মেইন ভিডিও না থাকে, তবে শুধুমাত্র প্রথম এক্সট্রা সেকশনের ভিডিও ও ডিউরেশন যোগ হবে
+            const firstSection = ch.extraSections[0];
+            if (firstSection.videos && firstSection.videos.length > 0) {
+                totalVideos = firstSection.videos.length;
+                totalSecs = getVideoListTotalDuration(firstSection.videos);
+            }
         }
 
         // ২. ডিউরেশন ফরম্যাট করা (টোটাল সেকেন্ড ০ এর বেশি হলে দেখাবে)

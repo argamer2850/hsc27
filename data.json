@@ -4234,20 +4234,7 @@
         {
             "chapter": "যোগজীকরণ",
             "extraSections": [
-                {
-                    "title": "Calculator Hacks",
-                    "videos": [
-                        {
-                            "title": "Calculator Hacks",
-                            "id": "k7sgHtBWSEM",
-                            "slide": "https://drive.google.com/file/d/1WcgaNOBKxdApLt_AoBhg4ndpfF6ALp9a/view?usp=sharing",
-                            "keywords": [
-                                "M1stC10CH"
-                            ],
-                            "duration": "1:00:57"
-                        }
-                    ]
-                },
+                
                 {
                     "title": "Archived Classes of Rakib Sir",
                     "videos": [
@@ -4362,6 +4349,20 @@
                             "slide": "https://drive.google.com/file/d/1WOVfGeuJhdL1P4ej0jQPaLmmkoff3QBC/view?usp=sharing",
                             "keywords": [],
                             "duration": "1:39:10"
+                        }
+                    ]
+                },
+                {
+                    "title": "Calculator Hacks",
+                    "videos": [
+                        {
+                            "title": "Calculator Hacks",
+                            "id": "k7sgHtBWSEM",
+                            "slide": "https://drive.google.com/file/d/1WcgaNOBKxdApLt_AoBhg4ndpfF6ALp9a/view?usp=sharing",
+                            "keywords": [
+                                "M1stC10CH"
+                            ],
+                            "duration": "1:00:57"
                         }
                     ]
                 }
