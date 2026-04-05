@@ -1375,6 +1375,15 @@
                         "P1stC8C9"
                     ],
                     "duration": "1:49:51"
+                },
+                {
+                    "title": "লেকচার ১০",
+                    "id": "7_07b_M7UjE",
+                    "slide": "N/A",
+                    "keywords": [
+                        "P1stC8C10"
+                    ],
+                    "duration": "1:38:46"
                 }
             ],
             "practiceSheets": [
@@ -1697,7 +1706,6 @@
                 }
             ]
         }
-        
     ],
     "Chemistry": [
         {
@@ -2417,6 +2425,24 @@
                         "C1stC4C18"
                     ],
                     "duration": "1:34:44"
+                },
+                {
+                    "title": "লেকচার ১৯",
+                    "id": "EF885JhUNdU",
+                    "slide": "https://drive.google.com/file/d/1O55SSkdquNiWONgZShiVHDe6Jb9Ho2cZ/view?usp=sharing",
+                    "keywords": [
+                        "C1stC4C19"
+                    ],
+                    "duration": "1:46:30"
+                },
+                {
+                    "title": "লেকচার ২০",
+                    "id": "7HFqyTaHALM",
+                    "slide": "https://drive.google.com/file/d/1UJHoX2CrrkeyRrwMmGFnd2VPrKfThuTz/view?usp=sharing",
+                    "keywords": [
+                        "C1stC4C20"
+                    ],
+                    "duration": "1:48:50"
                 }
             ],
             "extraSections": [
@@ -2528,8 +2554,188 @@
             "practiceSheets": [
                 "N/A"
             ]
+        },
+        {
+            "chapter": "জৈব রসায়ন",
+            "extraSections": [
+                {
+                    "title": "Archived Classes",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "owzi40B7IRQ",
+                            "slide": "https://drive.google.com/file/d/1SocLqeCJvz5LEPKKXJEO6WRabbyd_zzO/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "2:41:22"
+                        },
+                        {
+                            "title": "লেকচার ২",
+                            "id": "D547HXdsz7g",
+                            "slide": "https://drive.google.com/file/d/1pG-emVGqFovDUqzb3ADeykGaxJ9QZIbO/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "2:45:07"
+                        },
+                        {
+                            "title": "লেকচার ৩",
+                            "id": "7FEOgI6y7GE",
+                            "slide": "https://drive.google.com/file/d/1pSyhxhi8ZyHFFvNtcKiKyQbczf2fmF7f/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "2:48:46"
+                        },
+                        {
+                            "title": "সমযোজী বন্ধন বিভাজন, ফ্রি রেডিকেল",
+                            "id": "Yj59mLsR-Yg",
+                            "slide": "https://drive.google.com/file/d/1MxGC5laPRoGPjU_EZiCn8NdFcWJDPKzy/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:14:15"
+                        },
+                        {
+                            "title": "Inductive Effect, কার্বোক্যাটায়ন, কার্বানায়ন, Electrophile, Nucleophile, MCQ Solve",
+                            "id": "B0Ud_u8j3ac",
+                            "slide": "https://drive.google.com/file/d/1xVlqIJptcbzPVnuO5ukvw6A0T3jKqqbj/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:31:43"
+                        },
+                        {
+                            "title": "Bond Line Notation, Degree, কিছু গুরুত্বপূর্ণ ভাঙ্গন, MCQ Solve",
+                            "id": "uhawJGYJevA",
+                            "slide": "https://drive.google.com/file/d/1Yis8rqTVorginhjAS2GXjKfPzzbRzEbW/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:33:50"
+                        },
+                        {
+                            "title": "লেকচার ৭",
+                            "id": "v0dIcy0Hk7U",
+                            "slide": "https://drive.google.com/file/d/1Sem3lL95HjmP7FbZzC0uxje7i6SudzHi/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:48:54"
+                        },
+                        {
+                            "title": "লেকচার ৮",
+                            "id": "lUfjVIe30CA",
+                            "slide": "https://drive.google.com/file/d/1IdXzUqNpnNG7JFXzHyqGTaDJcRB2Zl_f/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:43:51"
+                        },
+                        {
+                            "title": "অ্যালকেন পর্ব-০২, Math & MCQ Solve",
+                            "id": "oxcdQ3r9S_s",
+                            "slide": "https://drive.google.com/file/d/1f3le1QjHU9bpKaMNOQqN_tsNInTWj4Z2/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:31:43"
+                        },
+                        {
+                            "title": "অ্যালকেন পর্ব-০৩",
+                            "id": "j_HNmiG0fKA",
+                            "slide": "https://drive.google.com/file/d/14hdBTMRytjML2pbUhWba4GZvUHm1WfKZ/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:25:28"
+                        },
+                        {
+                            "title": "অ্যালকেন পর্ব-০৪, অ্যালকিন পর্ব-০১",
+                            "id": "E-cY2I1IZ5E",
+                            "slide": "https://drive.google.com/file/d/1xn6XDSuXSDbY5NcZ-C0Xne6BY8rH3KPd/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:39:41"
+                        },
+                        {
+                            "title": "অ্যালকিন পর্ব-০২",
+                            "id": "x9lWzLnLMe4",
+                            "slide": "https://drive.google.com/file/d/114FepBbX-75xN-6AyhuLCa43vAz7P394/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:33:18"
+                        },
+                        {
+                            "title": "অ্যালকিন পর্ব-০৩",
+                            "id": "czBClmCga9U",
+                            "slide": "https://drive.google.com/file/d/1kyuQsAYF8_qZXvxu0STvyZhOQaUUtFVg/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:33:21"
+                        },
+                        {
+                            "title": "অ্যালকিন পর্ব-০৪, অ্যালকাইন পর্ব-০১",
+                            "id": "XVVXPCPQPiE",
+                            "slide": "https://drive.google.com/file/d/1sQDNLHJoQOepgobMXnZZFrbfKzLruTFu/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:36:52"
+                        },
+                        {
+                            "title": "অ্যালকাইন পর্ব-০২",
+                            "id": "P6RRsNFWx2U",
+                            "slide": "https://drive.google.com/file/d/140IgQKyoBpm3Dbu9OxJOeUpadx5mDI_F/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:38:01"
+                        },
+                        {
+                            "title": "অ্যালকাইন পর্ব-০৩, অ্যালকাইল হ্যালাইড পর্ব-০১",
+                            "id": "O2Y9KYqm-L0",
+                            "slide": "https://drive.google.com/file/d/12QIBhd6__I790XEjSbwrVHGl15gh_7ms/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:28:48"
+                        },
+                        {
+                            "title": "অ্যালকাইল হ্যালাইড পর্ব-০২, পলিহ্যালোজেনো যৌগ",
+                            "id": "e21ydGIpdtc",
+                            "slide": "https://drive.google.com/file/d/1P61GC_eCfBCTEzKTtg0UxS3N_qmKOBLZ/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:48:37"
+                        },
+                        {
+                            "title": "ক্লোরোফর্ম, অ্যালকোহল পর্ব-০১",
+                            "id": "WLbE0KZi-PM",
+                            "slide": "https://drive.google.com/file/d/1a56bp07N39KaVE0MagkFYpNfGx_x1fxB/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:36:18"
+                        },
+                        {
+                            "title": "অ্যালকোহল পর্ব-০২",
+                            "id": "3sHSfDIUmCU",
+                            "slide": "https://drive.google.com/file/d/1K45kCdGQ2wxh0b41VxCsVKwQD6Yp_OzU/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:26:32"
+                        },
+                        {
+                            "title": "অ্যালকোহল পর্ব-০৩, ইথার",
+                            "id": "rBrL-6_URc0",
+                            "slide": "https://drive.google.com/file/d/18JSOsLd4QyTD6odlLhrQ7jzYfTpiZrjJ/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:23:50"
+                        },
+                        {
+                            "title": "অ্যালকোহল পর্ব-০৩, ইথার",
+                            "id": "Sc0YifYCeJ4",
+                            "slide": "https://drive.google.com/file/d/1HTAr9oc2tIbuDImB162fuFJD5uGBj8cH/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:23:50"
+                        },
+                        {
+                            "title": "অ্যালডিহাইড, কিটোন পর্ব-০২",
+                            "id": "yPkeCVbdrnU",
+                            "slide": "https://drive.google.com/file/d/16E6MTqEq6qUEY0sEsmEMcwFW8BcXMl4d/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:48:25"
+                        },
+                        {
+                            "title": "অ্যালডিহাইড, কিটোন পর্ব-০৩",
+                            "id": "sKVqy0jXXws",
+                            "slide": "https://drive.google.com/file/d/1GOS91-1G-Kobys9qRpXZT0WnCUYs31b_/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:43:07"
+                        },
+                        {
+                            "title": "কার্বোক্সিলিক এসিড (শেষ ক্লাস)",
+                            "id": "Drr9whsh9-g",
+                            "slide": "https://drive.google.com/file/d/1qZUL4kIzCbUCAu_ySv2IoO5Hfw7lZk7Y/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:30:38"
+                        }
+                    ]
+                }
+            ],
+            "practiceSheets": [
+                "N/A"
+            ]
         }
-        
     ],
     "Higher Math": [
         {
@@ -4234,7 +4440,6 @@
         {
             "chapter": "যোগজীকরণ",
             "extraSections": [
-                
                 {
                     "title": "Archived Classes of Rakib Sir",
                     "videos": [
@@ -4371,7 +4576,6 @@
                 "LINK_HERE"
             ]
         },
-        
         {
             "chapter": "বহুপদী ও বহুপদী সমীকরণ",
             "mainVideos": [
@@ -4464,6 +4668,15 @@
                         "M2ndC4C9"
                     ],
                     "duration": "1:23:39"
+                },
+                {
+                    "title": "লেকচার ১০ (শেষ ক্লাস)",
+                    "id": "C38hIdPAdtA",
+                    "slide": "https://drive.google.com/file/d/13o-INvPaCukvW4Jgqb7ta-jWquiMgbbB/view?usp=sharing",
+                    "keywords": [
+                        "M2ndC4C10"
+                    ],
+                    "duration": "57:18"
                 }
             ],
             "extraSections": [
@@ -4523,7 +4736,6 @@
                 }
             ]
         }
-        
     ],
     "Biology": [
         {
@@ -5385,7 +5597,6 @@
                 "LINK_HERE"
             ]
         },
-        
         {
             "chapter": "উদ্ভিদ শারীরতত্ত্ব",
             "extraSections": [
@@ -5496,7 +5707,6 @@
                 "LINK_HERE"
             ]
         },
-        
         {
             "chapter": "প্রাণীর বিভিন্নতা ও শ্রেণিবিন্যাস",
             "mainVideos": [
@@ -5995,7 +6205,6 @@
                 "LINK_HERE"
             ]
         }
-        
     ],
     "English": [
         {
@@ -6050,11 +6259,12 @@
                     "videos": [
                         {
                             "title": "লেকচার ১",
-                            "id": "",
-                            "slide": "",
+                            "id": "-XvpnBsXzxY",
+                            "slide": "https://drive.google.com/drive/folders/129N_lKLn244nQ3wEceuasZ9QyoW2c8dz?usp=drive_link",
                             "keywords": [
-                                ""
-                            ]
+                                "জীবন ও বৃক্ষ"
+                            ],
+                            "duration": "43:49"
                         }
                     ]
                 }
