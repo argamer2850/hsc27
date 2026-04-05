@@ -20,7 +20,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    font-family: 'Poppins', 'Tiro Bangla', serif;
+    font-family: 'Poppins', 'Hind Siliguri', sans-serif;
 }
 
 body {
@@ -544,3 +544,12 @@ body.normal-yt-mode #yt-player { pointer-events: auto !important; }
 #site-loader-container.active-lock { height: 100vh !important; pointer-events: all !important; }
 #site-loader-bar { position: absolute; top: 0; left: 0; width: 0%; height: 4px; background: var(--accent); box-shadow: 0 0 15px var(--accent); transition: width 0.3s ease-in-out; }
 .fade-out { opacity: 0; transition: opacity 0.5s ease; }
+/* চ্যাপ্টার লিস্টের ভেতরের প্রথম স্প্যান (নাম) এর ফন্ট ওয়েট কমানো */
+.list-item span:first-child {
+    font-weight: 300 !important;
+}
+
+/* ভিডিও স্ক্রিনে ভিডিওর টাইটেলের ফন্ট ওয়েট কমানো */
+#vid-title {
+    font-weight: 300 !important;
+}
