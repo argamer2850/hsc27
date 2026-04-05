@@ -241,6 +241,10 @@ input[type="text"]::placeholder { color: var(--text-muted) !important; }
     flex: 1 1 50%; 
     line-height: 1.4; 
     word-break: break-word;
+}
+
+/* শুধুমাত্র ভিডিও লিস্টের টাইটেলের জন্য font-weight: 300 */
+#video-list-container .list-item span:first-child {
     font-weight: 300 !important;
 }
 .play-icon { 
