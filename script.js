@@ -474,6 +474,8 @@ container.addEventListener('mouseleave', () => {
     clearTimeout(cursorTimeout);
 });
 
+
+
 let seekAccumulator = 0; 
 let seekTimeout;
 
@@ -481,16 +483,32 @@ function showSeekMessage(seconds) {
     seekAccumulator += seconds;
     const indicator = document.getElementById('seek-indicator');
     
-    const sign = seekAccumulator >= 0 ? "+" : "";
+    // ইউটিউবের মত ডানে-বামে পজিশন সেট করা
+    if (seekAccumulator < 0) {
+        indicator.style.left = '10%';
+        indicator.style.right = 'auto';
+        indicator.style.transform = 'translateY(-50%)';
+    } else if (seekAccumulator > 0) {
+        indicator.style.left = 'auto';
+        indicator.style.right = '10%';
+        indicator.style.transform = 'translateY(-50%)';
+    } else {
+        indicator.style.left = '50%';
+        indicator.style.right = 'auto';
+        indicator.style.transform = 'translate(-50%, -50%)';
+    }
+
+    const sign = seekAccumulator > 0 ? "+" : "";
     indicator.innerText = `${sign}${seekAccumulator} সেকেন্ড`;
     indicator.style.display = 'block';
     
     clearTimeout(seekTimeout);
     
+    // ইউটিউব খুব দ্রুত ইনডিকেটর হাইড করে, তাই ৮০০ মিলি-সেকেন্ড দেওয়া হলো
     seekTimeout = setTimeout(() => {
         indicator.style.display = 'none';
         seekAccumulator = 0;
-    }, 2000);
+    }, 800); 
 }
 
 document.getElementById('rewind-btn').addEventListener('click', () => {
@@ -572,36 +590,38 @@ document.addEventListener('keydown', (e) => {
 
 let isAutoPaused = false;
 
-function pauseVideo(auto = false) {
-    if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
-        player.pauseVideo();
-        if (auto) {
-            isAutoPaused = true; 
+function handleVisibilityChange() {
+    if (!player || typeof player.getPlayerState !== 'function') return;
+    
+    if (document.hidden) {
+        const state = player.getPlayerState();
+        if (state === YT.PlayerState.PLAYING || state === YT.PlayerState.BUFFERING) {
+            isAutoPaused = true;
+            player.pauseVideo();
+        }
+    } else {
+        if (isAutoPaused) {
+            player.playVideo();
+            isAutoPaused = false;
         }
     }
 }
 
-function resumeVideo() {
-    if (player && isAutoPaused) {
-        player.playVideo();
-        isAutoPaused = false; 
-    }
-}
-
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-        pauseVideo(true); 
-    } else {
-        resumeVideo();
-    }
-});
+document.addEventListener("visibilitychange", handleVisibilityChange);
 
 window.addEventListener("blur", function() {
-    pauseVideo(true); 
+    if (document.hidden) return; // visibilitychange ইভেন্টকে প্রাধান্য দিতে
+    if (player && typeof player.getPlayerState === 'function' && player.getPlayerState() === YT.PlayerState.PLAYING) {
+        isAutoPaused = true;
+        player.pauseVideo();
+    }
 });
 
 window.addEventListener("focus", function() {
-    resumeVideo();
+    if (isAutoPaused && player && typeof player.playVideo === 'function') {
+        player.playVideo();
+        isAutoPaused = false;
+    }
 });
 
 document.getElementById('play-pause-btn').addEventListener('click', () => {
@@ -625,14 +645,35 @@ function handleSearch() {
     for (let subject in database) {
         let chapters = database[subject];
         for (let ch of chapters) {
-            for (let v of ch.mainVideos) {
-                if (v.keywords && v.keywords.some(k => k.toLowerCase() === query)) {
-                    openSubject(subject); 
-                    openVideoList(ch);
-                    playNow(v);
-                    return; 
+            
+            // ১. mainVideos-এর ভেতরে সার্চ
+            if (ch.mainVideos) {
+                for (let v of ch.mainVideos) {
+                    if (v.keywords && v.keywords.some(k => k.toLowerCase() === query)) {
+                        openSubject(subject); 
+                        openVideoList(ch);
+                        playNow(v);
+                        return; 
+                    }
                 }
             }
+            
+            // ২. extraSections-এর ভেতরেও সার্চ
+            if (ch.extraSections) {
+                for (let section of ch.extraSections) {
+                    if (section.videos) {
+                        for (let v of section.videos) {
+                            if (v.keywords && v.keywords.some(k => k.toLowerCase() === query)) {
+                                openSubject(subject); 
+                                openVideoList(ch);
+                                playNow(v);
+                                return; 
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
     alert("দুঃখিত, এই কি-ওয়ার্ডের কোনো ভিডিও পাওয়া যায়নি।");
