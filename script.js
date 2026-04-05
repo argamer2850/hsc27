@@ -809,22 +809,44 @@ window.onload = function() {
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 
-// ব্রাউজারে আগে থেকে সেভ করা থিম চেক
-if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-mode');
-    themeIcon.innerText = '🌙';
+// ১. ডিভাইস বা সিস্টেমের থিম ডিটেক্ট করার জন্য
+const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
+
+// ২. থিম অ্যাপ্লাই করার একটি কমন ফাংশন
+function applyTheme(isLight) {
+    if (isLight) {
+        document.body.classList.add('light-mode');
+        themeIcon.innerText = '🌙';
+    } else {
+        document.body.classList.remove('light-mode');
+        themeIcon.innerText = '☀️';
+    }
 }
 
+// ৩. সাইটে প্রথমবার ঢুকলে কী হবে তার লজিক
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    applyTheme(true); // যদি আগে থেকে Light সিলেক্ট করা থাকে
+} else if (savedTheme === 'dark') {
+    applyTheme(false); // যদি আগে থেকে Dark সিলেক্ট করা থাকে
+} else {
+    // যদি আগে কোনো কিছু সেভ করা না থাকে, তবে ডিভাইসের থিম অনুযায়ী চলবে
+    applyTheme(systemTheme.matches);
+}
+
+// ৪. আইকনে ক্লিক করে ম্যানুয়ালি থিম চেঞ্জ করলে কী হবে
 themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    
-    if (document.body.classList.contains('light-mode')) {
-        themeIcon.innerText = '🌙';
-        localStorage.setItem('theme', 'light');
-    } else {
-        themeIcon.innerText = '☀️';
-        localStorage.setItem('theme', 'dark');
-    }
+    const isCurrentlyLight = document.body.classList.contains('light-mode');
+    applyTheme(!isCurrentlyLight);
+    // ইউজার যেটা সিলেক্ট করলো সেটা ব্রাউজারে সেভ করে রাখা
+    localStorage.setItem('theme', !isCurrentlyLight ? 'light' : 'dark');
+});
+
+// ৫. সাইটে থাকা অবস্থাতেই যদি ডিভাইসের থিম চেঞ্জ হয়, তবে অটোমেটিক আপডেট হবে
+systemTheme.addEventListener('change', (e) => {
+    applyTheme(e.matches);
+    // ডিভাইসের সাথে মিল রেখে সেভ করা ডাটাও আপডেট করে দেওয়া
+    localStorage.setItem('theme', e.matches ? 'light' : 'dark'); 
 });
 function showUpdateLog() {
     const listContainer = document.getElementById('full-class-list');
