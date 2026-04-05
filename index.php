@@ -63,7 +63,6 @@ $user_permissions = [
         'device_ids' => ['c700802c75fd953974bb1ba8'],
         'ips' => ['103.51.2.19'],
         'allowed' => [
-            
             'Chemistry' => 'ALL'
         ]
     ],
@@ -72,7 +71,6 @@ $user_permissions = [
         'device_ids' => ['aa9cc3d0485f849119091d99'],
         'ips' => ['103.42.53.224'],
         'allowed' => [
-            
             'Physics' => [
                 'নিউটনীয় বলবিদ্যা' => 'ALL',
                 'কাজ, ক্ষমতা ও শক্তি' => 'ALL',
@@ -105,23 +103,14 @@ if (!$current_user_data) {
     include('access-request-page.php');
     exit;
 }
-?>
-<?php
 
 $allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.105', '103.133.201.168', '43.245.120.36', '103.138.120.32', '104.28.166.114', '103.51.2.19', '103.42.53.224', '103.13.193.243']; 
 $allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', '3861012ecf7f00e0630a375e', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631', '05e2aa8373f3618b28718085', 'c700802c75fd953974bb1ba8', 'aa9cc3d0485f849119091d99', '946a3b49566e5bd55eed70a3']; 
 
+$special_ips = ['103.144.49.105']; 
+$special_device_ids = ['3861012ecf7f00e0630a375e'];
 
-$special_ips = [
-    '103.144.49.105']; 
-
-$special_device_ids = [
-    '3861012ecf7f00e0630a375e'];
-
-$user_ip = $_SERVER['REMOTE_ADDR'];
 $is_access_allowed = false;
-
-// ৩. চেক করা হচ্ছে বর্তমান ইউজার স্পেশাল লিস্টে আছে কিনা
 $is_special_user = false;
 
 if (in_array($user_ip, $special_ips)) {
@@ -130,10 +119,8 @@ if (in_array($user_ip, $special_ips)) {
     $is_special_user = true;
 }
 
-// জাভাস্ক্রিপ্টে পাঠানোর জন্য
 $is_normal_player_user = $is_special_user ? 'true' : 'false';
 
-// সাইটে প্রবেশের মেইন সিকিউরিটি চেক
 if (in_array($user_ip, $allowed_ips)) {
     $is_access_allowed = true;
 } elseif (isset($_COOKIE['dev_token']) && in_array($_COOKIE['dev_token'], $allowed_devices)) {
@@ -144,22 +131,16 @@ if (!$is_access_allowed) {
     include('access-request-page.php');
     exit;
 }
-?>
-<!DOCTYPE html>
-<?php
-// JSON ফাইল থেকে সম্পূর্ণ ডাটাবেস লোড করা
+
+// JSON ডাটাবেস লোড
 $full_db_json = file_get_contents('data.json'); 
 $full_db = json_decode($full_db_json, true);
-
 $filtered_db = [];
 
-// যদি অ্যাডমিন হয়, তবে সম্পূর্ণ ডাটাবেস দিয়ে দিন
 if ($current_user_data['role'] === 'admin') {
     $filtered_db = $full_db;
 } else {
-    // রেস্ট্রিক্টেড ইউজারের জন্য ফিল্টারিং
     $allowed_data = $current_user_data['allowed'];
-
     foreach ($full_db as $subject_name => $chapters) {
         if (!array_key_exists($subject_name, $allowed_data)) continue;
         
@@ -173,7 +154,6 @@ if ($current_user_data['role'] === 'admin') {
                 $filtered_chapters[] = $chapter;
                 continue;
             }
-
             if (!array_key_exists($chapter_name, $subject_permission)) continue;
 
             $chapter_permission = $subject_permission[$chapter_name];
@@ -186,29 +166,26 @@ if ($current_user_data['role'] === 'admin') {
             if (is_array($chapter_permission)) {
                 $filtered_chapter = $chapter;
                 $filtered_main_videos = [];
-                
                 foreach ($chapter['mainVideos'] as $video) {
                     if (in_array($video['title'], $chapter_permission)) {
                         $filtered_main_videos[] = $video;
                     }
                 }
                 $filtered_chapter['mainVideos'] = $filtered_main_videos;
-                
                 $filtered_chapters[] = $filtered_chapter;
             }
         }
-        
         if (!empty($filtered_chapters)) {
             $filtered_db[$subject_name] = $filtered_chapters;
         }
     }
 }
 ?>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
     <script>
         const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
-        // PHP থেকে ফিল্টার করা ডাটাবেস সরাসরি JS এ পাঠিয়ে দেওয়া হলো
         const database = <?php echo json_encode($filtered_db); ?>;
     </script>
     <script type="text/javascript">
@@ -220,16 +197,15 @@ if ($current_user_data['role'] === 'admin') {
     window.clarity("identify", "<?php echo $clarity_name; ?>");
     </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="robots" content="noindex, nofollow">
     <title>HSC 27 All In One</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="icon.png">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> -->
-     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
     <script>
     async function syncGlobalID() {
         const hardwareInfo = [
@@ -271,7 +247,7 @@ if ($current_user_data['role'] === 'admin') {
             </div>
             
             <div class="grid-layout" id="subject-cards-container">
-                </div>
+            </div>
         </div>
 
         <div id="chapter-screen" class="hidden">
@@ -376,7 +352,7 @@ if ($current_user_data['role'] === 'admin') {
         </div>
         
         <div class="video-meta shared-style-box">
-            <h2 id="vid-title" style="font-size: 1.6rem; text-align: left; margin-bottom: 0;"></h2>
+            <h2 id="vid-title" style="text-align: left; margin-bottom: 0;"></h2>
             <div id="slide-buttons-container" class="mat-box"></div>
         </div>
     </div>
@@ -387,7 +363,7 @@ if ($current_user_data['role'] === 'admin') {
         </div>
     </button>
 
-    <script src="script.js?v=12"></script>
+    <script src="script.js?v=13"></script>
     <script src="https://www.youtube.com/iframe_api" defer></script>
 </body>
 </html>
