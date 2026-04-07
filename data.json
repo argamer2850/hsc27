@@ -978,6 +978,49 @@
                     "duration": "1:52:02"
                 }
             ],
+            "extraSections": [
+                {
+                    "title": "Archived Classes of Apar Sir",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "efB3XNgF9SY",
+                            "slide": "https://drive.google.com/file/d/1H3iTJv3kRUyIktE8yXcIe4TPxfabXQTf/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:35:06"
+                        },
+                        {
+                            "title": "লেকচার ২",
+                            "id": "",
+                            "link": "https://www.facebook.com/share/v/1EgMEAXPzP/",
+                            "duration": "1:46:30",
+                            "slide": "https://drive.google.com/file/d/1wj2OxP5ajramaG4fJJKYwK8Ihs5_FamN/view?usp=sharing",
+                            "keywords": []
+                        },
+                        {
+                            "title": "লেকচার ৩",
+                            "id": "wOzwTTgrmCM",
+                            "slide": "https://drive.google.com/file/d/1zMLiCVo7hkzimKaBBSYgS2vxGiWSfvvj/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:34:27"
+                        },
+                        {
+                            "title": "লেকচার ৪",
+                            "id": "1XWWp6hFH8M",
+                            "slide": "https://drive.google.com/file/d/13BZEa03eG48p_QdafDLkLhLJ_oofPInE/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:36:40"
+                        },
+                        {
+                            "title": "লেকচার ৫ (শেষ ক্লাস)",
+                            "id": "ClOdAkFp0lc",
+                            "slide": "https://drive.google.com/file/d/1VwgL3nKEZBPoz9TUZwaZ6LUEVanxM_kN/view?usp=sharing",
+                            "keywords": [],
+                            "duration": "1:57:16"
+                        }
+                    ]
+                }
+            ],
             "practiceSheets": [
                 "N/A"
             ]
@@ -6276,12 +6319,12 @@
                     "title": "লেকচার ১",
                     "id": "-XvpnBsXzxY",
                     "slide": "https://pdf.bondipathshala.education/1772283115262.pdf",
-                            "keywords": [
-                                "জীবন ও বৃক্ষ"
-                            ],
-                            "duration": "43:49"
+                    "keywords": [
+                        "জীবন ও বৃক্ষ"
+                    ],
+                    "duration": "43:49"
                 }
-                ],
+            ],
             "practiceSheets": [
                 "https://pdf.bondipathshala.education/1772279603431.pdf"
             ]
@@ -6293,14 +6336,14 @@
                     "title": "লেকচার ১",
                     "id": "VCVAUT4N-9Y",
                     "slide": "https://pdf.bondipathshala.education/1762844520704.pdf",
-                            "keywords": [
-                                "মাসি-পিসি",
-                                "মাসিপিসি",
-                                "মাসি পিসি"
-                            ],
-                            "duration": "59:28"
+                    "keywords": [
+                        "মাসি-পিসি",
+                        "মাসিপিসি",
+                        "মাসি পিসি"
+                    ],
+                    "duration": "59:28"
                 }
-                ],
+            ],
             "practiceSheets": [
                 "https://pdf.bondipathshala.education/1763064473834.pdf"
             ]
