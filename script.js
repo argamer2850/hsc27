@@ -503,6 +503,34 @@ function handleSeek(seconds) {
     }
     seekAccumulator += seconds;
     
+    // --- প্রগ্রেস বার লাইভ আপডেট করার হিসাব ---
+    let duration = player.getDuration();
+    let expectedTime = baseSeekTime + seekAccumulator;
+    
+    // সময় যেন ০ এর নিচে বা ভিডিওর মোট সময়ের বেশি না যায়
+    if(expectedTime < 0) expectedTime = 0;
+    if(expectedTime > duration) expectedTime = duration;
+
+    // প্রগ্রেস বারের পার্সেন্টেজ বের করা
+    let percent = (expectedTime / duration) * 100;
+    
+    // আপনার প্রগ্রেস বারের সম্ভাব্য আইডিগুলো চেক করে সাথে সাথে স্টাইল আপডেট করা
+    let progressBar = document.getElementById('progress-bar') || document.getElementById('progress-fill') || document.getElementById('progress');
+    if (progressBar) {
+        progressBar.style.width = percent + '%';
+        if (progressBar.tagName === 'INPUT') progressBar.value = percent;
+    }
+
+    // যদি কারেন্ট টাইম দেখানোর কোনো টেক্সট থাকে, সেটাও সাথে সাথে আপডেট করা
+    let timeDisplay = document.getElementById('current-time'); 
+    if (timeDisplay) {
+        let h = Math.floor(expectedTime / 3600);
+        let m = Math.floor((expectedTime % 3600) / 60);
+        let s = Math.floor(expectedTime % 60);
+        timeDisplay.innerText = (h > 0 ? h + ":" : "") + (m < 10 && h > 0 ? "0" : "") + m + ":" + (s < 10 ? '0' : '') + s;
+    }
+    // ---------------------------------------------
+
     const indicator = document.getElementById('seek-indicator');
     
     if (seekAccumulator < 0) {
@@ -526,7 +554,7 @@ function handleSeek(seconds) {
     clearTimeout(seekTimeout);
     
     seekTimeout = setTimeout(() => {
-        player.seekTo(baseSeekTime + seekAccumulator, true);
+        player.seekTo(expectedTime, true);
         indicator.style.display = 'none';
         seekAccumulator = 0;
     }, 800); 
