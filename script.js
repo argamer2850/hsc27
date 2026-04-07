@@ -39,7 +39,8 @@ function openSubject(sub) {
 
         const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: white; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
-        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: center;">${totalVideos} Classes ${durationHtml}</span>`;
+        let classText = totalVideos === 1 ? "Class" : "Classes";
+        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: center;">${totalVideos} ${classText} ${durationHtml}</span>`;
         list.appendChild(d);
     });
     
@@ -494,12 +495,16 @@ container.addEventListener('mouseleave', () => {
 
 let seekAccumulator = 0; 
 let seekTimeout;
+let baseSeekTime = 0;
 
-function showSeekMessage(seconds) {
+function handleSeek(seconds) {
+    if (seekAccumulator === 0) {
+        baseSeekTime = player.getCurrentTime();
+    }
     seekAccumulator += seconds;
+    
     const indicator = document.getElementById('seek-indicator');
     
-    // ইউটিউবের মত ডানে-বামে পজিশন সেট করা
     if (seekAccumulator < 0) {
         indicator.style.left = '10%';
         indicator.style.right = 'auto';
@@ -520,22 +525,15 @@ function showSeekMessage(seconds) {
     
     clearTimeout(seekTimeout);
     
-    // ইউটিউব খুব দ্রুত ইনডিকেটর হাইড করে, তাই ৮০০ মিলি-সেকেন্ড দেওয়া হলো
     seekTimeout = setTimeout(() => {
+        player.seekTo(baseSeekTime + seekAccumulator, true);
         indicator.style.display = 'none';
         seekAccumulator = 0;
     }, 800); 
 }
 
-document.getElementById('rewind-btn').addEventListener('click', () => {
-    player.seekTo(player.getCurrentTime() - 5, true);
-    showSeekMessage(-5);
-});
-
-document.getElementById('forward-btn').addEventListener('click', () => {
-    player.seekTo(player.getCurrentTime() + 5, true);
-    showSeekMessage(5);
-});
+document.getElementById('rewind-btn').addEventListener('click', () => handleSeek(-5));
+document.getElementById('forward-btn').addEventListener('click', () => handleSeek(5));
 
 let isPlayerFocused = false;
 
@@ -573,12 +571,10 @@ document.addEventListener('keydown', (e) => {
             togglePlay();
             break;
         case 'ArrowRight':
-            player.seekTo(player.getCurrentTime() + 5, true);
-            showSeekMessage(5);
+            handleSeek(5);
             break;
         case 'ArrowLeft':
-            player.seekTo(player.getCurrentTime() - 5, true);
-            showSeekMessage(-5);
+            handleSeek(-5);
             break;
         case 'ArrowUp':
             if (isPlayerFocused) {
@@ -784,11 +780,9 @@ videoOverlay.addEventListener('touchstart', function (e) {
         const touchX = e.touches[0].clientX;
 
         if (touchX < width / 2) {
-            player.seekTo(player.getCurrentTime() - 5, true);
-            showSeekMessage(-5);
+            handleSeek(-5);
         } else {
-            player.seekTo(player.getCurrentTime() + 5, true);
-            showSeekMessage(5);
+            handleSeek(5);
         }
         e.preventDefault(); 
     }
