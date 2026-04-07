@@ -226,6 +226,19 @@ if ($current_user_data['role'] === 'admin') {
     </script>
 </head>
 <body class="<?php echo $is_special_user ? 'normal-yt-mode' : ''; ?>">
+    <script>
+        // পেজ লোড হওয়ার আগেই থিম চেক করে বডিতে ক্লাস বসিয়ে দিবে 
+        (function() {
+            const savedTheme = sessionStorage.getItem('theme');
+            const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            
+            if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+                document.body.classList.add('light-mode');
+            } else {
+                document.body.classList.remove('light-mode');
+            }
+        })();
+    </script>
     <div id="site-loader-container">
         <div id="site-loader-bar"></div>
     </div>

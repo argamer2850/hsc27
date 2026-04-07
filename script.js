@@ -761,39 +761,49 @@ window.onload = function() {
     }
 };
 
+// =========================================
+// Theme Toggle Logic
+// =========================================
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
-
 const systemTheme = window.matchMedia('(prefers-color-scheme: light)');
 
-function applyTheme(isLight) {
-    if (isLight) {
-        document.body.classList.add('light-mode');
-        themeIcon.innerText = '🌙';
+function updateThemeIcon() {
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.innerText = '🌙'; 
     } else {
-        document.body.classList.remove('light-mode');
-        themeIcon.innerText = '☀️';
+        themeIcon.innerText = '☀️'; 
     }
 }
 
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-    applyTheme(true); 
-} else if (savedTheme === 'dark') {
-    applyTheme(false); 
-} else {
-    applyTheme(systemTheme.matches);
-}
+// পেজ লোড হওয়ার সাথে সাথে আইকন আপডেট
+updateThemeIcon();
 
+// বাটনে ক্লিক করলে থিম চেঞ্জ এবং সেটা শুধুমাত্র ওই সেশনের জন্য সেভ করা
 themeToggle.addEventListener('click', () => {
     const isCurrentlyLight = document.body.classList.contains('light-mode');
-    applyTheme(!isCurrentlyLight);
-    localStorage.setItem('theme', !isCurrentlyLight ? 'light' : 'dark');
+    
+    if (isCurrentlyLight) {
+        document.body.classList.remove('light-mode');
+        sessionStorage.setItem('theme', 'dark'); 
+    } else {
+        document.body.classList.add('light-mode');
+        sessionStorage.setItem('theme', 'light'); 
+    }
+    updateThemeIcon();
 });
 
+// ডিভাইস সেটিংসে থিম অটো চেঞ্জ হলে ওয়েবসাইটের থিমও সাথে সাথে চেঞ্জ হবে
 systemTheme.addEventListener('change', (e) => {
-    applyTheme(e.matches);
-    localStorage.setItem('theme', e.matches ? 'light' : 'dark'); 
+    // শুধুমাত্র তখন অটো চেঞ্জ হবে, যদি ইউজার এই সেশনে নিজে কোনো থিম সিলেক্ট না করে থাকে
+    if (!sessionStorage.getItem('theme')) {
+        if (e.matches) {
+            document.body.classList.add('light-mode');
+        } else {
+            document.body.classList.remove('light-mode');
+        }
+        updateThemeIcon();
+    }
 });
 
 let lastTap = 0;
