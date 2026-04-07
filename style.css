@@ -503,12 +503,34 @@ body.light-mode .logo { color: #0f172a; }
 }
 
 /* Video specific fixes */
-.custom-video-container iframe {
+/* .custom-video-container iframe {
     filter: brightness(1.04) contrast(1.10) !important;
     -webkit-filter: brightness(1.04) contrast(1.10) !important;
     image-rendering: crisp-edges !important;               
     transform: translateZ(0) !important; 
     -webkit-transform: translateZ(0) !important; 
+} */
+ /* Video specific fixes - Enhanced Mode */
+.custom-video-container iframe {
+    /* Edge-like Color Pop & Clarity */
+    filter: saturate(1.15) contrast(1.12) brightness(1.03) !important;
+    -webkit-filter: saturate(1.15) contrast(1.12) brightness(1.03) !important;
+    
+    /* Advanced Image Rendering for Sharpness */
+    image-rendering: -webkit-optimize-contrast !important; /* Safari/Webkit sharpening */
+    image-rendering: crisp-edges !important;               
+    
+    /* Force GPU Acceleration for smooth playback */
+    transform: translateZ(0) !important; 
+    -webkit-transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+    
+    /* Hint to browser for optimization */
+    will-change: transform, filter !important;
+    
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Already in your JS, keeping fallback here */
 }
 .volume-status-overlay {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
