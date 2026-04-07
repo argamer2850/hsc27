@@ -203,7 +203,23 @@ function onPlayerReady(event) {
         }
     });
 
-    document.getElementById('speed-input').addEventListener('input', (e) => {
+    const speedDropdown = document.getElementById('speed-select-dropdown');
+    const customSpeedInput = document.getElementById('speed-input-custom');
+
+    // ড্রপডাউন পরিবর্তনের লজিক
+    speedDropdown.addEventListener('change', (e) => {
+        if (e.target.value === 'custom') {
+            customSpeedInput.classList.remove('hidden');
+            customSpeedInput.focus();
+        } else {
+            customSpeedInput.classList.add('hidden');
+            let speed = parseFloat(e.target.value);
+            player.setPlaybackRate(speed);
+        }
+    });
+
+    // কাস্টম ইনপুট ম্যানুয়ালি দেওয়ার লজিক (সর্বোচ্চ ২.০)
+    customSpeedInput.addEventListener('input', (e) => {
         let speed = parseFloat(e.target.value);
         if(speed >= 0.25 && speed <= 2.0) {
             player.setPlaybackRate(speed);

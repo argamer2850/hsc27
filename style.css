@@ -352,8 +352,13 @@ input[type="text"]::placeholder { color: var(--text-muted) !important; }
     font-size: clamp(0.75rem, 2vw, 0.85rem); font-weight: 600; outline: none; backdrop-filter: blur(4px);
 }
 .speed-select option { background: var(--bg-dark); }
+/* Speed Dropdown Light Mode Fix */
+body.light-mode .speed-select option {
+    background: #ffffff !important;
+    color: #0f172a !important; /* লেখাকে গাঢ় করবে */
+}
 .speed-wrapper { position: relative; display: inline-flex; align-items: center; }
-.speed-wrapper::after { content: 'x'; position: absolute; right: 10px; color: #cbd5e1; pointer-events: none; font-size: clamp(0.75rem, 2vw, 0.85rem); font-weight: bold; }
+
 
 /* Meta Boxes & Buttons */
 .video-meta {

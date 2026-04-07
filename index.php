@@ -329,8 +329,16 @@ if ($current_user_data['role'] === 'admin') {
                 </div>
 
                 <div class="speed-wrapper">
-                    <input type="number" id="speed-input" class="speed-select" value="1.0" step="0.1" min="0.5" max="2.0">
-                </div>
+    <select id="speed-select-dropdown" class="speed-select">
+        <option value="1.0">1.0x</option>
+        <option value="1.25">1.25x</option>
+        <option value="1.5">1.5x</option>
+        <option value="1.75">1.75x</option>
+        <option value="2.0">2.0x</option>
+        <option value="custom">Custom</option>
+    </select>
+    <input type="number" id="speed-input-custom" class="speed-select hidden" value="1.0" step="0.1" min="0.5" max="2.0" style="margin-left: 8px; max-width: 70px;">
+</div>
 
                 <button class="control-btn" id="fullscreen-btn">
                     <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
