@@ -6268,82 +6268,41 @@
             ]
         }
     ],
-    "Bangla": [
+    "Bangla 1st Paper": [
         {
-            "chapter": "Bangla 1st Paper",
-            "extraSections": [
+            "chapter": "জীবন ও বৃক্ষ",
+            "mainVideos": [
                 {
-                    "title": "জীবন ও বৃক্ষ",
-                    "videos": [
-                        {
-                            "title": "লেকচার ১",
-                            "id": "-XvpnBsXzxY",
-                            "slide": [
-                                {
-                                    "name": "ক্লাস স্লাইড",
-                                    "link": "https://pdf.bondipathshala.education/1772283115262.pdf"
-                                },
-                                {
-                                    "name": "লেকচার শীট",
-                                    "link": "https://pdf.bondipathshala.education/1772279603431.pdf"
-                                }
-                            ],
+                    "title": "লেকচার ১",
+                    "id": "-XvpnBsXzxY",
+                    "slide": "https://pdf.bondipathshala.education/1772283115262.pdf",
                             "keywords": [
                                 "জীবন ও বৃক্ষ"
                             ],
                             "duration": "43:49"
-                        }
-                    ]
-                },
+                }
+                ],
+            "practiceSheets": [
+                "https://pdf.bondipathshala.education/1772279603431.pdf"
+            ]
+        },
+        {
+            "chapter": "মাসি-পিসি",
+            "mainVideos": [
                 {
-                    "title": "মাসি-পিসি",
-                    "videos": [
-                        {
-                            "title": "লেকচার ১",
-                            "id": "VCVAUT4N-9Y",
-                            "slide": [
-                                {
-                                    "name": "ক্লাস স্লাইড",
-                                    "link": "https://pdf.bondipathshala.education/1762844520704.pdf"
-                                },
-                                {
-                                    "name": "লেকচার শীট",
-                                    "link": "https://pdf.bondipathshala.education/1763064473834.pdf"
-                                }
-                            ],
+                    "title": "লেকচার ১",
+                    "id": "VCVAUT4N-9Y",
+                    "slide": "https://pdf.bondipathshala.education/1762844520704.pdf",
                             "keywords": [
                                 "মাসি-পিসি",
                                 "মাসিপিসি",
                                 "মাসি পিসি"
                             ],
                             "duration": "59:28"
-                        }
-                    ]
                 }
-            ],
+                ],
             "practiceSheets": [
-                "LINK_HERE"
-            ]
-        },
-        {
-            "chapter": "Bangla 2nd Paper",
-            "extraSections": [
-                {
-                    "title": "সমাস",
-                    "videos": [
-                        {
-                            "title": "লেকচার ১",
-                            "id": "",
-                            "slide": "",
-                            "keywords": [
-                                ""
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "practiceSheets": [
-                "LINK_HERE"
+                "https://pdf.bondipathshala.education/1763064473834.pdf"
             ]
         }
     ],
