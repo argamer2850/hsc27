@@ -6278,11 +6278,45 @@
                         {
                             "title": "লেকচার ১",
                             "id": "-XvpnBsXzxY",
-                            "slide": "https://drive.google.com/drive/folders/129N_lKLn244nQ3wEceuasZ9QyoW2c8dz?usp=drive_link",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://pdf.bondipathshala.education/1772283115262.pdf"
+                                },
+                                {
+                                    "name": "লেকচার শীট",
+                                    "link": "https://pdf.bondipathshala.education/1772279603431.pdf"
+                                }
+                            ],
                             "keywords": [
                                 "জীবন ও বৃক্ষ"
                             ],
                             "duration": "43:49"
+                        }
+                    ]
+                },
+                {
+                    "title": "মাসি-পিসি",
+                    "videos": [
+                        {
+                            "title": "লেকচার ১",
+                            "id": "VCVAUT4N-9Y",
+                            "slide": [
+                                {
+                                    "name": "ক্লাস স্লাইড",
+                                    "link": "https://pdf.bondipathshala.education/1762844520704.pdf"
+                                },
+                                {
+                                    "name": "লেকচার শীট",
+                                    "link": "https://pdf.bondipathshala.education/1763064473834.pdf"
+                                }
+                            ],
+                            "keywords": [
+                                "মাসি-পিসি",
+                                "মাসিপিসি",
+                                "মাসি পিসি"
+                            ],
+                            "duration": "59:28"
                         }
                     ]
                 }
