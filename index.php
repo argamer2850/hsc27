@@ -39,7 +39,8 @@ $user_permissions = [
             'Physics' => 'ALL',
             'Chemistry' => 'ALL',
             'Higher Math' => 'ALL',
-            'Biology' => 'ALL'
+            'Biology' => 'ALL',
+            'ICT' => 'ALL'
         ]
     ],
     'Jawad' => [
