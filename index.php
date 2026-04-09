@@ -298,6 +298,7 @@ if ($current_user_data['role'] === 'admin') {
             
         <div class="custom-video-container" id="video-container">
             <div id="yt-player"></div>
+            <div id="video-progress-percentage" class="live-progress-badge"><span id="progress-percent-text">0</span>% Watched</div>
             <div class="resize-handle"></div>
             <div class="video-overlay" id="video-overlay"></div>
             

@@ -553,3 +553,21 @@ body.normal-yt-mode #yt-player { pointer-events: auto !important; }
 #site-loader-container.active-lock { height: 100vh !important; pointer-events: all !important; }
 #site-loader-bar { position: absolute; top: 0; left: 0; width: 0%; height: 4px; background: var(--accent); box-shadow: 0 0 15px var(--accent); transition: width 0.3s ease-in-out; }
 .fade-out { opacity: 0; transition: opacity 0.5s ease; }
+/* Live Video Progress Badge */
+.live-progress-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgb(0, 0, 0); /* হালকা ডার্ক, ভিডিওর সাথে মিশে থাকবে, 0.4 chilo */
+    color: rgba(255, 255, 255, 0.7); /* সাদা রং, কিন্তু ব্রাইটনেস কমানো যেন চোখে না লাগে */
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px; /* টেক্সট একদম ছোট রাখা হয়েছে */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    pointer-events: none; /* এর উপর ক্লিক করলেও ভিডিও পজ বা প্লে হবে, কোনো ঝামেলা করবে না */
+    z-index: 50; /* ভিডিওর উপরে থাকবে */
+    backdrop-filter: blur(2px); /* পেছনের ব্যাকগ্রাউন্ড হালকা ব্লার করবে */
+    user-select: none;
+    text-transform: uppercase;
+}

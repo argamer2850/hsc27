@@ -316,6 +316,14 @@ function updateProgress() {
     document.getElementById('progress-bar').style.width = `${percentage}%`;
     document.getElementById('current-time').innerText = formatTime(current);
 
+    // ------- রিয়েলটাইম পার্সেন্টেজ আপডেটের নতুন কোড শুরু -------
+    const progressTextElement = document.getElementById('progress-percent-text');
+    if (progressTextElement && duration > 0) {
+        // Math.round() ব্যবহার করে পূর্ণসংখ্যায় রূপান্তর করা হয়েছে
+        progressTextElement.innerText = Math.round(percentage); 
+    }
+    // ------- রিয়েলটাইম পার্সেন্টেজ আপডেটের নতুন কোড শেষ -------
+
     const videoId = player.getVideoData().video_id;
     if (videoId) {
         localStorage.setItem('resume_' + videoId, current);
