@@ -353,12 +353,51 @@ function formatTime(seconds) {
 
 function toggleFullScreen() {
     const container = document.getElementById('video-container');
-    if (!document.fullscreenElement) {
-        if (container.requestFullscreen) { container.requestFullscreen(); }
-        else if (container.webkitRequestFullscreen) { container.webkitRequestFullscreen(); }
+    
+    // ফুলস্ক্রিনে প্রবেশ করার লজিক
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        if (container.requestFullscreen) { 
+            container.requestFullscreen().then(lockLandscape).catch(err => console.log(err)); 
+        } else if (container.webkitRequestFullscreen) { 
+            container.webkitRequestFullscreen(); 
+            lockLandscape();
+        }
     } else {
-        if (document.exitFullscreen) { document.exitFullscreen(); }
-        else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); }
+        // ফুলস্ক্রিন থেকে বের হওয়ার লজিক
+        if (document.exitFullscreen) { 
+            document.exitFullscreen(); 
+        } else if (document.webkitExitFullscreen) { 
+            document.webkitExitFullscreen(); 
+        }
+        unlockLandscape();
+    }
+}
+
+// অটো ল্যান্ডস্কেপ করার ফাংশন
+function lockLandscape() {
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(function(error) {
+            console.warn('Orientation lock failed or not supported:', error);
+        });
+    }
+}
+
+// অটো পোর্ট্রেট (নরমাল) মোডে ফেরত আনার ফাংশন
+function unlockLandscape() {
+    if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+    }
+}
+
+// ইউজার যদি back বাটন বা ESC চেপে ফুলস্ক্রিন থেকে বের হয়, সেটা ট্র্যাক করার জন্য
+document.addEventListener('fullscreenchange', handleFullscreenChange);
+document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+
+function handleFullscreenChange() {
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+        unlockLandscape(); // ফুলস্ক্রিন থেকে বের হলে স্ক্রিন রোটেশন আনলক হবে
+    } else {
+        lockLandscape(); // ফুলস্ক্রিনে গেলে ল্যান্ডস্কেপ লক হবে
     }
 }
 

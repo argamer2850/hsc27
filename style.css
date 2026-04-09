@@ -558,16 +558,16 @@ body.normal-yt-mode #yt-player { pointer-events: auto !important; }
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgb(0, 0, 0); /* হালকা ডার্ক, ভিডিওর সাথে মিশে থাকবে, 0.4 chilo */
-    color: rgba(255, 255, 255, 0.7); /* সাদা রং, কিন্তু ব্রাইটনেস কমানো যেন চোখে না লাগে */
+    background: rgb(0, 0, 0); 
+    color: rgba(255, 255, 255, 0.7); 
     padding: 4px 8px;
     border-radius: 6px;
-    font-size: 11px; /* টেক্সট একদম ছোট রাখা হয়েছে */
+    font-size: 11px; 
     font-weight: 500;
     letter-spacing: 0.5px;
-    pointer-events: none; /* এর উপর ক্লিক করলেও ভিডিও পজ বা প্লে হবে, কোনো ঝামেলা করবে না */
-    z-index: 50; /* ভিডিওর উপরে থাকবে */
-    backdrop-filter: blur(2px); /* পেছনের ব্যাকগ্রাউন্ড হালকা ব্লার করবে */
+    pointer-events: none; 
+    z-index: 2147483647; /* <-- এই লাইনটি পরিবর্তন করা হয়েছে */
+    backdrop-filter: blur(2px); 
     user-select: none;
     text-transform: uppercase;
 }
