@@ -130,8 +130,30 @@ function renderVideoSection(container, title, videos, isMain) {
             d.style.opacity = "0.6"; 
             d.style.pointerEvents = "none"; 
         }
+
+        // --- নতুন যোগ করা অংশ (কত % দেখা হয়েছে সেটা বের করার জন্য) ---
+        let watchProgressBadge = "";
+        if (v.id && v.duration) {
+            const savedTime = localStorage.getItem('resume_' + v.id);
+            if (savedTime) {
+                const currentSeconds = parseFloat(savedTime);
+                const totalSeconds = parseDurationToSeconds(v.duration); // আপনার বানানো ফাংশন কল করা হলো
+                
+                if (totalSeconds > 0) {
+                    let percent = Math.round((currentSeconds / totalSeconds) * 100);
+                    if (percent > 100) percent = 100;
+                    
+                    // ০% এর বেশি হলে ভিডিওর নামের পাশে সুন্দর একটি ব্যাজ দেখাবে
+                    if (percent > 0) {
+                        watchProgressBadge = `<span style="font-size: 0.70rem; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 3px 8px; border-radius: 20px; margin-left: 10px; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.3); vertical-align: middle; white-space: nowrap;">✔ ${percent}%</span>`;
+                    }
+                }
+            }
+        }
+        // -------------------------------------------------------------
         
-        d.innerHTML = `<span>${label}${v.title}</span> <span class="play-icon">${durationDisplay}</span>`;
+        // টাইটেলের সাথে watchProgressBadge যোগ করে দেওয়া হলো
+        d.innerHTML = `<span>${label}${v.title} ${watchProgressBadge}</span> <span class="play-icon">${durationDisplay}</span>`;
         container.appendChild(d);
     });
 }
