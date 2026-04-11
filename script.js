@@ -545,6 +545,9 @@ let seekTimeout;
 let baseSeekTime = 0;
 
 function handleSeek(seconds) {
+    // এই লাইনটি যুক্ত করা হয়েছে: সিক করার সাথে সাথেই কন্ট্রোলবার শো করবে এবং অটো-হাইড টাইমার রিসেট হবে
+    showControls();
+
     if (seekAccumulator === 0) {
         baseSeekTime = player.getCurrentTime();
     }
