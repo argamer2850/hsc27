@@ -11,7 +11,7 @@ $user_permissions = [
         'device_ids' => ['8388a254b8efab35e90b428f'],
         'ips' => ['202.181.4.166'] 
     ],
-    'Sin' => [
+    'Tahmina' => [
         'role' => 'admin', 
         'device_ids' => ['946a3b49566e5bd55eed70a3'],
         'ips' => ['103.13.193.243'] 
@@ -21,7 +21,7 @@ $user_permissions = [
         'device_ids' => ['3861012ecf7f00e0630a375e'],
         'ips' => ['103.144.49.105'] 
     ],
-    'Mahian' => [
+    'Mahiyan' => [
         'role' => 'admin', 
         'device_ids' => ['2577a9cc6a36d8fe0a237c1b'],
         'ips' => ['43.245.120.36'] 
