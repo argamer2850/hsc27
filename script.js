@@ -1097,3 +1097,82 @@ window.addEventListener('popstate', (event) => {
         navTo('subject-screen', false);
     }
 });
+// =========================================
+// Real-time User Presence System
+// =========================================
+let knownUsers = {};
+// একটি ডিফল্ট সাউন্ড ব্যবহার করা হচ্ছে। আপনি চাইলে লিংকের জায়গায় নিজের mp3 ফাইলের লিংক দিতে পারেন।
+const notifSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+
+function showNotification(msg, type = 'normal') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type === 'leave' ? 'toast-leave' : type === 'already' ? 'toast-already' : ''}`;
+    toast.innerText = msg;
+    container.appendChild(toast);
+
+    // সাউন্ড বাজানো (ব্রাউজার অনেক সময় অটো-প্লে অফ রাখে, তাই catch ব্যবহার করা হয়েছে)
+    notifSound.play().catch((e) => console.log("Sound interaction required first"));
+
+    // ৫ সেকেন্ড পর নোটিফিকেশন লুকিয়ে ফেলা
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.4s ease forwards';
+        setTimeout(() => toast.remove(), 400);
+    }, 5000);
+}
+
+function formatDuration(seconds) {
+    if (seconds < 60) return seconds + " সেকেন্ড";
+    const min = Math.floor(seconds / 60);
+    return min + " মিনিট";
+}
+
+function checkOnlineUsers() {
+    if (typeof currentUser === 'undefined' || currentUser === "Unknown" || !currentUser) return;
+
+    const formData = new FormData();
+    formData.append('user', currentUser);
+
+    fetch('online_status.php', { method: 'POST', body: formData })
+    .then(res => res.json())
+    .then(onlineUsers => {
+        const now = Math.floor(Date.now() / 1000);
+
+        // ১. চেক করা কে কে নতুন জয়েন করেছে বা আগে থেকেই আছে
+        for (const user in onlineUsers) {
+            if (user === currentUser) continue; // নিজেকে ইগনোর করা
+
+            if (!knownUsers[user]) {
+                const activeTime = now - onlineUsers[user].join_time;
+                
+                if (activeTime < 6) {
+                    // মাত্র জয়েন করেছে
+                    showNotification(`👋 ${user} ওয়েবসাইটে প্রবেশ করেছে!`, 'normal');
+                } else {
+                    // আমি ঢোকার আগে থেকেই সে আছে
+                    showNotification(`🟢 ${user} আগে থেকেই ক্লাস করছে (${formatDuration(activeTime)} যাবত)`, 'already');
+                }
+            }
+        }
+
+        // ২. চেক করা কে কে ওয়েবসাইট থেকে বের হয়ে গেছে
+        for (const user in knownUsers) {
+            if (user === currentUser) continue;
+
+            if (!onlineUsers[user]) {
+                const totalActiveTime = now - knownUsers[user].join_time;
+                showNotification(`🔴 ${user} বেরিয়ে গেছে (ছিল: ${formatDuration(totalActiveTime)})`, 'leave');
+            }
+        }
+
+        knownUsers = onlineUsers; // ডাটা আপডেট করে রাখা
+    })
+    .catch(err => console.error("Polling error:", err));
+}
+
+// প্রতি ৩ সেকেন্ড পর পর চেক করবে
+setInterval(checkOnlineUsers, 3000);
+// প্রথমবার পেজ লোড হওয়ার সাথে সাথেই একবার চেক করবে
+setTimeout(checkOnlineUsers, 1000);
