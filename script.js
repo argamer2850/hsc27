@@ -1238,7 +1238,7 @@ function checkPresence() {
                     
                     let msg = "";
                     if (isFirstCheck && duration > 10) {
-                        msg = `<b>${user}</b> অলরেডি এখানে আছেন (${formatDuration(duration)} যাবত)`;
+                        msg = `<b>${user}</b> অলরেডি যুক্ত আছেন (${formatDuration(duration)} যাবত)`;
                     } else {
                         msg = `<b>${user}</b> যুক্ত হয়েছেন`;
                     }
