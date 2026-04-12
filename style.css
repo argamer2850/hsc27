@@ -605,7 +605,12 @@ body.light-mode .inline-mat-btn:hover {
     background: rgba(99, 102, 241, 0.2);
     color: white;
 }
-/* Real-time Notification Toast Styles */
+
+/* ======================================= */
+/* Real-time Notification System Styles    */
+/* ======================================= */
+
+/* 1. Popup Toast Container (Top) */
 #toast-container {
     position: fixed;
     top: 20px;
@@ -619,7 +624,7 @@ body.light-mode .inline-mat-btn:hover {
 }
 
 .presence-toast {
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid var(--accent);
     color: white;
@@ -640,9 +645,7 @@ body.light-mode .inline-mat-btn:hover {
     box-shadow: 0 10px 30px -10px rgba(248, 113, 113, 0.3);
 }
 
-.toast-icon {
-    font-size: 1.2rem;
-}
+.toast-icon { font-size: 1.2rem; }
 
 @keyframes slideDownFade {
     to { opacity: 1; transform: translateY(0); }
@@ -650,4 +653,102 @@ body.light-mode .inline-mat-btn:hover {
 
 @keyframes fadeOutUp {
     to { opacity: 0; transform: translateY(-20px); }
+}
+
+/* 2. Notification Center (Bottom Right) */
+#notif-center-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#notif-bell {
+    background: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--glow-shadow);
+    font-size: 1.5rem;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+#notif-bell:hover { transform: scale(1.05); }
+
+#notif-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #f87171;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    display: none;
+    font-weight: bold;
+}
+
+#notif-panel {
+    position: absolute;
+    bottom: 65px;
+    right: 0;
+    width: 320px;
+    background: #0b1121;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(15px);
+}
+
+.notif-header {
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.notif-settings {
+    display: flex;
+    gap: 15px;
+    padding: 10px 15px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 12px;
+    color: white;
+}
+
+.notif-settings label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+
+#notif-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: 300px;
+}
+
+.notif-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.85rem;
+    animation: fadeIn 0.3s ease;
+    color: white;
+    line-height: 1.4;
+}
+
+.notif-item .time {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 5px;
 }

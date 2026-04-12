@@ -1098,49 +1098,127 @@ window.addEventListener('popstate', (event) => {
     }
 });
 // =========================================
-// Real-time Online Presence System
+// Advanced Real-time Presence & Notification System (Fixed)
 // =========================================
 
-// নোটিফিকেশনের সাউন্ড
+// ১. সাউন্ড এবং ভ্যারিয়েবল সেটআপ
 const notifySound = new Audio('notification.mp3');
+let isSoundMuted = false;
+let isAllMuted = false;
+let notifications = [];
 
-// টোস্ট নোটিফিকেশন দেখানোর কন্টেইনার তৈরি করা
+// ২. টোস্ট কন্টেইনার তৈরি করা (যেটা আগে মিসিং ছিল, যার কারণে এরর হচ্ছিল)
 const toastContainer = document.createElement('div');
 toastContainer.id = 'toast-container';
 document.body.appendChild(toastContainer);
 
-function showToast(message, type = 'join') {
+// ৩. নোটিফিকেশন সেন্টার (বেল) তৈরি করা
+const notifWrapper = document.createElement('div');
+notifWrapper.id = 'notif-center-wrapper';
+notifWrapper.innerHTML = `
+    <div id="notif-panel">
+        <div class="notif-header">
+            <strong>নোটিফিকেশনস</strong>
+            <button onclick="clearNotifs()" style="background:none; border:none; color:#f87171; cursor:pointer; font-size:12px; font-weight:bold;">Clear All</button>
+        </div>
+        <div class="notif-settings">
+            <label><input type="checkbox" id="mute-sound"> সাউন্ড মিউট</label>
+            <label><input type="checkbox" id="mute-all"> সব মিউট</label>
+        </div>
+        <div id="notif-list"></div>
+    </div>
+    <div id="notif-bell">
+        🔔 <span id="notif-count">0</span>
+    </div>
+`;
+document.body.appendChild(notifWrapper);
+
+// ৪. ক্লিক ও মিউট ইভেন্ট লিসেনার
+document.getElementById('notif-bell').onclick = () => {
+    const panel = document.getElementById('notif-panel');
+    panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+    document.getElementById('notif-count').style.display = 'none'; // বেল খুললে লাল ডট রিমুভ
+};
+
+document.getElementById('mute-sound').onchange = (e) => isSoundMuted = e.target.checked;
+document.getElementById('mute-all').onchange = (e) => isAllMuted = e.target.checked;
+
+// ৫. মূল নোটিফিকেশন হ্যান্ডলার (সেন্টার + পপআপ একসাথে ম্যানেজ করবে)
+function handleNotification(message, type = 'join') {
+    const now = new Date();
+    // ১২ ঘণ্টার ফরমেটে সময় সেট করা
+    let hours = now.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; 
+    const timeString = hours + ":" + String(now.getMinutes()).padStart(2, '0') + " " + ampm;
+    
+    // ১. ডাটাবেস/লিস্টে অ্যাড করা
+    notifications.unshift({ message, time: timeString, type });
+    updateNotifUI();
+
+    // ২. পপআপ (Toast) দেখানো (যদি "সব মিউট" অন না থাকে)
+    if (!isAllMuted) {
+        showToast(message, type);
+    }
+}
+
+function updateNotifUI() {
+    const list = document.getElementById('notif-list');
+    const countBadge = document.getElementById('notif-count');
+    
+    list.innerHTML = notifications.map(n => `
+        <div class="notif-item">
+            ${n.type === 'join' ? '🔵' : '🔴'} ${n.message}
+            <span class="time">${n.time}</span>
+        </div>
+    `).join('');
+
+    // যদি প্যানেল হাইড করা থাকে, তবেই লাল ডট দেখাবে
+    if (notifications.length > 0 && document.getElementById('notif-panel').style.display !== 'flex') {
+        countBadge.innerText = notifications.length;
+        countBadge.style.display = 'block';
+    }
+}
+
+function clearNotifs() {
+    notifications = [];
+    updateNotifUI();
+    document.getElementById('notif-count').style.display = 'none';
+}
+
+// ৬. পপআপ (Toast) স্ক্রিনে ভাসানোর ফাংশন
+function showToast(message, type) {
     const toast = document.createElement('div');
     toast.className = `presence-toast ${type}`;
     const icon = type === 'join' ? '👋' : '🏃‍♂️';
     toast.innerHTML = `<span class="toast-icon">${icon}</span> <span>${message}</span>`;
     
-    toastContainer.appendChild(toast);
+    document.getElementById('toast-container').appendChild(toast);
     
-    // সাউন্ড বাজানোর চেষ্টা করা (ব্রাউজার পলিসির জন্য ইউজার ইন্টারেকশন লাগতে পারে)
-    try {
-        notifySound.play().catch(e => console.log("Sound blocked by browser until user interacts."));
-    } catch(e) {}
+    // সাউন্ড বাজানো (যদি সাউন্ড মিউট না থাকে)
+    if (!isSoundMuted && !isAllMuted) {
+        notifySound.play().catch(() => console.log("Sound autoplay blocked by browser."));
+    }
 
-    // ৫ সেকেন্ড পর নোটিফিকেশন সরিয়ে ফেলা
     setTimeout(() => {
         toast.style.animation = 'fadeOutUp 0.5s ease forwards';
         setTimeout(() => toast.remove(), 500);
     }, 5000);
 }
 
-function formatDuration(seconds) {
-    if (seconds < 60) return `${seconds} সেকেন্ড`;
-    const m = Math.floor(seconds / 60);
-    const s = seconds % 60;
-    return s > 0 ? `${m} মিনিট ${s} সেকেন্ড` : `${m} মিনিট`;
+function formatDuration(s) {
+    if (s < 60) return s + " সেকেন্ড";
+    const m = Math.floor(s/60);
+    return m > 0 ? m + " মিনিট" : s + " সেকেন্ড";
 }
 
+// ৭. সার্ভার চেক করার লজিক
 let knownUsers = {};
 let isFirstCheck = true;
 
 function checkPresence() {
-    if (!currentUserName || currentUserName === "Unknown") return;
+    if (typeof currentUserName === 'undefined' || currentUserName === "Unknown") return;
 
     const formData = new FormData();
     formData.append('username', currentUserName);
@@ -1151,52 +1229,38 @@ function checkPresence() {
         .then(onlineUsers => {
             const now = Math.floor(Date.now() / 1000);
 
-            // কে কে নতুন জয়েন করেছে বা আগে থেকে ছিল
             for (let user in onlineUsers) {
                 if (user === currentUserName) continue; // নিজেকে ইগনোর করা
 
                 if (!knownUsers[user]) {
                     const joinedAt = onlineUsers[user].joined_at;
-                    const durationOnline = now - joinedAt;
-
-                    if (isFirstCheck) {
-                        if (durationOnline > 10) {
-                            showToast(`<b>${user}</b> অলরেডি ওয়েবসাইটে আছে (${formatDuration(durationOnline)} যাবত)`, 'join');
-                        } else {
-                            showToast(`<b>${user}</b> ওয়েবসাইটে যুক্ত হয়েছে!`, 'join');
-                        }
+                    const duration = now - joinedAt;
+                    
+                    let msg = "";
+                    if (isFirstCheck && duration > 10) {
+                        msg = `<b>${user}</b> অলরেডি এখানে আছেন (${formatDuration(duration)} যাবত)`;
                     } else {
-                        showToast(`<b>${user}</b> আপনার সাথে ক্লাস করতে যুক্ত হয়েছে!`, 'join');
+                        msg = `<b>${user}</b> ক্লাসে যুক্ত হয়েছেন`;
                     }
+                    handleNotification(msg, 'join');
                 }
             }
 
-            // কে কে বের হয়ে গেছে
             for (let user in knownUsers) {
                 if (!onlineUsers[user]) {
-                    const totalTime = now - knownUsers[user].joined_at;
-                    showToast(`<b>${user}</b> ওয়েবসাইট থেকে বেরিয়ে গেছে (প্রায় ${formatDuration(totalTime)} ছিল)`, 'leave');
+                    const duration = now - knownUsers[user].joined_at;
+                    handleNotification(`<b>${user}</b> বেরিয়ে গেছেন (ছিলেন: ${formatDuration(duration)})`, 'leave');
                 }
             }
 
             knownUsers = onlineUsers;
             isFirstCheck = false;
         })
-        .catch(err => console.log("Presence check failed", err));
+        .catch(err => console.error("Presence Check API Error:", err));
 }
 
-// কেউ ওয়েবসাইট কেটে দিলে সার্ভারকে জানিয়ে দেওয়া
-window.addEventListener('beforeunload', () => {
-    if (currentUserName && currentUserName !== "Unknown") {
-        const formData = new FormData();
-        formData.append('username', currentUserName);
-        formData.append('action', 'leave');
-        navigator.sendBeacon('presence.php', formData);
-    }
-});
-
-// প্রতি ৩ সেকেন্ড পর পর চেক করবে
+// ৮. স্ক্রিপ্ট স্টার্ট করা
 if (typeof currentUserName !== 'undefined' && currentUserName !== "Unknown") {
     checkPresence(); // প্রথম চেক
-    setInterval(checkPresence, 3000);
+    setInterval(checkPresence, 3000); // এরপর প্রতি ৩ সেকেন্ড পর পর
 }
