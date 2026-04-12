@@ -1,17 +1,17 @@
 <?php
 // ১. ইউজারদের ডাটা এবং পারমিশন লিস্ট
 $user_permissions = [
-    'Abdur Rahman' => [
+    'Me' => [
         'role' => 'admin', 
         'device_ids' => ['832c0468e1719fe896d4a7a3'],
         'ips' => ['202.181.4.166'] 
     ],
-    'Abdur Rahman' => [
+    'Me proxy' => [
         'role' => 'admin', 
         'device_ids' => ['832c0468e1719fe896d4a7a3'],
         'ips' => ['103.174.215.88'] 
     ],
-    'Tahmina' => [
+    'Sin' => [
         'role' => 'admin', 
         'device_ids' => ['946a3b49566e5bd55eed70a3'],
         'ips' => ['103.13.193.243'] 
@@ -21,7 +21,7 @@ $user_permissions = [
         'device_ids' => ['3861012ecf7f00e0630a375e'],
         'ips' => ['103.144.49.105'] 
     ],
-    'Mahiyan' => [
+    'Mahian' => [
         'role' => 'admin', 
         'device_ids' => ['2577a9cc6a36d8fe0a237c1b'],
         'ips' => ['43.245.120.36'] 
@@ -188,9 +188,6 @@ if ($current_user_data['role'] === 'admin') {
     <script>
         const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
         const database = <?php echo json_encode($filtered_db); ?>;
-    </script>
-    <script>
-        const currentUser = "<?php echo $clarity_name; ?>";
     </script>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -391,6 +388,5 @@ if ($current_user_data['role'] === 'admin') {
 
     <script src="script.js?v=13"></script>
     <script src="https://www.youtube.com/iframe_api" defer></script>
-    <div id="toast-container"></div>
 </body>
 </html>
