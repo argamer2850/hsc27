@@ -159,7 +159,7 @@ function renderVideoSection(container, title, videos, isMain) {
         let vidMaterialsHtml = '';
         let slides = v.slide;
         if (slides) {
-            const slidesArray = Array.isArray(slides) ? slides : [{ name: "স্লাইড/নোট", link: slides }];
+            const slidesArray = Array.isArray(slides) ? slides : [{ name: "ক্লাস স্লাইড", link: slides }];
             let linksHtml = '';
             slidesArray.forEach(s => {
                 if (s.link && s.link !== 'N/A' && s.link !== 'LINK_HERE' && s.link !== '' && s.link !== '#') {
