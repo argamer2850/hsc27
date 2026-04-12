@@ -605,3 +605,30 @@ body.light-mode .inline-mat-btn:hover {
     background: rgba(99, 102, 241, 0.2);
     color: white;
 }
+/* =========================================
+   PC/Tablet Layout for Chapter & Video List
+   ========================================= */
+@media (min-width: 769px) {
+    /* চ্যাপ্টার এবং ভিডিও লিস্টকে গ্রিড লেআউটে পরিবর্তন করা */
+    #chapter-list,
+    #video-list-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* পিসিতে ২ কলামে দেখাবে */
+        gap: 20px; /* কার্ডগুলোর মাঝখানের ফাঁকা জায়গা */
+        align-items: start;
+    }
+    
+    /* ভিডিও লিস্টের হেডিং (যেমন: ⭐ মেইন ক্লাস) যেন পুরোটা জায়গা জুড়ে থাকে */
+    #video-list-container h3 {
+        grid-column: 1 / -1;
+        margin-top: 25px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    /* আগে থেকে থাকা নিচের মার্জিন বাতিল করা যাতে দেখতে সুন্দর লাগে */
+    #chapter-list .list-item,
+    #video-list-container .list-item {
+        margin-bottom: 0;
+        height: 100%;
+    }
+}
