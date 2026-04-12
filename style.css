@@ -605,3 +605,49 @@ body.light-mode .inline-mat-btn:hover {
     background: rgba(99, 102, 241, 0.2);
     color: white;
 }
+/* Real-time Notification Toast Styles */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+}
+
+.presence-toast {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideDownFade 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.presence-toast.leave {
+    border-color: #f87171;
+    box-shadow: 0 10px 30px -10px rgba(248, 113, 113, 0.3);
+}
+
+.toast-icon {
+    font-size: 1.2rem;
+}
+
+@keyframes slideDownFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutUp {
+    to { opacity: 0; transform: translateY(-20px); }
+}

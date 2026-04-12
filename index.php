@@ -1,15 +1,15 @@
 <?php
 // ১. ইউজারদের ডাটা এবং পারমিশন লিস্ট
 $user_permissions = [
-    'Me' => [
+    'Abdur Rahman PC' => [
         'role' => 'admin', 
         'device_ids' => ['832c0468e1719fe896d4a7a3'],
-        'ips' => ['202.181.4.166'] 
+        'ips' => ['182.48.65.223'] 
     ],
-    'Me proxy' => [
+    'Abdur Rahman' => [
         'role' => 'admin', 
-        'device_ids' => ['832c0468e1719fe896d4a7a3'],
-        'ips' => ['103.174.215.88'] 
+        'device_ids' => ['8388a254b8efab35e90b428f'],
+        'ips' => ['202.181.4.166'] 
     ],
     'Sin' => [
         'role' => 'admin', 
@@ -105,8 +105,8 @@ if (!$current_user_data) {
     exit;
 }
 
-$allowed_ips = ['202.181.4.166', '103.174.215.88', '116.206.255.42', '103.144.49.105', '103.133.201.168', '43.245.120.36', '103.138.120.32', '104.28.166.114', '103.51.2.19', '103.42.53.224', '103.13.193.243']; 
-$allowed_devices = ['832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', '3861012ecf7f00e0630a375e', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631', '05e2aa8373f3618b28718085', 'c700802c75fd953974bb1ba8', 'aa9cc3d0485f849119091d99', '946a3b49566e5bd55eed70a3']; 
+$allowed_ips = ['202.181.4.166', '182.48.65.223', '116.206.255.42', '103.144.49.105', '103.133.201.168', '43.245.120.36', '103.138.120.32', '104.28.166.114', '103.51.2.19', '103.42.53.224', '103.13.193.243']; 
+$allowed_devices = ['8388a254b8efab35e90b428f', '832c0468e1719fe896d4a7a3', 'a3d7b4a440f1416b96b5522d', '3861012ecf7f00e0630a375e', '833e2a5a3d7b908de4bf619d', '2577a9cc6a36d8fe0a237c1b', '775fab6abff4c3e9ea6dd631', '05e2aa8373f3618b28718085', 'c700802c75fd953974bb1ba8', 'aa9cc3d0485f849119091d99', '946a3b49566e5bd55eed70a3']; 
 
 $special_ips = ['103.144.49.105', '43.245.120.36']; 
 $special_device_ids = ['3861012ecf7f00e0630a375e', '2577a9cc6a36d8fe0a237c1b'];
@@ -188,6 +188,7 @@ if ($current_user_data['role'] === 'admin') {
     <script>
         const isNormalPlayerUser = <?php echo $is_normal_player_user; ?>;
         const database = <?php echo json_encode($filtered_db); ?>;
+        const currentUserName = "<?php echo $clarity_name; ?>"; // নতুন লাইন যোগ করা হয়েছে
     </script>
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){

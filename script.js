@@ -1097,3 +1097,106 @@ window.addEventListener('popstate', (event) => {
         navTo('subject-screen', false);
     }
 });
+// =========================================
+// Real-time Online Presence System
+// =========================================
+
+// নোটিফিকেশনের সাউন্ড
+const notifySound = new Audio('notification.mp3');
+
+// টোস্ট নোটিফিকেশন দেখানোর কন্টেইনার তৈরি করা
+const toastContainer = document.createElement('div');
+toastContainer.id = 'toast-container';
+document.body.appendChild(toastContainer);
+
+function showToast(message, type = 'join') {
+    const toast = document.createElement('div');
+    toast.className = `presence-toast ${type}`;
+    const icon = type === 'join' ? '👋' : '🏃‍♂️';
+    toast.innerHTML = `<span class="toast-icon">${icon}</span> <span>${message}</span>`;
+    
+    toastContainer.appendChild(toast);
+    
+    // সাউন্ড বাজানোর চেষ্টা করা (ব্রাউজার পলিসির জন্য ইউজার ইন্টারেকশন লাগতে পারে)
+    try {
+        notifySound.play().catch(e => console.log("Sound blocked by browser until user interacts."));
+    } catch(e) {}
+
+    // ৫ সেকেন্ড পর নোটিফিকেশন সরিয়ে ফেলা
+    setTimeout(() => {
+        toast.style.animation = 'fadeOutUp 0.5s ease forwards';
+        setTimeout(() => toast.remove(), 500);
+    }, 5000);
+}
+
+function formatDuration(seconds) {
+    if (seconds < 60) return `${seconds} সেকেন্ড`;
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return s > 0 ? `${m} মিনিট ${s} সেকেন্ড` : `${m} মিনিট`;
+}
+
+let knownUsers = {};
+let isFirstCheck = true;
+
+function checkPresence() {
+    if (!currentUserName || currentUserName === "Unknown") return;
+
+    const formData = new FormData();
+    formData.append('username', currentUserName);
+    formData.append('action', 'ping');
+
+    fetch('presence.php', { method: 'POST', body: formData })
+        .then(res => res.json())
+        .then(onlineUsers => {
+            const now = Math.floor(Date.now() / 1000);
+
+            // কে কে নতুন জয়েন করেছে বা আগে থেকে ছিল
+            for (let user in onlineUsers) {
+                if (user === currentUserName) continue; // নিজেকে ইগনোর করা
+
+                if (!knownUsers[user]) {
+                    const joinedAt = onlineUsers[user].joined_at;
+                    const durationOnline = now - joinedAt;
+
+                    if (isFirstCheck) {
+                        if (durationOnline > 10) {
+                            showToast(`<b>${user}</b> অলরেডি ওয়েবসাইটে আছে (${formatDuration(durationOnline)} যাবত)`, 'join');
+                        } else {
+                            showToast(`<b>${user}</b> ওয়েবসাইটে যুক্ত হয়েছে!`, 'join');
+                        }
+                    } else {
+                        showToast(`<b>${user}</b> আপনার সাথে ক্লাস করতে যুক্ত হয়েছে!`, 'join');
+                    }
+                }
+            }
+
+            // কে কে বের হয়ে গেছে
+            for (let user in knownUsers) {
+                if (!onlineUsers[user]) {
+                    const totalTime = now - knownUsers[user].joined_at;
+                    showToast(`<b>${user}</b> ওয়েবসাইট থেকে বেরিয়ে গেছে (প্রায় ${formatDuration(totalTime)} ছিল)`, 'leave');
+                }
+            }
+
+            knownUsers = onlineUsers;
+            isFirstCheck = false;
+        })
+        .catch(err => console.log("Presence check failed", err));
+}
+
+// কেউ ওয়েবসাইট কেটে দিলে সার্ভারকে জানিয়ে দেওয়া
+window.addEventListener('beforeunload', () => {
+    if (currentUserName && currentUserName !== "Unknown") {
+        const formData = new FormData();
+        formData.append('username', currentUserName);
+        formData.append('action', 'leave');
+        navigator.sendBeacon('presence.php', formData);
+    }
+});
+
+// প্রতি ৩ সেকেন্ড পর পর চেক করবে
+if (typeof currentUserName !== 'undefined' && currentUserName !== "Unknown") {
+    checkPresence(); // প্রথম চেক
+    setInterval(checkPresence, 3000);
+}
