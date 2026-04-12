@@ -571,3 +571,37 @@ body.normal-yt-mode #yt-player { pointer-events: auto !important; }
     user-select: none;
     text-transform: uppercase;
 }
+/* Inline Materials Design */
+.inline-materials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+    
+}
+.inline-mat-btn {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 300;
+    text-decoration: none;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.inline-mat-btn:hover {
+    background: rgba(99, 102, 241, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
+}
+body.light-mode .inline-mat-btn {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+body.light-mode .inline-mat-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+    color: white;
+}

@@ -40,7 +40,31 @@ function openSubject(sub) {
         const durationHtml = totalSecs > 0 ? `<br><span style="font-size: 0.75rem; color: white; font-weight: 400;">${formatTotalDuration(totalSecs)}</span>` : '';
         
         let classText = totalVideos === 1 ? "Class" : "Classes";
-        d.innerHTML = `<span>${ch.chapter}</span> <span class="play-icon" style="text-align: center;">${totalVideos} ${classText} ${durationHtml}</span>`;
+        
+        // চ্যাপ্টার ম্যাটেরিয়ালস খোঁজার লজিক
+        let materialsHtml = '';
+        if (ch.practiceSheets && ch.practiceSheets.length > 0) {
+            let linksHtml = '';
+            ch.practiceSheets.forEach(sheet => {
+                let link = typeof sheet === 'object' ? sheet.link : sheet;
+                let name = typeof sheet === 'object' ? sheet.name : "ম্যাটেরিয়াল";
+                if (link && link !== 'N/A' && link !== 'LINK_HERE' && link !== '') {
+                    // event.stopPropagation() দেওয়া হয়েছে যাতে লিংকে ক্লিক করলে চ্যাপ্টার ওপেন না হয়ে যায়
+                    linksHtml += `<a href="${link}" target="_blank" class="inline-mat-btn" onclick="event.stopPropagation()">📥 ${name}</a>`;
+                }
+            });
+            if (linksHtml !== '') {
+                materialsHtml = `<div class="inline-materials">${linksHtml}</div>`;
+            }
+        }
+
+        d.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 5px; flex: 1 1 50%;">
+                <span>${ch.chapter}</span>
+                ${materialsHtml}
+            </div>
+            <span class="play-icon" style="text-align: center;">${totalVideos} ${classText} ${durationHtml}</span>
+        `;
         list.appendChild(d);
     });
     
@@ -131,7 +155,30 @@ function renderVideoSection(container, title, videos, isMain) {
             d.style.pointerEvents = "none"; 
         }
         
-        d.innerHTML = `<span>${label}${v.title}</span> <span class="play-icon">${durationDisplay}</span>`;
+        // ভিডিও ম্যাটেরিয়ালস খোঁজার লজিক
+        let vidMaterialsHtml = '';
+        let slides = v.slide;
+        if (slides) {
+            const slidesArray = Array.isArray(slides) ? slides : [{ name: "স্লাইড/নোট", link: slides }];
+            let linksHtml = '';
+            slidesArray.forEach(s => {
+                if (s.link && s.link !== 'N/A' && s.link !== 'LINK_HERE' && s.link !== '' && s.link !== '#') {
+                    // লিংকে ক্লিক করলে যেন ভিডিও প্লে না হয়ে যায়, তাই event.stopPropagation()
+                    linksHtml += `<a href="${s.link}" target="_blank" class="inline-mat-btn" onclick="event.stopPropagation()">📄 ${s.name}</a>`;
+                }
+            });
+            if (linksHtml !== '') {
+                vidMaterialsHtml = `<div class="inline-materials">${linksHtml}</div>`;
+            }
+        }
+
+        d.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 5px; flex: 1 1 50%;">
+                <span>${label}${v.title}</span>
+                ${vidMaterialsHtml}
+            </div>
+            <span class="play-icon">${durationDisplay}</span>
+        `;
         container.appendChild(d);
     });
 }
